@@ -22,6 +22,37 @@ sensor:
 
 homekit:
 
+discovery:
+
+device_tracker:
+  - platform: tplink
+    host: !secret router_ip 
+    username: !secret router_username
+    password: !secret router_password
+    new_device_defaults:
+      track_new_devices: true
+      hide_if_away: false
+
+zone:
+  - name: Home 
+    latitude: 53.382059 
+    longitude: -1.947517
+    radius: 50 
+    icon: mdi:home
+  
+  - name: Sainsbury's Office
+    latitude: 53.483704
+    longitude: -2.241619
+    radius: 150 
+    icon: mdi:home-modern
+
+  - name: Havas Lynx
+    latitude: 53.476708 
+    longitude: -2.239287
+    radius: 60 
+    icon: mdi:home-modern           
+
+
 hive:
   username: !secret hive_username
   password: !secret hive_password
