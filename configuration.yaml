@@ -19,14 +19,22 @@ default_config:
 frontend:
   themes: !include themes.yaml        
 
+
 # Weather Prediction
 sensor:
   platform: yr
 
 homekit:
+  filter:
+    include_entities:
+      - light.livingroomfront
+      - climate.heating  
 
 http:
-  api_password: Pa55word        
+  base_url: https://hassio-hayfield.duckdns.org:8123
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+  api_password: !secret api_password
 
 discovery:
 
