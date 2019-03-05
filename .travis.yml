@@ -6,6 +6,7 @@ install:
   - "pip3 install homeassistant"
 script:
   - "mv secrets.yaml.sample secrets.yaml"
+  - "mkdir ssl"
   - "touch ssl/fullchain.pem"
   - "touch ssl/privkey.pem"
   - "hass -c . --script check_config | tee check.output"
