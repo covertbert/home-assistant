@@ -17,8 +17,9 @@ homeassistant:
 default_config:
 
 frontend:
-  themes: !include themes.yaml        
+  themes: !include themes.yaml
 
+ios:
 
 # Weather Prediction
 sensor:
@@ -28,7 +29,7 @@ homekit:
   filter:
     include_entities:
       - light.livingroomfront
-      - climate.heating  
+      - climate.heating
 
 http:
   base_url: https://hassio-hayfield.duckdns.org:8123
@@ -40,7 +41,7 @@ discovery:
 
 device_tracker:
   - platform: tplink
-    host: !secret router_ip 
+    host: !secret router_ip
     username: !secret router_username
     password: !secret router_password
     new_device_defaults:
@@ -48,24 +49,23 @@ device_tracker:
       hide_if_away: false
 
 zone:
-  - name: Home 
-    latitude: 53.382059 
+  - name: Home
+    latitude: 53.382059
     longitude: -1.947517
-    radius: 50 
+    radius: 50
     icon: mdi:home
-  
+
   - name: Sainsbury's Office
     latitude: 53.483704
     longitude: -2.241619
-    radius: 150 
+    radius: 150
     icon: mdi:home-modern
 
   - name: Havas Lynx
-    latitude: 53.476708 
+    latitude: 53.476708
     longitude: -2.239287
-    radius: 60 
-    icon: mdi:home-modern           
-
+    radius: 60
+    icon: mdi:home-modern
 
 hive:
   username: !secret hive_username
