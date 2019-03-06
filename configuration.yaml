@@ -21,7 +21,14 @@ frontend:
 
 # Weather Prediction
 sensor:
-  platform: yr
+  - platform: darksky
+    api_key: !secret dark_sky_api_key
+    forecast:
+      - 0
+    monitored_conditions:
+      - summary
+      - icon
+      - temperature
 
 weather:
   - platform: darksky
