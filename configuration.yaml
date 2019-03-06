@@ -19,11 +19,13 @@ default_config:
 frontend:
   themes: !include themes.yaml
 
-ios:
-
 # Weather Prediction
 sensor:
   platform: yr
+
+weather:
+  - platform: darksky
+    api_key: !secret dark_sky_api_key
 
 homekit:
   filter:
