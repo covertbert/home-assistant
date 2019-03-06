@@ -37,7 +37,7 @@ weather:
 homekit:
   filter:
     include_entities:
-      - light.livingroomfront
+      - light.living_room_front
       - climate.heating
 
 http:
@@ -93,5 +93,6 @@ tts:
   - platform: google
 
 group: !include groups.yaml
+light: !include lights.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml

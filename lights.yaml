@@ -1,0 +1,5 @@
+- platform: group
+  name: All Lights
+  entities:
+    - light.living_room_back
+    - light.living_room_front
