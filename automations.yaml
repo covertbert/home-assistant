@@ -1,4 +1,4 @@
-- id: travis_build_status
+- id: travis_build_failed
   alias: System Travis Build Failed
   trigger:
     - platform: state
@@ -13,7 +13,7 @@
         data:
           url: https://travis-ci.com/covertbert/home-assistant
 
-- id: travis_build_status
+- id: travis_build_passed
   alias: System Travis Build Passed
   trigger:
     - platform: state
