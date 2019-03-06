@@ -1,1 +1,25 @@
-[]
+- id: travis_build_failed
+  alias: System Travis Build Failed
+  trigger:
+    - platform: state
+      entity_id: sensor.covertbert_home_assistant_last_build_state
+      from: "started"
+      to: "failed"
+  action:
+    - service: notify.ios_robert_g_hs_iphone
+      data_template:
+        message: >
+          Travis build failed! {{ "\uD83E\uDD2C" }}
+        data:
+          url: https://travis-ci.com/covertbert/home-assistant
+
+- id: travis_build_passed
+  alias: System Travis Build Passed
+  trigger:
+    - platform: state
+      entity_id: sensor.covertbert_home_assistant_last_build_state
+      from: "started"
+      to: "passed"
+  action:
+    - service: homeassistant.turn_on
+      entity_id: script.git_pull_restart
