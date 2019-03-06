@@ -27,9 +27,9 @@ build_ci:
               Travis build passed! {{ "\uD83D\uDC4D" }}
             data:
               url: https://travis-ci.com/covertbert/home-assistant
-        - service: hassio.addon_start
-          data:
-            addon: core_git_pull
+        # - service: hassio.addon_start
+        #   data:
+        #     addon: core_git_pull
 
   sensor:
     - platform: rest
