@@ -21,12 +21,5 @@
       from: "started"
       to: "passed"
   action:
-    - service: notify.ios_robert_g_hs_iphone
-      data_template:
-        message: >
-          Travis build passed! {{ "\uD83D\uDC4D" }}
-        data:
-          url: https://travis-ci.com/covertbert/home-assistant
-    - service: hassio.addon_start
-      data:
-        addon: core_git_pull
+    service: homeassistant.turn_on
+    entity_id: script.git_pull_restart
