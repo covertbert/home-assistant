@@ -85,6 +85,12 @@ zone:
     radius: 60
     icon: mdi:home-modern
 
+  - name: Chinley Station
+    latitude: 53.340829
+    longitude: -1.943956
+    radius: 40
+    icon: mdi:train
+
 hive:
   username: !secret hive_username
   password: !secret hive_password
