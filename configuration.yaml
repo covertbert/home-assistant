@@ -92,7 +92,7 @@ zone:
   - name: Chinley Station
     latitude: 53.340829
     longitude: -1.943956
-    radius: 40
+    radius: 80
     icon: mdi:train
 
 hive:
