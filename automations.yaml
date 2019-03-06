@@ -1,5 +1,5 @@
 - id: travis_build_status
-  alias: System Travis Build Status
+  alias: System Travis Build Failed
   trigger:
     - platform: state
       entity_id: sensor.covertbert_home_assistant_last_build_state
