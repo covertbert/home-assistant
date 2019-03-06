@@ -3,7 +3,7 @@ build_ci:
     - alias: System Travis Build Status
       trigger:
         - platform: state
-          entity_id: sensor.travis_build_status
+          entity_id: sensor.covertbert_home_assistant_last_build_state
           from: "started"
           to: "failed"
       action:
