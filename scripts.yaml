@@ -13,6 +13,4 @@ git_pull_restart:
       data_template:
         message: >
           Restarting Home Assistant {{ "\u21BB" }}
-        data:
-          url: https://travis-ci.com/covertbert/home-assistant
     - service: homeassistant.restart
