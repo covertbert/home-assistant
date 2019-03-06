@@ -1,4 +1,5 @@
-- alias: System Travis Build Status
+- id: travis_build_status
+  alias: System Travis Build Status
   trigger:
     - platform: state
       entity_id: sensor.covertbert_home_assistant_last_build_state
@@ -12,7 +13,8 @@
         data:
           url: https://travis-ci.com/covertbert/home-assistant
 
-- alias: System Travis Build Passed
+- id: travis_build_status
+  alias: System Travis Build Passed
   trigger:
     - platform: state
       entity_id: sensor.travis_build_status
