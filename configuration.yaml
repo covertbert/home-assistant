@@ -11,13 +11,13 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/London
   # Customization file
-  customize: !include customize.yaml
+  customize: !include_dir_merge_list customize
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
 frontend:
-  themes: !include themes.yaml
+  themes: !include_dir_merge_list themes
 
 # Weather Prediction
 sensor:
@@ -95,7 +95,7 @@ hive:
 tts:
   - platform: google
 
-group: !include groups.yaml
-light: !include lights.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
+group: !include_dir_merge_list groups
+light: !include_dir_merge_list lights
+automation: !include_dir_merge_list automations
+script: !include_dir_merge_list scripts
