@@ -1,0 +1,7 @@
+family:
+  name: Family
+  view: false
+  entities:
+    - person.steph
+    - person.bertie
+    - person.freddie
