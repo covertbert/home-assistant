@@ -5,7 +5,7 @@ python:
 install:
   - "pip3 install homeassistant"
 script:
-  - "mv travis/secrets.yaml secrets.yaml"
+  - "mv travis/mock_secrets.yaml secrets.yaml"
   - "sudo mkdir /ssl"
   - "sudo touch /ssl/fullchain.pem"
   - "sudo touch /ssl/privkey.pem"
