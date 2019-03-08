@@ -5,6 +5,8 @@
 !/lights
 !/scripts
 !/themes
+!/zones
+!/sensors
 !/travis
 
 !*.y*ml
