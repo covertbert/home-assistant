@@ -5,6 +5,7 @@
 !/lights
 !/scripts
 !/themes
+!/travis
 
 !*.y*ml
 !.gitignore
