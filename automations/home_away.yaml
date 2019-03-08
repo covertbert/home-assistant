@@ -6,3 +6,11 @@
   action:
     service: light.turn_off
     entity_id: group.all_lights
+- alias: "Home Mode"
+  trigger:
+    platform: state
+    entity_id: group.family
+    to: "home"
+  action:
+    service: light.turn_on
+    entity_id: group.all_lights
