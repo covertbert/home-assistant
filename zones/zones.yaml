@@ -1,8 +1,8 @@
 - name: Home
-    latitude: !secret home_latitude
-    longitude: !secret home_longitude
-    radius: 50
-    icon: mdi:home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  radius: 50
+  icon: mdi:home
 
 - name: Sainsbury's Office
   latitude: 53.483704
