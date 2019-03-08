@@ -51,6 +51,6 @@ hive:
 sensor: !include_dir_merge_list sensors
 zone: !include_dir_merge_list zones
 group: !include_dir_merge_named groups
-light: !include_dir_merge_named lights
+light: !include_dir_merge_list lights
 automation: !include_dir_merge_list automations
 script: !include_dir_merge_named scripts
