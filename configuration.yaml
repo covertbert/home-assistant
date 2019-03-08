@@ -12,23 +12,18 @@ default_config:
 frontend:
   themes: !include_dir_merge_named themes
 
-sensor: !include_dir_merge_named sensors
-
 weather:
   - platform: darksky
     api_key: !secret dark_sky_api_key
-
-homekit:
-  filter:
-    include_entities:
-      - light.living_room_front
-      - climate.heating
 
 http:
   base_url: !secret http_base_url
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
   api_password: !secret api_password
+
+tts:
+  - platform: google
 
 discovery:
 
@@ -43,15 +38,18 @@ device_tracker:
     max_update_wait:
       minutes: 45
 
-zone: !include_dir_merge_named zones
+homekit:
+  filter:
+    include_entities:
+      - light.living_room_front
+      - climate.heating
 
 hive:
   username: !secret hive_username
   password: !secret hive_password
 
-tts:
-  - platform: google
-
+sensor: !include_dir_merge_named sensors
+zone: !include_dir_merge_named zones
 group: !include_dir_merge_named groups
 light: !include_dir_merge_named lights
 automation: !include_dir_merge_list automations
