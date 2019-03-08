@@ -11,7 +11,7 @@ homeassistant:
   # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/London
   # Customization file
-  customize: !include_dir_merge_list customize
+  customize: !include_dir_merge_named customize
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
@@ -95,7 +95,7 @@ hive:
 tts:
   - platform: google
 
-group: !include_dir_merge_list groups
-light: !include_dir_merge_list lights
+group: !include_dir_merge_named groups
+light: !include_dir_merge_named lights
 automation: !include_dir_merge_list automations
-script: !include_dir_merge_list scripts
+script: !include_dir_merge_named scripts
