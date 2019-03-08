@@ -48,8 +48,8 @@ hive:
   username: !secret hive_username
   password: !secret hive_password
 
-sensor: !include_dir_merge_named sensors
-zone: !include_dir_merge_named zones
+sensor: !include_dir_merge_list sensors
+zone: !include_dir_merge_list zones
 group: !include_dir_merge_named groups
 light: !include_dir_merge_named lights
 automation: !include_dir_merge_list automations
