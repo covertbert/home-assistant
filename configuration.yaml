@@ -37,6 +37,7 @@ device_tracker:
     max_gps_accuracy: 200
     max_update_wait:
       minutes: 45
+  - platform: bluetooth_tracker
 
 homekit:
   filter:
