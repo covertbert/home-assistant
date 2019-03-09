@@ -48,6 +48,17 @@ hive:
   username: !secret hive_username
   password: !secret hive_password
 
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - 474430844
+
+notify:
+  - name: telegram
+    platform: telegram
+    chat_id: 474430844
+
 sensor: !include_dir_merge_list sensors
 zone: !include_dir_merge_list zones
 group: !include_dir_merge_named groups
