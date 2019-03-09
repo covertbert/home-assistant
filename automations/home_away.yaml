@@ -18,3 +18,24 @@
   action:
     service: light.turn_on
     entity_id: light.living_room
+- alias: "Broadcast Person arriving"
+  trigger:
+    - platform: state
+      entity_id: person.bertie
+      to: "home"
+    - platform: state
+      entity_id: person.steph
+      to: "home"
+    - platform: state
+      entity_id: person.freddie
+      to: "home"
+  condition:
+    condition: state
+    entity_id: "group.family"
+    state: "home"
+  action:
+    service: tts.google_say
+    entity_id: media_player.kitchen_speaker
+    data_template:
+      message: >
+        {{ trigger.to_state.name }} has arrived. You'd better make them a brew!
