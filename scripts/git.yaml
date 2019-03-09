@@ -1,16 +1,14 @@
 git_pull_restart:
   sequence:
-    - service: notify.ios_robert_g_hs_iphone
-      data_template:
-        message: >
-          Travis build passed! {{ "\uD83D\uDC4D" }}
-        data:
-          url: https://travis-ci.com/covertbert/home-assistant
+    - service: notify.telegram
+      data:
+        title: "*Travis build passed!* \U0001F44D	"
+        message: "[Check it out here](https://travis-ci.org/covertbert/home-assistant)"
     - service: hassio.addon_start
       data:
         addon: core_git_pull
-    - service: notify.ios_robert_g_hs_iphone
-      data_template:
-        message: >
-          Restarting Home Assistant {{ "\u21BB" }}
+    - service: notify.telegram
+      data:
+        title: "*Restarting Home Assistant* \U0001F504"
+        message: "Hopefully"
     - service: homeassistant.restart

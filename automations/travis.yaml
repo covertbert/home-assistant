@@ -6,12 +6,10 @@
       from: "started"
       to: "failed"
   action:
-    - service: notify.ios_robert_g_hs_iphone
-      data_template:
-        message: >
-          Travis build failed! {{ "\uD83E\uDD2C" }}
-        data:
-          url: https://travis-ci.com/covertbert/home-assistant
+    - service: notify.telegram
+      data:
+        title: "*Travis build failed!* \U0001F620"
+        message: "[Check it out here](https://travis-ci.org/covertbert/home-assistant)"
 
 - id: travis_build_passed
   alias: System Travis Build Passed
