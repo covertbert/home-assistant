@@ -1,0 +1,24 @@
+- alias: "Leaving Work"
+  trigger:
+    - platform: state
+      entity_id: person.steph
+      from: "HAVAS Lynx"
+      to: "moving"
+    - platform: state
+      entity_id: person.bertie
+      from: "Sainsbury's Office"
+      to: "moving"
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: "16:00:00"
+      - condition: state
+        entity_id: "group.family"
+        state: "home"
+  action:
+    service: tts.google_say
+    entity_id: media_player.kitchen_speaker
+    data_template:
+      message: >
+        {{ trigger.to_state.name }} has arrived. You'd better make them a brew!
