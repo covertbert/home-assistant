@@ -1,0 +1,4 @@
+snapshot_and_backup:
+  sequence:
+    - service: hassio.snapshot_full
+    - service: rest_command.backup_snapshots

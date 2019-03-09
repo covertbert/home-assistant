@@ -22,6 +22,10 @@ http:
   ssl_key: /ssl/privkey.pem
   api_password: !secret api_password
 
+rest_command:
+  backup_snapshots:
+    url: "http://hassio.local:8055/gb/doBackup"
+
 tts:
   - platform: google
 
