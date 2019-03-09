@@ -1,0 +1,12 @@
+- alias: "Evening"
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-01:00:00"
+  condition:
+    condition: state
+    entity_id: group.family
+    state: "home"
+  action:
+    service: light.turn_on
+    entity_id: light.living_room
