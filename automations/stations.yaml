@@ -7,7 +7,11 @@
     condition: time
     after: "14:00:00"
   action:
-    service: tts.google_say
-    entity_id: media_player.kitchen_speaker
-    data:
-      message: "Steph is at Chinley station"
+    - service: notify.telegram
+      data:
+        title: "*Steph has arrived*"
+        message: "at Chinley station"
+    - service: tts.google_say
+      entity_id: media_player.kitchen_speaker
+      data:
+        message: "Steph is at Chinley station"
