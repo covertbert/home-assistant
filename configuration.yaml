@@ -24,7 +24,8 @@ http:
 
 rest_command:
   backup_snapshots:
-    url: "http://hassio.local:8055/gb/doBackup"
+    url: "http://localhost:8055/gb/doBackup"
+    timeout: "240000"
 
 tts:
   - platform: google
