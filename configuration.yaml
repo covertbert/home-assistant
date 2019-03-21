@@ -26,6 +26,13 @@ rest_command:
     url: "http://localhost:8055/gb/doBackup"
     timeout: "240000"
 
+influxdb:
+  host: localhost
+  port: 8086
+  database: !secret influxdb_database
+  username: !secret influxdb_username
+  password: !secret influxdb_password
+
 tts:
   - platform: google
 
@@ -64,6 +71,7 @@ notify:
     platform: telegram
     chat_id: 474430844
 
+panel_iframe: !include panels/panel_iframe.yaml
 sensor: !include_dir_merge_list sensors
 zone: !include_dir_merge_list zones
 group: !include_dir_merge_named groups
