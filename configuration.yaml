@@ -50,6 +50,11 @@ device_tracker:
       minutes: 45
   - platform: bluetooth_tracker
 
+google_assistant:
+  project_id: !secret ga_id
+  api_key: !secret ga_api_key
+  exposed_domains:
+
 homekit:
   filter:
     include_entities:
