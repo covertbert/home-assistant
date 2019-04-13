@@ -58,7 +58,7 @@ google_assistant:
 homekit:
   filter:
     include_entities:
-      - light.living_room_front
+      - light.bedroom_gerald
       - climate.heating
 
 hive:
