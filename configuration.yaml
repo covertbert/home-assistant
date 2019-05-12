@@ -34,7 +34,7 @@ influxdb:
   password: !secret influxdb_password
 
 tts:
-  - platform: google
+  - platform: google_translate
 
 discovery:
 
