@@ -38,15 +38,15 @@ custom_updater:
     - https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/custom_components.json
 
 device_tracker:
-  # - platform: life360
-  #   username: !secret life360_username
-  #   password: !secret life360_password
-  #   prefix: life360
-  #   show_as_state: driving, moving
-  #   driving_speed: 18
-  #   max_gps_accuracy: 200
-  #   max_update_wait:
-  #     minutes: 45
+  - platform: life360
+    username: !secret life360_username
+    password: !secret life360_password
+    prefix: life360
+    show_as_state: driving, moving
+    driving_speed: 18
+    max_gps_accuracy: 200
+    max_update_wait:
+      minutes: 45
   - platform: bluetooth_tracker
 
 google_assistant:
