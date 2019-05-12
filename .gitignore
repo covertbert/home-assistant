@@ -1,6 +1,6 @@
 *
 !*/
-!/custom_components
+!/custom_components/**/*[.py, .yaml]
 !/automations
 !/groups
 !/lights
