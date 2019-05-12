@@ -31,6 +31,8 @@ tts:
 
 discovery:
 
+custom_updater:
+
 device_tracker:
   # - platform: life360
   #   username: !secret life360_username
