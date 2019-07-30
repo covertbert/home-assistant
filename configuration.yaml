@@ -60,10 +60,6 @@ homekit:
       - light.bedroom_gerald
       - climate.heating
 
-hive:
-  username: !secret hive_username
-  password: !secret hive_password
-
 telegram_bot:
   - platform: polling
     api_key: !secret telegram_api_key
