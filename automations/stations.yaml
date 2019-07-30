@@ -16,7 +16,3 @@
       data:
         title: "*Steph has arrived*"
         message: "at Chinley station"
-    - service: tts.google_say
-      entity_id: media_player.kitchen_speaker
-      data:
-        message: "Steph is at Chinley station"
