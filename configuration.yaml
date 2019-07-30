@@ -31,9 +31,6 @@ tts:
 
 discovery:
 
-device_tracker:
-  - platform: bluetooth_tracker
-
 google_assistant:
   project_id: !secret ga_id
   api_key: !secret ga_api_key
