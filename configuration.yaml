@@ -31,12 +31,6 @@ tts:
 
 discovery:
 
-custom_updater:
-  track:
-    - components
-  component_urls:
-    - https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/custom_components.json
-
 device_tracker:
   - platform: bluetooth_tracker
 
