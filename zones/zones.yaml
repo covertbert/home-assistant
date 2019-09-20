@@ -21,3 +21,15 @@
   longitude: -1.943956
   radius: 150
   icon: mdi:train
+
+- name: Piccadilly Station
+  latitude: 53.477558
+  longitude: -2.230847
+  radius: 150
+  icon: mdi:train
+
+- name: Oxford Road Station
+  latitude: 53.473938
+  longitude: -2.241941
+  radius: 60
+  icon: mdi:train
