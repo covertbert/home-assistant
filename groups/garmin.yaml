@@ -1,8 +1,0 @@
-family:
-  name: Garmin
-  view: false
-  entities:
-    - light.living_room_back
-    - light.living_room_front
-    - light.bedroom_stoof
-    - light.bedroom_gerald
