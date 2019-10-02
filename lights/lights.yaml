@@ -1,19 +1,19 @@
 - platform: group
   name: Living Room
   entities:
-    - light.living_room_back
-    - light.living_room_front
+    - light.back
+    - light.front
 
 - platform: group
   name: Bedroom
   entities:
-    - light.bedroom_stoof
-    - light.bedroom_gerald
+    - light.stoof
+    - light.gerald
 
 - platform: group
   name: All Lights
   entities:
-    - light.living_room_back
-    - light.living_room_front
-    - light.bedroom_stoof
-    - light.bedroom_gerald
+    - light.back
+    - light.front
+    - light.stoof
+    - light.gerald
