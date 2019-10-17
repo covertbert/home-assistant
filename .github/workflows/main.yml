@@ -8,15 +8,6 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Install HA
-      run: pip3 install homeassistant
-    - name: Set up config
-      run: |
-        mv travis/mock_secrets.yaml secrets.yaml
-        sudo mkdir /ssl
-        sudo touch /ssl/fullchain.pem
-        sudo touch /ssl/privkey.pem
-    - name: Test config
-      run: |
-        hass -c . --script check_config | tee check.output
-        ! less check.output | grep -q "Failed config"
+    - name: Home Assistant Configuration Check
+      uses: ludeeus/action-ha-config-check@0.0.1
+
