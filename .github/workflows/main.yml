@@ -12,6 +12,7 @@ jobs:
       run: mv travis/mock_secrets.yaml secrets.yaml
     - name: Stub SSH keys
       run:  |
+        mkdir ./ssl
         touch ./ssl/fullchain.pem
         touch ./ssl/privkey.pem
     - name: Print HA version
