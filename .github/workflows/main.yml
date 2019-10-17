@@ -14,10 +14,12 @@ jobs:
       run:  |
         sudo mkdir /ssl
         sudo touch /ssl/fullchain.pem
+        chmod 777 /ssl/fullchain.pem
         sudo touch /ssl/privkey.pem
-        cd /; ls -la
+        chmod 777 /ssl/privkey.pem
+        ls -la /ssl
     - name: Print HA version
-      uses: "docker://homeassistant/home-assistant:latest"
+      uses: "docker://homeassistant/home-assistant:stable"
       with:
         args: python -m homeassistant --version
     - name: Check HA configg
