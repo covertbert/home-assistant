@@ -17,4 +17,8 @@ jobs:
     - name: Check HA config
       uses: "docker://homeassistant/home-assistant:latest"
       with:
-        args: ./check-config.sh
+        args: |
+          mkdir /ssl
+          touch /ssl/fullchain.pem
+          touch /ssl/privkey.pem
+          python -m homeassistant --script check_config --config ./ --info all
