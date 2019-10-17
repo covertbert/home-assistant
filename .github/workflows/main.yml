@@ -12,9 +12,9 @@ jobs:
       run: mv travis/mock_secrets.yaml secrets.yaml
     - name: Stub SSH keys
       run:  |
-        mkdir ./ssl
-        touch ./ssl/fullchain.pem
-        touch ./ssl/privkey.pem
+        sudo mkdir /ssl
+        sudo touch /ssl/fullchain.pem
+        sudo touch /ssl/privkey.pem
     - name: Print HA version
       uses: "docker://homeassistant/home-assistant:latest"
       with:
@@ -22,4 +22,4 @@ jobs:
     - name: Check HA configg
       uses: "docker://homeassistant/home-assistant:latest"
       with:
-        args: python -m homeassistant --script check_config --config ./ --info all
+        args: sudo python -m homeassistant --script check_config --config ./ --info all
