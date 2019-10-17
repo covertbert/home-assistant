@@ -50,6 +50,10 @@ homekit:
       - light.front
       - light.back
 
+hue:
+  bridges:
+    - host: 192.168.0.101 
+
 telegram_bot:
   - platform: polling
     api_key: !secret telegram_api_key
