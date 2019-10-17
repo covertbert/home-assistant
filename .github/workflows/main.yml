@@ -10,7 +10,12 @@ jobs:
     - uses: actions/checkout@v1
     - name: Copy stub secrets
       run: mv travis/mock_secrets.yaml secrets.yaml
-    - name: Home Assistant Configuration Check
+    - name: Stub SSH keys
+      run:  |
+        sudo mkdir /ssl
+        sudo touch /ssl/fullchain.pem
+        sudo touch /ssl/privkey.pem
+    - name: Check HA configuration
       uses: "docker://homeassistant/home-assistant:latest"
       with:
         args: python -m homeassistant --version
