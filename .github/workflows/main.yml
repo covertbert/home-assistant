@@ -14,9 +14,9 @@ jobs:
       run:  |
         sudo mkdir /ssl
         sudo touch /ssl/fullchain.pem
-        chmod 777 /ssl/fullchain.pem
+        sudo chmod 777 /ssl/fullchain.pem
         sudo touch /ssl/privkey.pem
-        chmod 777 /ssl/privkey.pem
+        sudo chmod 777 /ssl/privkey.pem
         ls -la /ssl
     - name: Print HA version
       uses: "docker://homeassistant/home-assistant:stable"
