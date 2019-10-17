@@ -45,8 +45,10 @@ life360:
 homekit:
   filter:
     include_entities:
-      - light.bedroom_gerald
-      - climate.heating
+      - light.gerald
+      - light.stoof
+      - light.front
+      - light.back
 
 telegram_bot:
   - platform: polling
