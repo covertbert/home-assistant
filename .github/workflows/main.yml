@@ -8,9 +8,9 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    # - name: Copy stub secrets
-    #   run: mv travis/mock_secrets.yaml secrets.yaml
-    - name: Stub SSH keys
+    - name: Copy stubbed secrets
+      run: mv travis/mock_secrets.yaml secrets.yaml
+    - name: Stub SSL certificates
       run:  |
         sudo mkdir /ssl
         sudo touch /ssl/fullchain.pem
@@ -22,4 +22,4 @@ jobs:
     - name: Check HA config
       uses: "docker://homeassistant/home-assistant:latest"
       with:
-        args: python -m homeassistant --script check_config --config ./ --info all
+        args: ls -la / && python -m homeassistant --script check_config --config ./ --info all
