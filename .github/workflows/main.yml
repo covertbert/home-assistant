@@ -11,5 +11,5 @@ jobs:
     - name: Home Assistant Configuration Check
       uses: "docker://homeassistant/home-assistant:latest"
       with:
-        args: "python -m homeassistant --version
+        args: gpython -m homeassistant --version
 
