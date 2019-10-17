@@ -15,9 +15,11 @@ jobs:
         sudo mkdir /ssl
         sudo touch /ssl/fullchain.pem
         sudo touch /ssl/privkey.pem
-    - name: Check HA configuration
+    - name: Printg HA version
       uses: "docker://homeassistant/home-assistant:latest"
       with:
-        args: python -m homeassistant --version && \
-              python -m homeassistant --script check_config --config /config
-
+        args: python -m homeassistant --version
+    - name: Check HA configg
+      uses: "docker://homeassistant/home-assistant:latest"
+      with:
+        args: python -m homeassistant --script check_config --config /config
