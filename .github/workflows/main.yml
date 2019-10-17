@@ -8,8 +8,10 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
+    - name: Copy stub secrets
+      run: mv travis/mock_secrets.yaml secrets.yaml
     - name: Home Assistant Configuration Check
       uses: "docker://homeassistant/home-assistant:latest"
       with:
-        args: gpython -m homeassistant --version
+        args: python -m homeassistant --version
 
