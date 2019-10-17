@@ -22,4 +22,4 @@ jobs:
     - name: Check HA config
       uses: "docker://homeassistant/home-assistant:latest"
       with:
-        args: ls -la ../ && python -m homeassistant --script check_config --config ./ --info all
+        args: ls -la /
