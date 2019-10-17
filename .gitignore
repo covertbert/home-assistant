@@ -12,6 +12,7 @@
 !/panels
 !/travis
 !/.github/**/*
+!/check-config.sh
 
 !*.y*ml
 !.gitignore
