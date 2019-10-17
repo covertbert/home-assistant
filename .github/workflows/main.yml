@@ -12,10 +12,10 @@ jobs:
       run: mv travis/mock_secrets.yaml secrets.yaml
     - name: Stub SSH keys
       run:  |
-        sudo mkdir ./ssl
-        sudo touch ./ssl/fullchain.pem
-        sudo touch ./ssl/privkey.pem
-        ls -la
+        sudo mkdir /ssl
+        sudo touch /ssl/fullchain.pem
+        sudo touch /ssl/privkey.pem
+        cd /; ls -la
     - name: Print HA version
       uses: "docker://homeassistant/home-assistant:latest"
       with:
