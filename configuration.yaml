@@ -30,6 +30,8 @@ tts:
   - platform: google_translate
 
 discovery:
+  enable:
+    - homekit
 
 google_assistant:
   project_id: !secret ga_id
