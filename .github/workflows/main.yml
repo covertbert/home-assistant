@@ -18,5 +18,6 @@ jobs:
     - name: Check HA configuration
       uses: "docker://homeassistant/home-assistant:latest"
       with:
-        args: python -m homeassistant --version
+        args: python -m homeassistant --version && \
+              python -m homeassistant --script check_config --config /config
 
