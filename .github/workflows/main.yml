@@ -7,11 +7,20 @@ on:
       - '!master'
 
 jobs:
+  yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Getting your configuration from GitHub
+        uses: actions/checkout@v1
+      - name: Running YAMLlint
+        uses: "docker://pipelinecomponents/yamllint:latest"
+        with:
+          args: yamllint .
   check:
     runs-on: ubuntu-latest
-    
     steps:
-    - uses: actions/checkout@v1
+    - name: Getting your configuration from GitHub
+      uses: actions/checkout@v1
     - name: Copy stubbed secrets
       run: mv ci/mock_secrets.yaml secrets.yaml
     - name: Copy stubbed ssl certs
