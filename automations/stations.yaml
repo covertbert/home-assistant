@@ -1,3 +1,4 @@
+---
 - alias: "Steph Chinley"
   trigger:
     platform: state

@@ -1,3 +1,4 @@
+---
 homeassistant:
   name: Home
   latitude: !secret home_latitude
@@ -39,7 +40,7 @@ google_assistant:
 life360:
   accounts:
     username: !secret life360_username
-    password: !secret life360_password  
+    password: !secret life360_password
   show_as_state: [driving, moving]
 
 homekit:
@@ -52,7 +53,7 @@ homekit:
 
 hue:
   bridges:
-    - host: 192.168.0.101 
+    - host: 192.168.0.101
 
 telegram_bot:
   - platform: polling

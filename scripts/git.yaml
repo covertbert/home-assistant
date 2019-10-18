@@ -1,9 +1,11 @@
+---
 git_pull_restart:
   sequence:
     - service: notify.telegram
       data:
         title: "*Travis build passed!* \U0001F44D	"
-        message: "[Check it out here](https://travis-ci.org/covertbert/home-assistant)"
+        message: >
+          [Check it out](https://github.com/covertbert/home-assistant/actions)
     - service: hassio.addon_start
       data:
         addon: core_git_pull

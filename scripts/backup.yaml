@@ -1,3 +1,4 @@
+---
 snapshot_and_backup:
   sequence:
     - service: hassio.snapshot_full

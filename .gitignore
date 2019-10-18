@@ -12,6 +12,8 @@
 !/panels
 !/ci/**/*
 !/.github/**/*
+!/.vscode/**/*
+!/.editorconfig
 
 !*.y*ml
 !.gitignore
