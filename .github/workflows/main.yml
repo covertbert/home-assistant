@@ -11,7 +11,7 @@ jobs:
     - name: Copy stubbed secrets
       run: mv ci/mock_secrets.yaml secrets.yaml
     - name: Copy stubbed ssl certs
-      run: mv ci/ssl/* ssl
+      run: mv ci/ssl/ ssl/
     - name: Print HA version
       uses: "docker://homeassistant/home-assistant:latest"
       with:
