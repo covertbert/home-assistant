@@ -18,7 +18,7 @@ jobs:
         uses: "docker://pipelinecomponents/yamllint:latest"
         with:
           args: yamllint .
-  check:
+  config_check:
     runs-on: ubuntu-latest
     steps:
       - name: Getting your configuration from GitHub
@@ -28,11 +28,11 @@ jobs:
       - name: Copy stubbed ssl certs
         run: mv ci/ssl/ ssl/
       - name: Print HA version
-        uses: "docker://homeassistant/home-assistant:latest"
+        uses: "docker://homeassistant/home-assistant:stable"
         with:
           args: python -m homeassistant --version
       - name: Check HA config
-        uses: "docker://homeassistant/home-assistant:latest"
+        uses: "docker://homeassistant/home-assistant:stable"
         with:
           args: >
             python -m homeassistant --script check_config --config ./ --info all
