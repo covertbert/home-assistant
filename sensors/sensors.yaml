@@ -1,8 +1,8 @@
 ---
-- platform: travisci
-  api_key: !secret github_access_token
-  monitored_conditions:
-    - last_build_state
+- platform: github
+  access_token: !secret github_access_token
+  repositories:
+    - path: "covertbert/home-assistant"
 - platform: darksky
   api_key: !secret dark_sky_api_key
   forecast:
