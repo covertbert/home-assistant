@@ -1,0 +1,6 @@
+---
+- platform: group
+  name: Living Room
+  entities:
+    - light.back
+    - light.front
