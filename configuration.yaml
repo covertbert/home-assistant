@@ -1,3 +1,4 @@
+---
 homeassistant:
   name: Home
   latitude: !secret home_latitude
@@ -18,8 +19,8 @@ weather:
 
 http:
   base_url: !secret http_base_url
-  ssl_certificate: /ssl/fullchain.pem
-  ssl_key: /ssl/privkey.pem
+  ssl_certificate: !secret ssl_fullchain
+  ssl_key: !secret ssl_privkey
 
 rest_command:
   backup_snapshots:
@@ -39,7 +40,7 @@ google_assistant:
 life360:
   accounts:
     username: !secret life360_username
-    password: !secret life360_password  
+    password: !secret life360_password
   show_as_state: [driving, moving]
 
 homekit:
@@ -52,7 +53,7 @@ homekit:
 
 hue:
   bridges:
-    - host: 192.168.0.101 
+    - host: 192.168.0.101
 
 telegram_bot:
   - platform: polling
@@ -65,7 +66,6 @@ notify:
     platform: telegram
     chat_id: 474430844
 
-panel_iframe: !include panels/panel_iframe.yaml
 sensor: !include_dir_merge_list sensors
 zone: !include_dir_merge_list zones
 group: !include_dir_merge_named groups

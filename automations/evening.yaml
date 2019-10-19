@@ -1,3 +1,4 @@
+---
 - alias: "Evening"
   trigger:
     platform: sun

@@ -1,0 +1,8 @@
+---
+- platform: group
+  name: All Lights
+  entities:
+    - light.back
+    - light.front
+    - light.stoof
+    - light.gerald

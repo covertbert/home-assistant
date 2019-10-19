@@ -1,0 +1,6 @@
+---
+- name: HAVAS Lynx
+  latitude: 53.476708
+  longitude: -2.239287
+  radius: 60
+  icon: mdi:home-modern

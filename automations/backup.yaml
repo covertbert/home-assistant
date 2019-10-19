@@ -1,3 +1,4 @@
+---
 - alias: "Backup Snapshots"
   trigger:
     platform: time

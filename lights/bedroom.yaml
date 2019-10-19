@@ -1,0 +1,6 @@
+---
+- platform: group
+  name: Bedroom
+  entities:
+    - light.stoof
+    - light.gerald

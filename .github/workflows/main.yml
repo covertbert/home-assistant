@@ -1,0 +1,38 @@
+---
+name: CI
+
+# yamllint disable-line rule:truthy
+on:
+  push:
+    branches:
+      - "*"
+      - "!master"
+
+jobs:
+  yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Getting configuration from GitHub
+        uses: actions/checkout@v1
+      - name: Running YAMLlint
+        uses: "docker://pipelinecomponents/yamllint:latest"
+        with:
+          args: yamllint .
+  config_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Getting configuration from GitHub
+        uses: actions/checkout@v1
+      - name: Copy stubbed secrets
+        run: mv ci/mock_secrets.yaml secrets.yaml
+      - name: Copy stubbed ssl certs
+        run: mv ci/ssl/ ssl/
+      - name: Print HA version
+        uses: "docker://homeassistant/home-assistant:stable"
+        with:
+          args: python -m homeassistant --version
+      - name: Check HA config
+        uses: "docker://homeassistant/home-assistant:stable"
+        with:
+          args: >
+            python -m homeassistant --script check_config --config ./ --info all

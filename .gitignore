@@ -10,8 +10,10 @@
 !/sensors
 !/customize
 !/panels
-!/travis
+!/ci/**/*
 !/.github/**/*
+!/.vscode/**/*
+!/.editorconfig
 
 !*.y*ml
 !.gitignore
