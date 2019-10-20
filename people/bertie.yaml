@@ -1,0 +1,6 @@
+---
+- name: Bertie
+  id: bertie
+  device_trackers:
+    - device_tracker.life360_bertie_blackman
+    
