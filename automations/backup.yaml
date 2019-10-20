@@ -9,4 +9,4 @@
     - service: notify.telegram
       data:
         title: "*Hass System Info*"
-        message: "Hass has performed a system backup"  
+        message: "Hass has performed a system backup"
