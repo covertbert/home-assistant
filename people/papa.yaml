@@ -3,3 +3,4 @@
   id: papa
   device_trackers:
     - device_tracker.life360_hugh_blackman
+    - device_tracker.life360_hugh
