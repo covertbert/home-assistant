@@ -1,5 +1,5 @@
 # Home Assistant Configuration
 
-[![Build Status](https://travis-ci.org/covertbert/home-assistant.svg?branch=travis)](https://travis-ci.org/covertbert/home-assistant)
+![HA](https://github.com/covertbert/home-assistant/workflows/CI/badge.svg)
 
 This is my configuration for the [Home Assistant](https://www.home-assistant.io/) home automation platform.
