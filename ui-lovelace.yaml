@@ -1,0 +1,51 @@
+---
+title: Home
+views:
+  - badges:
+      - person.steph
+      - person.bertie
+      - person.freddie
+    cards:
+      - entities:
+          - entity: sun.sun
+          - entity: sensor.dark_sky_temperature
+          - entity: light.all_lights
+          - entity: light.bedroom
+          - entity: light.living_room
+        show_header_toggle: false
+        type: entities
+      - entity: weather.dark_sky
+        type: weather-forecast
+    icon: 'mdi:home'
+    panel: false
+    path: default_view
+    title: Home
+  - badges: []
+    cards:
+      - entity: media_player.living_room_tv
+        type: media-control
+      - entities:
+          - entity: light.back
+          - entity: light.front
+        title: Lights
+        type: entities
+    icon: 'mdi:sofa'
+    panel: false
+    title: Living Room
+  - badges: []
+    cards:
+      - entity: media_player.kitchen_speaker
+        type: media-control
+    icon: 'mdi:fridge-outline'
+    title: Kitchen
+  - badges: []
+    cards:
+      - entity: media_player.googlehome7204
+        type: media-control
+      - entities:
+          - entity: light.stoof
+          - entity: light.gerald
+        title: Lights
+        type: entities
+    icon: 'mdi:bed-empty'
+    title: Bedroom
