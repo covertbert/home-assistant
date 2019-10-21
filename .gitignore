@@ -1,15 +1,6 @@
 *
 !*/
-!/custom_components/**/*[.py, .yaml]
-!/automations
-!/groups
-!/lights
-!/scripts
-!/themes
-!/zones
-!/sensors
-!/customize
-!/panels
+!/configuration/**/*[.py, .yaml]
 !/ci/**/*
 !/.github/**/*
 !/.vscode/**/*
