@@ -1,0 +1,8 @@
+---
+homekit:
+  filter:
+    include_entities:
+      - light.gerald
+      - light.stoof
+      - light.front
+      - light.back
