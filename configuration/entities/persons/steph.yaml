@@ -1,5 +1,5 @@
 ---
-- name: Steph
-  id: steph
+- name: "Steph"
+  id: "steph"
   device_trackers:
     - device_tracker.life360_steph

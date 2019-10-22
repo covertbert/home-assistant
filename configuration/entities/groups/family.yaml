@@ -1,6 +1,6 @@
 ---
 family:
-  name: Family
+  name: "Family"
   view: false
   entities:
     - person.steph

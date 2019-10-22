@@ -1,5 +1,5 @@
 ---
-name: CI
+name: "CI"
 
 # yamllint disable-line rule:truthy
 on:
@@ -10,28 +10,28 @@ on:
 
 jobs:
   yamllint:
-    runs-on: ubuntu-latest
+    runs-on: "ubuntu-latest"
     steps:
-      - name: Getting configuration from GitHub
-        uses: actions/checkout@v1
-      - name: Running YAMLlint
+      - name: "Getting configuration from GitHub"
+        uses: "actions/checkout@v1"
+      - name: "Running YAMLlint"
         uses: "docker://pipelinecomponents/yamllint:latest"
         with:
-          args: yamllint .
+          args: "yamllint ."
   config_check:
-    runs-on: ubuntu-latest
+    runs-on: "ubuntu-latest"
     steps:
-      - name: Getting configuration from GitHub
-        uses: actions/checkout@v1
-      - name: Copy stubbed secrets
-        run: mv ci/mock_secrets.yaml secrets.yaml
-      - name: Copy stubbed ssl certs
-        run: mv ci/ssl/ ssl/
-      - name: Print HA version
+      - name: "Getting configuration from GitHub"
+        uses: "actions/checkout@v1"
+      - name: "Copy stubbed secrets"
+        run: "mv ci/mock_secrets.yaml secrets.yaml"
+      - name: "Copy stubbed ssl certs"
+        run: "mv ci/ssl/ ssl/"
+      - name: "Print HA version"
         uses: "docker://homeassistant/home-assistant:stable"
         with:
-          args: python -m homeassistant --version
-      - name: Check HA config
+          args: "python -m homeassistant --version"
+      - name: "Check HA config"
         uses: "docker://homeassistant/home-assistant:stable"
         with:
           args: >

@@ -1,9 +1,9 @@
 ---
 homeassistant:
-  name: Home
-  latitude: !secret home_latitude
-  longitude: !secret home_longitude
+  name: "Home"
+  latitude: !secret "home_latitude"
+  longitude: !secret "home_longitude"
   elevation: 200
-  unit_system: metric
-  time_zone: Europe/London
-  packages: !include_dir_named configuration/integrations
+  unit_system: "metric"
+  time_zone: "Europe/London"
+  packages: !include_dir_named "configuration/integrations"

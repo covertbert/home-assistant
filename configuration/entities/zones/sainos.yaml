@@ -1,6 +1,6 @@
 ---
-- name: Sainsbury's Office
+- name: "Sainsbury's Office"
   latitude: 53.483704
   longitude: -2.241619
   radius: 150
-  icon: mdi:home-modern
+  icon: "mdi:home-modern"
