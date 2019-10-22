@@ -1,6 +1,0 @@
----
-snapshot_and_backup:
-  sequence:
-    - service: hassio.snapshot_full
-    - delay: "00:02:00"
-    - service: rest_command.backup_snapshots
