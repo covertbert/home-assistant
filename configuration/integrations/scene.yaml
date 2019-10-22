@@ -1,0 +1,2 @@
+---
+scene: !include_dir_merge_list "../scenes"
