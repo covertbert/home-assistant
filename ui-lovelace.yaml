@@ -24,7 +24,7 @@ views:
         name: Disk Usage
       - type: entities
         entities:
-          - entity: sensor.last_boot   
+          - entity: sensor.last_boot
       - type: history-graph
         entities:
           - entity: sensor.memory_use_percent
