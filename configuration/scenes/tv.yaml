@@ -3,7 +3,7 @@
   entities:
     light.front:
       state: "on"
-      xy_color: [0.33, 0.66]
-      brightness: 200
+      xy_color: [0.5, 0.4]
+      brightness: 100
     light.back: "off"
     media_player.living_room_tv: "on"
