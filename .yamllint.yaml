@@ -1,0 +1,4 @@
+extends: default
+
+rules:
+  quoted-strings: {quote-type: double}
