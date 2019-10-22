@@ -1,6 +1,6 @@
 ---
-- platform: group
-  name: All Lights
+- platform: "group"
+  name: "All Lights"
   entities:
     - light.back
     - light.front

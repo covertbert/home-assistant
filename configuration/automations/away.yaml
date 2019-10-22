@@ -1,9 +1,9 @@
 ---
 - alias: "Away Mode"
   trigger:
-    platform: state
-    entity_id: group.family
+    platform: "state"
+    entity_id: "group.family"
     to: "not_home"
   action:
-    service: light.turn_off
-    entity_id: group.all_lights
+    service: "light.turn_off"
+    entity_id: "group.all_lights"

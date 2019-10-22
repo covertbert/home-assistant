@@ -1,5 +1,5 @@
 ---
 google_assistant:
-  project_id: !secret ga_id
-  api_key: !secret ga_api_key
+  project_id: !secret "ga_id"
+  api_key: !secret "ga_api_key"
   exposed_domains:

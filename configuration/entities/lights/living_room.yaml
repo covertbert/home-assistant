@@ -1,6 +1,6 @@
 ---
-- platform: group
-  name: Living Room
+- platform: "group"
+  name: "Living Room"
   entities:
     - light.back
     - light.front

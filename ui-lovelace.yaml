@@ -1,5 +1,5 @@
 ---
-title: Home
+title: "Home"
 views:
   - badges:
       - person.steph
@@ -9,59 +9,59 @@ views:
       - person.papa
     cards:
       - entities:
-          - entity: sun.sun
-          - entity: sensor.dark_sky_temperature
-          - entity: light.all_lights
-          - entity: light.bedroom
-          - entity: light.living_room
+          - entity: "sun.sun"
+          - entity: "sensor.dark_sky_temperature"
+          - entity: "light.all_lights"
+          - entity: "light.bedroom"
+          - entity: "light.living_room"
         show_header_toggle: false
-        type: entities
-      - type: gauge
+        type: "entities"
+      - type: "gauge"
         min: 0
         max: 100
-        theme: default
-        entity: sensor.disk_use_percent
-        name: Disk Usage
-      - type: entities
+        theme: "default"
+        entity: "sensor.disk_use_percent"
+        name: "Disk Usage"
+      - type: "entities"
         entities:
-          - entity: sensor.last_boot
-      - type: history-graph
+          - entity: "sensor.last_boot"
+      - type: "history-graph"
         entities:
-          - entity: sensor.memory_use_percent
-          - entity: sensor.processor_use
+          - entity: "sensor.memory_use_percent"
+          - entity: "sensor.processor_use"
         refresh_interval: 0
-        title: System
+        title: "System"
         hours_to_show: 6
-    icon: 'mdi:home'
+    icon: "mdi:home"
     panel: false
-    path: default_view
-    title: Home
+    path: "default_view"
+    title: "Home"
   - badges: []
     cards:
-      - entity: media_player.living_room_tv
-        type: media-control
+      - entity: "media_player.living_room_tv"
+        type: "media-control"
       - entities:
-          - entity: light.back
-          - entity: light.front
-        title: Lights
-        type: entities
-    icon: 'mdi:sofa'
+          - entity: "light.back"
+          - entity: "light.front"
+        title: "Lights"
+        type: "entities"
+    icon: "mdi:sofa"
     panel: false
-    title: Living Room
+    title: "Living Room"
   - badges: []
     cards:
-      - entity: media_player.kitchen_speaker
-        type: media-control
-    icon: 'mdi:fridge-outline'
-    title: Kitchen
+      - entity: "media_player.kitchen_speaker"
+        type: "media-control"
+    icon: "mdi:fridge-outline"
+    title: "Kitchen"
   - badges: []
     cards:
-      - entity: media_player.bedroom_speaker
-        type: media-control
+      - entity: "media_player.bedroom_speaker"
+        type: "media-control"
       - entities:
-          - entity: light.stoof
-          - entity: light.gerald
-        title: Lights
-        type: entities
-    icon: 'mdi:bed-empty'
-    title: Bedroom
+          - entity: "light.stoof"
+          - entity: "light.gerald"
+        title: "Lights"
+        type: "entities"
+    icon: "mdi:bed-empty"
+    title: "Bedroom"
