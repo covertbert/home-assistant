@@ -16,8 +16,22 @@ views:
           - entity: light.living_room
         show_header_toggle: false
         type: entities
-      - entity: weather.dark_sky
-        type: weather-forecast
+      - type: gauge
+        min: 0
+        max: 100
+        theme: default
+        entity: sensor.disk_use_percent
+        name: Disk Usage  
+      - type: entities
+        entities:
+          - entity: sensor.last_boot          
+      - type: history-graph
+        entities:
+          - entity: sensor.memory_use_percent
+          - entity: sensor.processor_use
+        refresh_interval: 0
+        title: System
+        hours_to_show: 6  
     icon: 'mdi:home'
     panel: false
     path: default_view
