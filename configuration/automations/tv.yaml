@@ -7,5 +7,5 @@
       event_data:
         actionName: "TV Mode"
   action:
-    service: "light.turn_off"
-    entity_id: "group.all_lights"
+    service: scene.turn_on
+    entity_id: scene.tv
