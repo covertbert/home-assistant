@@ -1,0 +1,12 @@
+---
+- alias: "Backup Snapshots"
+  trigger:
+    platform: time
+    at: "02:00:00"
+  action:
+    - service: homeassistant.turn_on
+      entity_id: script.snapshot_and_backup
+    - service: notify.telegram
+      data:
+        title: "*Hass System Info*"
+        message: "Hass has performed a system backup"
