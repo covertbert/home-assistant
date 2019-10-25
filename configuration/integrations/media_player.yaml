@@ -3,3 +3,6 @@ media_player:
   - platform: "spotify"
     client_id: !secret "spotify_client_id"
     client_secret: !secret "spotify_client_secret"
+    aliases:
+      4b0fa5322eca2e10a9a64f6acaec0d6c: "Bedroom Speaker"
+      2b1458b7f96aaba2c058e2b2135cb374: "Kitchen Speaker"

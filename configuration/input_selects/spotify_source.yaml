@@ -1,0 +1,7 @@
+---
+spotify_source:
+  name: "Source:"
+  options:
+    - Kitchen Speaker
+    - Bedroom Speaker
+  icon: mdi:speaker-wireless
