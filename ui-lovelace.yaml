@@ -4,9 +4,6 @@ views:
   - badges:
       - person.steph
       - person.bertie
-      - person.freddie
-      - person.mama
-      - person.papa
     cards:
       - entities:
           - entity: "sun.sun"
