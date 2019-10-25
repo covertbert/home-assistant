@@ -2,7 +2,7 @@
 - alias: "Morning Mode"
   trigger:
     platform: "time"
-    at: "06:15:00"
+    at: "06:10:00"
   condition:
     condition: "and"
     conditions:
@@ -17,3 +17,4 @@
   action:
     service: "light.turn_on"
     entity_id: "light.living_room"
+    transition: 60
