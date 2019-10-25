@@ -11,4 +11,3 @@
   action:
     service: "light.turn_on"
     entity_id: "light.living_room"
-    transition: 60
