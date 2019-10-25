@@ -6,3 +6,4 @@ homekit:
       - light.stoof
       - light.front
       - light.back
+      - light.landing

@@ -14,6 +14,7 @@ views:
           - entity: "light.all_lights"
           - entity: "light.bedroom"
           - entity: "light.living_room"
+          - entity: "light.landing"
         show_header_toggle: false
         type: "entities"
       - type: "gauge"
@@ -65,3 +66,11 @@ views:
         type: "entities"
     icon: "mdi:bed-empty"
     title: "Bedroom"
+  - badges: []
+    cards:
+      - entities:
+          - entity: "light.landing"
+        title: "Lights"
+        type: "entities"
+    icon: "mdi:stairs"
+    title: "Landing"
