@@ -1,0 +1,8 @@
+---
+family:
+  name: "Media"
+  view: false
+  entities:
+    - media_player.bedroom_speaker
+    - media_player.kitchen_speaker
+    - media_player.living_room_tv
