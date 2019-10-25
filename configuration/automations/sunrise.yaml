@@ -1,7 +1,6 @@
 ---
 - alias: "Sunrise"
   trigger:
-    trigger:
     platform: "time"
     at: "06:30:00"
   condition:
