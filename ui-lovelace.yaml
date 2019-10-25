@@ -6,8 +6,7 @@ views:
       - person.bertie
     cards:
       - entities:
-          - entity: "sun.sun"
-          - entity: "sensor.dark_sky_temperature"
+          - entity: "group.media"
           - entity: "light.all_lights"
           - entity: "light.bedroom"
           - entity: "light.living_room"
