@@ -2,7 +2,7 @@
 - alias: "Sunrise"
   trigger:
     platform: "time"
-    at: "06:30:00"
+    at: "06:50:00"
   condition:
     - condition: "state"
       entity_id: "group.family"
