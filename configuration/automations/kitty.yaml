@@ -7,5 +7,4 @@
   action:
     - service: "tts.google_translate_say"
       entity_id: "media_player.kitchen_speaker"
-      data:
-        message: "Nala is a good kitty"
+      message: "Nala is a good kitty"
