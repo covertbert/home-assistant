@@ -1,0 +1,5 @@
+---
+day_state:
+  name: "Day State"
+  attributes:
+    icon: "mdi:sun-moon-stars"

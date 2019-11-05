@@ -1,0 +1,5 @@
+---
+home_state:
+  name: "Home State"
+  attributes:
+    icon: "mdi:home-user"

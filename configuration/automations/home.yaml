@@ -4,12 +4,8 @@
     platform: "state"
     entity_id: "group.family"
     to: "home"
-  condition:
-    condition: "sun"
-    after: "sunset"
-    after_offset: "-02:00:00"
   action:
-    - service: "light.turn_on"
-      entity_id: "light.living_room"
-    - service: "light.turn_on"
-      entity_id: "light.landing"
+    - service: "variable.set_variable"
+      data:
+        variable: "home_state"
+        value: "home"

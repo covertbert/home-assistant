@@ -1,0 +1,12 @@
+---
+- alias: "Lights Off"
+  trigger:
+    - platform: "state"
+      entity_id: "variable.home_state"
+      to: "away"
+    - platform: "state"
+      entity_id: "variable.day_state"
+      to: "night"
+  action:
+    service: "light.turn_off"
+    entity_id: "light.all_lights"

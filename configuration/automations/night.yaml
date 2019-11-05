@@ -1,0 +1,10 @@
+---
+- alias: "Night Mode"
+  trigger:
+    platform: "time"
+    at: "23:00:00"
+  action:
+    - service: "variable.set_variable"
+      data:
+        variable: "day_state"
+        value: "night"
