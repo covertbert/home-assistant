@@ -1,12 +1,8 @@
 ---
-name: "Branch"
+name: "Main"
 
 # yamllint disable-line rule:truthy
-on:
-  push:
-    branches:
-      - "*"
-      - "!master"
+on: [push]
 
 jobs:
   yamllint:
