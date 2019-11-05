@@ -2,7 +2,7 @@
 name: "Main"
 
 # yamllint disable-line rule:truthy
-on: [push]
+on: "push"
 
 jobs:
   yamllint:
