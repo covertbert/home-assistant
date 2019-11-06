@@ -5,5 +5,7 @@
     entity_id: "group.family"
     to: "not_home"
   action:
-    service: "light.turn_off"
-    entity_id: "group.all_lights"
+    - service: "input_select.select_option"
+      data:
+        entity_id: "input_select.home_state"
+        option: "Away"
