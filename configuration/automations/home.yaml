@@ -3,7 +3,7 @@
   trigger:
     platform: "state"
     entity_id: "group.family"
-    to: "not_home"
+    to: "home"
   action:
     - service: "input_select.select_option"
       data:

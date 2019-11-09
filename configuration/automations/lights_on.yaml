@@ -1,13 +1,21 @@
 ---
 - alias: "Lights On"
   trigger:
-    platform: "state"
-    entity_id: "input_select.home_state"
-    to: "Home"
+    - platform: "state"
+      entity_id: "input_select.home_state"
+      to: "Home"
+    - platform: "state"
+      entity_id: "input_select.day_state"
+      to: "Evening"
+    - platform: "state"
+      entity_id: "input_select.day_state"
+      to: "Morning"
   condition:
     condition: "sun"
     after: "sunset"
     after_offset: "-02:00:00"
   action:
     - service: "light.turn_on"
-      entity_id: "light.all_lights"
+      entity_id: "light.landing"
+    - service: "light.turn_on"
+      entity_id: "light.living_room"
