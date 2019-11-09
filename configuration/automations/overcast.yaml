@@ -4,6 +4,15 @@
     - platform: "state"
       entity_id: "sensor.dark_sky_cloud_coverage"
       above: "60"
+  condition:
+    condition: or
+    conditions:
+      - condition: "state"
+        entity_id: "input_select.day_state"
+        state: "Afternoon"
+      - condition: "state"
+        entity_id: "input_select.day_state"
+        state: "Morning"
   action:
     - service: "input_select.select_option"
       data:
