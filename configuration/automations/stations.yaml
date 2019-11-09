@@ -10,8 +10,8 @@
       - condition: "time"
         after: "16:00:00"
       - condition: "state"
-        entity_id: "group.family"
-        state: "home"
+        entity_id: "input_select.home_state"
+        state: "Home"
   action:
     - service: "notify.telegram"
       data:

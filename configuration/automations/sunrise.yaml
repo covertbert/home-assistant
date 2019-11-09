@@ -5,8 +5,8 @@
     at: "06:50:00"
   condition:
     - condition: "state"
-      entity_id: "group.family"
-      state: "home"
+      entity_id: "input_select.home_state"
+      state: "Home"
     - condition: "state"
       entity_id: "binary_sensor.workday_sensor"
       state: "on"
