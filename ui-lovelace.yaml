@@ -7,6 +7,8 @@ views:
     cards:
       - entities:
           - entity: "group.media"
+          - entity: "input_select.home_state"
+          - entity: "input_select.day_state"
           - entity: "light.all_lights"
           - entity: "light.bedroom"
           - entity: "light.living_room"
