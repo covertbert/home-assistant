@@ -9,6 +9,7 @@ views:
           - entity: "group.media"
           - entity: "input_select.home_state"
           - entity: "input_select.day_state"
+          - entity: "input_select.weather_state"
           - entity: "light.all_lights"
           - entity: "light.bedroom"
           - entity: "light.living_room"

@@ -1,0 +1,8 @@
+---
+weather_state:
+  name: "Weather state"
+  options:
+    - Overcast
+    - Clear
+  initial: "Clear"
+  icon: "mdi:weather-partly-snowy-rainy"

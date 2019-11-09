@@ -10,6 +10,9 @@
     - platform: "state"
       entity_id: "input_select.day_state"
       to: "Afternoon"
+    - platform: "state"
+      entity_id: "input_select.weather_state"
+      to: "Clear"
   action:
     - service: "light.turn_off"
       entity_id: "light.all_lights"

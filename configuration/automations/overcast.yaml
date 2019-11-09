@@ -1,0 +1,11 @@
+---
+- alias: "Overcast"
+  trigger:
+    - platform: "state"
+      entity_id: "sensor.dark_sky_cloud_coverage"
+      above: "60"
+  action:
+    - service: "input_select.select_option"
+      data:
+        entity_id: "input_select.weather_state"
+        option: "Overcast"

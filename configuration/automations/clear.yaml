@@ -1,0 +1,11 @@
+---
+- alias: "Clear"
+  trigger:
+    - platform: "state"
+      entity_id: "sensor.dark_sky_cloud_coverage"
+      below: "60"
+  action:
+    - service: "input_select.select_option"
+      data:
+        entity_id: "input_select.weather_state"
+        option: "Clear"
