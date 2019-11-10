@@ -1,4 +1,4 @@
 - platform: "samsungtv_custom"
   host: "192.168.0.110"
   mac: "F8:77:B8:83:6E:19	"
-  port: "(8001 or 8002)"
+  port: 8001
