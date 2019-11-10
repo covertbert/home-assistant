@@ -1,5 +1,5 @@
 ---
 person.bertie:
-  entity_picture: "https://picsum.photos/id/875/200/200"
+  entity_picture: "/local/bertie.jpg"
 person.steph:
-  entity_picture: "https://picsum.photos/id/875/200/200"
+  entity_picture: "/local/steph.jpg"
