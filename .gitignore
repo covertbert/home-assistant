@@ -1,6 +1,7 @@
 *
 !*/
 !/configuration/**/*[.py, .yaml]
+!/custom_components/**/*
 !/ci/**/*
 !/.github/**/*
 !/.vscode/**/*
