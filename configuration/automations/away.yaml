@@ -5,6 +5,10 @@
     entity_id: "group.family"
     to: "not_home"
   action:
+    - service: "notify.telegram"
+      data:
+        title: "*Hass System Info*"
+        message: "Hass state set to 'Away'"
     - service: "input_select.select_option"
       data:
         entity_id: "input_select.home_state"
