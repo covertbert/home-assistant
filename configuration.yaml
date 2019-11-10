@@ -6,4 +6,5 @@ homeassistant:
   elevation: 200
   unit_system: "metric"
   time_zone: "Europe/London"
+  customize: !include_dir_merge_named "configuration/customizations/entities"
   packages: !include_dir_named "configuration/integrations"
