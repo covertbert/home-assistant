@@ -3,10 +3,6 @@
   trigger:
     platform: "time"
     at: "22:30:00"
-  condition:
-    - condition: "state"
-      entity_id: "input_select.home_state"
-      state: "Home"
   action:
     - service: "input_select.select_option"
       data:
