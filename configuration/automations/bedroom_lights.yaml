@@ -1,0 +1,16 @@
+---
+- alias: "Bedroom Lights"
+  trigger:
+    - platform: "numeric_state"
+      entity_id: "binary_sensor.hue_motion_sensor_1_motion"
+      to: on
+  condition:
+    - condition: "state"
+      entity_id: "input_select.home_state"
+      state: "Home"
+    - condition: "numeric_state"
+      entity_id: "sensor.hue_motion_sensor_1_light_level"
+      below: 90
+  action:
+    - service: "light.turn_on"
+      entity_id: "light.bedroom"
