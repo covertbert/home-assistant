@@ -11,6 +11,8 @@
     - condition: "numeric_state"
       entity_id: "sensor.hue_motion_sensor_1_light_level"
       below: 90
+    - condition: "time"
+      before: "21:30:00"
   action:
     - service: "light.turn_on"
       entity_id: "light.bedroom"
