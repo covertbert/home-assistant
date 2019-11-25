@@ -3,7 +3,7 @@
   trigger:
     - platform: "numeric_state"
       entity_id: "binary_sensor.hue_motion_sensor_1_motion"
-      to: "on"
+      state: "on"
   condition:
     - condition: "state"
       entity_id: "input_select.home_state"
