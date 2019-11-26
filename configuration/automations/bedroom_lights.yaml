@@ -12,6 +12,8 @@
       entity_id: "sensor.hue_motion_sensor_1_light_level"
       below: 90
     - condition: "time"
+      after: "10:00:00"
+    - condition: "time"
       before: "21:30:00"
   action:
     - service: "light.turn_on"
