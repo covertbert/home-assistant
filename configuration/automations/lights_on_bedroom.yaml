@@ -1,5 +1,5 @@
 ---
-- alias: "Bedroom Lights"
+- alias: "Lights On - Bedroom"
   trigger:
     - platform: "state"
       entity_id: "binary_sensor.hue_motion_sensor_1_motion"
