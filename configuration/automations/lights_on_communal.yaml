@@ -1,5 +1,5 @@
 ---
-- alias: "Lights On"
+- alias: "Lights On - Communal"
   trigger:
     - platform: "state"
       entity_id: "input_select.home_state"
