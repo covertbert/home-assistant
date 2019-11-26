@@ -4,5 +4,5 @@ home_state:
   options:
     - Home
     - Away
-  initial: "Home"
+  initial: "Away"
   icon: "mdi:home-account"
