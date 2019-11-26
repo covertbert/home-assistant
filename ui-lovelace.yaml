@@ -60,6 +60,8 @@ views:
       - entities:
           - entity: "light.stoof"
           - entity: "light.gerald"
+          - entity: "sensor.hue_motion_sensor_1_light_level"
+          - entity: "sensor.hue_motion_sensor_1_temperature"
         title: "Lights"
         type: "entities"
     icon: "mdi:bed-empty"
