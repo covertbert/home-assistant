@@ -6,5 +6,4 @@ day_state:
     - Afternoon
     - Evening
     - Night
-  initial: "Afternoon"
   icon: "mdi:theme-light-dark"
