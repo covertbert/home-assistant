@@ -2,4 +2,4 @@
 - name: "Bertie"
   id: "bertie"
   device_trackers:
-    - device_tracker.robert_g_hs_iphone
+    - device_tracker.life360_bertie_blackman
