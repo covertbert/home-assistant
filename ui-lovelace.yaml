@@ -60,6 +60,7 @@ views:
       - entities:
           - entity: "light.stoof"
           - entity: "light.gerald"
+          - entity: "light.bertie"
           - entity: "sensor.hue_motion_sensor_1_light_level"
           - entity: "sensor.hue_motion_sensor_1_temperature"
         title: "Lights"
