@@ -18,4 +18,4 @@ The pipeline will run `yamllint` to check for syntax errors and to enforce consi
 
 Once a PR/branch has been merged into master it will be deployed by the [Git Pull](https://www.home-assistant.io/addons/git_pull/) addon for HA that polls the master branch for changes.
 
-Changes cannot be pushed directly to the master branch so that we avoid accidentally bypassing the pipeline.
+Changes cannot be pushed directly to the master branch in order to avoid accidentally bypassing the pipeline.
