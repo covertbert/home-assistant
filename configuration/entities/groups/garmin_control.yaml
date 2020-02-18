@@ -1,7 +1,6 @@
 ---
 garmin_control:
   name: "Garmin Control"
-  view: false
   entities:
     - light.all_lights
     - light.bedroom
