@@ -8,6 +8,9 @@
       entity_id: "input_select.home_state"
       state: "Home"
     - condition: "state"
+      entity_id: "input_select.sunrise_state"
+      state: "On"
+    - condition: "state"
       entity_id: "binary_sensor.workday_sensor"
       state: "on"
   action:
