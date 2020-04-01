@@ -1,0 +1,6 @@
+---
+- name: "New Mills Newtown Station"
+  latitude: 53.359776
+  longitude: -2.008513
+  radius: 150
+  icon: "mdi:train"
