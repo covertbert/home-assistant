@@ -1,10 +1,10 @@
 ---
-- alias: "Evening"
+- alias: "Night Mode"
   trigger:
     platform: "time"
-    at: "18:00:00"
+    at: "23:00:00"
   action:
     - service: "input_select.select_option"
       data:
         entity_id: "input_select.day_state"
-        option: "Evening"
+        option: "Night"

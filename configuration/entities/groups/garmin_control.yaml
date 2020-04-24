@@ -1,0 +1,8 @@
+---
+garmin_control:
+  name: "Garmin Control"
+  entities:
+    - light.all_lights
+    - light.bedroom
+    - light.landing
+    - light.living_room

@@ -4,13 +4,12 @@ views:
   - badges:
       - person.steph
       - person.bertie
-      - person.freddie
-      - person.mama
-      - person.papa
     cards:
       - entities:
-          - entity: "sun.sun"
-          - entity: "sensor.dark_sky_temperature"
+          - entity: "group.media"
+          - entity: "input_select.home_state"
+          - entity: "input_select.day_state"
+          - entity: "input_select.sunrise_state"
           - entity: "light.all_lights"
           - entity: "light.bedroom"
           - entity: "light.living_room"
@@ -62,6 +61,9 @@ views:
       - entities:
           - entity: "light.stoof"
           - entity: "light.gerald"
+          - entity: "light.bertie"
+          - entity: "sensor.hue_motion_sensor_1_light_level"
+          - entity: "sensor.hue_motion_sensor_1_temperature"
         title: "Lights"
         type: "entities"
     icon: "mdi:bed-empty"

@@ -5,4 +5,3 @@
       state: "on"
       profile: "relax"
     light.back: "off"
-    media_player.living_room_tv: "on"
