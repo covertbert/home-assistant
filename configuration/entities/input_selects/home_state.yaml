@@ -2,6 +2,6 @@
 home_state:
   name: "Home state"
   options:
-    - Home
-    - Away
+    - "Home"
+    - "Away"
   icon: "mdi:home-account"
