@@ -2,8 +2,8 @@
 title: "Home"
 views:
   - badges:
-      - person.steph
-      - person.bertie
+      - "person.steph"
+      - "person.bertie"
     cards:
       - entities:
           - entity: "group.media"
