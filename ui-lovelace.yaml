@@ -1,5 +1,8 @@
 ---
 title: "Home"
+resources:
+  - url: "/local/mini-graph-card-bundle.js?v=0.9.4"
+    type: "module"
 views:
   - badges:
       - "person.steph"
@@ -32,12 +35,34 @@ views:
         refresh_interval: 0
         title: "System"
         hours_to_show: 6
-      - type: "history-graph"
-        entities:
-          - entity: "sensor.speedtest_download"
-        refresh_interval: 0
-        title: "Speed Test"
+      - type: "custom:mini-graph-card"
         hours_to_show: 24
+        points_per_hour: 2
+        entities:
+          - "sensor.speedtest_download"
+        show:
+          labels: true
+        color_thresholds:
+          - value: 0
+            color: "#ff0000"
+          - value: 30
+            color: "#ffa500"
+          - value: 40
+            color: "#00ff00"
+      - type: "custom:mini-graph-card"
+        hours_to_show: 24
+        points_per_hour: 2
+        entities:
+          - "sensor.speedtest_upload"
+        show:
+          labels: true
+        color_thresholds:
+          - value: 0
+            color: "#ff0000"
+          - value: 11
+            color: "#ffa500"
+          - value: 15
+            color: "#00ff00"
     icon: "mdi:home"
     panel: false
     path: "default_view"

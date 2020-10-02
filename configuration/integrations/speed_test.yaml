@@ -1,4 +1,4 @@
 ---
 speedtestdotnet:
   scan_interval:
-    minutes: 5
+    minutes: 30
