@@ -37,7 +37,7 @@ views:
           - entity: "sensor.speedtest_download"
         refresh_interval: 0
         title: "Speed Test"
-        hours_to_show: 6
+        hours_to_show: 24
     icon: "mdi:home"
     panel: false
     path: "default_view"
