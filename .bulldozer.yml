@@ -1,0 +1,11 @@
+---
+version: 1
+
+merge:
+  whitelist:
+    labels: ["auto-merge"]
+  method: "squash"
+
+update:
+  whitelist:
+    labels: ["auto-merge"]
