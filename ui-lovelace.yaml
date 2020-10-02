@@ -28,13 +28,34 @@ views:
       - type: "entities"
         entities:
           - entity: "sensor.last_boot"
-      - type: "history-graph"
+      - type: "custom:mini-graph-card"
+        hours_to_show: 24
+        points_per_hour: 2
         entities:
-          - entity: "sensor.memory_use_percent"
-          - entity: "sensor.processor_use"
-        refresh_interval: 0
-        title: "System"
-        hours_to_show: 6
+          - "sensor.memory_use_percent"
+        show:
+          labels: true
+        color_thresholds:
+          - value: 0
+            color: "#00ff00"
+          - value: 20
+            color: "#ffa500"
+          - value: 80
+            color: "#ff0000"
+      - type: "custom:mini-graph-card"
+        hours_to_show: 24
+        points_per_hour: 2
+        entities:
+          - "sensor.processor_use"
+        show:
+          labels: true
+        color_thresholds:
+          - value: 0
+            color: "#00ff00"
+          - value: 20
+            color: "#ffa500"
+          - value: 80
+            color: "#ff0000"
       - type: "custom:mini-graph-card"
         hours_to_show: 24
         points_per_hour: 2
@@ -45,9 +66,9 @@ views:
         color_thresholds:
           - value: 0
             color: "#ff0000"
-          - value: 30
-            color: "#ffa500"
           - value: 40
+            color: "#ffa500"
+          - value: 50
             color: "#00ff00"
       - type: "custom:mini-graph-card"
         hours_to_show: 24
@@ -59,9 +80,9 @@ views:
         color_thresholds:
           - value: 0
             color: "#ff0000"
-          - value: 11
+          - value: 7
             color: "#ffa500"
-          - value: 15
+          - value: 9
             color: "#00ff00"
     icon: "mdi:home"
     panel: false

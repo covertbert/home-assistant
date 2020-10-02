@@ -2,4 +2,7 @@
 extends: "default"
 
 rules:
-  quoted-strings: {quote-type: "double"}
+  quoted-strings:
+    quote-type: "double"
+
+ignore: ".bulldozer.yml"
