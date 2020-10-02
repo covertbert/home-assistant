@@ -2,9 +2,9 @@
 homekit:
   filter:
     include_entities:
-      - light.gerald
-      - light.stoof
-      - light.bertie
-      - light.front
-      - light.back
-      - light.landing
+      - "light.gerald"
+      - "light.stoof"
+      - "light.bertie"
+      - "light.front"
+      - "light.back"
+      - "light.landing"

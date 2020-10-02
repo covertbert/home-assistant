@@ -2,4 +2,4 @@
 - name: "Freddie"
   id: "freddie"
   device_trackers:
-    - device_tracker.life360_freddie
+    - "device_tracker.life360_freddie"

@@ -2,4 +2,4 @@
 - name: "Mama"
   id: "mama"
   device_trackers:
-    - device_tracker.life360_detsi_blackman
+    - "device_tracker.life360_detsi_blackman"

@@ -2,6 +2,6 @@
 - platform: "group"
   name: "Bedroom"
   entities:
-    - light.stoof
-    - light.gerald
-    - light.bertie
+    - "light.stoof"
+    - "light.gerald"
+    - "light.bertie"
