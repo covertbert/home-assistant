@@ -1,0 +1,4 @@
+---
+grafana:
+  plugins:
+    - grafana-worldmap-panel
