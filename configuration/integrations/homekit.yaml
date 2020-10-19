@@ -8,3 +8,7 @@ homekit:
       - "light.front"
       - "light.back"
       - "light.landing"
+      - "climate.bedroom"
+      - "climate.landing"
+      - "climate.living_room"
+      - "climate.spare_room"
