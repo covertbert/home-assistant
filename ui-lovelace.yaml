@@ -128,3 +128,10 @@ views:
           - entity: "light.landing"
         title: "Lights"
         type: "entities"
+  - title: "Spare Room"
+    icon: "mdi:bed-empty"
+    cards:
+      - entities:
+          - entity: "light.landing"
+        title: "Lights"
+        type: "entities"
