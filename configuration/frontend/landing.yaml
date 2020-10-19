@@ -1,0 +1,8 @@
+---
+- title: "Landing"
+  icon: "mdi:stairs"
+  cards:
+    - title: "Lights"
+      type: "entities"
+      entities:
+        - entity: "light.landing"
