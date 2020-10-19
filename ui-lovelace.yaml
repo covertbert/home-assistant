@@ -4,7 +4,11 @@ resources:
   - url: "/local/mini-graph-card-bundle.js?v=0.9.4"
     type: "module"
 views:
-  - badges:
+  - title: "Home"
+    icon: "mdi:home"
+    panel: false
+    path: "default_view"
+    badges:
       - "person.steph"
       - "person.bertie"
     cards:
@@ -84,11 +88,10 @@ views:
             color: "#ffa500"
           - value: 9
             color: "#00ff00"
-    icon: "mdi:home"
+  - title: "Living Room"
+    icon: "mdi:sofa"
     panel: false
-    path: "default_view"
-    title: "Home"
-  - badges: []
+    badges: []
     cards:
       - entity: "media_player.living_room_tv"
         type: "media-control"
@@ -97,16 +100,15 @@ views:
           - entity: "light.front"
         title: "Lights"
         type: "entities"
-    icon: "mdi:sofa"
-    panel: false
-    title: "Living Room"
-  - badges: []
+  - title: "Kitchen"
+    icon: "mdi:fridge-outline"
+    badges: []
     cards:
       - entity: "media_player.kitchen_speaker"
         type: "media-control"
-    icon: "mdi:fridge-outline"
-    title: "Kitchen"
-  - badges: []
+  - title: "Bedroom"
+    icon: "mdi:bed-empty"
+    badges: []
     cards:
       - entity: "media_player.bedroom_speaker"
         type: "media-control"
@@ -118,13 +120,11 @@ views:
           - entity: "sensor.hue_motion_sensor_1_temperature"
         title: "Lights"
         type: "entities"
-    icon: "mdi:bed-empty"
-    title: "Bedroom"
-  - badges: []
+  - title: "Landing"
+    icon: "mdi:stairs"
+    badges: []
     cards:
       - entities:
           - entity: "light.landing"
         title: "Lights"
         type: "entities"
-    icon: "mdi:stairs"
-    title: "Landing"
