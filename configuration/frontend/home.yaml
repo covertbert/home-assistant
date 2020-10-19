@@ -6,8 +6,10 @@
   badges:
     - "person.steph"
     - "person.bertie"
+
   cards:
-    - entities:
+    - type: "entities"
+      entities:
         - entity: "group.media"
         - entity: "input_select.home_state"
         - entity: "input_select.day_state"
@@ -17,16 +19,18 @@
         - entity: "light.living_room"
         - entity: "light.landing"
       show_header_toggle: false
-      type: "entities"
-    - type: "gauge"
+
+    - name: "Disk Usage"
+      type: "gauge"
+      entity: "sensor.disk_use_percent"
       min: 0
       max: 100
       theme: "default"
-      entity: "sensor.disk_use_percent"
-      name: "Disk Usage"
+
     - type: "entities"
       entities:
         - entity: "sensor.last_boot"
+
     - type: "custom:mini-graph-card"
       hours_to_show: 24
       points_per_hour: 2
@@ -41,6 +45,7 @@
           color: "#ffa500"
         - value: 80
           color: "#ff0000"
+
     - type: "custom:mini-graph-card"
       hours_to_show: 24
       points_per_hour: 2
@@ -55,6 +60,7 @@
           color: "#ffa500"
         - value: 80
           color: "#ff0000"
+
     - type: "custom:mini-graph-card"
       hours_to_show: 24
       points_per_hour: 2
@@ -69,7 +75,8 @@
           color: "#ffa500"
         - value: 50
           color: "#00ff00"
-    - type: "custom:mini-graph-card"
+   
+   - type: "custom:mini-graph-card"
       hours_to_show: 24
       points_per_hour: 2
       entities:

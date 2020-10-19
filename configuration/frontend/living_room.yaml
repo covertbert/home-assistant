@@ -6,8 +6,9 @@
   cards:
     - entity: "media_player.living_room_tv"
       type: "media-control"
-    - entities:
+
+    - title: "Lights"
+      type: "entities"
+      entities:
         - entity: "light.back"
         - entity: "light.front"
-      title: "Lights"
-      type: "entities"

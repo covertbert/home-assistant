@@ -1,7 +1,6 @@
 ---
 - title: "Kitchen"
   icon: "mdi:fridge-outline"
-  badges: []
   cards:
-    - entity: "media_player.kitchen_speaker"
-      type: "media-control"
+    - type: "media-control"
+      entity: "media_player.kitchen_speaker"
