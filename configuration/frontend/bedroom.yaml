@@ -1,5 +1,6 @@
+---
 - title: "Bedroom"
-  icon: "mdi:bed-empty"
+  icon: "mdi:bed"
   cards:
     - type: "media-control"
       entity: "media_player.bedroom_speaker"

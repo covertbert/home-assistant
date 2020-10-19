@@ -75,8 +75,8 @@
           color: "#ffa500"
         - value: 50
           color: "#00ff00"
-   
-   - type: "custom:mini-graph-card"
+
+    - type: "custom:mini-graph-card"
       hours_to_show: 24
       points_per_hour: 2
       entities:
