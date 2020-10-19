@@ -1,0 +1,6 @@
+---
+- title: "Spare Room"
+  icon: "mdi:bed-empty"
+  cards:
+    - type: "thermostat"
+      entity: "climate.spare_room"

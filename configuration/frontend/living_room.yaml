@@ -1,0 +1,13 @@
+---
+- title: "Living Room"
+  icon: "mdi:sofa"
+  panel: false
+  badges: []
+  cards:
+    - entity: "media_player.living_room_tv"
+      type: "media-control"
+    - entities:
+        - entity: "light.back"
+        - entity: "light.front"
+      title: "Lights"
+      type: "entities"

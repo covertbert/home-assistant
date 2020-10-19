@@ -1,0 +1,14 @@
+- title: "Bedroom"
+  icon: "mdi:bed-empty"
+  badges: []
+  cards:
+    - entity: "media_player.bedroom_speaker"
+      type: "media-control"
+    - entities:
+        - entity: "light.stoof"
+        - entity: "light.gerald"
+        - entity: "light.bertie"
+        - entity: "sensor.hue_motion_sensor_1_light_level"
+        - entity: "sensor.hue_motion_sensor_1_temperature"
+      title: "Lights"
+      type: "entities"
