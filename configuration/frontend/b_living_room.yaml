@@ -12,3 +12,6 @@
       entities:
         - entity: "light.back"
         - entity: "light.front"
+
+    - type: "thermostat"
+      entity: "climate.living_room"
