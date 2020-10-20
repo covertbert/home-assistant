@@ -4,8 +4,13 @@
   panel: false
   badges: []
   cards:
-    - type: "thermostat"
-      entity: "climate.living_room"
+    - type: "vertical-stack"
+      cards:
+        - type: "thermostat"
+          entity: "climate.living_room"
+        - type: "entity"
+          icon: "mdi:window-open"
+          entity: "sensor.living_room_open_window"
 
     - title: "Lights"
       type: "entities"
