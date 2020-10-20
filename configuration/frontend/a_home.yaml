@@ -8,7 +8,7 @@
     - "person.bertie"
 
   cards:
-    - name: Home State
+    - name: "Home State"
       type: "entities"
       entities:
         - entity: "input_select.home_state"
@@ -16,7 +16,7 @@
         - entity: "input_select.guests_state"
         - entity: "input_select.sunrise_state"
 
-    - name: Lights
+    - name: "Lights"
       type: "entities"
       entities:
         - entity: "light.all_lights"
@@ -24,7 +24,7 @@
         - entity: "light.living_room"
         - entity: "light.landing"
 
-    - name: Climate
+    - name: "Climate"
       type: "entities"
       entities:
         - entity: "climate.landing"
