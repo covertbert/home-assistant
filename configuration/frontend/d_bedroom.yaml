@@ -2,8 +2,8 @@
 - title: "Bedroom"
   icon: "mdi:bed"
   cards:
-    - type: "media-control"
-      entity: "media_player.bedroom_speaker"
+    - type: "thermostat"
+      entity: "climate.bedroom"
 
     - title: "Lights"
       type: "entities"
@@ -14,5 +14,5 @@
         - entity: "sensor.hue_motion_sensor_1_light_level"
         - entity: "sensor.hue_motion_sensor_1_temperature"
 
-    - type: "thermostat"
-      entity: "climate.bedroom"
+    - type: "media-control"
+      entity: "media_player.bedroom_speaker"

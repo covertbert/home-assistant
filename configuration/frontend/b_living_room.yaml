@@ -4,8 +4,8 @@
   panel: false
   badges: []
   cards:
-    - entity: "media_player.living_room_tv"
-      type: "media-control"
+    - type: "thermostat"
+      entity: "climate.living_room"
 
     - title: "Lights"
       type: "entities"
@@ -13,5 +13,5 @@
         - entity: "light.back"
         - entity: "light.front"
 
-    - type: "thermostat"
-      entity: "climate.living_room"
+    - entity: "media_player.living_room_tv"
+      type: "media-control"
