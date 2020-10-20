@@ -2,7 +2,6 @@
 - title: "Living Room"
   icon: "mdi:sofa"
   panel: false
-  badges: []
   cards:
     - type: "vertical-stack"
       cards:
