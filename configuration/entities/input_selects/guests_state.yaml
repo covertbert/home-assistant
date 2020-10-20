@@ -1,0 +1,7 @@
+---
+guests_state:
+  name: "Guests"
+  options:
+    - "True"
+    - "False"
+  icon: "mdi:account-group"
