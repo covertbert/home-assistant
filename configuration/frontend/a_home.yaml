@@ -8,7 +8,7 @@
     - "person.bertie"
 
   cards:
-    - name: "Home State"
+    - title: "System State"
       type: "entities"
       entities:
         - entity: "input_select.home_state"
@@ -16,21 +16,28 @@
         - entity: "input_select.guests_state"
         - entity: "input_select.sunrise_state"
 
-    - name: "Lights"
+    - title: "Lights"
       type: "entities"
       entities:
-        - entity: "light.all_lights"
         - entity: "light.bedroom"
         - entity: "light.living_room"
         - entity: "light.landing"
 
-    - name: "Climate"
+    - title: "Climate"
       type: "entities"
       entities:
         - entity: "climate.living_room"
         - entity: "climate.landing"
         - entity: "climate.bedroom"
         - entity: "climate.spare_room"
+
+    - title: "Open Windows"
+      type: "entities"
+      entities:
+        - entity: "sensor.living_room_open_window"
+        - entity: "sensor.landing_open_window"
+        - entity: "sensor.bedroom_open_window"
+        - entity: "sensor.spare_room_open_window"
 
     - type: "vertical-stack"
       cards:
