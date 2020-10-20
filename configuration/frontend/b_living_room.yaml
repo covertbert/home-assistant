@@ -2,13 +2,13 @@
 - title: "Living Room"
   icon: "mdi:sofa"
   panel: false
-  badges: []
   cards:
     - type: "vertical-stack"
       cards:
         - type: "thermostat"
           entity: "climate.living_room"
-        - type: "entity"
+        - name: "Open window"
+          type: "entity"
           icon: "mdi:window-open"
           entity: "sensor.living_room_open_window"
 
