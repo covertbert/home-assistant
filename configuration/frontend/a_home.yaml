@@ -8,36 +8,46 @@
     - "person.bertie"
 
   cards:
-    - title: "System State"
-      type: "entities"
-      entities:
-        - entity: "input_select.home_state"
-        - entity: "input_select.day_state"
-        - entity: "input_select.guests_state"
-        - entity: "input_select.sunrise_state"
+    - type: "vertical-stack"
+      cards:
+        - title: "System State"
+          type: "entities"
+          entities:
+            - entity: "input_select.home_state"
+            - entity: "input_select.day_state"
+            - entity: "input_select.guests_state"
+            - entity: "input_select.sunrise_state"
+        - title: "Lights"
+          type: "entities"
+          entities:
+            - entity: "light.bedroom"
+            - entity: "light.living_room"
+            - entity: "light.landing"
 
-    - title: "Lights"
-      type: "entities"
-      entities:
-        - entity: "light.bedroom"
-        - entity: "light.living_room"
-        - entity: "light.landing"
-
-    - title: "Climate"
-      type: "entities"
-      entities:
-        - entity: "climate.living_room"
-        - entity: "climate.landing"
-        - entity: "climate.bedroom"
-        - entity: "climate.spare_room"
-
-    - title: "Open Windows"
-      type: "entities"
-      entities:
-        - entity: "sensor.living_room_open_window"
-        - entity: "sensor.landing_open_window"
-        - entity: "sensor.bedroom_open_window"
-        - entity: "sensor.spare_room_open_window"
+    - type: "vertical-stack"
+      cards:
+        - title: "Climate"
+          type: "entities"
+          entities:
+            - entity: "climate.living_room"
+            - entity: "climate.landing"
+            - entity: "climate.bedroom"
+            - entity: "climate.spare_room"
+        - title: "Open Windows"
+          type: "entities"
+          entities:
+            - entity:
+                entity: "sensor.living_room_open_window"
+                icon: "mdi:window-open"
+            - entity:
+                entity: "sensor.landing_open_window"
+                icon: "mdi:window-open"
+            - entity:
+                entity: "sensor.bedroom_open_window"
+                icon: "mdi:window-open"
+            - entity:
+                entity: "sensor.spare_room_open_window"
+                icon: "mdi:window-open"
 
     - type: "vertical-stack"
       cards:
