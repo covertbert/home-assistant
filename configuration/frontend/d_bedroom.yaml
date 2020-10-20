@@ -4,6 +4,7 @@
   cards:
     - type: "media-control"
       entity: "media_player.bedroom_speaker"
+
     - title: "Lights"
       type: "entities"
       entities:
@@ -12,3 +13,6 @@
         - entity: "light.bertie"
         - entity: "sensor.hue_motion_sensor_1_light_level"
         - entity: "sensor.hue_motion_sensor_1_temperature"
+
+    - type: "thermostat"
+      entity: "climate.bedroom"

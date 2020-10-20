@@ -10,7 +10,6 @@
   cards:
     - type: "entities"
       entities:
-        - entity: "group.media"
         - entity: "input_select.home_state"
         - entity: "input_select.day_state"
         - entity: "input_select.sunrise_state"
@@ -18,6 +17,11 @@
         - entity: "light.bedroom"
         - entity: "light.living_room"
         - entity: "light.landing"
+        - entity: "climate.spare_room"
+        - entity: "climate.living_room"
+        - entity: "climate.landing"
+        - entity: "climate.bedroom"
+        - entity: "climate.spare_room"
       show_header_toggle: false
 
     - name: "Disk Usage"
@@ -60,33 +64,3 @@
           color: "#ffa500"
         - value: 80
           color: "#ff0000"
-
-    - type: "custom:mini-graph-card"
-      hours_to_show: 24
-      points_per_hour: 2
-      entities:
-        - "sensor.speedtest_download"
-      show:
-        labels: true
-      color_thresholds:
-        - value: 0
-          color: "#ff0000"
-        - value: 40
-          color: "#ffa500"
-        - value: 50
-          color: "#00ff00"
-
-    - type: "custom:mini-graph-card"
-      hours_to_show: 24
-      points_per_hour: 2
-      entities:
-        - "sensor.speedtest_upload"
-      show:
-        labels: true
-      color_thresholds:
-        - value: 0
-          color: "#ff0000"
-        - value: 7
-          color: "#ffa500"
-        - value: 9
-          color: "#00ff00"
