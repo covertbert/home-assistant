@@ -2,10 +2,10 @@
 - title: "Landing"
   icon: "mdi:stairs"
   cards:
+    - type: "thermostat"
+      entity: "climate.landing"
+
     - title: "Lights"
       type: "entities"
       entities:
         - entity: "light.landing"
-
-    - type: "thermostat"
-      entity: "climate.landing"

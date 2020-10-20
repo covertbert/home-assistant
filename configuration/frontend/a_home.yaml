@@ -27,6 +27,7 @@
     - name: "Climate"
       type: "entities"
       entities:
+        - entity: "climate.living_room"
         - entity: "climate.landing"
         - entity: "climate.bedroom"
         - entity: "climate.spare_room"
