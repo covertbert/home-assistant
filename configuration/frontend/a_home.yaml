@@ -8,21 +8,32 @@
     - "person.bertie"
 
   cards:
-    - type: "entities"
+    - name: "Home State"
+      type: "entities"
       entities:
         - entity: "input_select.home_state"
         - entity: "input_select.day_state"
+        - entity: "input_select.guests_state"
         - entity: "input_select.sunrise_state"
+
+    - name: "Lights"
+      type: "entities"
+      entities:
         - entity: "light.all_lights"
         - entity: "light.bedroom"
         - entity: "light.living_room"
         - entity: "light.landing"
-        - entity: "climate.spare_room"
-        - entity: "climate.living_room"
+
+    - name: "Climate"
+      type: "entities"
+      entities:
         - entity: "climate.landing"
         - entity: "climate.bedroom"
         - entity: "climate.spare_room"
-      show_header_toggle: false
+
+    - type: "entities"
+      entities:
+        - entity: "sensor.last_boot"
 
     - name: "Disk Usage"
       type: "gauge"
@@ -30,10 +41,6 @@
       min: 0
       max: 100
       theme: "default"
-
-    - type: "entities"
-      entities:
-        - entity: "sensor.last_boot"
 
     - type: "custom:mini-graph-card"
       hours_to_show: 24
