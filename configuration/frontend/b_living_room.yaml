@@ -7,7 +7,7 @@
       cards:
         - type: "thermostat"
           entity: "climate.living_room"
-        - name: Open window
+        - name: "Open window"
           type: "entity"
           icon: "mdi:window-open"
           entity: "sensor.living_room_open_window"
