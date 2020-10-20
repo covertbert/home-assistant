@@ -36,18 +36,14 @@
         - title: "Open Windows"
           type: "entities"
           entities:
-            - entity:
-                entity: "sensor.living_room_open_window"
-                icon: "mdi:window-open"
-            - entity:
-                entity: "sensor.landing_open_window"
-                icon: "mdi:window-open"
-            - entity:
-                entity: "sensor.bedroom_open_window"
-                icon: "mdi:window-open"
-            - entity:
-                entity: "sensor.spare_room_open_window"
-                icon: "mdi:window-open"
+            - entity: "sensor.living_room_open_window"
+              icon: "mdi:window-open"
+            - entity: "sensor.landing_open_window"
+              icon: "mdi:window-open"
+            - entity: "sensor.bedroom_open_window"
+              icon: "mdi:window-open"
+            - entity: "sensor.spare_room_open_window"
+              icon: "mdi:window-open"
 
     - type: "vertical-stack"
       cards:
