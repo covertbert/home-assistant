@@ -2,8 +2,14 @@
 - title: "Bedroom"
   icon: "mdi:bed"
   cards:
-    - type: "thermostat"
-      entity: "climate.bedroom"
+    - type: "vertical-stack"
+      cards:
+        - type: "thermostat"
+          entity: "climate.bedroom"
+        - name: "Open window"
+          type: "entity"
+          icon: "mdi:window-open"
+          entity: "sensor.bedroom_open_window"
 
     - title: "Lights"
       type: "entities"
