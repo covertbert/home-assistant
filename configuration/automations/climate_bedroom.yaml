@@ -11,7 +11,7 @@
   action:
     - service: "tado.set_climate_timer"
       data:
-        entity_id: "climate.heating"
+        entity_id: "climate.bedroom"
         time_period: "02:30:00"
         temperature: 21
     - service: "notify.telegram"
