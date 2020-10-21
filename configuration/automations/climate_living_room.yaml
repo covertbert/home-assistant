@@ -18,10 +18,14 @@
       entity_id: "binary_sensor.workday_sensor"
       state: "on"
   action:
-    service: "climate.set_temperature"
-    data:
-      entity_id: "climate.living_room"
-      temperature: 21
+    - service: "climate.set_temperature"
+      data:
+        entity_id: "climate.living_room"
+        temperature: 21
+    - service: "notify.telegram"
+      data:
+        title: "*Hass Climate Info*"
+        message: "Living Room heating turned on"
 
 - alias: "Climate - Living Room - Weekend - Active"
   trigger:
@@ -41,10 +45,14 @@
       entity_id: "binary_sensor.workday_sensor"
       state: "off"
   action:
-    service: "climate.set_temperature"
-    data:
-      entity_id: "climate.living_room"
-      temperature: 21
+    - service: "climate.set_temperature"
+      data:
+        entity_id: "climate.living_room"
+        temperature: 21
+    - service: "notify.telegram"
+      data:
+        title: "*Hass Climate Info*"
+        message: "Living Room heating turned on"
 
 - alias: "Climate - Living Room - Inactive"
   trigger:
@@ -54,15 +62,12 @@
     - platform: "state"
       entity_id: "input_select.day_state"
       to: "Night"
-  condition:
-    - condition: "state"
-      entity_id: "input_select.home_state"
-      state: "Away"
-    - condition: "state"
-      entity_id: "input_select.day_state"
-      state: "Night"
   action:
-    service: "climate.set_temperature"
-    data:
-      entity_id: "climate.living_room"
-      temperature: 17
+    - service: "climate.set_temperature"
+      data:
+        entity_id: "climate.living_room"
+        temperature: 17
+    - service: "notify.telegram"
+      data:
+        title: "*Hass Climate Info*"
+        message: "Living Room heating turned off"
