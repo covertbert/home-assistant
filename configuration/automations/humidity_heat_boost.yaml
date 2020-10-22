@@ -10,7 +10,7 @@
       value_template: "{{ trigger.event.data.entity_id.endswith('_humidity') }}"
     - condition: "template"
       value_template: >
-        {{ states({{ trigger.event.data.entity_id }}) > 75 }}
+        {{ states('trigger.event.data.entity_id') > 75 }}
   action:
     - service: "tado.set_climate_timer"
       data:
