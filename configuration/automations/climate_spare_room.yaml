@@ -1,5 +1,5 @@
 ---
-- alias: "Climate - Bedroom - Active"
+- alias: "Climate - Spare Room - Active"
   trigger:
     - platform: "state"
       entity_id: "input_select.day_state"
@@ -8,18 +8,21 @@
     - condition: "state"
       entity_id: "input_select.home_state"
       state: "Home"
+    - condition: "state"
+      entity_id: "input_select.guests_state"
+      state: "True"
   action:
     - service: "tado.set_climate_timer"
       data:
-        entity_id: "climate.bedroom"
+        entity_id: "climate.spare_room"
         time_period: "02:30:00"
         temperature: 21
     - service: "notify.telegram"
       data:
         title: "*Hass Climate Info*"
-        message: "Bedroom heating turned on"
+        message: "Spare Room heating turned on"
 
-- alias: "Climate - Bedroom - Inactive"
+- alias: "Climate - Spare Room - Inactive"
   trigger:
     - platform: "state"
       entity_id: "input_select.home_state"
@@ -30,9 +33,9 @@
   action:
     - service: "climate.set_temperature"
       data:
-        entity_id: "climate.bedroom"
+        entity_id: "climate.spare_room"
         temperature: 14
     - service: "notify.telegram"
       data:
         title: "*Hass Climate Info*"
-        message: "Bedroom heating turned off"
+        message: "Spare Room heating turned off"

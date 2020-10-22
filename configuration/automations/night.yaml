@@ -2,7 +2,7 @@
 - alias: "Night Mode"
   trigger:
     platform: "time"
-    at: "23:00:00"
+    at: "22:00:00"
   action:
     - service: "input_select.select_option"
       data:

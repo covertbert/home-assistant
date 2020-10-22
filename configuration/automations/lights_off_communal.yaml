@@ -1,9 +1,8 @@
 ---
 - alias: "Lights Off"
   trigger:
-    - platform: "state"
-      entity_id: "input_select.day_state"
-      to: "Night"
+    platform: "time"
+    at: "24:00:00"
   action:
     - service: "light.turn_off"
       entity_id: "light.landing"
