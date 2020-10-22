@@ -7,24 +7,22 @@
       domain: "sensor"
   condition:
     - condition: "template"
-      value_template: |
-        {% set trigger = trigger.event.data.entity_id %}
-    #     {{ trigger.endswith('_humidity') }}
-    # - condition: "template"
-    #   value_template: |
-    #     {{ states({{ trigger.event.data.entity_id }}) > 75 }}
+      value_template: "{{ trigger.event.data.entity_id.endswith('_humidity') }}"
+    - condition: "template"
+      value_template: >
+        {{ states({{ trigger.event.data.entity_id }}) > 75 }}
   action:
-    # - service: "tado.set_climate_timer"
-    #   data:
-    #     entity_id: |
-    #       {% set trigger = trigger.event.data.entity_id %}
-    #       {{ 'climate.'+x[7:-9:] }}
-    #     temperature: 25
-    #     time_period: "01:00:00"
+    - service: "tado.set_climate_timer"
+      data:
+        entity_id: >
+          {% set trigger = trigger.event.data.entity_id %}
+          {{ 'climate.'+x[7:-9:] }}
+        temperature: 25
+        time_period: "01:00:00"
     - service: "notify.telegram"
       data:
         title: "*Hass Debug*"
-        message: |
+        message: >
           Entity ID trigger:
           {{ trigger.event.data.entity_id }}
 
