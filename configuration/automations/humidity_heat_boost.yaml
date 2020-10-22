@@ -1,5 +1,5 @@
 ---
-automation:
+- alias: Humidity Heat Boost
   trigger:
     platform: "event"
     event_type: "state_changed"
