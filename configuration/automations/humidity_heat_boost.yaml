@@ -7,7 +7,9 @@
       domain: "sensor"
   condition:
     - condition: "template"
-      value_template: "{{ trigger.event.data.entity_id.endswith('_humidity') }}"
+      value_template: |
+        {% set trigger = trigger.event.data.entity_id %}
+        {{ trigger.endswith('_humidity') }}
     - condition: "template"
       value_template: |
         {{ states({{ trigger.event.data.entity_id }}) > 75 }}
