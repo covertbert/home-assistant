@@ -34,7 +34,7 @@
     - service: "climate.set_temperature"
       data:
         entity_id: "climate.spare_room"
-        temperature: 14
+        temperature: 17
     - service: "notify.telegram"
       data:
         title: "*Hass Climate Info*"
