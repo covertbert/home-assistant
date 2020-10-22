@@ -16,7 +16,7 @@
       data:
         entity_id: >
           {% set trigger = trigger.event.data.entity_id %}
-          {{ 'climate.'+x[7:-9:] }}
+          {{ 'climate.'+trigger[7:-9:] }}
         temperature: 25
         time_period: "01:00:00"
     - service: "notify.telegram"
@@ -30,8 +30,8 @@
           {{ trigger.event.data.entity_id.endswith('_humidity') }}
 
           Humidity is above 75:
-          {{ states({{ trigger.event.data.entity_id }}) > 75 }}
+          {{ states('trigger.event.data.entity_id') > 75 }}
 
           Climate entity to trigger:
           {% set trigger = trigger.event.data.entity_id %}
-          {{ 'climate.'+x[7:-9:] }}
+          {{ 'climate.'+trigger[7:-9:] }}
