@@ -1,15 +1,15 @@
 ---
-- alias: "Home Mode"
-  trigger:
-    platform: "state"
-    entity_id: "group.family"
-    to: "home"
-  action:
-    - service: "notify.telegram"
-      data:
-        title: "*Hass System Info*"
-        message: "Hass state set to 'Home'"
-    - service: "input_select.select_option"
-      data:
-        entity_id: "input_select.home_state"
-        option: "Home"
+  - alias: Home Mode
+    trigger:
+      platform: state
+      entity_id: group.family
+      to: home
+    action:
+      - service: notify.telegram
+        data:
+          title: '*Hass System Info*'
+          message: Hass state set to 'Home'
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.home_state
+          option: Home

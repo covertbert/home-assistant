@@ -1,12 +1,12 @@
 ---
-- title: "Spare Room"
-  icon: "mdi:bed-empty"
-  cards:
-    - type: "vertical-stack"
-      cards:
-        - type: "thermostat"
-          entity: "climate.spare_room"
-        - name: "Open window"
-          type: "entity"
-          icon: "mdi:window-open"
-          entity: "sensor.spare_room_open_window"
+  - title: Spare Room
+    icon: mdi:bed-empty
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: thermostat
+            entity: climate.spare_room
+          - name: Open window
+            type: entity
+            icon: mdi:window-open
+            entity: sensor.spare_room_open_window

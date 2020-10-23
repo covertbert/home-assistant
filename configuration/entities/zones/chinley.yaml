@@ -1,6 +1,6 @@
 ---
-- name: "Chinley Station"
-  latitude: 53.340829
-  longitude: -1.943956
-  radius: 150
-  icon: "mdi:train"
+  - name: Chinley Station
+    latitude: 53.340829
+    longitude: -1.943956
+    radius: 150
+    icon: mdi:train

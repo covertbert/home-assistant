@@ -1,23 +1,23 @@
 ---
-- alias: "Cinema Mode - On"
-  trigger:
-    - platform: "state"
-      entity_id: "input_boolean.cinema_state"
-      to: "on"
-  action:
-    - service: "scene.turn_on"
-      entity_id: "scene.cinema"
-    - delay: "2:30"
-    - service: "input_select.select_option"
-      data:
-        entity_id: "input_select.cinema_state"
-        option: "off"
+  - alias: Cinema Mode - On
+    trigger:
+      - platform: state
+        entity_id: input_boolean.cinema_state
+        to: on
+    action:
+      - service: scene.turn_on
+        entity_id: scene.cinema
+      - delay: 2:30
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.cinema_state
+          option: off
 
-- alias: "Cinema Mode - Off"
-  trigger:
-    - platform: "state"
-      entity_id: "input_boolean.cinema_state"
-      to: "off"
-  action:
-    - service: "light.turn_on"
-      entity_id: "light.living_room"
+  - alias: Cinema Mode - Off
+    trigger:
+      - platform: state
+        entity_id: input_boolean.cinema_state
+        to: off
+    action:
+      - service: light.turn_on
+        entity_id: light.living_room

@@ -1,24 +1,24 @@
 ---
-- title: "Bedroom"
-  icon: "mdi:bed"
-  cards:
-    - type: "vertical-stack"
-      cards:
-        - type: "thermostat"
-          entity: "climate.bedroom"
-        - name: "Open window"
-          type: "entity"
-          icon: "mdi:window-open"
-          entity: "sensor.bedroom_open_window"
+  - title: Bedroom
+    icon: mdi:bed
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: thermostat
+            entity: climate.bedroom
+          - name: Open window
+            type: entity
+            icon: mdi:window-open
+            entity: sensor.bedroom_open_window
 
-    - title: "Lights"
-      type: "entities"
-      entities:
-        - entity: "light.stoof"
-        - entity: "light.gerald"
-        - entity: "light.bertie"
-        - entity: "sensor.hue_motion_sensor_1_light_level"
-        - entity: "sensor.hue_motion_sensor_1_temperature"
+      - title: Lights
+        type: entities
+        entities:
+          - entity: light.stoof
+          - entity: light.gerald
+          - entity: light.bertie
+          - entity: sensor.hue_motion_sensor_1_light_level
+          - entity: sensor.hue_motion_sensor_1_temperature
 
-    - type: "media-control"
-      entity: "media_player.bedroom_speaker"
+      - type: media-control
+        entity: media_player.bedroom_speaker

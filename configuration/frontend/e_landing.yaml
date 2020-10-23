@@ -1,17 +1,17 @@
 ---
-- title: "Landing"
-  icon: "mdi:stairs"
-  cards:
-    - type: "vertical-stack"
-      cards:
-        - type: "thermostat"
-          entity: "climate.landing"
-        - name: "Open window"
-          type: "entity"
-          icon: "mdi:window-open"
-          entity: "sensor.landing_open_window"
+  - title: Landing
+    icon: mdi:stairs
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: thermostat
+            entity: climate.landing
+          - name: Open window
+            type: entity
+            icon: mdi:window-open
+            entity: sensor.landing_open_window
 
-    - title: "Lights"
-      type: "entities"
-      entities:
-        - entity: "light.landing"
+      - title: Lights
+        type: entities
+        entities:
+          - entity: light.landing

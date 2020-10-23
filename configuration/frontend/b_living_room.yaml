@@ -1,24 +1,24 @@
 ---
-- title: "Living Room"
-  icon: "mdi:sofa"
-  panel: false
-  cards:
-    - type: "vertical-stack"
-      cards:
-        - type: "thermostat"
-          entity: "climate.living_room"
-        - name: "Open window"
-          type: "entity"
-          icon: "mdi:window-open"
-          entity: "sensor.living_room_open_window"
+  - title: Living Room
+    icon: mdi:sofa
+    panel: false
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: thermostat
+            entity: climate.living_room
+          - name: Open window
+            type: entity
+            icon: mdi:window-open
+            entity: sensor.living_room_open_window
 
-    - type: "vertical-stack"
-      cards:
-        - title: "Controls"
-          type: "entities"
-          entities:
-            - entity: "light.back"
-            - entity: "light.front"
-            - entity: "input_boolean.cinema_state"
-        - entity: "media_player.living_room_tv"
-          type: "media-control"
+      - type: vertical-stack
+        cards:
+          - title: Controls
+            type: entities
+            entities:
+              - entity: light.back
+              - entity: light.front
+              - entity: input_boolean.cinema_state
+          - entity: media_player.living_room_tv
+            type: media-control

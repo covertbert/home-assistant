@@ -1,22 +1,22 @@
 ---
-- alias: "Humidity Heat Boost"
-  trigger:
-    platform: "event"
-    event_type: "state_changed"
-  condition:
-    - condition: "template"
-      value_template: "{{ trigger.event.data.entity_id.endswith('_humidity') }}"
-    - condition: "template"
-      value_template: "{{ trigger.event.data.new_state.state | float > 85 }}"
-  action:
-    - service: "tado.set_climate_timer"
-      data:
-        entity_id: "{{ 'climate.'+trigger.event.data.entity_id[7:-9:] }}"
-        temperature: 25
-        time_period: "01:00:00"
-    - service: "notify.telegram"
-      data:
-        title: "*Hass Debug*"
-        message: >
-          {% set x = trigger.event.data.entity_id %}
-          {{ 'climate.'+x[7:-9:] }}
+  - alias: Humidity Heat Boost
+    trigger:
+      platform: event
+      event_type: state_changed
+    condition:
+      - condition: template
+        value_template: "{{ trigger.event.data.entity_id.endswith('_humidity') }}"
+      - condition: template
+        value_template: '{{ trigger.event.data.new_state.state | float > 85 }}'
+    action:
+      - service: tado.set_climate_timer
+        data:
+          entity_id: "{{ 'climate.'+trigger.event.data.entity_id[7:-9:] }}"
+          temperature: 25
+          time_period: 01:00:00
+      - service: notify.telegram
+        data:
+          title: '*Hass Debug*'
+          message: >
+            {% set x = trigger.event.data.entity_id %}
+            {{ 'climate.'+x[7:-9:] }}

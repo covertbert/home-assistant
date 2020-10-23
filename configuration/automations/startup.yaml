@@ -1,10 +1,10 @@
 ---
-- alias: "Hass Startup Notification"
-  trigger:
-    - platform: "homeassistant"
-      event: "start"
-  action:
-    service: "notify.telegram"
-    data:
-      title: "*Hass System Info*"
-      message: "Hass has restarted"
+  - alias: Hass Startup Notification
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      service: notify.telegram
+      data:
+        title: '*Hass System Info*'
+        message: Hass has restarted

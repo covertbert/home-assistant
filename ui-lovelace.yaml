@@ -1,6 +1,6 @@
 ---
-title: "Home"
+title: Home
 resources:
-  - url: "/local/mini-graph-card-bundle.js?v=0.9.4"
-    type: "module"
+  - url: /local/mini-graph-card-bundle.js?v=0.9.4
+    type: module
 views: !include_dir_merge_list "configuration/frontend"

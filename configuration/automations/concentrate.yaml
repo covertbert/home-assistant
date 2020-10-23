@@ -1,11 +1,11 @@
 ---
-- alias: "Concentrate"
-  initial_state: true
-  trigger:
-    - platform: "event"
-      event_type: "ios.action_fired"
-      event_data:
-        actionName: "Concentrate"
-  action:
-    service: "scene.turn_on"
-    entity_id: "scene.concentrate"
+  - alias: Concentrate
+    initial_state: true
+    trigger:
+      - platform: event
+        event_type: ios.action_fired
+        event_data:
+          actionName: Concentrate
+    action:
+      service: scene.turn_on
+      entity_id: scene.concentrate

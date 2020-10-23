@@ -1,19 +1,19 @@
 ---
-- alias: "Steph Chinley"
-  trigger:
-    platform: "state"
-    entity_id: "person.steph"
-    to: "Chinley Station"
-  condition:
-    condition: "and"
-    conditions:
-      - condition: "time"
-        after: "16:00:00"
-      - condition: "state"
-        entity_id: "input_select.home_state"
-        state: "Home"
-  action:
-    - service: "notify.telegram"
-      data:
-        title: "*Steph has arrived*"
-        message: "at Chinley station"
+  - alias: Steph Chinley
+    trigger:
+      platform: state
+      entity_id: person.steph
+      to: Chinley Station
+    condition:
+      condition: and
+      conditions:
+        - condition: time
+          after: 16:00:00
+        - condition: state
+          entity_id: input_select.home_state
+          state: Home
+    action:
+      - service: notify.telegram
+        data:
+          title: '*Steph has arrived*'
+          message: at Chinley station

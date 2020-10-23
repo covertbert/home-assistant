@@ -1,6 +1,6 @@
 ---
-- title: "Kitchen"
-  icon: "mdi:fridge-outline"
-  cards:
-    - type: "media-control"
-      entity: "media_player.kitchen_speaker"
+  - title: Kitchen
+    icon: mdi:fridge-outline
+    cards:
+      - type: media-control
+        entity: media_player.kitchen_speaker
