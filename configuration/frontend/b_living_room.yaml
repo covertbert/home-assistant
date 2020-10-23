@@ -14,14 +14,11 @@
 
     - type: "vertical-stack"
       cards:
-        - title: "Lights"
+        - title: "Controls"
           type: "entities"
           entities:
             - entity: "light.back"
             - entity: "light.front"
-        - title: "Room State"
-          type: "entities"
-          entities:
-            - entity: "input_select.cinema_state"
-        - entity: "media_player.living_room_tv"
-          type: "media-control"
+            - entity: "input_boolean.cinema_state"
+            - entity: "media_player.living_room_tv"
+              type: "media-control"
