@@ -12,11 +12,13 @@
           icon: "mdi:window-open"
           entity: "sensor.living_room_open_window"
 
-    - title: "Lights"
-      type: "entities"
-      entities:
-        - entity: "light.back"
-        - entity: "light.front"
-
-    - entity: "media_player.living_room_tv"
-      type: "media-control"
+    - type: "vertical-stack"
+      cards:
+        - title: "Lights"
+          type: "entities"
+          entities:
+            - entity: "light.back"
+            - entity: "light.front"
+        - entity: "input_select.cinema_state"
+        - entity: "media_player.living_room_tv"
+          type: "media-control"

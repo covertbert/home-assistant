@@ -1,0 +1,14 @@
+---
+- alias: "Cinema Mode"
+  trigger:
+    - platform: "state"
+      entity_id: "input_select.cinema_state"
+      to: "Active"
+  action:
+    - service: "scene.turn_on"
+      entity_id: "scene.cinema"
+    - delay: "0:01"
+    - service: "input_select.select_option"
+      data:
+        entity_id: "input_select.cinema_state"
+        option: "Inactive"
