@@ -2,8 +2,8 @@
 - alias: "Cinema Mode"
   trigger:
     - platform: "state"
-      entity_id: "input_select.cinema_state"
-      to: "On"
+      entity_id: "input_boolean.cinema_state"
+      to: "on"
   action:
     - service: "scene.turn_on"
       entity_id: "scene.cinema"
@@ -11,4 +11,4 @@
     - service: "input_select.select_option"
       data:
         entity_id: "input_select.cinema_state"
-        option: "Off"
+        option: "off"
