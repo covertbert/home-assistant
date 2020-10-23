@@ -1,7 +1,7 @@
 ---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.4.0
+    rev: master
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -13,7 +13,8 @@ repos:
       - id: shfmt
       - id: shellcheck
 
-  - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
-    rev: 0.0.11
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: master
     hooks:
-      - id: yamlfmt
+      - id: yamllint
+        args: [--format, parsable, --strict]
