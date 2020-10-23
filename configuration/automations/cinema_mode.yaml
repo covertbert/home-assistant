@@ -1,5 +1,5 @@
 ---
-- alias: "Cinema Mode"
+- alias: "Cinema Mode - On"
   trigger:
     - platform: "state"
       entity_id: "input_boolean.cinema_state"
@@ -12,3 +12,12 @@
       data:
         entity_id: "input_select.cinema_state"
         option: "off"
+
+- alias: "Cinema Mode - Off"
+  trigger:
+    - platform: "state"
+      entity_id: "input_boolean.cinema_state"
+      to: "off"
+  action:
+    - service: "scene.turn_off"
+      entity_id: "scene.cinema"
