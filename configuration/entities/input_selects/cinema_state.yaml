@@ -2,7 +2,7 @@
 cinema_state:
   name: "Cinema state"
   options:
-    - "Active"
-    - "Inactive"
-  initial: "Inactive"
+    - "on"
+    - "off"
+  initial: "off"
   icon: "mdi:movie-open"

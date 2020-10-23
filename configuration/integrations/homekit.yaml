@@ -12,3 +12,4 @@ homekit:
       - "climate.landing"
       - "climate.living_room"
       - "climate.spare_room"
+      - "input_select.cinema_state"
