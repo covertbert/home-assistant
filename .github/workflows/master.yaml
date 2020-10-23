@@ -17,10 +17,6 @@ jobs:
         run: "mv ci/mock_secrets.yaml secrets.yaml"
       - name: "Copy stubbed ssl certs"
         run: "mv ci/ssl/ ssl/"
-      - name: "Print HA version"
-        uses: "docker://homeassistant/home-assistant:stable"
-        with:
-          args: "python -m homeassistant --version"
       - name: "Check HA config"
         uses: "docker://homeassistant/home-assistant:stable"
         with:
