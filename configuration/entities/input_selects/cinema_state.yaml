@@ -1,0 +1,8 @@
+---
+cinema_state:
+  name: "Cinema state"
+  options:
+    - "Active"
+    - "Inactive"
+  initial: "Inactive"
+  icon: "mdi:movie-open"
