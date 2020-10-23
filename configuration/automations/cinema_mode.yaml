@@ -1,6 +1,5 @@
 ---
 - alias: "Cinema Mode"
-  initial_state: true
   trigger:
     - platform: "state"
       entity_id: "input_select.cinema_state"
