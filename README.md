@@ -20,7 +20,9 @@ To get started:
 
 2. Check your `pre-commit` version to make sure it's installed correctly with `pre-commit --version`
 
-3. Commit your code!
+3. Install your `pre-commit` scripts with `pre-commit install`
+
+4. Commit your code!
 
 N.B. You can run `pre-commit` across all files with `pre-commit run --all-files`
 
