@@ -18,3 +18,10 @@ repos:
     hooks:
       - id: "yamllint"
         args: ["--format", "parsable", "--strict"]
+
+  - repo: "local"
+    hooks:
+      - id: "home-assistant-config-check"
+        name: "home-assistant-config-check"
+        entry: "scripts/config-check.sh"
+        language: "script"
