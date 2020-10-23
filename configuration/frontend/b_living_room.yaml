@@ -19,6 +19,9 @@
           entities:
             - entity: "light.back"
             - entity: "light.front"
-        - entity: "input_select.cinema_state"
+        - title: "Room State"
+          type: "entities"
+          entities:
+            - entity: "input_select.cinema_state"
         - entity: "media_player.living_room_tv"
           type: "media-control"
