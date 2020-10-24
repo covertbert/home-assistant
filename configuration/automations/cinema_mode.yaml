@@ -7,21 +7,8 @@
   action:
     - service: "scene.turn_on"
       entity_id: "scene.cinema"
-
-- alias: "Cinema Mode - Manual Off"
-  trigger:
-    - platform: "state"
-      entity_id: "input_boolean.cinema_state"
-      to: "off"
-  action:
-    - service: "light.turn_on"
-      entity_id: "light.living_room"
-
-- alias: "Cinema Mode - Automatic Off"
-  trigger:
-    platform: "time"
-    at: "00:00:00"
-  action:
+    - delay:
+        milliseconds: 500
     - service: "input_select.select_option"
       data:
         entity_id: "input_select.cinema_state"
