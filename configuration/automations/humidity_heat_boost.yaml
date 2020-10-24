@@ -14,9 +14,3 @@
         entity_id: "{{ 'climate.'+trigger.event.data.entity_id[7:-9] }}"
         temperature: 25
         time_period: "01:00:00"
-# - service: "notify.telegram"
-#   data:
-#     title: "*Hass Debug*"
-#     message: >
-#       {% set x = trigger.event.data.entity_id %}
-#       {{ 'climate.'+x[7:-9] }}
