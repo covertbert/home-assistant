@@ -9,6 +9,7 @@ on:
 
 jobs:
   config_check:
+    name: "Check HA Config"
     runs-on: "ubuntu-latest"
     steps:
       - name: "Getting configuration from GitHub"
@@ -23,7 +24,9 @@ jobs:
           args: >
             python -m homeassistant --script check_config --config ./ --info all
   deploy:
+    name: "Deploy Config via Git Pull Addon"
     runs-on: "ubuntu-latest"
+    needs: ["config_check"]
     steps:
       - name: "Trigger git pull deploy"
         run: "curl -X POST ${{ secrets.GIT_PULL_DEPLOY_URL }}"
