@@ -24,7 +24,6 @@
       entity_id: "input_select.day_state"
       to: "Afternoon"
   action:
-    - service: "climate.set_preset_mode"
+    - service: "climate.turn_off"
       data:
         entity_id: "climate.bedroom"
-        preset_mode: "away"
