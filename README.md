@@ -28,10 +28,8 @@ N.B. You can run `pre-commit` across all files with `pre-commit run --all-files`
 
 ## CI & Deployment
 
-I have a Github Actions CI pipeline that runs on any new branches that are created.
+I have a Github Actions CI pipeline that runs on pushes to the `master` branch.
 
-The pipeline will run `yamllint` to check for syntax errors and to enforce consistency. It also runs my config against a dockerised version of Home Assistant to make sure none of the changes I've made are incompatible with it.
+The pipeline will run all my `pre-commit` hooks for static analysis and to enforce consistency. It also runs my config against a dockerised version of Home Assistant to make sure none of the changes I've made are incompatible with it.
 
-Once a PR/branch has been merged into master it will be deployed by the [Git Pull](https://www.home-assistant.io/addons/git_pull/) addon for HA that polls the master branch for changes.
-
-Changes cannot be pushed directly to the master branch in order to avoid accidentally bypassing the pipeline.
+If all the checks pass, the pipeline will trigger the [git pull addon](https://github.com/home-assistant/hassio-addons/blob/master/git_pull/README.md) which will pull the latest changes from the master branch and restart the server.
