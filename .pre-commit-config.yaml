@@ -24,6 +24,6 @@ repos:
     hooks:
       - id: "home-assistant-config-check"
         name: "Check Home Assistant config"
-        entry: "scripts/config-check.sh"
+        entry: "ci/config-check.sh"
         language: "script"
         pass_filenames: false
