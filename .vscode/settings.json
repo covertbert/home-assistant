@@ -12,6 +12,7 @@
 			"editor.formatOnSave": false
 		},
 		"files.associations": {
-			"*.yaml": "home-assistant"
+			"*.yaml": "home-assistant",
+			"master.yaml": "yaml"
 		},
 }

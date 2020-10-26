@@ -23,10 +23,22 @@ jobs:
         with:
           args: >
             python -m homeassistant --script check_config --config ./ --info all
+  static_checks:
+    name: "Perform Static Analysis"
+    runs-on: "ubuntu-latest"
+    env:
+      SKIP: "home-assistant-config-check"
+    steps:
+      - name: "Getting configuration from GitHub"
+        uses: "actions/checkout@v1"
+      - name: "Setup Python"
+        uses: "actions/setup-python@v2"
+      - name: "Run pre-commit hooks"
+        uses: "pre-commit/action@v2.0.0"
   deploy:
     name: "Deploy Config via Git Pull Addon"
     runs-on: "ubuntu-latest"
-    needs: ["config_check"]
+    needs: ["config_check", "static_checks"]
     steps:
       - name: "Trigger git pull deploy"
         run: "curl -X POST ${{ secrets.GIT_PULL_DEPLOY_URL }}"
