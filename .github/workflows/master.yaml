@@ -22,3 +22,8 @@ jobs:
         with:
           args: >
             python -m homeassistant --script check_config --config ./ --info all
+  deploy:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Trigger git pull deploy"
+        run: "curl -X POST ${{ secrets.GIT_PULL_DEPLOY_URL }}"
