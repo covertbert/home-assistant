@@ -11,4 +11,7 @@
 		"[shellscript]": {
 			"editor.formatOnSave": false
 		},
+		"files.associations": {
+			"*.yaml": "home-assistant"
+		},
 }

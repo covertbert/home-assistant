@@ -1,0 +1,10 @@
+---
+- alias: "Manual Git Pull"
+  trigger:
+    platform: "webhook"
+    webhook_id: "manual_git_pull"
+  action:
+    - service: "notify.telegram"
+      data:
+        title: "*Hass System Info*"
+        message: "Manual Git Pull Triggered"
