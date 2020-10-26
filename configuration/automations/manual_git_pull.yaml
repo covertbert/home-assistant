@@ -8,6 +8,6 @@
       data:
         title: "*Hass System Info*"
         message: "Manual Git Pull Triggered"
-    - service: "hassio.addon_restart"
+    - service: "hassio.addon_start"
       data:
-        addon: "git_pull"
+        addon: "core_git_pull"
