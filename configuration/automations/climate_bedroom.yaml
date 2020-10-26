@@ -28,10 +28,9 @@
       entity_id: "input_select.day_state"
       to: "Afternoon"
   action:
-    - service: "climate.set_temperature"
+    - service: "climate.turn_off"
       data:
         entity_id: "climate.bedroom"
-        temperature: 14
     - service: "notify.telegram"
       data:
         title: "*Hass Climate Info*"
