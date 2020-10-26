@@ -1,2 +1,3 @@
 ---
-automation: !include_dir_merge_list "../automations"
+automation: !include "../../automations.yaml"
+automation split: !include_dir_merge_list "../automations"
