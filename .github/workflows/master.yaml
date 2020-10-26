@@ -27,7 +27,7 @@ jobs:
     name: "Perform Static Analysis"
     runs-on: "ubuntu-latest"
     env:
-      SKIP: "home-assistant-config-check"
+      SKIP: "home-assistant-config-check, shfmt"
     steps:
       - name: "Getting configuration from GitHub"
         uses: "actions/checkout@v1"
