@@ -9,7 +9,7 @@ on:
 
 jobs:
   config_check:
-    name: "Check HA Config"
+    name: "Check Home Assistant Config"
     runs-on: "ubuntu-latest"
     steps:
       - name: "Getting configuration from GitHub"
