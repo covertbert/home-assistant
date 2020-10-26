@@ -7,7 +7,7 @@
     - service: "notify.telegram"
       data:
         title: "*Hass System Info*"
-        message: "Git Pull Triggered"
+        message: "Git pull triggered"
     - service: "hassio.addon_start"
       data:
         addon: "core_git_pull"
