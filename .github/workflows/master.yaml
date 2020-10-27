@@ -15,9 +15,9 @@ jobs:
       - name: "Getting configuration from GitHub"
         uses: "actions/checkout@v1"
       - name: "Copy stubbed secrets"
-        run: "mv ci/mock_secrets.yaml secrets.yaml"
+        run: "mv .stubs/mock_secrets.yaml secrets.yaml"
       - name: "Copy stubbed ssl certs"
-        run: "mv ci/ssl/ ssl/"
+        run: "mv .stubs/ssl/ ssl/"
       - name: "Check HA config"
         uses: "docker://homeassistant/home-assistant:stable"
         with:
