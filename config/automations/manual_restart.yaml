@@ -2,12 +2,10 @@
 - alias: "Manual Git Pull"
   trigger:
     platform: "webhook"
-    webhook_id: "manual_git_pull"
+    webhook_id: "manual_restart"
   action:
     - service: "notify.telegram"
       data:
         title: "*Hass System Info*"
-        message: "Git pull triggered"
-    - service: "hassio.addon_start"
-      data:
-        addon: "core_git_pull"
+        message: "Manual restart triggered"
+    - service: "homeassistant.restart"

@@ -1,8 +1,8 @@
 *
 !*/
-!/configuration/**/*[.py, .yaml]
-!/custom_components/**/*
-!/ci/**/*
+!/config/**/*[.py, .yaml]
+!/config/custom_components/**/*
+!/.stubs/**/*
 !/.github/**/*
 !/.vscode/**/*
 !/.editorconfig
@@ -11,6 +11,7 @@
 !.gitignore
 !*.md
 !config-check.sh
+!sync-config.sh
 
 .storage
 .cloud

@@ -1,7 +1,6 @@
 ---
 name: "Master"
 
-# yamllint disable-line rule:truthy
 on:
   push:
     branches:
@@ -15,14 +14,15 @@ jobs:
       - name: "Getting configuration from GitHub"
         uses: "actions/checkout@v1"
       - name: "Copy stubbed secrets"
-        run: "mv ci/mock_secrets.yaml secrets.yaml"
+        run: "mv .stubs/mock_secrets.yaml secrets.yaml"
       - name: "Copy stubbed ssl certs"
-        run: "mv ci/ssl/ ssl/"
+        run: "mv .stubs/ssl/ ssl/"
       - name: "Check HA config"
         uses: "docker://homeassistant/home-assistant:stable"
         with:
           args: >
-            python -m homeassistant --script check_config --config ./ --info all
+            python -m homeassistant --script check_config --config ./config --info all
+
   static_checks:
     name: "Perform Static Analysis"
     runs-on: "ubuntu-latest"
@@ -35,10 +35,22 @@ jobs:
         uses: "actions/setup-python@v2"
       - name: "Run pre-commit hooks"
         uses: "pre-commit/action@v2.0.0"
+
   deploy:
-    name: "Deploy Config via Git Pull Addon"
+    name: "Deploy Config"
     runs-on: "ubuntu-latest"
+    env:
+      SSH_USER: "${{ secrets.SSH_USER }}"
+      SSH_HOST: "${{ secrets.SSH_HOST }}"
+      HA_RESTART_WEBHOOK_URL: "${{ secrets.HA_RESTART_WEBHOOK_URL }}"
     needs: ["config_check", "static_checks"]
     steps:
-      - name: "Trigger git pull deploy"
-        run: "curl -X POST ${{ secrets.GIT_PULL_DEPLOY_URL }}"
+      - name: "Getting configuration from GitHub"
+        uses: "actions/checkout@v1"
+      - name: "Install SSH key"
+        uses: "shimataro/ssh-key-action@v2"
+        with:
+          key: "${{ secrets.SSH_KEY }}"
+          known_hosts: "${{ secrets.KNOWN_HOSTS }}"
+      - name: "Sync config & restart"
+        run: ./scripts/sync-config.sh "$SSH_USER" "$SSH_HOST" "$HA_RESTART_WEBHOOK_URL"
