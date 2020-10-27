@@ -7,3 +7,5 @@ influxdb:
   password: !secret "influx_db_password"
   max_retries: 3
   default_measurement: "state"
+  include:
+    entities: !include_dir_merge_list "../influxdb"
