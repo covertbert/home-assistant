@@ -4,6 +4,8 @@ extends: "default"
 rules:
   quoted-strings:
     quote-type: "double"
+  line-length:
+    max: 90
 
 ignore: |
   .bulldozer.yml
