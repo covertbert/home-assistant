@@ -16,7 +16,6 @@
             - entity: "input_select.home_state"
             - entity: "input_select.day_state"
             - entity: "input_select.guests_state"
-            - entity: "input_select.sunrise_state"
         - title: "Lights"
           type: "entities"
           entities:

@@ -1,7 +1,0 @@
----
-sunrise_state:
-  name: "Artificial sunrise"
-  options:
-    - "On"
-    - "Off"
-  icon: "mdi:weather-sunset-up"
