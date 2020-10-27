@@ -1,7 +1,6 @@
 ---
 name: "Master"
 
-# yamllint disable-line rule:truthy
 on:
   push:
     branches:
@@ -22,7 +21,7 @@ jobs:
         uses: "docker://homeassistant/home-assistant:stable"
         with:
           args: >
-            python -m homeassistant --script check_config --config ./ --info all
+            python -m homeassistant --script check_config --config ./config --info all
   static_checks:
     name: "Perform Static Analysis"
     runs-on: "ubuntu-latest"
@@ -51,7 +50,6 @@ jobs:
           key: "${{ secrets.SSH_KEY }}"
           known_hosts: "${{ secrets.KNOWN_HOSTS }}"
       - name: "Sync config files"
-        # yamllint disable-line rule:quoted-strings
         run: ./scripts/sync-config.sh "$SSH_USER" "$SSH_HOST"
       - name: "Trigger HA restart"
         run: "curl -X POST ${{ secrets.GIT_PULL_DEPLOY_URL }}"
