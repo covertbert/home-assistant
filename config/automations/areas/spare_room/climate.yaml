@@ -52,7 +52,7 @@
               data:
                 entity_id: "climate.spare_room"
                 time_period: "01:00:00"
-                temperature: 25
+                temperature: 23
 
       default:
         - service: "climate.turn_off"
