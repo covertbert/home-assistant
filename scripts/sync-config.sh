@@ -2,6 +2,7 @@
 
 user="$1"
 host="$2"
+restartWebhookURL="$3"
 
 rsync -avO \
   --no-perms \
@@ -9,3 +10,5 @@ rsync -avO \
   --exclude="*" \
   --delete \
   ./config/ "$user@$host:/config/"
+
+curl -X POST "$restartWebhookURL"

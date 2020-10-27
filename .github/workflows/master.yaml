@@ -40,6 +40,7 @@ jobs:
     env:
       SSH_USER: "${{ secrets.SSH_USER }}"
       SSH_HOST: "${{ secrets.SSH_HOST }}"
+      HA_RESTART_WEBHOOK_URL: "${{ secrets.HA_RESTART_WEBHOOK_URL }}"
     needs: ["config_check", "static_checks"]
     steps:
       - name: "Getting configuration from GitHub"
@@ -49,7 +50,5 @@ jobs:
         with:
           key: "${{ secrets.SSH_KEY }}"
           known_hosts: "${{ secrets.KNOWN_HOSTS }}"
-      - name: "Sync config files"
-        run: ./scripts/sync-config.sh "$SSH_USER" "$SSH_HOST"
-      - name: "Trigger HA restart"
-        run: "curl -X POST ${{ secrets.GIT_PULL_DEPLOY_URL }}"
+      - name: "Sync config & restart"
+        run: ./scripts/sync-config.sh "$SSH_USER" "$SSH_HOST" "$HA_RESTART_WEBHOOK_URL"
