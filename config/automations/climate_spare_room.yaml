@@ -17,10 +17,6 @@
         entity_id: "climate.spare_room"
         time_period: "02:30:00"
         temperature: 21
-    - service: "notify.telegram"
-      data:
-        title: "*Hass Climate Info*"
-        message: "Spare Room heating turned on"
 
 - alias: "Climate - Spare Room - Inactive"
   trigger:
@@ -35,7 +31,3 @@
       data:
         entity_id: "climate.spare_room"
         temperature: 17
-    - service: "notify.telegram"
-      data:
-        title: "*Hass Climate Info*"
-        message: "Spare Room heating turned off"

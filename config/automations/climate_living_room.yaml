@@ -22,10 +22,6 @@
       data:
         entity_id: "climate.living_room"
         temperature: 21
-    - service: "notify.telegram"
-      data:
-        title: "*Hass Climate Info*"
-        message: "Living Room heating turned on"
 
 - alias: "Climate - Living Room - Weekend - Active"
   trigger:
@@ -49,10 +45,6 @@
       data:
         entity_id: "climate.living_room"
         temperature: 21
-    - service: "notify.telegram"
-      data:
-        title: "*Hass Climate Info*"
-        message: "Living Room heating turned on"
 
 - alias: "Climate - Living Room - Inactive"
   trigger:
@@ -67,7 +59,3 @@
       data:
         entity_id: "climate.living_room"
         temperature: 17
-    - service: "notify.telegram"
-      data:
-        title: "*Hass Climate Info*"
-        message: "Living Room heating turned off"

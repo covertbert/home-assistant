@@ -18,10 +18,6 @@
       data:
         entity_id: "climate.landing"
         temperature: 21
-    - service: "notify.telegram"
-      data:
-        title: "*Hass Climate Info*"
-        message: "Landing heating turned on"
 
 - alias: "Climate - Landing - Inactive"
   trigger:
@@ -36,7 +32,3 @@
       data:
         entity_id: "climate.landing"
         temperature: 17
-    - service: "notify.telegram"
-      data:
-        title: "*Hass Climate Info*"
-        message: "Landing heating turned off"
