@@ -4,4 +4,5 @@
     light.front:
       state: "on"
       profile: "relax"
-    light.back: "off"
+    light.back:
+      state: "off"
