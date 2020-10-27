@@ -5,40 +5,51 @@ name: "Master"
 on:
   push:
     branches:
-      - "master"
+      - "config-refactor"
 
 jobs:
-  config_check:
-    name: "Check Home Assistant Config"
-    runs-on: "ubuntu-latest"
-    steps:
-      - name: "Getting configuration from GitHub"
-        uses: "actions/checkout@v1"
-      - name: "Copy stubbed secrets"
-        run: "mv ci/mock_secrets.yaml secrets.yaml"
-      - name: "Copy stubbed ssl certs"
-        run: "mv ci/ssl/ ssl/"
-      - name: "Check HA config"
-        uses: "docker://homeassistant/home-assistant:stable"
-        with:
-          args: >
-            python -m homeassistant --script check_config --config ./ --info all
-  static_checks:
-    name: "Perform Static Analysis"
+  # config_check:
+  #   name: "Check Home Assistant Config"
+  #   runs-on: "ubuntu-latest"
+  #   steps:
+  #     - name: "Getting configuration from GitHub"
+  #       uses: "actions/checkout@v1"
+  #     - name: "Copy stubbed secrets"
+  #       run: "mv ci/mock_secrets.yaml secrets.yaml"
+  #     - name: "Copy stubbed ssl certs"
+  #       run: "mv ci/ssl/ ssl/"
+  #     - name: "Check HA config"
+  #       uses: "docker://homeassistant/home-assistant:stable"
+  #       with:
+  #         args: >
+  #           python -m homeassistant --script check_config --config ./ --info all
+  # static_checks:
+  #   name: "Perform Static Analysis"
+  #   runs-on: "ubuntu-latest"
+  #   env:
+  #     SKIP: "home-assistant-config-check, shfmt"
+  #   steps:
+  #     - name: "Getting configuration from GitHub"
+  #       uses: "actions/checkout@v1"
+  #     - name: "Setup Python"
+  #       uses: "actions/setup-python@v2"
+  #     - name: "Run pre-commit hooks"
+  #       uses: "pre-commit/action@v2.0.0"
+  deploy:
+    name: "Deploy Config"
     runs-on: "ubuntu-latest"
     env:
-      SKIP: "home-assistant-config-check, shfmt"
+      SSH_USER: "${{ secrets.SSH_USER }}"
+      SSH_HOST: "${{ secrets.SSH_HOST }}"
+    # needs: ["config_check", "static_checks"]
     steps:
       - name: "Getting configuration from GitHub"
         uses: "actions/checkout@v1"
-      - name: "Setup Python"
-        uses: "actions/setup-python@v2"
-      - name: "Run pre-commit hooks"
-        uses: "pre-commit/action@v2.0.0"
-  deploy:
-    name: "Deploy Config via Git Pull Addon"
-    runs-on: "ubuntu-latest"
-    needs: ["config_check", "static_checks"]
-    steps:
-      - name: "Trigger git pull deploy"
-        run: "curl -X POST ${{ secrets.GIT_PULL_DEPLOY_URL }}"
+      - name: "Install SSH key"
+        uses: "shimataro/ssh-key-action@v2"
+        with:
+          key: "${{ secrets.SSH_KEY }}"
+          known_hosts: "${{ secrets.KNOWN_HOSTS }}"
+      - name: "Sync config files"
+        # yamllint disable-line rule:quoted-strings
+        run: ./scripts/sync-config.sh "$SSH_USER" "$SSH_HOST"
