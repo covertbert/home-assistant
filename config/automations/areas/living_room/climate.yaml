@@ -23,7 +23,7 @@
     - choose:
         - conditions:
             - condition: "state"
-              entity_id: "input_select.home_state"
+              entity_id: "input_select.day_state"
               state: "Afternoon"
             - condition: "state"
               entity_id: "input_select.home_state"
@@ -36,7 +36,7 @@
 
         - conditions:
             - condition: "state"
-              entity_id: "input_select.home_state"
+              entity_id: "input_select.day_state"
               state: "Evening"
             - condition: "state"
               entity_id: "input_select.home_state"
