@@ -21,6 +21,4 @@
       value_template: "{{ not is_state('input_select.day_state', 'Night') }}"
   action:
     - service: "light.turn_on"
-      entity_id: "light.landing"
-    - service: "light.turn_on"
       entity_id: "light.living_room"
