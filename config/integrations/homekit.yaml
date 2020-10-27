@@ -1,15 +1,6 @@
 ---
 homekit:
+  auto_start: true
+  name: "Home Assistant"
   filter:
-    include_entities:
-      - "light.gerald"
-      - "light.stoof"
-      - "light.bertie"
-      - "light.front"
-      - "light.back"
-      - "light.landing"
-      - "climate.bedroom"
-      - "climate.landing"
-      - "climate.living_room"
-      - "climate.spare_room"
-      - "input_boolean.cinema_state"
+    include_entities: !include_dir_merge_list "../homekit"
