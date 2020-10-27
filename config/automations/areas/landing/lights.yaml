@@ -5,10 +5,13 @@
   trigger:
     - platform: "numeric_state"
       entity_id: "sensor.hue_motion_sensor_1_light_level"
-      below: 80
+      below: 70
     - platform: "state"
       entity_id: "input_select.home_state"
       to: "Away"
+    - platform: "state"
+      entity_id: "input_select.home_state"
+      to: "Home"
 
   action:
     - choose:
@@ -16,6 +19,9 @@
             - condition: "state"
               entity_id: "input_select.home_state"
               state: "Home"
+            - condition: "numeric_state"
+              entity_id: "sensor.hue_motion_sensor_1_light_level"
+              below: 70
             - condition: "template"
               value_template: "{{ not is_state('input_select.day_state', 'Night') }}"
           sequence:
