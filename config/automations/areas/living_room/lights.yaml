@@ -1,0 +1,27 @@
+---
+- alias: "Lights - Living Room"
+  mode: "queued"
+
+  trigger:
+    - platform: "numeric_state"
+      entity_id: "sensor.hue_motion_sensor_1_light_level"
+      below: 70
+    - platform: "state"
+      entity_id: "input_select.home_state"
+      to: "Away"
+
+  action:
+    - choose:
+        - conditions:
+            - condition: "state"
+              entity_id: "input_select.home_state"
+              state: "Home"
+            - condition: "template"
+              value_template: "{{ not is_state('input_select.day_state', 'Night') }}"
+          sequence:
+            - service: "light.turn_on"
+              entity_id: "light.living_room"
+
+      default:
+        - service: "light.turn_off"
+          entity_id: "light.living_room"
