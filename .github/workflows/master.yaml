@@ -8,40 +8,40 @@ on:
       - "config-refactor"
 
 jobs:
-  # config_check:
-  #   name: "Check Home Assistant Config"
-  #   runs-on: "ubuntu-latest"
-  #   steps:
-  #     - name: "Getting configuration from GitHub"
-  #       uses: "actions/checkout@v1"
-  #     - name: "Copy stubbed secrets"
-  #       run: "mv ci/mock_secrets.yaml secrets.yaml"
-  #     - name: "Copy stubbed ssl certs"
-  #       run: "mv ci/ssl/ ssl/"
-  #     - name: "Check HA config"
-  #       uses: "docker://homeassistant/home-assistant:stable"
-  #       with:
-  #         args: >
-  #           python -m homeassistant --script check_config --config ./ --info all
-  # static_checks:
-  #   name: "Perform Static Analysis"
-  #   runs-on: "ubuntu-latest"
-  #   env:
-  #     SKIP: "home-assistant-config-check, shfmt"
-  #   steps:
-  #     - name: "Getting configuration from GitHub"
-  #       uses: "actions/checkout@v1"
-  #     - name: "Setup Python"
-  #       uses: "actions/setup-python@v2"
-  #     - name: "Run pre-commit hooks"
-  #       uses: "pre-commit/action@v2.0.0"
+  config_check:
+    name: "Check Home Assistant Config"
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Getting configuration from GitHub"
+        uses: "actions/checkout@v1"
+      - name: "Copy stubbed secrets"
+        run: "mv ci/mock_secrets.yaml secrets.yaml"
+      - name: "Copy stubbed ssl certs"
+        run: "mv ci/ssl/ ssl/"
+      - name: "Check HA config"
+        uses: "docker://homeassistant/home-assistant:stable"
+        with:
+          args: >
+            python -m homeassistant --script check_config --config ./ --info all
+  static_checks:
+    name: "Perform Static Analysis"
+    runs-on: "ubuntu-latest"
+    env:
+      SKIP: "home-assistant-config-check, shfmt"
+    steps:
+      - name: "Getting configuration from GitHub"
+        uses: "actions/checkout@v1"
+      - name: "Setup Python"
+        uses: "actions/setup-python@v2"
+      - name: "Run pre-commit hooks"
+        uses: "pre-commit/action@v2.0.0"
   deploy:
     name: "Deploy Config"
     runs-on: "ubuntu-latest"
     env:
       SSH_USER: "${{ secrets.SSH_USER }}"
       SSH_HOST: "${{ secrets.SSH_HOST }}"
-    # needs: ["config_check", "static_checks"]
+    needs: ["config_check", "static_checks"]
     steps:
       - name: "Getting configuration from GitHub"
         uses: "actions/checkout@v1"
@@ -53,3 +53,5 @@ jobs:
       - name: "Sync config files"
         # yamllint disable-line rule:quoted-strings
         run: ./scripts/sync-config.sh "$SSH_USER" "$SSH_HOST"
+      - name: "Trigger HA restart"
+        run: "curl -X POST ${{ secrets.GIT_PULL_DEPLOY_URL }}"
