@@ -4,7 +4,7 @@ name: "Master"
 on:
   push:
     branches:
-      - "config-refactor"
+      - "master"
 
 jobs:
   config_check:
@@ -22,6 +22,7 @@ jobs:
         with:
           args: >
             python -m homeassistant --script check_config --config ./config --info all
+
   static_checks:
     name: "Perform Static Analysis"
     runs-on: "ubuntu-latest"
@@ -34,6 +35,7 @@ jobs:
         uses: "actions/setup-python@v2"
       - name: "Run pre-commit hooks"
         uses: "pre-commit/action@v2.0.0"
+
   deploy:
     name: "Deploy Config"
     runs-on: "ubuntu-latest"

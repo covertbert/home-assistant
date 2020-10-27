@@ -32,4 +32,8 @@ I have a Github Actions CI pipeline that runs on pushes to the `master` branch.
 
 The pipeline will run all my `pre-commit` hooks for static analysis and to enforce consistency. It also runs my config against a dockerised version of Home Assistant to make sure none of the changes I've made are incompatible with it.
 
-If all the checks pass, the pipeline will trigger the [git pull addon](https://github.com/home-assistant/hassio-addons/blob/master/git_pull/README.md) which will pull the latest changes from the master branch and restart the server.
+If all the checks pass, the pipeline will `rsync` the updated config and restart the server.
+
+### Local deployment
+
+To perform a manual local deployment run `./scripts/sync-config.sh "$user" "$host" "$manualRestartWebhookURL"`. This requires your public `ssh` key to be authorized by the server.
