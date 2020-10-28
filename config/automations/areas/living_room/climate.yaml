@@ -27,6 +27,19 @@
         - conditions:
             - condition: "state"
               entity_id: "input_select.day_state"
+              state: "Morning"
+            - condition: "state"
+              entity_id: "input_select.home_state"
+              state: "Home"
+          sequence:
+            - service: "climate.set_temperature"
+              data:
+                entity_id: "climate.living_room"
+                temperature: 18
+
+        - conditions:
+            - condition: "state"
+              entity_id: "input_select.day_state"
               state: "Afternoon"
             - condition: "state"
               entity_id: "input_select.home_state"
@@ -48,7 +61,7 @@
             - service: "climate.set_temperature"
               data:
                 entity_id: "climate.living_room"
-                temperature: 21
+                temperature: 20
 
       default:
         - service: "climate.turn_off"
