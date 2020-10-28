@@ -27,6 +27,10 @@
             - service: "light.turn_on"
               entity_id: "light.bedroom"
 
-      default:
-        - service: "light.turn_off"
-          entity_id: "light.bedroom"
+        - conditions:
+            - condition: "state"
+              entity_id: "input_select.home_state"
+              state: "Away"
+          sequence:
+            - service: "light.turn_off"
+              entity_id: "light.bedroom"
