@@ -27,7 +27,7 @@
               data:
                 entity_id: "climate.bedroom"
                 time_period: "02:00:00"
-                temperature: 21
+                temperature: 19
 
       default:
         - service: "climate.turn_off"
