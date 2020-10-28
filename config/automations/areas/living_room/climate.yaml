@@ -21,6 +21,9 @@
     - platform: "state"
       entity_id: "input_select.home_state"
       to: "Away"
+    - platform: "state"
+      entity_id: "sensor.living_room_open_window"
+      to: "True"
 
   action:
     - choose:
@@ -62,6 +65,16 @@
               data:
                 entity_id: "climate.living_room"
                 temperature: 20
+
+        - conditions:
+            - condition: "state"
+              entity_id: "sensor.living_room_open_window"
+              state: "True"
+          sequence:
+            - service: "notify.telegram"
+              data:
+                title: "*Hass Window Info*"
+                message: "Living room door or window open"
 
       default:
         - service: "climate.turn_off"
