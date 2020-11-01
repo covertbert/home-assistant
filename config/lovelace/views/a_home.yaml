@@ -8,85 +8,54 @@
     - "person.bertie"
 
   cards:
-    - type: "vertical-stack"
-      cards:
-        - title: "System State"
-          type: "entities"
-          entities:
-            - entity: "input_select.home_state"
-            - entity: "input_select.day_state"
-            - entity: "input_select.guests_state"
-        - title: "Lights"
-          type: "entities"
-          entities:
-            - entity: "light.bedroom"
-            - entity: "light.living_room"
-            - entity: "light.landing"
+    - title: "Living Room"
+      type: "glance"
+      entities:
+        - entity: "climate.living_room"
+        - entity: "sensor.living_room_temperature"
+        - entity: "sensor.living_room_humidity"
+        - entity: "light.back"
+        - entity: "light.front"
+        - entity: "media_player.living_room_tv"
+      show_icon: true
+      show_name: false
+      columns: 3
 
-    - type: "vertical-stack"
-      cards:
-        - title: "Climate"
-          type: "entities"
-          entities:
-            - entity: "climate.living_room"
-            - entity: "climate.landing"
-            - entity: "climate.bedroom"
-            - entity: "climate.spare_room"
-        - title: "Open Windows"
-          type: "entities"
-          entities:
-            - name: "Living Room"
-              entity: "sensor.living_room_open_window"
-              icon: "mdi:window-open"
-            - name: "Landing"
-              entity: "sensor.landing_open_window"
-              icon: "mdi:window-open"
-            - name: "Bedroom"
-              entity: "sensor.bedroom_open_window"
-              icon: "mdi:window-open"
-            - name: "Spare Room"
-              entity: "sensor.spare_room_open_window"
-              icon: "mdi:window-open"
+    - type: "weather-forecast"
+      entity: "weather.dark_sky"
 
-    - type: "vertical-stack"
-      cards:
-        - name: "Disk Usage"
-          type: "gauge"
-          entity: "sensor.disk_use_percent"
-          min: 0
-          max: 100
-          theme: "default"
-        - type: "entities"
-          entities:
-            - entity: "sensor.last_boot"
+    - title: "Bedroom"
+      type: "glance"
+      entities:
+        - entity: "climate.bedroom"
+        - entity: "sensor.bedroom_temperature"
+        - entity: "sensor.bedroom_humidity"
+        - entity: "light.bertie"
+        - entity: "light.stoof"
+        - entity: "light.gerald"
+      show_icon: true
+      show_name: false
+      show_state: true
+      columns: 3
 
-    - type: "vertical-stack"
-      cards:
-        - type: "custom:mini-graph-card"
-          hours_to_show: 24
-          points_per_hour: 2
-          entities:
-            - "sensor.memory_use_percent"
-          show:
-            labels: true
-          color_thresholds:
-            - value: 0
-              color: "#00ff00"
-            - value: 20
-              color: "#ffa500"
-            - value: 80
-              color: "#ff0000"
-        - type: "custom:mini-graph-card"
-          hours_to_show: 24
-          points_per_hour: 2
-          entities:
-            - "sensor.processor_use"
-          show:
-            labels: true
-          color_thresholds:
-            - value: 0
-              color: "#00ff00"
-            - value: 20
-              color: "#ffa500"
-            - value: 80
-              color: "#ff0000"
+    - title: "Landing"
+      type: "glance"
+      entities:
+        - entity: "climate.landing"
+        - entity: "sensor.landing_temperature"
+        - entity: "sensor.landing_humidity"
+        - entity: "light.landing"
+      show_icon: true
+      show_name: false
+
+    - type: "light"
+      entity: "light.all_lights"
+
+    - title: "Spare Room"
+      type: "glance"
+      entities:
+        - entity: "climate.spare_room"
+        - entity: "sensor.spare_room_temperature"
+        - entity: "sensor.spare_room_humidity"
+      show_icon: true
+      show_name: false
