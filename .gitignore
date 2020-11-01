@@ -1,3 +1,4 @@
 .DS_Store
 config/ssl
 config/secrets.yaml
+__pycache__
