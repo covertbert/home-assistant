@@ -3,9 +3,6 @@
   icon: "mdi:home"
   panel: false
   path: "default_view"
-  badges:
-    - "person.steph"
-    - "person.bertie"
   cards:
     - type: "vertical-stack"
       cards:
@@ -26,15 +23,19 @@
             - entity: "light.back"
           show_header_toggle: false
 
-        - title: "Spare Room"
+        - title: "Landing"
           type: "glance"
           entities:
-            - entity: "climate.spare_room"
-            - entity: "sensor.spare_room_temperature"
-            - entity: "sensor.spare_room_humidity"
+            - entity: "climate.landing"
+            - entity: "sensor.landing_temperature"
+            - entity: "sensor.landing_humidity"
           state_color: true
           show_icon: true
           show_name: false
+        - type: "entities"
+          entities:
+            - entity: "light.landing"
+          show_header_toggle: false
 
     - type: "vertical-stack"
       cards:
