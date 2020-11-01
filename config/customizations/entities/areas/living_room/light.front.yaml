@@ -1,0 +1,4 @@
+---
+light.front:
+  friendly_name: "Front"
+  icon: "mdi:lamp"

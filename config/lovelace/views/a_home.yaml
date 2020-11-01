@@ -6,20 +6,6 @@
   badges:
     - "person.steph"
     - "person.bertie"
-    - type: "entity-filter"
-      icon: "mdi:home"
-      show_name: false
-      entities:
-        - "input_select.home_state"
-      state_filter:
-        - "Home"
-    - type: "entity-filter"
-      icon: "mdi:home-outline"
-      show_name: false
-      entities:
-        - "input_select.home_state"
-      state_filter:
-        - "Away"
   cards:
     - type: "vertical-stack"
       cards:
@@ -30,9 +16,7 @@
             - entity: "sensor.living_room_temperature"
             - entity: "sensor.living_room_humidity"
             - entity: "light.back"
-              icon: "mdi:floor-lamp"
             - entity: "light.front"
-              icon: "mdi:lamp"
             - entity: "media_player.living_room_tv"
           show_icon: true
           show_name: false
@@ -44,7 +28,6 @@
             - entity: "sensor.landing_temperature"
             - entity: "sensor.landing_humidity"
             - entity: "light.landing"
-              icon: "mdi:floor-lamp"
           show_icon: true
           show_name: false
 
@@ -79,11 +62,8 @@
             - entity: "sensor.bedroom_temperature"
             - entity: "sensor.bedroom_humidity"
             - entity: "light.bertie"
-              icon: "mdi:lightbulb-cfl"
             - entity: "light.stoof"
-              icon: "mdi:lightbulb-cfl"
             - entity: "light.gerald"
-              icon: "mdi:lava-lamp"
           show_icon: true
           show_name: false
           show_state: true

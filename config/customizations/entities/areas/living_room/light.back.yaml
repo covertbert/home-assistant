@@ -1,0 +1,4 @@
+---
+light.back:
+  friendly_name: "Back"
+  icon: "mdi:floor-lamp"
