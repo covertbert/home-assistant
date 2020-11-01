@@ -6,7 +6,14 @@
   badges:
     - "person.steph"
     - "person.bertie"
-
+    - type: "entity-filter"
+      entity: "input_select.day_state"
+      icon: "mdi:home"
+      state_filter: "Home"
+    - type: "entity-filter"
+      entity: "input_select.day_state"
+      icon: "mdi:home-outline"
+      state_filter: "Away"
   cards:
     - type: "vertical-stack"
       cards:
