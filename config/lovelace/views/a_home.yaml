@@ -7,13 +7,17 @@
     - "person.steph"
     - "person.bertie"
     - type: "entity-filter"
-      entity: "input_select.day_state"
+      entities:
+        - "input_select.day_state"
       icon: "mdi:home"
-      state_filter: "Home"
+      state_filter:
+        - "Home"
     - type: "entity-filter"
-      entity: "input_select.day_state"
+      entities:
+        - "input_select.day_state"
       icon: "mdi:home-outline"
-      state_filter: "Away"
+      state_filter:
+        - "Away"
   cards:
     - type: "vertical-stack"
       cards:
@@ -25,12 +29,8 @@
             - entity: "sensor.living_room_humidity"
             - entity: "light.back"
               icon: "mdi:floor-lamp"
-              tap_action: "toggle"
-              hold_action: "more-info"
             - entity: "light.front"
               icon: "mdi:lamp"
-              tap_action: "toggle"
-              hold_action: "more-info"
             - entity: "media_player.living_room_tv"
           show_icon: true
           show_name: false
@@ -43,8 +43,6 @@
             - entity: "sensor.landing_humidity"
             - entity: "light.landing"
               icon: "mdi:floor-lamp"
-              tap_action: "toggle"
-              hold_action: "more-info"
           show_icon: true
           show_name: false
 
@@ -65,16 +63,10 @@
             - entity: "sensor.bedroom_humidity"
             - entity: "light.bertie"
               icon: "mdi:lightbulb-cfl"
-              tap_action: "toggle"
-              hold_action: "more-info"
             - entity: "light.stoof"
               icon: "mdi:lightbulb-cfl"
-              tap_action: "toggle"
-              hold_action: "more-info"
             - entity: "light.gerald"
               icon: "mdi:lava-lamp"
-              tap_action: "toggle"
-              hold_action: "more-info"
           show_icon: true
           show_name: false
           show_state: true
