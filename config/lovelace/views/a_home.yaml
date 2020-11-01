@@ -16,8 +16,10 @@
             - entity: "climate.living_room"
             - entity: "sensor.living_room_temperature"
             - entity: "sensor.living_room_humidity"
-            - entity: "light.back"
-            - entity: "light.front"
+            - type: "light.back"
+              icon: "mdi:floor-lamp"
+            - type: "light.front"
+              icon: "mdi:lamp"
             - entity: "media_player.living_room_tv"
           show_icon: true
           show_name: false
