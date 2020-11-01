@@ -8,13 +8,13 @@
     - "person.bertie"
     - type: "entity-filter"
       entities:
-        - "input_select.day_state"
+        - "input_select.home_state"
       icon: "mdi:home"
       state_filter:
         - "Home"
     - type: "entity-filter"
       entities:
-        - "input_select.day_state"
+        - "input_select.home_state"
       icon: "mdi:home-outline"
       state_filter:
         - "Away"
