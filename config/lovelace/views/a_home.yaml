@@ -18,8 +18,12 @@
             - entity: "sensor.living_room_humidity"
             - entity: "light.back"
               icon: "mdi:floor-lamp"
+              tap_action: "toggle"
+              hold_action: "more-info"
             - entity: "light.front"
               icon: "mdi:lamp"
+              tap_action: "toggle"
+              hold_action: "more-info"
             - entity: "media_player.living_room_tv"
           show_icon: true
           show_name: false
@@ -31,6 +35,9 @@
             - entity: "sensor.landing_temperature"
             - entity: "sensor.landing_humidity"
             - entity: "light.landing"
+              icon: "mdi:floor-lamp"
+              tap_action: "toggle"
+              hold_action: "more-info"
           show_icon: true
           show_name: false
 
@@ -50,8 +57,17 @@
             - entity: "sensor.bedroom_temperature"
             - entity: "sensor.bedroom_humidity"
             - entity: "light.bertie"
+              icon: "mdi:lightbulb-cfl"
+              tap_action: "toggle"
+              hold_action: "more-info"
             - entity: "light.stoof"
+              icon: "mdi:lightbulb-cfl"
+              tap_action: "toggle"
+              hold_action: "more-info"
             - entity: "light.gerald"
+              icon: "mdi:lava-lamp"
+              tap_action: "toggle"
+              hold_action: "more-info"
           show_icon: true
           show_name: false
           show_state: true
