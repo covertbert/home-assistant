@@ -15,19 +15,24 @@
             - entity: "climate.living_room"
             - entity: "sensor.living_room_temperature"
             - entity: "sensor.living_room_humidity"
-            - entity: "light.back"
-            - entity: "light.front"
             - entity: "media_player.living_room_tv"
+          state_color: true
           show_icon: true
           show_name: false
-          columns: 3
-        - title: "Landing"
+          columns: 4
+        - type: "entities"
+          entities:
+            - entity: "light.front"
+            - entity: "light.back"
+          show_header_toggle: false
+
+        - title: "Spare Room"
           type: "glance"
           entities:
-            - entity: "climate.landing"
-            - entity: "sensor.landing_temperature"
-            - entity: "sensor.landing_humidity"
-            - entity: "light.landing"
+            - entity: "climate.spare_room"
+            - entity: "sensor.spare_room_temperature"
+            - entity: "sensor.spare_room_humidity"
+          state_color: true
           show_icon: true
           show_name: false
 
@@ -61,13 +66,18 @@
             - entity: "climate.bedroom"
             - entity: "sensor.bedroom_temperature"
             - entity: "sensor.bedroom_humidity"
-            - entity: "light.bertie"
-            - entity: "light.stoof"
-            - entity: "light.gerald"
+          state_color: true
           show_icon: true
           show_name: false
           show_state: true
           columns: 3
+        - type: "entities"
+          entities:
+            - entity: "light.bertie"
+            - entity: "light.stoof"
+            - entity: "light.gerald"
+          show_header_toggle: false
+
         - title: "Spare Room"
           type: "glance"
           entities:
