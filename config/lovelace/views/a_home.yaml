@@ -59,6 +59,7 @@
             - entity: "climate.bedroom"
             - entity: "sensor.bedroom_temperature"
             - entity: "sensor.bedroom_humidity"
+            - entity: "media_player.bedroom_speaker"
           state_color: true
           show_icon: true
           show_name: false
