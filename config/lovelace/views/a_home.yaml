@@ -64,7 +64,7 @@
           show_icon: true
           show_name: false
           show_state: true
-          columns: 3
+          columns: 4
         - type: "entities"
           entities:
             - entity: "light.bertie"
