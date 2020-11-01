@@ -7,15 +7,17 @@
     - "person.steph"
     - "person.bertie"
     - type: "entity-filter"
+      icon: "mdi:home"
+      show_name: false
       entities:
         - "input_select.home_state"
-      icon: "mdi:home"
       state_filter:
         - "Home"
     - type: "entity-filter"
+      icon: "mdi:home-outline"
+      show_name: false
       entities:
         - "input_select.home_state"
-      icon: "mdi:home-outline"
       state_filter:
         - "Away"
   cards:
