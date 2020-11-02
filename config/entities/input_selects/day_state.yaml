@@ -1,6 +1,6 @@
 ---
 day_state:
-  name: "Day state"
+  name: "Time of Day"
   options:
     - "Morning"
     - "Afternoon"
