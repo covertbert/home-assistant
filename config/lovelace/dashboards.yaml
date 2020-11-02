@@ -1,0 +1,14 @@
+---
+desktop-dashboard:
+  title: "Desktop Dashboard"
+  mode: "yaml"
+  icon: "mdi:monitor"
+  show_in_sidebar: true
+  filename: "lovelace/dashboards/desktop.yaml"
+
+mobile-dashboard:
+  mode: "yaml"
+  title: "Mobile Dashboard"
+  icon: "mdi:cellphone-iphone"
+  show_in_sidebar: true
+  filename: "lovelace/dashboards/desktop.yaml"

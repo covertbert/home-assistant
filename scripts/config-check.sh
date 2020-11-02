@@ -17,7 +17,6 @@ function checkHaConfig() {
     echo "$configCheckOutput"
     exit 1
   else
-    echo "$configCheckOutput"
     echo "Config looks lit 🔥"
   fi
 }
