@@ -10,4 +10,4 @@ cards:
       - entity: "input_select.guests_state"
     show_state: true
     show_icon: true
-    show_name: true
+    show_name: false
