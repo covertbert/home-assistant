@@ -1,6 +1,6 @@
 ---
 home_state:
-  name: "Home & Away"
+  name: "Home/Away"
   options:
     - "Home"
     - "Away"
