@@ -6,6 +6,6 @@ path: "default_view"
 cards:
   - !include "../cards/areas/living_room.yaml"
   - !include "../cards/areas/landing.yaml"
-  - !include "../cards/layouts/header_desktop.yaml"
+  - !include "../cards/layouts/header.desktop.yaml"
   - !include "../cards/areas/bedroom.yaml"
   - !include "../cards/areas/spare_room.yaml"
