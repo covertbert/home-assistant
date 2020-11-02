@@ -11,4 +11,4 @@ mobile-dashboard:
   title: "Mobile Dashboard"
   icon: "mdi:cellphone-iphone"
   show_in_sidebar: true
-  filename: "lovelace/dashboards/desktop.yaml"
+  filename: "lovelace/dashboards/mobile.yaml"

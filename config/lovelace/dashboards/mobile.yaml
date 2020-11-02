@@ -1,3 +1,3 @@
 ---
 views:
-  - !include "../views/home-desktop.yaml"
+  - !include "../views/home_mobile.yaml"
