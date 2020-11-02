@@ -28,35 +28,8 @@
   action:
     - choose:
         - conditions:
-            - condition: "state"
-              entity_id: "input_select.day_state"
-              state: "Morning"
-            - condition: "state"
-              entity_id: "input_select.home_state"
-              state: "Home"
-          sequence:
-            - service: "climate.set_temperature"
-              data:
-                entity_id: "climate.living_room"
-                temperature: 19
-
-        - conditions:
-            - condition: "state"
-              entity_id: "input_select.day_state"
-              state: "Afternoon"
-            - condition: "state"
-              entity_id: "input_select.home_state"
-              state: "Home"
-          sequence:
-            - service: "climate.set_temperature"
-              data:
-                entity_id: "climate.living_room"
-                temperature: 20
-
-        - conditions:
-            - condition: "state"
-              entity_id: "input_select.day_state"
-              state: "Evening"
+            - condition: "template"
+              value_template: "{{ not is_state('input_select.day_state', 'Night') }}"
             - condition: "state"
               entity_id: "input_select.home_state"
               state: "Home"
