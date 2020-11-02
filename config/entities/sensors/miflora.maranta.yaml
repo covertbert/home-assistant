@@ -1,0 +1,4 @@
+---
+- name: "Maranta"
+  platform: "miflora"
+  mac: !secret "miflora_living_room_maranta"
