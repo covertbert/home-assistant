@@ -1,9 +1,0 @@
----
-lovelace:
-  mode: "storage"
-  dashboards: !include "../lovelace/dashboards.yaml"
-  resources:
-    - url: "/local/mini-graph-card-bundle.js?v=0.9.4"
-      type: "module"
-    - url: "/local/mini-media-player-bundle.js?v=1.11.0"
-      type: "module"

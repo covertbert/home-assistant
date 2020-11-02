@@ -1,0 +1,6 @@
+---
+title: "Plants"
+icon: "mdi:home"
+panel: false
+path: "default_view"
+cards: !include_dir_list "../cards/plants"

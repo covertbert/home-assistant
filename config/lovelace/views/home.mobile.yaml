@@ -1,0 +1,11 @@
+---
+title: "Home - Mobile"
+icon: "mdi:home"
+panel: false
+path: "default_view"
+cards:
+  - !include "../cards/layouts/header_mobile.yaml"
+  - !include "../cards/areas/living_room.yaml"
+  - !include "../cards/areas/landing.yaml"
+  - !include "../cards/areas/bedroom.yaml"
+  - !include "../cards/areas/spare_room.yaml"
