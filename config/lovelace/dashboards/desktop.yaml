@@ -1,2 +1,4 @@
 ---
-views: !include_dir_list "../views"
+views:
+  - !include "../views/home-desktop.yaml"
+  - !include "../views/system.yaml"
