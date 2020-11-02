@@ -1,6 +1,6 @@
 ---
 title: "Plants"
-icon: "mdi:home"
+icon: "mdi:flower-outline"
 panel: false
-path: "default_view"
+path: "plants"
 cards: !include_dir_list "../cards/plants"
