@@ -14,3 +14,8 @@ cards:
 
   - type: "weather-forecast"
     entity: "weather.dark_sky"
+
+  - type: "calendar"
+    entities:
+      - "calendar.blackmanrgh_gmail_com"
+    initial_view: "dayGridMonth"
