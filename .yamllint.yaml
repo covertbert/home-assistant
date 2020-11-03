@@ -5,7 +5,7 @@ rules:
   quoted-strings:
     quote-type: "double"
   line-length:
-    max: 90
+    max: 100
 
 ignore: |
   .bulldozer.yml
