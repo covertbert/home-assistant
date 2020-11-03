@@ -25,9 +25,6 @@
             - condition: "state"
               entity_id: "input_select.home_state"
               state: "Home"
-            - condition: "state"
-              entity_id: "input_select.guests_state"
-              state: "True"
           sequence:
             - service: "tado.set_climate_timer"
               data:
