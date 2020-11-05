@@ -1,0 +1,7 @@
+---
+- alias: "Manual Git Pull"
+  trigger:
+    platform: "webhook"
+    webhook_id: "manual_restart"
+  action:
+    - service: "homeassistant.restart"
