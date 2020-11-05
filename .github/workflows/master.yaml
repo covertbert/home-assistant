@@ -38,6 +38,9 @@ jobs:
         uses: "actions/setup-python@v2"
       - name: "Run pre-commit hooks"
         uses: "pre-commit/action@v2.0.0"
+      - name: Notify if CI failure
+        # if: ${{ failure() }}
+        run: curl -X POST "${{ secrets.HA_WEBHOOK_URL }}/ci_failure"
 
   deploy:
     name: "Deploy Config"
