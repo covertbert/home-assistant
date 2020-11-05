@@ -39,16 +39,6 @@
                 entity_id: "climate.living_room"
                 temperature: 21
 
-        - conditions:
-            - condition: "state"
-              entity_id: "sensor.living_room_open_window"
-              state: "True"
-          sequence:
-            - service: "notify.telegram"
-              data:
-                title: "*Hass Window Info*"
-                message: "Living room door or window open"
-
       default:
         - service: "climate.turn_off"
           data:
