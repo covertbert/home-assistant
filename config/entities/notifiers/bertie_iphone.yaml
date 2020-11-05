@@ -1,5 +1,5 @@
 ---
-platform: "group"
-name: "bertie_iphone"
-services:
-  - service: "mobile_app_iphone"
+- name: "bertie_iphone"
+  platform: "group"
+  services:
+    - service: "mobile_app_iphone"
