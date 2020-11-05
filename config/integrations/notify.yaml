@@ -1,12 +1,2 @@
 ---
-notify:
-  - name: "telegram"
-    platform: "telegram"
-    chat_id: 474430844
-
-  - name: "boof_notification_group"
-    platform: "group"
-    services:
-      - service: "mobile_app_iphone"
-      - service: "mobile_app_stephanie_s_iphone"
-      - service: "mobile_app_berties_macbook_pro"
+notify: !include_dir_merge_list "../entities/notifiers"

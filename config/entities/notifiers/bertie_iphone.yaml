@@ -1,0 +1,5 @@
+---
+platform: "group"
+name: "bertie_iphone"
+services:
+  - service: "mobile_app_iphone"

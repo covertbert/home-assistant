@@ -17,7 +17,7 @@
               entity_id: "sensor.maranta_conductivity"
               below: 120
           sequence:
-            - service: "notify.boof_notification_group"
+            - service: "notify.boof_group"
               data:
                 message: "🍔 The Prayer Plant is hungry"
 
@@ -26,6 +26,6 @@
               entity_id: "sensor.maranta_moisture"
               below: 20
           sequence:
-            - service: "notify.boof_notification_group"
+            - service: "notify.boof_group"
               data:
                 message: "💦 The Prayer Plant is thirsty"
