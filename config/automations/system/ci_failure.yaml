@@ -1,0 +1,9 @@
+---
+- alias: "CI Failure"
+  trigger:
+    platform: "webhook"
+    webhook_id: "ci_failure"
+  action:
+    - service: "notify.bertie_iphone"
+      data:
+        message: "💔 The CI pipeline has failed"
