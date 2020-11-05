@@ -1,5 +1,5 @@
 ---
-- alias: "Manual Git Pull"
+- alias: "Manual Restart"
   trigger:
     platform: "webhook"
     webhook_id: "manual_restart"
