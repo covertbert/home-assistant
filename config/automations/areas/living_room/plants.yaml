@@ -1,0 +1,31 @@
+---
+- alias: "Plant Health - Living Room"
+  mode: "single"
+
+  trigger:
+    - platform: "numeric_state"
+      entity_id: "sensor.maranta_conductivity"
+      below: 120
+    - platform: "numeric_state"
+      entity_id: "sensor.maranta_moisture"
+      below: 20
+
+  action:
+    - choose:
+        - conditions:
+            - condition: "numeric_state"
+              entity_id: "sensor.maranta_conductivity"
+              below: 120
+          sequence:
+            - service: "notify.mobile_app_iphone"
+              data:
+                message: "🍔 The Prayer Plant is hungry"
+
+        - conditions:
+            - condition: "numeric_state"
+              entity_id: "sensor.maranta_moisture"
+              below: 20
+          sequence:
+            - service: "notify.mobile_app_iphone"
+              data:
+                message: "💦 The Prayer Plant is thirsty"
