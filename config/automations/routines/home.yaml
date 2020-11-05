@@ -5,10 +5,9 @@
     entity_id: "group.family"
     to: "home"
   action:
-    - service: "notify.telegram"
+    - service: "notify.bertie_iphone"
       data:
-        title: "*Hass System Info*"
-        message: "Hass state set to 'Home'"
+        message: "🏡 Home state set to 'Home'"
     - service: "input_select.select_option"
       data:
         entity_id: "input_select.home_state"
