@@ -24,7 +24,7 @@ jobs:
             python -m homeassistant --script check_config --config ./config --info all
       - name: Notify if CI failure
         # if: ${{ failure() }}
-        run: curl -X POST "$HA_WEBHOOK_URL/ci_failure"
+        run: curl -X POST "${{ secrets.HA_WEBHOOK_URL }}/ci_failure"
 
   static_checks:
     name: "Perform Static Analysis"
@@ -45,7 +45,6 @@ jobs:
     env:
       SSH_USER: "${{ secrets.SSH_USER }}"
       SSH_HOST: "${{ secrets.SSH_HOST }}"
-      HA_RESTART_WEBHOOK_URL: "${{ secrets.HA_RESTART_WEBHOOK_URL }}"
     needs: ["config_check", "static_checks"]
     steps:
       - name: "Getting configuration from GitHub"
@@ -56,4 +55,4 @@ jobs:
           key: "${{ secrets.SSH_KEY }}"
           known_hosts: "${{ secrets.KNOWN_HOSTS }}"
       - name: "Sync config & restart"
-        run: ./scripts/sync-config.sh "$SSH_USER" "$SSH_HOST" "$HA_WEBHOOK_URL/manual_restart"
+        run: ./scripts/sync-config.sh "$SSH_USER" "$SSH_HOST" "${{ secrets.HA_WEBHOOK_URL }}/manual_restart"
