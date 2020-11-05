@@ -1,6 +1,0 @@
----
-- name: "Concentrate"
-  entities:
-    light.living_room:
-      state: "on"
-      profile: "concentrate"
