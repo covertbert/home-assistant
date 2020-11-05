@@ -6,4 +6,4 @@
   action:
     - service: "notify.bertie_iphone"
       data:
-        message: "🦑 Home Assistant is shutting down"
+        message: "🌶 Home Assistant is shutting down"

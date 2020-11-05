@@ -6,4 +6,4 @@
   action:
     - service: "notify.bertie_iphone"
       data:
-        message: "🦧 Home Assistant has started"
+        message: "🌵 Home Assistant has started"
