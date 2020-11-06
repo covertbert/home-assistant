@@ -1,0 +1,11 @@
+---
+- alias: "Sensor Battery - Living Room - Maranta"
+  trigger:
+  - entity_id: "sensor.maranta_battery"
+    for: "24:00:00"
+    platform: "state"
+    to: "unavailable"
+  action:
+    - service: "notify.bertie_iphone"
+      data:
+        message: "🔋 The Prayer Plant sensor battery state is unreachable"
