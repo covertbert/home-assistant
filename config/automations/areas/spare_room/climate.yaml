@@ -30,7 +30,7 @@
               data:
                 entity_id: "climate.spare_room"
                 time_period: "02:00:00"
-                temperature: 21
+                temperature: 19
 
         - conditions:
             - condition: "state"

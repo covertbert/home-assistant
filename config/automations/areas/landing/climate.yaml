@@ -28,7 +28,7 @@
             - service: "climate.set_temperature"
               data:
                 entity_id: "climate.landing"
-                temperature: 21
+                temperature: 20
 
       default:
         - service: "climate.turn_off"
