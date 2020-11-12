@@ -10,7 +10,7 @@ _Open source home automation that puts local control and privacy first. Powered 
 
 The philosophy I have taken with my project structure is [similar Frenck's](https://github.com/frenck/home-assistant-config), in that I have modularised everything to the extent that each entity has its own file; thus creating a true separation of concerns.
 
-## Project setup
+## Development
 
 This project uses [pre-commit](https://pre-commit.com/) to format files in order to maintain consistency.
 
