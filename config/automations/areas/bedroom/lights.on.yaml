@@ -1,28 +1,28 @@
 ---
-- alias: 'Lights On - Bedroom'
-  mode: 'queued'
+- alias: "Lights On - Bedroom"
+  mode: "queued"
 
   trigger:
-    - platform: 'state'
-      entity_id: 'binary_sensor.hue_motion_sensor_1_motion'
-      to: 'on'
+    - platform: "state"
+      entity_id: "binary_sensor.hue_motion_sensor_1_motion"
+      to: "on"
 
   action:
     - choose:
         - conditions:
-            - condition: 'state'
-              entity_id: 'input_select.home_state'
-              state: 'Home'
-            - condition: 'numeric_state'
-              entity_id: 'sensor.hue_motion_sensor_1_light_level'
+            - condition: "state"
+              entity_id: "input_select.home_state"
+              state: "Home"
+            - condition: "numeric_state"
+              entity_id: "sensor.hue_motion_sensor_1_light_level"
               below: 50
-            - condition: 'state'
-              entity_id: 'light.bedroom'
-              state: 'off'
-            - condition: 'time'
-              after: '12:00:00'
-            - condition: 'time'
-              before: '21:00:00'
+            - condition: "state"
+              entity_id: "light.bedroom"
+              state: "off"
+            - condition: "time"
+              after: "12:00:00"
+            - condition: "time"
+              before: "21:00:00"
           sequence:
-            - service: 'light.turn_on'
-              entity_id: 'light.bedroom'
+            - service: "light.turn_on"
+              entity_id: "light.bedroom"

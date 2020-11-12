@@ -1,10 +1,10 @@
 ---
-- platform: 'group'
-  name: 'All Lights'
+- platform: "group"
+  name: "All Lights"
   entities:
-    - 'light.back'
-    - 'light.front'
-    - 'light.stoof'
-    - 'light.gerald'
-    - 'light.bertie'
-    - 'light.landing'
+    - "light.back"
+    - "light.front"
+    - "light.stoof"
+    - "light.gerald"
+    - "light.bertie"
+    - "light.landing"

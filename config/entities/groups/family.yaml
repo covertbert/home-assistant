@@ -1,9 +1,9 @@
 ---
 family:
-  name: 'Family'
+  name: "Family"
   entities:
-    - 'person.steph'
-    - 'person.bertie'
-    - 'person.freddie'
-    - 'person.papa'
-    - 'person.mama'
+    - "person.steph"
+    - "person.bertie"
+    - "person.freddie"
+    - "person.papa"
+    - "person.mama"

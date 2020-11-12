@@ -1,5 +1,5 @@
 ---
-- 'light.front'
-- 'light.back'
-- 'climate.living_room'
-- 'input_boolean.cinema_state'
+- "light.front"
+- "light.back"
+- "climate.living_room"
+- "input_boolean.cinema_state"

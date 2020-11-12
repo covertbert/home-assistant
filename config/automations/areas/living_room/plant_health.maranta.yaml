@@ -1,31 +1,31 @@
 ---
-- alias: 'Plant Health - Living Room - Maranta'
-  mode: 'single'
+- alias: "Plant Health - Living Room - Maranta"
+  mode: "single"
 
   trigger:
-    - platform: 'numeric_state'
-      entity_id: 'sensor.maranta_conductivity'
+    - platform: "numeric_state"
+      entity_id: "sensor.maranta_conductivity"
       below: 110
-    - platform: 'numeric_state'
-      entity_id: 'sensor.maranta_moisture'
+    - platform: "numeric_state"
+      entity_id: "sensor.maranta_moisture"
       below: 20
 
   action:
     - choose:
         - conditions:
-            - condition: 'numeric_state'
-              entity_id: 'sensor.maranta_conductivity'
+            - condition: "numeric_state"
+              entity_id: "sensor.maranta_conductivity"
               below: 110
           sequence:
-            - service: 'notify.boof_group'
+            - service: "notify.boof_group"
               data:
-                message: '🍔 The Prayer Plant is hungry'
+                message: "🍔 The Prayer Plant is hungry"
 
         - conditions:
-            - condition: 'numeric_state'
-              entity_id: 'sensor.maranta_moisture'
+            - condition: "numeric_state"
+              entity_id: "sensor.maranta_moisture"
               below: 20
           sequence:
-            - service: 'notify.boof_group'
+            - service: "notify.boof_group"
               data:
-                message: '💦 The Prayer Plant is thirsty'
+                message: "💦 The Prayer Plant is thirsty"

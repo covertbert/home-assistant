@@ -1,13 +1,13 @@
 ---
-type: 'vertical-stack'
+type: "vertical-stack"
 cards:
-  - type: 'glance'
+  - type: "glance"
     entities:
-      - entity: 'person.bertie'
-      - entity: 'person.steph'
-      - entity: 'input_select.home_state'
-      - entity: 'input_select.day_state'
-      - entity: 'input_select.guests_state'
+      - entity: "person.bertie"
+      - entity: "person.steph"
+      - entity: "input_select.home_state"
+      - entity: "input_select.day_state"
+      - entity: "input_select.guests_state"
     show_state: true
     show_icon: true
     show_name: false

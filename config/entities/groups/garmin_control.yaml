@@ -1,8 +1,8 @@
 ---
 garmin_control:
-  name: 'Garmin Control'
+  name: "Garmin Control"
   entities:
-    - 'light.all_lights'
-    - 'light.bedroom'
-    - 'light.landing'
-    - 'light.living_room'
+    - "light.all_lights"
+    - "light.bedroom"
+    - "light.landing"
+    - "light.living_room"

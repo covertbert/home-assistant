@@ -1,7 +1,7 @@
 ---
-- name: 'boof_group'
-  platform: 'group'
+- name: "boof_group"
+  platform: "group"
   services:
-    - service: 'bertie_iphone'
-    - service: 'stoof_iphone'
-    - service: 'bertie_macbook'
+    - service: "bertie_iphone"
+    - service: "stoof_iphone"
+    - service: "bertie_macbook"

@@ -1,7 +1,7 @@
 ---
 home_state:
-  name: 'Home/Away'
+  name: "Home/Away"
   options:
-    - 'Home'
-    - 'Away'
-  icon: 'mdi:home-account'
+    - "Home"
+    - "Away"
+  icon: "mdi:home-account"

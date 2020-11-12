@@ -1,11 +1,11 @@
 ---
-- alias: 'Set Themes'
+- alias: "Set Themes"
   initial_state: true
   trigger:
-    platform: 'state'
-    entity_id: 'input_select.theme_select'
+    platform: "state"
+    entity_id: "input_select.theme_select"
   action:
-    - service: 'frontend.set_theme'
+    - service: "frontend.set_theme"
       data_template:
         name: >
           {{ trigger.to_state.state }}

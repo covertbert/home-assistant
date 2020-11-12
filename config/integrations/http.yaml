@@ -1,4 +1,4 @@
 ---
 http:
-  ssl_certificate: !secret 'ssl_fullchain'
-  ssl_key: !secret 'ssl_privkey'
+  ssl_certificate: !secret "ssl_fullchain"
+  ssl_key: !secret "ssl_privkey"

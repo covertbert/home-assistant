@@ -1,10 +1,10 @@
 ---
-- alias: 'Evening'
+- alias: "Evening"
   trigger:
-    platform: 'time'
-    at: '17:00:00'
+    platform: "time"
+    at: "17:00:00"
   action:
-    - service: 'input_select.select_option'
+    - service: "input_select.select_option"
       data:
-        entity_id: 'input_select.day_state'
-        option: 'Evening'
+        entity_id: "input_select.day_state"
+        option: "Evening"

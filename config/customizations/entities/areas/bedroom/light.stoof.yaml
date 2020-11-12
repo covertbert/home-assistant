@@ -1,4 +1,4 @@
 ---
 light.stoof:
-  friendly_name: 'Stoof'
-  icon: 'mdi:lightbulb-cfl'
+  friendly_name: "Stoof"
+  icon: "mdi:lightbulb-cfl"

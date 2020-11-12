@@ -1,4 +1,4 @@
 ---
 light.landing:
-  friendly_name: 'Floor Lamp'
-  icon: 'mdi:floor-lamp'
+  friendly_name: "Floor Lamp"
+  icon: "mdi:floor-lamp"

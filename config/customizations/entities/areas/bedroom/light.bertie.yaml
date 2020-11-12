@@ -1,4 +1,4 @@
 ---
 light.bertie:
-  friendly_name: 'Bertie'
-  icon: 'mdi:lightbulb-cfl'
+  friendly_name: "Bertie"
+  icon: "mdi:lightbulb-cfl"
