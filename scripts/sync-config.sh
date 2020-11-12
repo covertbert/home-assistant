@@ -14,7 +14,7 @@ function syncFiles() {
 
   rsync -avO \
     --no-perms \
-    --include={'automations/***','customizations/***','entities/***','lovelace/***','integrations/***','scenes/***','scripts/***','themes/***','www/***','custom_components/***','automations.yaml','configuration.yaml','ui-lovelace.yaml'} \
+    --include={'automations/***','customizations/***','entities/***','lovelace/***','integrations/***','scenes/***','scripts/***','themes/***','www/***','custom_components/***','automations.yaml','configuration.yaml','ui-lovelace.yaml','secrets.yaml'} \
     --exclude="*" \
     --delete \
     ./config/ "$user@$host:/config/"
