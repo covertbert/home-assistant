@@ -1,33 +1,33 @@
 ---
-- alias: "Lights On - Living Room"
-  mode: "single"
+- alias: 'Lights On - Living Room'
+  mode: 'single'
 
   trigger:
-    - platform: "numeric_state"
-      entity_id: "sensor.hue_motion_sensor_1_light_level"
+    - platform: 'numeric_state'
+      entity_id: 'sensor.hue_motion_sensor_1_light_level'
       below: 70
-    - platform: "state"
-      entity_id: "input_select.home_state"
-      to: "Home"
+    - platform: 'state'
+      entity_id: 'input_select.home_state'
+      to: 'Home'
 
   action:
     - choose:
         - conditions:
-            - condition: "state"
-              entity_id: "input_select.home_state"
-              state: "Home"
-            - condition: "numeric_state"
-              entity_id: "sensor.hue_motion_sensor_1_light_level"
+            - condition: 'state'
+              entity_id: 'input_select.home_state'
+              state: 'Home'
+            - condition: 'numeric_state'
+              entity_id: 'sensor.hue_motion_sensor_1_light_level'
               below: 70
-            - condition: "state"
-              entity_id: "light.living_room"
-              state: "off"
-            - condition: "or"
+            - condition: 'state'
+              entity_id: 'light.living_room'
+              state: 'off'
+            - condition: 'or'
               conditions:
-                - condition: "template"
+                - condition: 'template'
                   value_template: "{{ not is_state('input_select.day_state', 'Night') }}"
-                - condition: "template"
+                - condition: 'template'
                   value_template: "{{ trigger.to_state.state == 'Home' }}"
           sequence:
-            - service: "light.turn_on"
-              entity_id: "light.living_room"
+            - service: 'light.turn_on'
+              entity_id: 'light.living_room'

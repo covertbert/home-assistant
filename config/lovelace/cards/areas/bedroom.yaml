@@ -1,22 +1,22 @@
 ---
-type: "vertical-stack"
+type: 'vertical-stack'
 cards:
-  - title: "Bedroom"
-    type: "glance"
+  - title: 'Bedroom'
+    type: 'glance'
     entities:
-      - entity: "climate.bedroom"
-      - entity: "sensor.bedroom_temperature"
-      - entity: "sensor.bedroom_humidity"
-      - entity: "media_player.bedroom_speaker"
+      - entity: 'climate.bedroom'
+      - entity: 'sensor.bedroom_temperature'
+      - entity: 'sensor.bedroom_humidity'
+      - entity: 'media_player.bedroom_speaker'
     state_color: true
     show_icon: true
     show_name: false
     show_state: true
     columns: 4
 
-  - type: "entities"
+  - type: 'entities'
     entities:
-      - entity: "light.bertie"
-      - entity: "light.stoof"
-      - entity: "light.gerald"
+      - entity: 'light.bertie'
+      - entity: 'light.stoof'
+      - entity: 'light.gerald'
     show_header_toggle: false

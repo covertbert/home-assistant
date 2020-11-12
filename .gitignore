@@ -2,3 +2,4 @@
 config/ssl
 config/secrets.yaml
 __pycache__
+node_modules

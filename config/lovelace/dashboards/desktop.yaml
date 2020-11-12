@@ -1,4 +1,4 @@
 ---
 views:
-  - !include "../views/home.desktop.yaml"
-  - !include "../views/plants.yaml"
+  - !include '../views/home.desktop.yaml'
+  - !include '../views/plants.yaml'

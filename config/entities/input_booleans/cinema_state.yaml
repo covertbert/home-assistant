@@ -1,4 +1,4 @@
 ---
 cinema_state:
-  name: "Cinema Mode"
-  icon: "mdi:movie-open"
+  name: 'Cinema Mode'
+  icon: 'mdi:movie-open'

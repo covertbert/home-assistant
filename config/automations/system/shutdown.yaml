@@ -1,9 +1,9 @@
 ---
-- alias: "Hass Startup Notification"
+- alias: 'Hass Startup Notification'
   trigger:
-    - platform: "homeassistant"
-      event: "shutdown"
+    - platform: 'homeassistant'
+      event: 'shutdown'
   action:
-    - service: "notify.bertie_iphone"
+    - service: 'notify.bertie_iphone'
       data:
-        message: "🌶 Home Assistant is shutting down"
+        message: '🌶 Home Assistant is shutting down'

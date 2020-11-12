@@ -1,9 +1,9 @@
 ---
 day_state:
-  name: "Time of Day"
+  name: 'Time of Day'
   options:
-    - "Morning"
-    - "Afternoon"
-    - "Evening"
-    - "Night"
-  icon: "mdi:theme-light-dark"
+    - 'Morning'
+    - 'Afternoon'
+    - 'Evening'
+    - 'Night'
+  icon: 'mdi:theme-light-dark'

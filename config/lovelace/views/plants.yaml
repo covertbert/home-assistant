@@ -1,6 +1,6 @@
 ---
-title: "Plants"
-icon: "mdi:flower"
+title: 'Plants'
+icon: 'mdi:flower'
 panel: false
-path: "plants"
-cards: !include_dir_list "../cards/plants"
+path: 'plants'
+cards: !include_dir_list '../cards/plants'

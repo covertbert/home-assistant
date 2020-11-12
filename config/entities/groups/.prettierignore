@@ -1,0 +1,6 @@
+.DS_Store
+.editorconfig
+.gitignore
+.stubs/ssl/fullchain.pem
+.stubs/ssl/privkey.pem
+**/**/*.jpg

@@ -84,7 +84,6 @@
 #
 #
 
-
 #
 #    #####   #         ##     ####   #    #
 #    #    #  #        #  #   #    #  #   #
@@ -95,21 +94,20 @@
 #
 
 Caule Black Rose:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#aa3151"
-  light-primary-color: "#b8536d"
+  primary-color: '#aa3151'
+  light-primary-color: '#b8536d'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#393939"
+  divider-color: '#2c2c2c'
+  disabled-color: '#393939'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -137,7 +135,7 @@ Caule Black Rose:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#191919"
+  ha-card-background: '#191919'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -181,25 +179,22 @@ Caule Black Rose:
   hacs-chip-color: var(--primary-color)
 
 ##########################################
-
-
 
 Caule Black Purple:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#904eab"
-  light-primary-color: "#c983e4"
+  primary-color: '#904eab'
+  light-primary-color: '#c983e4'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#393939"
+  divider-color: '#2c2c2c'
+  disabled-color: '#393939'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -227,7 +222,7 @@ Caule Black Purple:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#191919"
+  ha-card-background: '#191919'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -270,28 +265,23 @@ Caule Black Purple:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Black Blue:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#009bb5"
-  light-primary-color: "#5ed1eb"
+  primary-color: '#009bb5'
+  light-primary-color: '#5ed1eb'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#393939"
+  divider-color: '#2c2c2c'
+  disabled-color: '#393939'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -319,7 +309,7 @@ Caule Black Blue:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#191919"
+  ha-card-background: '#191919'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -362,28 +352,23 @@ Caule Black Blue:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Black Aqua:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#11ab93"
-  light-primary-color: "#62e3c8"
+  primary-color: '#11ab93'
+  light-primary-color: '#62e3c8'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#393939"
+  divider-color: '#2c2c2c'
+  disabled-color: '#393939'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -411,7 +396,7 @@ Caule Black Aqua:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#191919"
+  ha-card-background: '#191919'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -454,28 +439,23 @@ Caule Black Aqua:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Black Green:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#6ca049"
-  light-primary-color: "#a1d77b"
+  primary-color: '#6ca049'
+  light-primary-color: '#a1d77b'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#393939"
+  divider-color: '#2c2c2c'
+  disabled-color: '#393939'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -503,7 +483,7 @@ Caule Black Green:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#191919"
+  ha-card-background: '#191919'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -546,28 +526,23 @@ Caule Black Green:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Black Yellow:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#d6a245"
-  light-primary-color: "#ffd979"
+  primary-color: '#d6a245'
+  light-primary-color: '#ffd979'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#393939"
+  divider-color: '#2c2c2c'
+  disabled-color: '#393939'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -595,7 +570,7 @@ Caule Black Yellow:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#191919"
+  ha-card-background: '#191919'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -638,28 +613,23 @@ Caule Black Yellow:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Black Orange:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#d25f36"
-  light-primary-color: "#ff9568"
+  primary-color: '#d25f36'
+  light-primary-color: '#ff9568'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#393939"
+  divider-color: '#2c2c2c'
+  disabled-color: '#393939'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -687,7 +657,7 @@ Caule Black Orange:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#191919"
+  ha-card-background: '#191919'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -730,28 +700,23 @@ Caule Black Orange:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Black Coral:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#fa6e5e"
-  light-primary-color: "#ffa792"
+  primary-color: '#fa6e5e'
+  light-primary-color: '#ffa792'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#393939"
+  divider-color: '#2c2c2c'
+  disabled-color: '#393939'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -779,7 +744,7 @@ Caule Black Coral:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#191919"
+  ha-card-background: '#191919'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -822,28 +787,23 @@ Caule Black Coral:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Black Pink:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#f36f92"
-  light-primary-color: "#ffa8c9"
+  primary-color: '#f36f92'
+  light-primary-color: '#ffa8c9'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#393939"
+  divider-color: '#2c2c2c'
+  disabled-color: '#393939'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -871,7 +831,7 @@ Caule Black Pink:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#191919"
+  ha-card-background: '#191919'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -913,29 +873,24 @@ Caule Black Pink:
   google-blue-500: var(--primary-color)
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
-
-
 
 ##########################################
 
-
-
 Caule Black Gray:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#acacac"
-  light-primary-color: "#e2e2e2"
+  primary-color: '#acacac'
+  light-primary-color: '#e2e2e2'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#393939"
+  divider-color: '#2c2c2c'
+  disabled-color: '#393939'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -963,7 +918,7 @@ Caule Black Gray:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#191919"
+  ha-card-background: '#191919'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -1005,8 +960,6 @@ Caule Black Gray:
   google-blue-500: var(--primary-color)
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
-
-
 
 #
 #      ####   #         ##     ####    ####
@@ -1018,23 +971,22 @@ Caule Black Gray:
 #
 
 Caule Black Rose Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
   lovelace-background: 'center / cover no-repeat url("/local/caule-themes-pack-1/backgrounds/rose.jpg") fixed'
   # Main colors
-  primary-color: "#aa3151"
-  light-primary-color: "#b8536d"
+  primary-color: '#aa3151'
+  light-primary-color: '#b8536d'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#5b5b5b"
+  divider-color: '#2c2c2c'
+  disabled-color: '#5b5b5b'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -1062,7 +1014,7 @@ Caule Black Rose Glass:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "rgba(100, 100, 100, 0.15)"
+  ha-card-background: 'rgba(100, 100, 100, 0.15)'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -1105,30 +1057,25 @@ Caule Black Rose Glass:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Purple Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
   lovelace-background: 'center / cover no-repeat url("/local/caule-themes-pack-1/backgrounds/purple.jpg") fixed'
   # Main colors
-  primary-color: "#904eab"
-  light-primary-color: "#c983e4"
+  primary-color: '#904eab'
+  light-primary-color: '#c983e4'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#5b5b5b"
+  divider-color: '#2c2c2c'
+  disabled-color: '#5b5b5b'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -1156,7 +1103,7 @@ Caule Black Purple Glass:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "rgba(100, 100, 100, 0.15)"
+  ha-card-background: 'rgba(100, 100, 100, 0.15)'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -1199,30 +1146,25 @@ Caule Black Purple Glass:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Blue Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
   lovelace-background: 'center / cover no-repeat url("/local/caule-themes-pack-1/backgrounds/blue.jpg") fixed'
   # Main colors
-  primary-color: "#009bb5"
-  light-primary-color: "#5ed1eb"
+  primary-color: '#009bb5'
+  light-primary-color: '#5ed1eb'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#5b5b5b"
+  divider-color: '#2c2c2c'
+  disabled-color: '#5b5b5b'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -1250,7 +1192,7 @@ Caule Black Blue Glass:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "rgba(100, 100, 100, 0.15)"
+  ha-card-background: 'rgba(100, 100, 100, 0.15)'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -1293,30 +1235,25 @@ Caule Black Blue Glass:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Aqua Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
   lovelace-background: 'center / cover no-repeat url("/local/caule-themes-pack-1/backgrounds/aqua.jpg") fixed'
   # Main colors
-  primary-color: "#11ab93"
-  light-primary-color: "#62e3c8"
+  primary-color: '#11ab93'
+  light-primary-color: '#62e3c8'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#5b5b5b"
+  divider-color: '#2c2c2c'
+  disabled-color: '#5b5b5b'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -1344,7 +1281,7 @@ Caule Black Aqua Glass:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "rgba(100, 100, 100, 0.15)"
+  ha-card-background: 'rgba(100, 100, 100, 0.15)'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -1387,30 +1324,25 @@ Caule Black Aqua Glass:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Green Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
   lovelace-background: 'center / cover no-repeat url("/local/caule-themes-pack-1/backgrounds/green.jpg") fixed'
   # Main colors
-  primary-color: "#6ca049"
-  light-primary-color: "#a1d77b"
+  primary-color: '#6ca049'
+  light-primary-color: '#a1d77b'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#5b5b5b"
+  divider-color: '#2c2c2c'
+  disabled-color: '#5b5b5b'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -1438,7 +1370,7 @@ Caule Black Green Glass:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "rgba(100, 100, 100, 0.15)"
+  ha-card-background: 'rgba(100, 100, 100, 0.15)'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -1481,30 +1413,25 @@ Caule Black Green Glass:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Yellow Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
   lovelace-background: 'center / cover no-repeat url("/local/caule-themes-pack-1/backgrounds/yellow.jpg") fixed'
   # Main colors
-  primary-color: "#d6a245"
-  light-primary-color: "#ffd979"
+  primary-color: '#d6a245'
+  light-primary-color: '#ffd979'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#5b5b5b"
+  divider-color: '#2c2c2c'
+  disabled-color: '#5b5b5b'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -1532,7 +1459,7 @@ Caule Black Yellow Glass:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "rgba(100, 100, 100, 0.15)"
+  ha-card-background: 'rgba(100, 100, 100, 0.15)'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -1575,30 +1502,25 @@ Caule Black Yellow Glass:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Orange Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
   lovelace-background: 'center / cover no-repeat url("/local/caule-themes-pack-1/backgrounds/orange.jpg") fixed'
   # Main colors
-  primary-color: "#d25f36"
-  light-primary-color: "#ff9568"
+  primary-color: '#d25f36'
+  light-primary-color: '#ff9568'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#5b5b5b"
+  divider-color: '#2c2c2c'
+  disabled-color: '#5b5b5b'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -1626,7 +1548,7 @@ Caule Black Orange Glass:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "rgba(100, 100, 100, 0.15)"
+  ha-card-background: 'rgba(100, 100, 100, 0.15)'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -1669,30 +1591,25 @@ Caule Black Orange Glass:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Coral Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
   lovelace-background: 'center / cover no-repeat url("/local/caule-themes-pack-1/backgrounds/coral.jpg") fixed'
   # Main colors
-  primary-color: "#fa6e5e"
-  light-primary-color: "#ffa792"
+  primary-color: '#fa6e5e'
+  light-primary-color: '#ffa792'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#5b5b5b"
+  divider-color: '#2c2c2c'
+  disabled-color: '#5b5b5b'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -1720,7 +1637,7 @@ Caule Black Coral Glass:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "rgba(100, 100, 100, 0.15)"
+  ha-card-background: 'rgba(100, 100, 100, 0.15)'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -1763,30 +1680,25 @@ Caule Black Coral Glass:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Pink Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
   lovelace-background: 'center / cover no-repeat url("/local/caule-themes-pack-1/backgrounds/pink.jpg") fixed'
   # Main colors
-  primary-color: "#f36f92"
-  light-primary-color: "#ffa8c9"
+  primary-color: '#f36f92'
+  light-primary-color: '#ffa8c9'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#5b5b5b"
+  divider-color: '#2c2c2c'
+  disabled-color: '#5b5b5b'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -1814,7 +1726,7 @@ Caule Black Pink Glass:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "rgba(100, 100, 100, 0.15)"
+  ha-card-background: 'rgba(100, 100, 100, 0.15)'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -1857,30 +1769,25 @@ Caule Black Pink Glass:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Gray Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
   lovelace-background: 'center / cover no-repeat url("/local/caule-themes-pack-1/backgrounds/gray.jpg") fixed'
   # Main colors
-  primary-color: "#acacac"
-  light-primary-color: "#e2e2e2"
+  primary-color: '#acacac'
+  light-primary-color: '#e2e2e2'
   graph-color: var(--primary-color)
-  primary-background-color: "#0c0c0c"
+  primary-background-color: '#0c0c0c'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#2c2c2c"
-  disabled-color: "#5b5b5b"
+  divider-color: '#2c2c2c'
+  disabled-color: '#5b5b5b'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -1908,7 +1815,7 @@ Caule Black Gray Glass:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "rgba(100, 100, 100, 0.15)"
+  ha-card-background: 'rgba(100, 100, 100, 0.15)'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -1950,8 +1857,6 @@ Caule Black Gray Glass:
   google-blue-500: var(--primary-color)
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
-
-
 
 #
 #    #       #   ####   #    #  #####
@@ -1962,23 +1867,21 @@ Caule Black Gray Glass:
 #    ######  #   ####   #    #    #
 #
 
-
 Caule Light Rose:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#aa3151"
-  light-primary-color: "#b8536d"
+  primary-color: '#aa3151'
+  light-primary-color: '#b8536d'
   graph-color: var(--primary-color)
-  primary-background-color: "#f2f2f2"
+  primary-background-color: '#f2f2f2'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#ababab"
-  disabled-color: "#ababab"
+  divider-color: '#ababab'
+  disabled-color: '#ababab'
   # Text colors
-  primary-text-color: "#7f7f7f"
+  primary-text-color: '#7f7f7f'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -2006,14 +1909,14 @@ Caule Light Rose:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#ffffff"
+  ha-card-background: '#ffffff'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
   paper-toggle-button-checked-button-color: var(--primary-color)
   paper-toggle-button-checked-bar-color: var(--light-primary-color)
   paper-toggle-button-unchecked-button-color: var(--disabled-color)
-  paper-toggle-button-unchecked-bar-color: "#ababab"
+  paper-toggle-button-unchecked-bar-color: '#ababab'
   # Switch colors
   switch-checked-color: var(--paper-toggle-button-checked-button-color)
   switch-unchecked-button-color: var(--paper-toggle-button-unchecked-button-color)
@@ -2049,28 +1952,23 @@ Caule Light Rose:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Light Purple:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#904eab"
-  light-primary-color: "#c983e4"
+  primary-color: '#904eab'
+  light-primary-color: '#c983e4'
   graph-color: var(--primary-color)
-  primary-background-color: "#f2f2f2"
+  primary-background-color: '#f2f2f2'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#ababab"
-  disabled-color: "#ababab"
+  divider-color: '#ababab'
+  disabled-color: '#ababab'
   # Text colors
-  primary-text-color: "#7f7f7f"
+  primary-text-color: '#7f7f7f'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -2098,14 +1996,14 @@ Caule Light Purple:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#ffffff"
+  ha-card-background: '#ffffff'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
   paper-toggle-button-checked-button-color: var(--primary-color)
   paper-toggle-button-checked-bar-color: var(--light-primary-color)
   paper-toggle-button-unchecked-button-color: var(--disabled-color)
-  paper-toggle-button-unchecked-bar-color: "#ababab"
+  paper-toggle-button-unchecked-bar-color: '#ababab'
   # Switch colors
   switch-checked-color: var(--paper-toggle-button-checked-button-color)
   switch-unchecked-button-color: var(--paper-toggle-button-unchecked-button-color)
@@ -2141,28 +2039,23 @@ Caule Light Purple:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Light Blue:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#009bb5"
-  light-primary-color: "#5ed1eb"
+  primary-color: '#009bb5'
+  light-primary-color: '#5ed1eb'
   graph-color: var(--primary-color)
-  primary-background-color: "#f2f2f2"
+  primary-background-color: '#f2f2f2'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#ababab"
-  disabled-color: "#ababab"
+  divider-color: '#ababab'
+  disabled-color: '#ababab'
   # Text colors
-  primary-text-color: "#7f7f7f"
+  primary-text-color: '#7f7f7f'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -2190,14 +2083,14 @@ Caule Light Blue:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#ffffff"
+  ha-card-background: '#ffffff'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
   paper-toggle-button-checked-button-color: var(--primary-color)
   paper-toggle-button-checked-bar-color: var(--light-primary-color)
   paper-toggle-button-unchecked-button-color: var(--disabled-color)
-  paper-toggle-button-unchecked-bar-color: "#ababab"
+  paper-toggle-button-unchecked-bar-color: '#ababab'
   # Switch colors
   switch-checked-color: var(--paper-toggle-button-checked-button-color)
   switch-unchecked-button-color: var(--paper-toggle-button-unchecked-button-color)
@@ -2233,28 +2126,23 @@ Caule Light Blue:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Light Aqua:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#11ab93"
-  light-primary-color: "#62e3c8"
+  primary-color: '#11ab93'
+  light-primary-color: '#62e3c8'
   graph-color: var(--primary-color)
-  primary-background-color: "#f2f2f2"
+  primary-background-color: '#f2f2f2'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#ababab"
-  disabled-color: "#ababab"
+  divider-color: '#ababab'
+  disabled-color: '#ababab'
   # Text colors
-  primary-text-color: "#7f7f7f"
+  primary-text-color: '#7f7f7f'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -2282,14 +2170,14 @@ Caule Light Aqua:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#ffffff"
+  ha-card-background: '#ffffff'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
   paper-toggle-button-checked-button-color: var(--primary-color)
   paper-toggle-button-checked-bar-color: var(--light-primary-color)
   paper-toggle-button-unchecked-button-color: var(--disabled-color)
-  paper-toggle-button-unchecked-bar-color: "#ababab"
+  paper-toggle-button-unchecked-bar-color: '#ababab'
   # Switch colors
   switch-checked-color: var(--paper-toggle-button-checked-button-color)
   switch-unchecked-button-color: var(--paper-toggle-button-unchecked-button-color)
@@ -2325,28 +2213,23 @@ Caule Light Aqua:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Light Green:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#6ca049"
-  light-primary-color: "#a1d77b"
+  primary-color: '#6ca049'
+  light-primary-color: '#a1d77b'
   graph-color: var(--primary-color)
-  primary-background-color: "#f2f2f2"
+  primary-background-color: '#f2f2f2'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#ababab"
-  disabled-color: "#ababab"
+  divider-color: '#ababab'
+  disabled-color: '#ababab'
   # Text colors
-  primary-text-color: "#7f7f7f"
+  primary-text-color: '#7f7f7f'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -2374,14 +2257,14 @@ Caule Light Green:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#ffffff"
+  ha-card-background: '#ffffff'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
   paper-toggle-button-checked-button-color: var(--primary-color)
   paper-toggle-button-checked-bar-color: var(--light-primary-color)
   paper-toggle-button-unchecked-button-color: var(--disabled-color)
-  paper-toggle-button-unchecked-bar-color: "#ababab"
+  paper-toggle-button-unchecked-bar-color: '#ababab'
   # Switch colors
   switch-checked-color: var(--paper-toggle-button-checked-button-color)
   switch-unchecked-button-color: var(--paper-toggle-button-unchecked-button-color)
@@ -2417,28 +2300,23 @@ Caule Light Green:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Light Yellow:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#d6a245"
-  light-primary-color: "#ffd979"
+  primary-color: '#d6a245'
+  light-primary-color: '#ffd979'
   graph-color: var(--primary-color)
-  primary-background-color: "#f2f2f2"
+  primary-background-color: '#f2f2f2'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#ababab"
-  disabled-color: "#ababab"
+  divider-color: '#ababab'
+  disabled-color: '#ababab'
   # Text colors
-  primary-text-color: "#7f7f7f"
+  primary-text-color: '#7f7f7f'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -2466,14 +2344,14 @@ Caule Light Yellow:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#ffffff"
+  ha-card-background: '#ffffff'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
   paper-toggle-button-checked-button-color: var(--primary-color)
   paper-toggle-button-checked-bar-color: var(--light-primary-color)
   paper-toggle-button-unchecked-button-color: var(--disabled-color)
-  paper-toggle-button-unchecked-bar-color: "#ababab"
+  paper-toggle-button-unchecked-bar-color: '#ababab'
   # Switch colors
   switch-checked-color: var(--paper-toggle-button-checked-button-color)
   switch-unchecked-button-color: var(--paper-toggle-button-unchecked-button-color)
@@ -2509,28 +2387,23 @@ Caule Light Yellow:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Light Orange:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#d25f36"
-  light-primary-color: "#ff9568"
+  primary-color: '#d25f36'
+  light-primary-color: '#ff9568'
   graph-color: var(--primary-color)
-  primary-background-color: "#f2f2f2"
+  primary-background-color: '#f2f2f2'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#ababab"
-  disabled-color: "#ababab"
+  divider-color: '#ababab'
+  disabled-color: '#ababab'
   # Text colors
-  primary-text-color: "#7f7f7f"
+  primary-text-color: '#7f7f7f'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -2558,14 +2431,14 @@ Caule Light Orange:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#ffffff"
+  ha-card-background: '#ffffff'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
   paper-toggle-button-checked-button-color: var(--primary-color)
   paper-toggle-button-checked-bar-color: var(--light-primary-color)
   paper-toggle-button-unchecked-button-color: var(--disabled-color)
-  paper-toggle-button-unchecked-bar-color: "#ababab"
+  paper-toggle-button-unchecked-bar-color: '#ababab'
   # Switch colors
   switch-checked-color: var(--paper-toggle-button-checked-button-color)
   switch-unchecked-button-color: var(--paper-toggle-button-unchecked-button-color)
@@ -2601,28 +2474,23 @@ Caule Light Orange:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Light Coral:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#fa6e5e"
-  light-primary-color: "#ffa792"
+  primary-color: '#fa6e5e'
+  light-primary-color: '#ffa792'
   graph-color: var(--primary-color)
-  primary-background-color: "#f2f2f2"
+  primary-background-color: '#f2f2f2'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#ababab"
-  disabled-color: "#ababab"
+  divider-color: '#ababab'
+  disabled-color: '#ababab'
   # Text colors
-  primary-text-color: "#7f7f7f"
+  primary-text-color: '#7f7f7f'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -2650,14 +2518,14 @@ Caule Light Coral:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#ffffff"
+  ha-card-background: '#ffffff'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
   paper-toggle-button-checked-button-color: var(--primary-color)
   paper-toggle-button-checked-bar-color: var(--light-primary-color)
   paper-toggle-button-unchecked-button-color: var(--disabled-color)
-  paper-toggle-button-unchecked-bar-color: "#ababab"
+  paper-toggle-button-unchecked-bar-color: '#ababab'
   # Switch colors
   switch-checked-color: var(--paper-toggle-button-checked-button-color)
   switch-unchecked-button-color: var(--paper-toggle-button-unchecked-button-color)
@@ -2693,28 +2561,23 @@ Caule Light Coral:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Light Pink:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#f36f92"
-  light-primary-color: "#ffa8c9"
+  primary-color: '#f36f92'
+  light-primary-color: '#ffa8c9'
   graph-color: var(--primary-color)
-  primary-background-color: "#f2f2f2"
+  primary-background-color: '#f2f2f2'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#ababab"
-  disabled-color: "#ababab"
+  divider-color: '#ababab'
+  disabled-color: '#ababab'
   # Text colors
-  primary-text-color: "#7f7f7f"
+  primary-text-color: '#7f7f7f'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -2742,14 +2605,14 @@ Caule Light Pink:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#ffffff"
+  ha-card-background: '#ffffff'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
   paper-toggle-button-checked-button-color: var(--primary-color)
   paper-toggle-button-checked-bar-color: var(--light-primary-color)
   paper-toggle-button-unchecked-button-color: var(--disabled-color)
-  paper-toggle-button-unchecked-bar-color: "#ababab"
+  paper-toggle-button-unchecked-bar-color: '#ababab'
   # Switch colors
   switch-checked-color: var(--paper-toggle-button-checked-button-color)
   switch-unchecked-button-color: var(--paper-toggle-button-unchecked-button-color)
@@ -2784,29 +2647,24 @@ Caule Light Pink:
   google-blue-500: var(--primary-color)
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
-
-
 
 ##########################################
 
-
-
 Caule Light Gray:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#666666"
-  light-primary-color: "#989898"
+  primary-color: '#666666'
+  light-primary-color: '#989898'
   graph-color: var(--primary-color)
-  primary-background-color: "#f2f2f2"
+  primary-background-color: '#f2f2f2'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#ababab"
-  disabled-color: "#ababab"
+  divider-color: '#ababab'
+  disabled-color: '#ababab'
   # Text colors
-  primary-text-color: "#7f7f7f"
+  primary-text-color: '#7f7f7f'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -2834,14 +2692,14 @@ Caule Light Gray:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#ffffff"
+  ha-card-background: '#ffffff'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
   paper-toggle-button-checked-button-color: var(--primary-color)
   paper-toggle-button-checked-bar-color: var(--light-primary-color)
   paper-toggle-button-unchecked-button-color: var(--disabled-color)
-  paper-toggle-button-unchecked-bar-color: "#ababab"
+  paper-toggle-button-unchecked-bar-color: '#ababab'
   # Switch colors
   switch-checked-color: var(--paper-toggle-button-checked-button-color)
   switch-unchecked-button-color: var(--paper-toggle-button-unchecked-button-color)
@@ -2876,8 +2734,6 @@ Caule Light Gray:
   google-blue-500: var(--primary-color)
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
-
-
 
 #
 #    #####     ##    #####   #    #
@@ -2888,23 +2744,21 @@ Caule Light Gray:
 #    #####   #    #  #    #  #    #
 #
 
-
 Caule Dark Rose:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#aa3151"
-  light-primary-color: "#b8536d"
+  primary-color: '#aa3151'
+  light-primary-color: '#b8536d'
   graph-color: var(--primary-color)
-  primary-background-color: "#1D1B1E"
+  primary-background-color: '#1D1B1E'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#37373D"
-  disabled-color: "#666666"
+  divider-color: '#37373D'
+  disabled-color: '#666666'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -2932,7 +2786,7 @@ Caule Dark Rose:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#2A282D"
+  ha-card-background: '#2A282D'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -2975,28 +2829,23 @@ Caule Dark Rose:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Dark Purple:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#904eab"
-  light-primary-color: "#c983e4"
+  primary-color: '#904eab'
+  light-primary-color: '#c983e4'
   graph-color: var(--primary-color)
-  primary-background-color: "#1D1B1E"
+  primary-background-color: '#1D1B1E'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#37373D"
-  disabled-color: "#666666"
+  divider-color: '#37373D'
+  disabled-color: '#666666'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -3024,7 +2873,7 @@ Caule Dark Purple:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#2A282D"
+  ha-card-background: '#2A282D'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -3067,28 +2916,23 @@ Caule Dark Purple:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Dark Blue:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#009bb5"
-  light-primary-color: "#5ed1eb"
+  primary-color: '#009bb5'
+  light-primary-color: '#5ed1eb'
   graph-color: var(--primary-color)
-  primary-background-color: "#1D1B1E"
+  primary-background-color: '#1D1B1E'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#37373D"
-  disabled-color: "#666666"
+  divider-color: '#37373D'
+  disabled-color: '#666666'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -3116,7 +2960,7 @@ Caule Dark Blue:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#2A282D"
+  ha-card-background: '#2A282D'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -3159,28 +3003,23 @@ Caule Dark Blue:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Dark Aqua:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#11ab93"
-  light-primary-color: "#62e3c8"
+  primary-color: '#11ab93'
+  light-primary-color: '#62e3c8'
   graph-color: var(--primary-color)
-  primary-background-color: "#1D1B1E"
+  primary-background-color: '#1D1B1E'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#37373D"
-  disabled-color: "#666666"
+  divider-color: '#37373D'
+  disabled-color: '#666666'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -3208,7 +3047,7 @@ Caule Dark Aqua:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#2A282D"
+  ha-card-background: '#2A282D'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -3251,28 +3090,23 @@ Caule Dark Aqua:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Dark Green:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#6ca049"
-  light-primary-color: "#a1d77b"
+  primary-color: '#6ca049'
+  light-primary-color: '#a1d77b'
   graph-color: var(--primary-color)
-  primary-background-color: "#1D1B1E"
+  primary-background-color: '#1D1B1E'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#37373D"
-  disabled-color: "#666666"
+  divider-color: '#37373D'
+  disabled-color: '#666666'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -3300,7 +3134,7 @@ Caule Dark Green:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#2A282D"
+  ha-card-background: '#2A282D'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -3343,28 +3177,23 @@ Caule Dark Green:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Dark Yellow:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#d6a245"
-  light-primary-color: "#ffd979"
+  primary-color: '#d6a245'
+  light-primary-color: '#ffd979'
   graph-color: var(--primary-color)
-  primary-background-color: "#1D1B1E"
+  primary-background-color: '#1D1B1E'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#37373D"
-  disabled-color: "#666666"
+  divider-color: '#37373D'
+  disabled-color: '#666666'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -3392,7 +3221,7 @@ Caule Dark Yellow:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#2A282D"
+  ha-card-background: '#2A282D'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -3435,28 +3264,23 @@ Caule Dark Yellow:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Dark Orange:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#d25f36"
-  light-primary-color: "#ff9568"
+  primary-color: '#d25f36'
+  light-primary-color: '#ff9568'
   graph-color: var(--primary-color)
-  primary-background-color: "#1D1B1E"
+  primary-background-color: '#1D1B1E'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#37373D"
-  disabled-color: "#666666"
+  divider-color: '#37373D'
+  disabled-color: '#666666'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -3484,7 +3308,7 @@ Caule Dark Orange:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#2A282D"
+  ha-card-background: '#2A282D'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -3527,28 +3351,23 @@ Caule Dark Orange:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Dark Coral:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#fa6e5e"
-  light-primary-color: "#ffa792"
+  primary-color: '#fa6e5e'
+  light-primary-color: '#ffa792'
   graph-color: var(--primary-color)
-  primary-background-color: "#1D1B1E"
+  primary-background-color: '#1D1B1E'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#37373D"
-  disabled-color: "#666666"
+  divider-color: '#37373D'
+  disabled-color: '#666666'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -3576,7 +3395,7 @@ Caule Dark Coral:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#2A282D"
+  ha-card-background: '#2A282D'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -3619,28 +3438,23 @@ Caule Dark Coral:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
-
-
 
 Caule Dark Pink:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#f36f92"
-  light-primary-color: "#ffa8c9"
+  primary-color: '#f36f92'
+  light-primary-color: '#ffa8c9'
   graph-color: var(--primary-color)
-  primary-background-color: "#1D1B1E"
+  primary-background-color: '#1D1B1E'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#37373D"
-  disabled-color: "#666666"
+  divider-color: '#37373D'
+  disabled-color: '#666666'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -3668,7 +3482,7 @@ Caule Dark Pink:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#2A282D"
+  ha-card-background: '#2A282D'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors
@@ -3711,28 +3525,23 @@ Caule Dark Pink:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Dark Gray:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
-  primary-color: "#acacac"
-  light-primary-color: "#e2e2e2"
+  primary-color: '#acacac'
+  light-primary-color: '#e2e2e2'
   graph-color: var(--primary-color)
-  primary-background-color: "#1D1B1E"
+  primary-background-color: '#1D1B1E'
   secondary-background-color: var(--primary-background-color)
-  divider-color: "#37373D"
-  disabled-color: "#666666"
+  divider-color: '#37373D'
+  disabled-color: '#666666'
   # Text colors
-  primary-text-color: "#e5e5e5"
+  primary-text-color: '#e5e5e5'
   secondary-text-color: var(--disabled-color)
-  text-primary-color: "#E5E5E5"
+  text-primary-color: '#E5E5E5'
   disabled-text-color: var(--disabled-color)
   # Sidebar colors
   sidebar-icon-color: var(--primary-color)
@@ -3760,7 +3569,7 @@ Caule Dark Gray:
   label-badge-red: var(--primary-color)
   label-badge-blue: var(--light-primary-color)
   # Cards colors
-  ha-card-background: "#2A282D"
+  ha-card-background: '#2A282D'
   paper-card-background-color: var(--ha-card-background)
   paper-listbox-background-color: var(--primary-background-color)
   # Toggle button colors

@@ -1,4 +1,4 @@
 ---
 light.front:
-  friendly_name: "Hare Lamp"
-  icon: "mdi:lamp"
+  friendly_name: 'Hare Lamp'
+  icon: 'mdi:lamp'

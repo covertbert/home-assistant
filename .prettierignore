@@ -1,0 +1,8 @@
+*.lock
+*.jpg
+*.svg
+*.pem
+.DS_Store
+.prettierignore
+.editorconfig
+.gitignore

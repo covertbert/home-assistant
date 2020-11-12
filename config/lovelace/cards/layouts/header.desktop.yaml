@@ -1,21 +1,21 @@
 ---
-type: "vertical-stack"
+type: 'vertical-stack'
 cards:
-  - type: "glance"
+  - type: 'glance'
     entities:
-      - entity: "person.bertie"
-      - entity: "person.steph"
-      - entity: "input_select.home_state"
-      - entity: "input_select.day_state"
-      - entity: "input_select.guests_state"
+      - entity: 'person.bertie'
+      - entity: 'person.steph'
+      - entity: 'input_select.home_state'
+      - entity: 'input_select.day_state'
+      - entity: 'input_select.guests_state'
     show_state: true
     show_icon: true
     show_name: true
 
-  - type: "weather-forecast"
-    entity: "weather.dark_sky"
+  - type: 'weather-forecast'
+    entity: 'weather.dark_sky'
 
-  - type: "calendar"
+  - type: 'calendar'
     entities:
-      - "calendar.blackmanrgh_gmail_com"
-    initial_view: "dayGridMonth"
+      - 'calendar.blackmanrgh_gmail_com'
+    initial_view: 'dayGridMonth'

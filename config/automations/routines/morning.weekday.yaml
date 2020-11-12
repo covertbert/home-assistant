@@ -1,14 +1,14 @@
 ---
-- alias: "Morning Mode - Weekday"
+- alias: 'Morning Mode - Weekday'
   trigger:
-    platform: "time"
-    at: "06:00:00"
+    platform: 'time'
+    at: '06:00:00'
   condition:
-    - condition: "state"
-      entity_id: "binary_sensor.workday_sensor"
-      state: "on"
+    - condition: 'state'
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on'
   action:
-    - service: "input_select.select_option"
+    - service: 'input_select.select_option'
       data:
-        entity_id: "input_select.day_state"
-        option: "Morning"
+        entity_id: 'input_select.day_state'
+        option: 'Morning'

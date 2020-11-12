@@ -1,57 +1,57 @@
 ---
-- alias: "Climate - Landing"
-  mode: "queued"
+- alias: 'Climate - Landing'
+  mode: 'queued'
 
   trigger:
-    - platform: "state"
-      entity_id: "input_select.day_state"
-      to: "Morning"
-    - platform: "state"
-      entity_id: "input_select.day_state"
-      to: "Afternoon"
-    - platform: "state"
-      entity_id: "input_select.day_state"
-      to: "Night"
-    - platform: "state"
-      entity_id: "input_select.home_state"
-      to: "Home"
-    - platform: "state"
-      entity_id: "input_select.home_state"
-      to: "Away"
+    - platform: 'state'
+      entity_id: 'input_select.day_state'
+      to: 'Morning'
+    - platform: 'state'
+      entity_id: 'input_select.day_state'
+      to: 'Afternoon'
+    - platform: 'state'
+      entity_id: 'input_select.day_state'
+      to: 'Night'
+    - platform: 'state'
+      entity_id: 'input_select.home_state'
+      to: 'Home'
+    - platform: 'state'
+      entity_id: 'input_select.home_state'
+      to: 'Away'
 
   action:
     - choose:
         - conditions:
-            - condition: "template"
+            - condition: 'template'
               value_template: "{{ not is_state('input_select.day_state', 'Night') }}"
-            - condition: "state"
-              entity_id: "input_select.day_state"
-              state: "Morning"
-            - condition: "state"
-              entity_id: "input_select.home_state"
-              state: "Home"
+            - condition: 'state'
+              entity_id: 'input_select.day_state'
+              state: 'Morning'
+            - condition: 'state'
+              entity_id: 'input_select.home_state'
+              state: 'Home'
           sequence:
-            - service: "climate.set_temperature"
+            - service: 'climate.set_temperature'
               data:
-                entity_id: "climate.landing"
+                entity_id: 'climate.landing'
                 temperature: 20
 
         - conditions:
-            - condition: "template"
+            - condition: 'template'
               value_template: "{{ not is_state('input_select.day_state', 'Night') }}"
-            - condition: "state"
-              entity_id: "input_select.day_state"
-              state: "Afternoon"
-            - condition: "state"
-              entity_id: "input_select.home_state"
-              state: "Home"
+            - condition: 'state'
+              entity_id: 'input_select.day_state'
+              state: 'Afternoon'
+            - condition: 'state'
+              entity_id: 'input_select.home_state'
+              state: 'Home'
           sequence:
-            - service: "climate.set_temperature"
+            - service: 'climate.set_temperature'
               data:
-                entity_id: "climate.landing"
+                entity_id: 'climate.landing'
                 temperature: 21
 
       default:
-        - service: "climate.turn_off"
+        - service: 'climate.turn_off'
           data:
-            entity_id: "climate.landing"
+            entity_id: 'climate.landing'

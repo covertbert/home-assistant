@@ -1,8 +1,8 @@
 ---
-- name: "Cinema"
+- name: 'Cinema'
   entities:
     light.front:
-      state: "on"
-      profile: "relax"
+      state: 'on'
+      profile: 'relax'
     light.back:
-      state: "off"
+      state: 'off'
