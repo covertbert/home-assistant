@@ -57,7 +57,7 @@ jobs:
         run: |
           docker build -t 1password-secrets .
           docker run 1password-secrets "${{ secrets.OP_ADDRESS }}" "${{ secrets.OP_EMAIL }}" "${{ secrets.OP_PASSWORD }}" "${{ secrets.OP_SECRET_KEY}}" "${{ secrets.OP_DEVICE }}" >> secrets.yaml
-          cat secrets.yaml
+          ls -la
       # - name: "Install SSH key"
       #   uses: "shimataro/ssh-key-action@v2"
       #   with:
