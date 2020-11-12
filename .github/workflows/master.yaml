@@ -53,7 +53,6 @@ jobs:
       - name: "Getting configuration from GitHub"
         uses: "actions/checkout@v1"
       - name: "Get secrets from vault"
-        working-directory: scripts/get-secrets
         run: |
           docker build -t 1password-secrets ./scripts/get-secrets
           docker run 1password-secrets "${{ secrets.OP_ADDRESS }}" "${{ secrets.OP_EMAIL }}" "${{ secrets.OP_PASSWORD }}" "${{ secrets.OP_SECRET_KEY}}" "${{ secrets.OP_DEVICE }}" >> config/secrets.yaml
