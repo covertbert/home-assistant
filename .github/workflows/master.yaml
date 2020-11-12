@@ -48,17 +48,22 @@ jobs:
     env:
       SSH_USER: "${{ secrets.SSH_USER }}"
       SSH_HOST: "${{ secrets.SSH_HOST }}"
-    needs: ["config_check", "static_checks"]
+    # needs: ["config_check", "static_checks"]
     steps:
       - name: "Getting configuration from GitHub"
         uses: "actions/checkout@v1"
-      - name: "Install SSH key"
-        uses: "shimataro/ssh-key-action@v2"
-        with:
-          key: "${{ secrets.SSH_KEY }}"
-          known_hosts: "${{ secrets.KNOWN_HOSTS }}"
-      - name: "Sync config & restart"
-        run: ./scripts/sync-config.sh "$SSH_USER" "$SSH_HOST" "${{ secrets.HA_WEBHOOK_URL }}/manual_restart"
-      - name: Notify if CI failure
-        if: ${{ failure() }}
-        run: curl -X POST "${{ secrets.HA_WEBHOOK_URL }}/ci_failure"
+      - name: "Get secrets from vault"
+        working-directory: scripts/get-secrets
+        run: |
+          docker build -t 1password-secrets .
+          docker run 1password-secrets "${{ secrets.OP_ADDRESS }}" "${{ secrets.OP_EMAIL }}" "${{ secrets.OP_PASSWORD }}" "${{ secrets.OP_SECRET_KEY}}"
+      # - name: "Install SSH key"
+      #   uses: "shimataro/ssh-key-action@v2"
+      #   with:
+      #     key: "${{ secrets.SSH_KEY }}"
+      #     known_hosts: "${{ secrets.KNOWN_HOSTS }}"
+      # - name: "Sync config & restart"
+      #   run: ./scripts/sync-config.sh "$SSH_USER" "$SSH_HOST" "${{ secrets.HA_WEBHOOK_URL }}/manual_restart"
+      # - name: Notify if CI failure
+      #   if: ${{ failure() }}
+      #   run: curl -X POST "${{ secrets.HA_WEBHOOK_URL }}/ci_failure"
