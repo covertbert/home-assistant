@@ -3,4 +3,4 @@ homekit:
   auto_start: true
   name: "Home Assistant"
   filter:
-    include_entities: !include_dir_merge_list "../homekit"
+    include_entities: !include_dir_merge_list ../homekit

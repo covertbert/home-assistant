@@ -1,2 +1,2 @@
 ---
-person: !include_dir_merge_list "../entities/persons"
+person: !include_dir_merge_list ../entities/persons
