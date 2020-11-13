@@ -1,9 +1,9 @@
 {
-	"[shellscript]": {
-		"editor.formatOnSave": false
-	},
-	"files.associations": {
-		"*.yaml": "home-assistant",
-		"master.yaml": "yaml"
-	},
+  "[shellscript]": {
+    "editor.formatOnSave": false
+  },
+  "files.associations": {
+    "*.yaml": "home-assistant",
+    "master.yaml": "yaml"
+  }
 }

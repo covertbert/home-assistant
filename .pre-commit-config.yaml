@@ -1,26 +1,23 @@
 ---
 repos:
-  - repo: "https://github.com/pre-commit/pre-commit-hooks"
-    rev: "master"
-    hooks:
-      - id: "trailing-whitespace"
-      - id: "end-of-file-fixer"
-
   - repo: "https://github.com/jumanjihouse/pre-commit-hooks"
     rev: "master"
     hooks:
       - id: "shfmt"
+        name: "Format shell scripts"
       - id: "shellcheck"
+        name: "Lint shell scripts"
 
-  - repo: https://github.com/prettier/prettier
-    rev: master
+  - repo: "https://github.com/prettier/prettier"
+    rev: "master"
     hooks:
-      - id: prettier
+      - id: "prettier"
+        name: "Run Prettier"
 
-  # - repo: "local"
-  #   hooks:
-  #     - id: "home-assistant-config-check"
-  #       name: "Check Home Assistant config"
-  #       entry: "scripts/config-check.sh"
-  #       language: "script"
-  #       pass_filenames: false
+  - repo: "local"
+    hooks:
+      - id: "home-assistant-config-check"
+        name: "Validate config"
+        entry: "scripts/config-check.sh"
+        language: "script"
+        pass_filenames: false

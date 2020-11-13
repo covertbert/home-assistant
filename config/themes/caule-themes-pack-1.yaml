@@ -84,7 +84,6 @@
 #
 #
 
-
 #
 #    #####   #         ##     ####   #    #
 #    #    #  #        #  #   #    #  #   #
@@ -95,7 +94,6 @@
 #
 
 Caule Black Rose:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -171,7 +169,7 @@ Caule Black Rose:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -182,10 +180,7 @@ Caule Black Rose:
 
 ##########################################
 
-
-
 Caule Black Purple:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -261,7 +256,7 @@ Caule Black Purple:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -270,14 +265,9 @@ Caule Black Purple:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Blue:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -353,7 +343,7 @@ Caule Black Blue:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -362,14 +352,9 @@ Caule Black Blue:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Aqua:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -445,7 +430,7 @@ Caule Black Aqua:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -454,14 +439,9 @@ Caule Black Aqua:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Green:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -537,7 +517,7 @@ Caule Black Green:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -546,14 +526,9 @@ Caule Black Green:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Yellow:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -629,7 +604,7 @@ Caule Black Yellow:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -638,14 +613,9 @@ Caule Black Yellow:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Orange:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -721,7 +691,7 @@ Caule Black Orange:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -730,14 +700,9 @@ Caule Black Orange:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Coral:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -813,7 +778,7 @@ Caule Black Coral:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -822,14 +787,9 @@ Caule Black Coral:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Pink:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -905,7 +865,7 @@ Caule Black Pink:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -914,14 +874,9 @@ Caule Black Pink:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Gray:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -997,7 +952,7 @@ Caule Black Gray:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -1005,8 +960,6 @@ Caule Black Gray:
   google-blue-500: var(--primary-color)
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
-
-
 
 #
 #      ####   #         ##     ####    ####
@@ -1018,7 +971,6 @@ Caule Black Gray:
 #
 
 Caule Black Rose Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
@@ -1096,7 +1048,7 @@ Caule Black Rose Glass:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -1105,14 +1057,9 @@ Caule Black Rose Glass:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Purple Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
@@ -1190,7 +1137,7 @@ Caule Black Purple Glass:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -1199,14 +1146,9 @@ Caule Black Purple Glass:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Blue Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
@@ -1284,7 +1226,7 @@ Caule Black Blue Glass:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -1293,14 +1235,9 @@ Caule Black Blue Glass:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Aqua Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
@@ -1378,7 +1315,7 @@ Caule Black Aqua Glass:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -1387,14 +1324,9 @@ Caule Black Aqua Glass:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Green Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
@@ -1472,7 +1404,7 @@ Caule Black Green Glass:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -1481,14 +1413,9 @@ Caule Black Green Glass:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Yellow Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
@@ -1566,7 +1493,7 @@ Caule Black Yellow Glass:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -1575,14 +1502,9 @@ Caule Black Yellow Glass:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Orange Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
@@ -1660,7 +1582,7 @@ Caule Black Orange Glass:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -1669,14 +1591,9 @@ Caule Black Orange Glass:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Coral Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
@@ -1754,7 +1671,7 @@ Caule Black Coral Glass:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -1763,14 +1680,9 @@ Caule Black Coral Glass:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Pink Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
@@ -1848,7 +1760,7 @@ Caule Black Pink Glass:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -1857,14 +1769,9 @@ Caule Black Pink Glass:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Black Gray Glass:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Place the backgrounds in the folder  config/www/images/backgrounds
@@ -1942,7 +1849,7 @@ Caule Black Gray Glass:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -1950,8 +1857,6 @@ Caule Black Gray Glass:
   google-blue-500: var(--primary-color)
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
-
-
 
 #
 #    #       #   ####   #    #  #####
@@ -1962,9 +1867,7 @@ Caule Black Gray Glass:
 #    ######  #   ####   #    #    #
 #
 
-
 Caule Light Rose:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -2040,7 +1943,7 @@ Caule Light Rose:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -2049,14 +1952,9 @@ Caule Light Rose:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Light Purple:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -2132,7 +2030,7 @@ Caule Light Purple:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -2141,14 +2039,9 @@ Caule Light Purple:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Light Blue:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -2224,7 +2117,7 @@ Caule Light Blue:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -2233,14 +2126,9 @@ Caule Light Blue:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Light Aqua:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -2316,7 +2204,7 @@ Caule Light Aqua:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -2325,14 +2213,9 @@ Caule Light Aqua:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Light Green:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -2408,7 +2291,7 @@ Caule Light Green:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -2417,14 +2300,9 @@ Caule Light Green:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Light Yellow:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -2500,7 +2378,7 @@ Caule Light Yellow:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -2509,14 +2387,9 @@ Caule Light Yellow:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Light Orange:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -2592,7 +2465,7 @@ Caule Light Orange:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -2601,14 +2474,9 @@ Caule Light Orange:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Light Coral:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -2684,7 +2552,7 @@ Caule Light Coral:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -2693,14 +2561,9 @@ Caule Light Coral:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Light Pink:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -2776,7 +2639,7 @@ Caule Light Pink:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -2785,14 +2648,9 @@ Caule Light Pink:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Light Gray:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -2868,7 +2726,7 @@ Caule Light Gray:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -2876,8 +2734,6 @@ Caule Light Gray:
   google-blue-500: var(--primary-color)
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
-
-
 
 #
 #    #####     ##    #####   #    #
@@ -2888,9 +2744,7 @@ Caule Light Gray:
 #    #####   #    #  #    #  #    #
 #
 
-
 Caule Dark Rose:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -2966,7 +2820,7 @@ Caule Dark Rose:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -2975,14 +2829,9 @@ Caule Dark Rose:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Dark Purple:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -3058,7 +2907,7 @@ Caule Dark Purple:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -3067,14 +2916,9 @@ Caule Dark Purple:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Dark Blue:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -3150,7 +2994,7 @@ Caule Dark Blue:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -3159,14 +3003,9 @@ Caule Dark Blue:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Dark Aqua:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -3242,7 +3081,7 @@ Caule Dark Aqua:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -3251,14 +3090,9 @@ Caule Dark Aqua:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Dark Green:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -3334,7 +3168,7 @@ Caule Dark Green:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -3343,14 +3177,9 @@ Caule Dark Green:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Dark Yellow:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -3426,7 +3255,7 @@ Caule Dark Yellow:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -3435,14 +3264,9 @@ Caule Dark Yellow:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Dark Orange:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -3518,7 +3342,7 @@ Caule Dark Orange:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -3527,14 +3351,9 @@ Caule Dark Orange:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Dark Coral:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -3610,7 +3429,7 @@ Caule Dark Coral:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -3619,14 +3438,9 @@ Caule Dark Coral:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Dark Pink:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -3702,7 +3516,7 @@ Caule Dark Pink:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
@@ -3711,14 +3525,9 @@ Caule Dark Pink:
   accent-color: var(--disabled-color)
   hacs-chip-color: var(--primary-color)
 
-
-
 ##########################################
 
-
-
 Caule Dark Gray:
-
   # Change the value below 8px to 0px to remove the rounded corners
   ha-card-border-radius: 8px
   # Main colors
@@ -3794,7 +3603,7 @@ Caule Dark Gray:
   weather-icon-windy-variant: url("/local/caule-themes-pack-1/animated-icons/windy-variant.svg")
   weather-icon-exceptional: url("/local/caule-themes-pack-1/animated-icons/exceptional.svg")
   # Shadown
-  ha-card-box-shadow: 'inset 0px 0px 0px 0px var(--divider-color)'
+  ha-card-box-shadow: "inset 0px 0px 0px 0px var(--divider-color)"
   # HACS
   hacs-badge-color: var(--primary-color)
   link-text-color: var(--disabled-color)
