@@ -34,10 +34,10 @@ jobs:
     steps:
       - name: "Getting configuration from GitHub"
         uses: "actions/checkout@v1"
-      - name: "Setup Python"
-        uses: "actions/setup-python@v2"
-      - name: "Run pre-commit hooks"
-        uses: "pre-commit/action@v2.0.0"
+      - name: "Prettier check"
+        run: "yarn prettier:check"
+      - name: "Shell check"
+        run: "yarn shell:check"
       - name: Notify if CI failure
         if: ${{ failure() }}
         run: curl -X POST "${{ secrets.HA_WEBHOOK_URL }}/ci_failure"
