@@ -2,4 +2,4 @@
 rest_command:
   backup_snapshots:
     url: http://localhost:8055/gb/doBackup
-    timeout: '240000'
+    timeout: 240000
