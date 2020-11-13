@@ -6,3 +6,4 @@
 .prettierignore
 .editorconfig
 .gitignore
+node_modules

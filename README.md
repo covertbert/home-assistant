@@ -36,4 +36,4 @@ If all the checks pass, the pipeline will `rsync` the updated config and restart
 
 ### Local deployment
 
-To perform a manual local deployment run `./scripts/sync-config.sh "$user" "$host" "$manualRestartWebhookURL"`. This requires your public `ssh` key to be authorized by the server.
+To perform a manual local deployment run `yarn deploy "$user" "$host" "$manualRestartWebhookURL"`. This requires your public `ssh` key to be authorized by the server.
