@@ -11,6 +11,7 @@ fi
 
 function syncFiles() {
   echo "Synching files..."
+  echo "Synching files..."
 
   rsync -avO \
     --no-perms \
