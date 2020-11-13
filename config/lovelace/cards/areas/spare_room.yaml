@@ -1,11 +1,11 @@
 ---
-type: "vertical-stack"
+type: vertical-stack
 cards:
-  - title: "Spare Room"
-    type: "glance"
+  - title: Spare Room
+    type: glance
     entities:
-      - entity: "climate.spare_room"
-      - entity: "sensor.spare_room_temperature"
-      - entity: "sensor.spare_room_humidity"
+      - entity: climate.spare_room
+      - entity: sensor.spare_room_temperature
+      - entity: sensor.spare_room_humidity
     show_icon: true
     show_name: false

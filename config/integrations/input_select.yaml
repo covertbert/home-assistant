@@ -1,2 +1,2 @@
 ---
-input_select: !include_dir_merge_named "../entities/input_selects"
+input_select: !include_dir_merge_named ../entities/input_selects

@@ -1,14 +1,14 @@
 ---
 desktop-dashboard:
-  title: "Desktop Dashboard"
-  mode: "yaml"
-  icon: "mdi:monitor"
+  title: Desktop Dashboard
+  mode: yaml
+  icon: mdi:monitor
   show_in_sidebar: true
-  filename: "lovelace/dashboards/desktop.yaml"
+  filename: lovelace/dashboards/desktop.yaml
 
 mobile-dashboard:
-  mode: "yaml"
-  title: "Mobile Dashboard"
-  icon: "mdi:cellphone-iphone"
+  mode: yaml
+  title: Mobile Dashboard
+  icon: mdi:cellphone-iphone
   show_in_sidebar: true
-  filename: "lovelace/dashboards/mobile.yaml"
+  filename: lovelace/dashboards/mobile.yaml

@@ -1,5 +1,5 @@
 ---
-- name: "stoof_iphone"
-  platform: "group"
+- name: stoof_iphone
+  platform: group
   services:
-    - service: "mobile_app_stephanie_s_iphone"
+    - service: mobile_app_stephanie_s_iphone

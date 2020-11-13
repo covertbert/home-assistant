@@ -1,10 +1,10 @@
 ---
-title: "Living Room - Maranta"
-type: "glance"
+title: Living Room - Maranta
+type: glance
 entities:
-  - entity: "sensor.maranta_battery"
-  - entity: "sensor.maranta_temperature"
-  - entity: "sensor.maranta_light_intensity"
-  - entity: "sensor.maranta_moisture"
-  - entity: "sensor.maranta_conductivity"
+  - entity: sensor.maranta_battery
+  - entity: sensor.maranta_temperature
+  - entity: sensor.maranta_light_intensity
+  - entity: sensor.maranta_moisture
+  - entity: sensor.maranta_conductivity
 show_name: false

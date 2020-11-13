@@ -1,17 +1,17 @@
 ---
-type: "vertical-stack"
+type: vertical-stack
 cards:
-  - title: "Landing"
-    type: "glance"
+  - title: Landing
+    type: glance
     entities:
-      - entity: "climate.landing"
-      - entity: "sensor.landing_temperature"
-      - entity: "sensor.landing_humidity"
+      - entity: climate.landing
+      - entity: sensor.landing_temperature
+      - entity: sensor.landing_humidity
     state_color: true
     show_icon: true
     show_name: false
 
-  - type: "entities"
+  - type: entities
     entities:
-      - entity: "light.landing"
+      - entity: light.landing
     show_header_toggle: false

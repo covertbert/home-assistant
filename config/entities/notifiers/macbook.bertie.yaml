@@ -1,5 +1,5 @@
 ---
-platform: "group"
-name: "bertie_macbook"
+platform: group
+name: bertie_macbook
 services:
-  - service: "mobile_app_berties_macbook_pro"
+  - service: mobile_app_berties_macbook_pro

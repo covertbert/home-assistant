@@ -1,23 +1,23 @@
 ---
 repos:
-  - repo: "https://github.com/jumanjihouse/pre-commit-hooks"
-    rev: "master"
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: master
     hooks:
-      - id: "shfmt"
-        name: "Format shell scripts"
-      - id: "shellcheck"
-        name: "Lint shell scripts"
+      - id: shfmt
+        name: Format shell scripts
+      - id: shellcheck
+        name: Lint shell scripts
 
-  - repo: "https://github.com/prettier/prettier"
-    rev: "master"
+  - repo: https://github.com/prettier/prettier
+    rev: master
     hooks:
-      - id: "prettier"
-        name: "Run Prettier"
+      - id: prettier
+        name: Run Prettier
 
-  - repo: "local"
+  - repo: local
     hooks:
-      - id: "home-assistant-config-check"
-        name: "Validate config"
-        entry: "scripts/config-check.sh"
-        language: "script"
+      - id: home-assistant-config-check
+        name: Validate config
+        entry: scripts/config-check.sh
+        language: script
         pass_filenames: false

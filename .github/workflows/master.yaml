@@ -1,24 +1,24 @@
 ---
-name: "Master"
+name: Master
 
 on:
   push:
     branches:
-      - "master"
+      - master
 
 jobs:
   config_check:
-    name: "Check Home Assistant Config"
-    runs-on: "ubuntu-latest"
+    name: Check Home Assistant Config
+    runs-on: ubuntu-latest
     steps:
-      - name: "Getting configuration from GitHub"
-        uses: "actions/checkout@v1"
-      - name: "Copy stubbed secrets"
-        run: "mv .stubs/mock_secrets.yaml secrets.yaml"
-      - name: "Copy stubbed ssl certs"
-        run: "mv .stubs/ssl/ ssl/"
-      - name: "Check HA config"
-        uses: "docker://homeassistant/home-assistant:stable"
+      - name: Getting configuration from GitHub
+        uses: actions/checkout@v1
+      - name: Copy stubbed secrets
+        run: mv .stubs/mock_secrets.yaml secrets.yaml
+      - name: Copy stubbed ssl certs
+        run: mv .stubs/ssl/ ssl/
+      - name: Check HA config
+        uses: docker://homeassistant/home-assistant:stable
         with:
           args: >
             python -m homeassistant --script check_config --config ./config --info all
@@ -27,41 +27,41 @@ jobs:
         run: curl -X POST "${{ secrets.HA_WEBHOOK_URL }}/ci_failure"
 
   static_checks:
-    name: "Perform Static Analysis"
-    runs-on: "ubuntu-latest"
+    name: Perform Static Analysis
+    runs-on: ubuntu-latest
     env:
-      SKIP: "home-assistant-config-check, shfmt"
+      SKIP: home-assistant-config-check, shfmt
     steps:
-      - name: "Getting configuration from GitHub"
-        uses: "actions/checkout@v1"
-      - name: "Setup Python"
-        uses: "actions/setup-python@v2"
-      - name: "Run pre-commit hooks"
-        uses: "pre-commit/action@v2.0.0"
+      - name: Getting configuration from GitHub
+        uses: actions/checkout@v1
+      - name: Setup Python
+        uses: actions/setup-python@v2
+      - name: Run pre-commit hooks
+        uses: pre-commit/action@v2.0.0
       - name: Notify if CI failure
         if: ${{ failure() }}
         run: curl -X POST "${{ secrets.HA_WEBHOOK_URL }}/ci_failure"
 
   deploy:
-    name: "Deploy Config"
-    runs-on: "ubuntu-latest"
+    name: Deploy Config
+    runs-on: ubuntu-latest
     env:
-      SSH_USER: "${{ secrets.SSH_USER }}"
-      SSH_HOST: "${{ secrets.SSH_HOST }}"
-    needs: ["config_check", "static_checks"]
+      SSH_USER: ${{ secrets.SSH_USER }}
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+    needs: [config_check, static_checks]
     steps:
-      - name: "Getting configuration from GitHub"
-        uses: "actions/checkout@v1"
-      - name: "Get secrets from vault"
+      - name: Getting configuration from GitHub
+        uses: actions/checkout@v1
+      - name: Get secrets from vault
         run: |
           docker build -t 1password-secrets ./scripts/get-secrets
           docker run 1password-secrets "${{ secrets.OP_ADDRESS }}" "${{ secrets.OP_EMAIL }}" "${{ secrets.OP_PASSWORD }}" "${{ secrets.OP_SECRET_KEY}}" "${{ secrets.OP_DEVICE }}" >> config/secrets.yaml
-      - name: "Install SSH key"
-        uses: "shimataro/ssh-key-action@v2"
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
         with:
-          key: "${{ secrets.SSH_KEY }}"
-          known_hosts: "${{ secrets.KNOWN_HOSTS }}"
-      - name: "Sync config & restart"
+          key: ${{ secrets.SSH_KEY }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+      - name: Sync config & restart
         run: ./scripts/sync-config.sh "$SSH_USER" "$SSH_HOST" "${{ secrets.HA_WEBHOOK_URL }}/manual_restart"
       - name: Notify if CI failure
         if: ${{ failure() }}

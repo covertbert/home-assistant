@@ -1,9 +1,9 @@
 ---
-- alias: "Hass Startup Notification"
+- alias: Hass Startup Notification
   trigger:
-    - platform: "homeassistant"
-      event: "start"
+    - platform: homeassistant
+      event: start
   action:
-    - service: "notify.bertie_iphone"
+    - service: notify.bertie_iphone
       data:
-        message: "🌵 Home Assistant has started"
+        message: 🌵 Home Assistant has started

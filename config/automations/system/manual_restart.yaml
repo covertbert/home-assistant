@@ -1,7 +1,7 @@
 ---
-- alias: "Manual Restart"
+- alias: Manual Restart
   trigger:
-    platform: "webhook"
-    webhook_id: "manual_restart"
+    platform: webhook
+    webhook_id: manual_restart
   action:
-    - service: "homeassistant.restart"
+    - service: homeassistant.restart

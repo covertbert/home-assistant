@@ -1,15 +1,15 @@
 ---
-title: "Home - Desktop"
-icon: "mdi:home"
+title: Home - Desktop
+icon: mdi:home
 panel: false
-path: "default_view"
+path: default_view
 cards:
-  - type: "vertical-stack"
+  - type: vertical-stack
     cards:
       - !include ../cards/areas/living_room.yaml
       - !include ../cards/areas/landing.yaml
   - !include ../cards/layouts/header.desktop.yaml
-  - type: "vertical-stack"
+  - type: vertical-stack
     cards:
       - !include ../cards/areas/bedroom.yaml
       - !include ../cards/areas/spare_room.yaml

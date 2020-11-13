@@ -1,20 +1,20 @@
 ---
-type: "vertical-stack"
+type: vertical-stack
 cards:
-  - title: "Living Room"
-    type: "glance"
+  - title: Living Room
+    type: glance
     entities:
-      - entity: "climate.living_room"
-      - entity: "sensor.living_room_temperature"
-      - entity: "sensor.living_room_humidity"
-      - entity: "media_player.living_room_tv"
+      - entity: climate.living_room
+      - entity: sensor.living_room_temperature
+      - entity: sensor.living_room_humidity
+      - entity: media_player.living_room_tv
     state_color: true
     show_icon: true
     show_name: false
     columns: 4
 
-  - type: "entities"
+  - type: entities
     entities:
-      - entity: "light.front"
-      - entity: "light.back"
+      - entity: light.front
+      - entity: light.back
     show_header_toggle: false

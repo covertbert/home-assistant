@@ -1,8 +1,8 @@
 ---
-title: "Home - Mobile"
-icon: "mdi:home"
+title: Home - Mobile
+icon: mdi:home
 panel: false
-path: "default_view"
+path: default_view
 cards:
   - !include ../cards/layouts/header.mobile.yaml
   - !include ../cards/areas/living_room.yaml

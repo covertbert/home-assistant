@@ -1,4 +1,4 @@
 ---
 tado:
-  username: !secret "tado_username"
-  password: !secret "tado_password"
+  username: !secret tado_username
+  password: !secret tado_password
