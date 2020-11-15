@@ -5,7 +5,10 @@
       for: 24:00:00
       platform: state
       to: unavailable
+    - entity_id: sensor.living_room_cupboard_power
+      platform: state
+      below: 10
   action:
     - service: notify.bertie_iphone
       data:
-        message: 🔋 The living room cupboard sensor battery state is unreachable
+        message: 🔋 The living room cupboard sensor battery is '{{ trigger.to_state.state }}'
