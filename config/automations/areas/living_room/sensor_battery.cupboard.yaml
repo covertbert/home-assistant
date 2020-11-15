@@ -6,7 +6,7 @@
       platform: state
       to: unavailable
     - entity_id: sensor.living_room_cupboard_power
-      platform: state
+      platform: numeric_state
       below: 10
   action:
     - service: notify.bertie_iphone
