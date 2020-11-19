@@ -18,9 +18,8 @@
               data:
                 message: 🥑 Stoof has arrived at ALDI
         - conditions:
-            - condition: state
-              entity_id: person.steph
-              state: Away
+            - condition: template
+              value_template: "{{ states('person.steph') != 'ALDI'  }}"
           sequence:
             - service: notify.bertie_iphone
               data:
