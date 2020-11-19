@@ -17,10 +17,8 @@
             - service: notify.bertie_iphone
               data:
                 message: 🥑 Stoof has arrived at ALDI
-        - conditions:
-            - condition: template
-              value_template: "{{ states('person.steph') != 'ALDI'  }}"
-          sequence:
-            - service: notify.bertie_iphone
-              data:
-                message: 🥑 Stoof has left ALDI
+
+      default:
+        - service: notify.bertie_iphone
+          data:
+            message: 🥑 Stoof has left ALDI
