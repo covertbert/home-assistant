@@ -7,7 +7,6 @@
     - platform: state
       entity_id: person.steph
       from: ALDI
-      to: Away
   action:
     - choose:
         - conditions:
