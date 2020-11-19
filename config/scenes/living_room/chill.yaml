@@ -1,0 +1,11 @@
+---
+- name: Chill
+  entities:
+    light.front:
+      state: 'on'
+      profile: reading
+    light.back:
+      state: 'on'
+      profile: reading
+    light.fairy:
+      state: 'on'
