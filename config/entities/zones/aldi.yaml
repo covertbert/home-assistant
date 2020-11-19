@@ -2,5 +2,5 @@
 - name: ALDI
   latitude: 53.330754
   longitude: -1.909934
-  radius: 300
+  radius: 100
   icon: mdi:storefront

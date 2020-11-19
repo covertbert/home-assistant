@@ -1,0 +1,29 @@
+---
+- alias: ALDI Zone Alerts
+  trigger:
+    - platform: state
+      entity_id: person.steph
+      from: Away
+      to: ALDI
+    - platform: state
+      entity_id: person.steph
+      from: ALDI
+      to: Away
+  action:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: person.steph
+              state: ALDI
+          sequence:
+            - service: notify.bertie_iphone
+              data:
+                message: 🥑 Stoof has arrived at ALDI
+        - conditions:
+            - condition: state
+              entity_id: person.steph
+              state: Away
+          sequence:
+            - service: notify.bertie_iphone
+              data:
+                message: 🥑 Stoof has left ALDI
