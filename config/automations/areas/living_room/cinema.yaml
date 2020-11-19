@@ -1,15 +1,22 @@
 ---
-- alias: Cinema Mode - On
+- alias: Cinema Mode
   trigger:
     - platform: state
       entity_id: input_boolean.cinema_state
       to: 'on'
+    - platform: state
+      entity_id: input_boolean.cinema_state
+      to: 'off'
   action:
-    - service: scene.turn_on
-      entity_id: scene.cinema
-    - delay:
-        milliseconds: 500
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.cinema_state
-        option: 'off'
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: input_boolean.cinema_state
+              state: 'on'
+          sequence:
+            - service: scene.turn_on
+              entity_id: scene.cinema
+
+      default:
+        - service: light.turn_on
+          entity_id: light.living_room
