@@ -6,3 +6,5 @@
       profile: relax
     light.back:
       state: 'off'
+    light.fairy:
+      state: 'off'
