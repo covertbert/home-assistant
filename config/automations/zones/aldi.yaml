@@ -3,12 +3,10 @@
   trigger:
     - platform: state
       entity_id: person.steph
-      from: not_home
       to: ALDI
     - platform: state
       entity_id: person.steph
-      from: ALDI
-      to: not_home
+      to: Away
   action:
     - choose:
         - conditions:
@@ -22,7 +20,7 @@
         - conditions:
             - condition: state
               entity_id: person.steph
-              state: not_home
+              state: Away
           sequence:
             - service: notify.bertie_iphone
               data:
