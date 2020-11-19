@@ -4,3 +4,4 @@
   entities:
     - light.back
     - light.front
+    - light.fairy

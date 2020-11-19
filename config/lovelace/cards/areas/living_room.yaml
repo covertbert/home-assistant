@@ -17,4 +17,5 @@ cards:
     entities:
       - entity: light.front
       - entity: light.back
+      - entity: light.fairy
     show_header_toggle: false
