@@ -6,6 +6,9 @@
     - platform: state
       entity_id: input_select.home_state
       to: Away
+    - platform: numeric_state
+      entity_id: sensor.hue_motion_sensor_1_light_level
+      above: 70
     - platform: time
       at: 00:00:00
 
