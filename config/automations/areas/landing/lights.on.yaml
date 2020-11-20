@@ -9,6 +9,9 @@
     - platform: state
       entity_id: input_select.home_state
       to: Home
+    - platform: state
+      entity_id: input_select.day_state
+      to: Morning
 
   action:
     - choose:
@@ -26,6 +29,7 @@
               conditions:
                 - condition: template
                   value_template: "{{ not is_state('input_select.day_state', 'Night') }}"
+                # Turns on when you come home late
                 - condition: template
                   value_template: "{{ trigger.to_state.state == 'Home' }}"
           sequence:
