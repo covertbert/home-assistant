@@ -2,9 +2,6 @@
 - platform: group
   name: All Lights
   entities:
-    - light.back
-    - light.front
-    - light.stoof
-    - light.gerald
-    - light.bertie
     - light.landing
+    - light.bedroom
+    - light.living_room
