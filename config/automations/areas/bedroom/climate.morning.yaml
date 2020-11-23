@@ -1,0 +1,20 @@
+---
+- alias: Climate - Bedroom - Morning
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: input_select.day_state
+      to: Morning
+
+  condition:
+    - condition: state
+      entity_id: input_select.home_state
+      state: Home
+
+  action:
+    - service: tado.set_climate_timer
+      data:
+        entity_id: climate.bedroom
+        time_period: 02:00:00
+        temperature: 17
