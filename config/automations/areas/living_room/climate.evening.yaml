@@ -1,0 +1,25 @@
+---
+- alias: Climate - Living Room - Evening
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: input_select.day_state
+      to: Evening
+    - platform: state
+      entity_id: input_select.home_state
+      to: Home
+
+  condition:
+    - condition: state
+      entity_id: input_select.day_state
+      state: Evening
+    - condition: state
+      entity_id: input_select.home_state
+      state: Home
+
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.living_room
+        temperature: 21
