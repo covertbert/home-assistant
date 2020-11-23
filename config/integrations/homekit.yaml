@@ -2,8 +2,16 @@
 homekit:
   name: Home Assistant
   filter:
-    include_domains:
-      - light
-      - climate
-      - input_boolean
-    include_entities: !include_dir_merge_list ../homekit
+    include_entities:
+      - light.gerald
+      - light.stoof
+      - light.bertie
+      - climate.bedroom
+      - light.landing
+      - climate.landing
+      - light.front
+      - light.back
+      - light.fairy
+      - climate.living_room
+      - input_boolean.cinema_state
+      - climate.spare_room
