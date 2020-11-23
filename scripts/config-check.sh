@@ -17,6 +17,7 @@ function cleanWorkingDirectory() {
 }
 
 function checkHaConfig() {
+  killDocker
   copyStubbedData
 
   configCheckOutput=$(docker run --name=home-assistant -v "$PWD"/config:/config homeassistant/home-assistant:stable bash -c "python -m homeassistant --script check_config --config ./ --info all")
