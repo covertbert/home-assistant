@@ -21,23 +21,39 @@
     - platform: state
       entity_id: input_select.home_state
       to: Away
-    - platform: state
-      entity_id: sensor.living_room_open_window
-      to: 'True'
 
   action:
     - choose:
         - conditions:
-            - condition: template
-              value_template: "{{ not is_state('input_select.day_state', 'Night') }}"
             - condition: state
               entity_id: input_select.home_state
               state: Home
+            - condition: or
+              conditions:
+                - condition: state
+                  entity_id: input_select.day_state
+                  state: Morning
+                - condition: state
+                  entity_id: input_select.day_state
+                  state: Afternoon
           sequence:
             - service: climate.set_temperature
               data:
                 entity_id: climate.living_room
                 temperature: 20
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: input_select.home_state
+              state: Home
+            - condition: state
+              entity_id: input_select.day_state
+              state: Evening
+          sequence:
+            - service: climate.set_temperature
+              data:
+                entity_id: climate.living_room
+                temperature: 21
 
       default:
         - service: climate.turn_off
