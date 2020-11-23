@@ -1,0 +1,25 @@
+---
+- alias: Climate - Spare Room - High Humidity
+  mode: single
+
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.spare_room_humidity
+      above: 75
+
+  condition:
+    - condition: state
+      entity_id: input_select.home_state
+      state: Home
+    - condition: state
+      entity_id: input_select.guests_state
+      state: 'False'
+    - condition: template
+      value_template: "{{ not is_state('input_select.day_state', 'Night') }}"
+
+  action:
+    - service: tado.set_climate_timer
+      data:
+        entity_id: climate.spare_room
+        time_period: 02:00:00
+        temperature: 20

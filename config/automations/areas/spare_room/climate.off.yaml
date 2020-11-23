@@ -1,0 +1,16 @@
+---
+- alias: Climate - Spare Room - Off
+  mode: single
+
+  trigger:
+    - platform: state
+      entity_id: input_select.day_state
+      to: Night
+    - platform: state
+      entity_id: input_select.home_state
+      to: Away
+
+  action:
+    - service: climate.turn_off
+      data:
+        entity_id: climate.spare_room
