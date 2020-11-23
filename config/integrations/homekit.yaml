@@ -2,4 +2,8 @@
 homekit:
   name: Home Assistant
   filter:
+    include_domains:
+      - light
+      - climate
+      - input_boolean
     include_entities: !include_dir_merge_list ../homekit
