@@ -17,6 +17,8 @@ function cleanWorkingDirectory() {
 }
 
 function checkHaConfig() {
+  copyStubbedData
+
   configCheckOutput=$(docker run --name=home-assistant -v "$PWD"/config:/config homeassistant/home-assistant:stable bash -c "python -m homeassistant --script check_config --config ./ --info all")
 
   if [[ $? == 125 ]]; then
@@ -35,5 +37,4 @@ function checkHaConfig() {
   fi
 }
 
-copyStubbedData
 checkHaConfig
