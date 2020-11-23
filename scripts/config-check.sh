@@ -11,6 +11,11 @@ function copyStubbedData() {
   cp -r ./.stubs/ssl/ ./config/ssl/
 }
 
+function cleanWorkingDirectory() {
+  cd ./config || exit 1
+  rm -rf .cloud .storage .HA_VERSION home-assistant_v2.db home-assistant.log secrets.yaml ssl SERVICE_ACCOUNT.json
+}
+
 function checkHaConfig() {
   configCheckOutput=$(docker run --name=home-assistant -v "$PWD"/config:/config homeassistant/home-assistant:stable bash -c "python -m homeassistant --script check_config --config ./ --info all")
 
@@ -20,21 +25,15 @@ function checkHaConfig() {
 
   if [[ $configCheckOutput == *"Failed config"* ]]; then
     echo "$configCheckOutput"
+    cleanWorkingDirectory
+    killDocker
     exit 1
   else
     echo "Config looks lit 🔥"
+    cleanWorkingDirectory
+    killDocker
   fi
 }
 
-function cleanWorkingDirectory() {
-  cd ./config || exit 1
-  rm -rf .cloud .storage .HA_VERSION home-assistant_v2.db home-assistant.log secrets.yaml ssl SERVICE_ACCOUNT.json
-}
-
-killDocker
-
 copyStubbedData
 checkHaConfig
-
-killDocker
-cleanWorkingDirectory
