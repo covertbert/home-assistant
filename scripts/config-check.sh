@@ -7,6 +7,7 @@ function killDocker() {
 
 function copyStubbedData() {
   cp ./.stubs/mock_secrets.yaml ./config/secrets.yaml
+  cp ./.stubs/SERVICE_ACCOUNT.json ./config/SERVICE_ACCOUNT.json
   cp -r ./.stubs/ssl/ ./config/ssl/
 }
 
@@ -27,7 +28,7 @@ function checkHaConfig() {
 
 function cleanWorkingDirectory() {
   cd ./config || exit 1
-  rm -rf .cloud .storage .HA_VERSION home-assistant_v2.db home-assistant.log secrets.yaml ssl
+  rm -rf .cloud .storage .HA_VERSION home-assistant_v2.db home-assistant.log secrets.yaml ssl SERVICE_ACCOUNT.json
 }
 
 killDocker

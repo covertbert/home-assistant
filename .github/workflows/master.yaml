@@ -13,10 +13,11 @@ jobs:
     steps:
       - name: Getting configuration from GitHub
         uses: actions/checkout@v1
-      - name: Copy stubbed secrets
-        run: mv .stubs/mock_secrets.yaml secrets.yaml
-      - name: Copy stubbed ssl certs
-        run: mv .stubs/ssl/ ssl/
+      - name: Copy stubbed data
+        run: |
+          mv .stubs/mock_secrets.yaml secrets.yaml
+          mv .stubs/ssl/ ssl/
+          mv .stubs/SERVICE_ACCOUNT.json SERVICE_ACCOUNT.json
       - name: Check HA config
         uses: docker://homeassistant/home-assistant:stable
         with:
