@@ -20,7 +20,7 @@
               entity_id: input_select.home_state
               state: Home
             - condition: template
-              value_template: "{{ not is_state('input_select.day_state', 'Afternoon') }}"
+              value_template: "{{ state_attr('sun.sun','elevation') | int < 3.5 }}"
             - condition: state
               entity_id: light.landing
               state: 'off'
