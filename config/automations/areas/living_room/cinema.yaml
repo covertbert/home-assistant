@@ -32,5 +32,9 @@
               light.front:
                 state: 'on'
                 profile: reading
-              light.back: 'on'
-              light.fairy: 'on'
+              light.back:
+                state: 'on'
+                profile: reading
+              light.fairy:
+                state: 'on'
+                profile: reading
