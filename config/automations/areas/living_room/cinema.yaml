@@ -14,9 +14,23 @@
               entity_id: input_boolean.cinema_state
               state: 'on'
           sequence:
-            - service: scene.turn_on
-              entity_id: scene.cinema
+            - service: scene.apply
+              data:
+                transition: 2
+                entities:
+                  light.front:
+                    state: 'on'
+                    profile: relax
+                  light.back: 'off'
+                  light.fairy: 'off'
 
       default:
-        - service: light.turn_on
-          entity_id: light.living_room
+        - service: scene.apply
+          data:
+            transition: 2
+            entities:
+              light.front:
+                state: 'on'
+                profile: reading
+              light.back: 'on'
+              light.fairy: 'on'
