@@ -4,10 +4,10 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.maranta_conductivity
-      below: 110
+      below: 80
     - platform: numeric_state
       entity_id: sensor.maranta_moisture
-      below: 20
+      below: 25
 
   action:
     - choose:
