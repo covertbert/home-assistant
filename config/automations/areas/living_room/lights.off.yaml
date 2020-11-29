@@ -1,6 +1,5 @@
 ---
 - alias: Lights Off - Living Room
-  mode: single
 
   trigger:
     - platform: state

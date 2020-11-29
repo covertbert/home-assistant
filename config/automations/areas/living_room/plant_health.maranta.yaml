@@ -1,6 +1,5 @@
 ---
 - alias: Plant Health - Living Room - Maranta
-  mode: single
 
   trigger:
     - platform: numeric_state

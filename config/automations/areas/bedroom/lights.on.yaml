@@ -1,6 +1,5 @@
 ---
 - alias: Lights On - Bedroom
-  mode: queued
 
   trigger:
     - platform: state

@@ -1,6 +1,5 @@
 ---
 - alias: Lights On - Landing
-  mode: single
 
   trigger:
     - platform: state

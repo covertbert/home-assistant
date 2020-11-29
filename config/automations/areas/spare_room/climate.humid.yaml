@@ -1,6 +1,5 @@
 ---
 - alias: Climate - Spare Room - High Humidity
-  mode: single
 
   trigger:
     - platform: numeric_state

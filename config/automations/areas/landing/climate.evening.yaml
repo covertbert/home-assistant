@@ -1,6 +1,5 @@
 ---
 - alias: Climate - Landing - Evening
-  mode: single
 
   trigger:
     - platform: state

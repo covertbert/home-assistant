@@ -1,6 +1,5 @@
 ---
 - alias: Lights On - Living Room
-  mode: single
 
   trigger:
     - platform: numeric_state

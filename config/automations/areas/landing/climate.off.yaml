@@ -1,6 +1,5 @@
 ---
 - alias: Climate - Landing - Off
-  mode: single
 
   trigger:
     - platform: state

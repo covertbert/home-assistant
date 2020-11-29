@@ -1,6 +1,5 @@
 ---
 - alias: Climate - Spare Room - Off
-  mode: single
 
   trigger:
     - platform: state

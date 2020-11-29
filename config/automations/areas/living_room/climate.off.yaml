@@ -1,6 +1,5 @@
 ---
 - alias: Climate - Living Room - Off
-  mode: single
 
   trigger:
     - platform: state

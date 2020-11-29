@@ -1,6 +1,5 @@
 ---
 - alias: Lights Off - Landing
-  mode: queued
 
   trigger:
     - platform: state

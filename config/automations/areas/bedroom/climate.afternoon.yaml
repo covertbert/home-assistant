@@ -1,6 +1,5 @@
 ---
 - alias: Climate - Bedroom - Afternoon
-  mode: single
 
   trigger:
     - platform: state

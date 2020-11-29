@@ -1,6 +1,5 @@
 ---
 - alias: Climate - Bedroom - Off
-  mode: single
 
   trigger:
     - platform: state

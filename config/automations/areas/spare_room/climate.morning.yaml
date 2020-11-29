@@ -1,6 +1,5 @@
 ---
 - alias: Climate - Spare Room - Morning
-  mode: single
 
   trigger:
     - platform: state
