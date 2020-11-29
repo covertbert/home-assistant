@@ -11,7 +11,7 @@
       to: Morning
     - platform: sun
       event: sunset
-      offset: '-00:45:00'
+      offset: '-00:30:00'
 
   action:
     - choose:
@@ -20,7 +20,7 @@
               entity_id: input_select.home_state
               state: Home
             - condition: template
-              value_template: "{{ state_attr('sun.sun','elevation') | int < 3.5 }}"
+              value_template: "{{ state_attr('sun.sun','elevation') | int < 5 }}"
             - condition: state
               entity_id: light.landing
               state: 'off'
