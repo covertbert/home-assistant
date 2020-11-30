@@ -7,9 +7,9 @@ cards:
   - type: vertical-stack
     cards:
       - !include ../cards/areas/desktop/living_room.yaml
-      - !include ../cards/areas/desktop/landing.yaml
   - !include ../cards/layouts/header.desktop.yaml
   - type: vertical-stack
     cards:
+      - !include ../cards/areas/desktop/landing.yaml
       - !include ../cards/areas/desktop/bedroom.yaml
       - !include ../cards/areas/desktop/spare_room.yaml
