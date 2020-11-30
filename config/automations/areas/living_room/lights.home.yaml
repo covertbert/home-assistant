@@ -9,7 +9,7 @@
   condition:
     - condition: numeric_state
       entity_id: sensor.living_room_light
-      below: 200
+      below: 5
     - condition: state
       entity_id: light.living_room
       state: 'off'
