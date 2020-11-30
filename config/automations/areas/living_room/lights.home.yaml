@@ -1,0 +1,19 @@
+---
+- alias: Lights - Living Room - Home
+
+  trigger:
+    - platform: state
+      entity_id: input_select.home_state
+      to: Home
+
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.living_room_light
+      below: 200
+    - condition: state
+      entity_id: light.living_room
+      state: 'off'
+
+  action:
+    - service: light.turn_on
+      entity_id: light.living_room

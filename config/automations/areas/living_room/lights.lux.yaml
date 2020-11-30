@@ -1,0 +1,24 @@
+---
+- alias: Lights - Living Room - Lux
+
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.living_room_light
+      below: 200
+
+  condition:
+    - condition: state
+      entity_id: input_select.home_state
+      state: Home
+    - condition: state
+      entity_id: input_boolean.cinema_state
+      state: 'off'
+    - condition: template
+      value_template: "{{ not is_state('input_select.day_state', 'Night') }}"
+    - condition: state
+      entity_id: light.living_room
+      state: 'off'
+
+  action:
+    - service: light.turn_on
+      entity_id: light.living_room
