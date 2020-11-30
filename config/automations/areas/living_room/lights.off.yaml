@@ -6,7 +6,7 @@
       entity_id: input_select.home_state
       to: Away
     - platform: numeric_state
-      entity_id: sensor.living_room_light
+      entity_id: sensor.living_room_light_sensor_light
       above: 5
     - platform: time
       at: 00:00:00
