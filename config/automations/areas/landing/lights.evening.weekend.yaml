@@ -1,10 +1,10 @@
 ---
-- alias: Lights On - Landing
+- alias: Lights On - Landing - Weekend
 
   trigger:
     - platform: sun
       event: sunset
-      offset: '-00:40:00'
+      offset: '-00:30:00'
 
   condition:
     - condition: state
@@ -12,6 +12,9 @@
       state: Home
     - condition: state
       entity_id: light.landing
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
       state: 'off'
 
   action:
