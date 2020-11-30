@@ -1,0 +1,10 @@
+---
+- alias: Sensor Temperature - Living Room - Cupboard
+  trigger:
+    - entity_id: sensor.living_room_cupboard_temperature
+      platform: numeric_state
+      above: 30
+  action:
+    - service: notify.bertie_iphone
+      data:
+        message: 🔥 The Living Room cupboard temperature is too high
