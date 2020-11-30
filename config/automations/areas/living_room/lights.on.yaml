@@ -2,15 +2,15 @@
 - alias: Lights On - Living Room
 
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.hue_motion_sensor_1_light_level
-      below: 70
     - platform: state
       entity_id: input_select.home_state
       to: Home
     - platform: state
       entity_id: input_select.day_state
       to: Morning
+    - platform: sun
+      event: sunset
+      offset: '-00:40:00'
 
   action:
     - choose:
@@ -18,19 +18,11 @@
             - condition: state
               entity_id: input_select.home_state
               state: Home
-            - condition: numeric_state
-              entity_id: sensor.hue_motion_sensor_1_light_level
-              below: 70
+            - condition: template
+              value_template: "{{ state_attr('sun.sun','elevation') | int < 5 }}"
             - condition: state
               entity_id: light.living_room
               state: 'off'
-            - condition: or
-              conditions:
-                - condition: template
-                  value_template: "{{ not is_state('input_select.day_state', 'Night') }}"
-                # Turns on when you come home late
-                - condition: template
-                  value_template: "{{ trigger.to_state.state == 'Home' }}"
           sequence:
             - service: light.turn_on
               entity_id: light.living_room
