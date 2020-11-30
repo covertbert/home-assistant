@@ -1,0 +1,19 @@
+---
+- alias: Lights On - Landing
+
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: '-00:40:00'
+
+  condition:
+    - condition: state
+      entity_id: input_select.home_state
+      state: Home
+    - condition: state
+      entity_id: light.landing
+      state: 'off'
+
+  action:
+    - service: light.turn_on
+      entity_id: light.landing
