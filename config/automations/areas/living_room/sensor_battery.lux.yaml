@@ -1,0 +1,14 @@
+---
+- alias: Sensor Battery - Living Room - Lux
+  trigger:
+    - entity_id: sensor.living_room_light
+      for: 24:00:00
+      platform: state
+      to: unavailable
+    - entity_id: sensor.living_room_light
+      platform: numeric_state
+      below: 10
+  action:
+    - service: notify.bertie_iphone
+      data:
+        message: 🔋 The Living Room light sensor battery state is '{{ trigger.to_state.state }}'
