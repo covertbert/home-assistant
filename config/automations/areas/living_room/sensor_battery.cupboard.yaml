@@ -1,11 +1,11 @@
 ---
 - alias: Sensor Battery - Living Room - Cupboard
   trigger:
-    - entity_id: sensor.living_room_cupboard_power
+    - entity_id: sensor.living_room_cupboard_battery
       for: 24:00:00
       platform: state
       to: unavailable
-    - entity_id: sensor.living_room_cupboard_power
+    - entity_id: sensor.living_room_cupboard_battery
       platform: numeric_state
       below: 10
   action:
