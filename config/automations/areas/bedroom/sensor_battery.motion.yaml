@@ -1,0 +1,9 @@
+---
+- alias: Sensor Battery - Bedroom - Motion
+  trigger:
+    - platform: template
+      value_template: "{{ state_attr('binary_sensor.bedroom_hue_motion','battery_level') < 10 }}"
+  action:
+    - service: notify.bertie_iphone
+      data:
+        message: 🔋 The Bedroom motion sensor battery state is '{{ trigger.to_state.state }}'
