@@ -5,7 +5,7 @@ panel: false
 path: default_view
 cards:
   - !include ../cards/layouts/header.mobile.yaml
-  - !include ../cards/areas/living_room.yaml
-  - !include ../cards/areas/landing.yaml
-  - !include ../cards/areas/bedroom.yaml
-  - !include ../cards/areas/spare_room.yaml
+  - !include ../cards/areas/mobile/living_room.yaml
+  - !include ../cards/areas/mobile/landing.yaml
+  - !include ../cards/areas/mobile/bedroom.yaml
+  - !include ../cards/areas/mobile/spare_room.yaml
