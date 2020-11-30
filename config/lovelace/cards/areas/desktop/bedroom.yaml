@@ -20,3 +20,11 @@ cards:
       - entity: light.stoof
       - entity: light.gerald
     show_header_toggle: false
+
+  - title: Motion Sensor
+    type: glance
+    entities:
+      - entity: binary_sensor.bedroom_hue_motion
+      - entity: sensor.bedroom_hue_temperature
+      - entity: sensor.bedroom_hue_light_level
+    show_name: false
