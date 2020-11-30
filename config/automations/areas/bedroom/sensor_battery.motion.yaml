@@ -6,4 +6,4 @@
   action:
     - service: notify.bertie_iphone
       data:
-        message: 🔋 The Bedroom motion sensor battery state is '{{ trigger.to_state.state }}'
+        message: 🔋 The Bedroom motion sensor battery state is '{{ state_attr('binary_sensor.bedroom_hue_motion','battery_level') }}'
