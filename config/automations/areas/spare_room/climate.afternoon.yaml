@@ -1,10 +1,10 @@
 ---
-- alias: Climate - Spare Room - Morning
+- alias: Climate - Spare Room - Afternoon
 
   trigger:
     - platform: state
       entity_id: input_select.day_state
-      to: Morning
+      to: Afertnoon
 
   condition:
     - condition: state
@@ -15,4 +15,4 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.spare_room
-        temperature: 19
+        temperature: 17
