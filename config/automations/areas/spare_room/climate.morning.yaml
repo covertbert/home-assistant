@@ -12,8 +12,7 @@
       state: Home
 
   action:
-    - service: tado.set_climate_timer
+    - service: climate.set_temperature
       data:
         entity_id: climate.spare_room
-        time_period: 02:00:00
-        temperature: 20
+        temperature: 18
