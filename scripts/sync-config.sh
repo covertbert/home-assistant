@@ -12,19 +12,12 @@ fi
 function syncFiles() {
   echo "Synching files..."
 
-  rsync -avO \
-    --no-perms \
-    --include={'automations/***','customizations/***','entities/***','lovelace/***','integrations/***','scenes/***','scripts/***','themes/***','www/***','custom_components/***','automations.yaml','configuration.yaml','ui-lovelace.yaml','secrets.yaml'} \
-    --exclude="*" \
-    --delete \
-    ./config/ "hassio@hassistant-hayfield.duckdns.org:/config/"
-
   if ! rsync -avO \
     --no-perms \
     --include={'automations/***','customizations/***','entities/***','lovelace/***','integrations/***','scenes/***','scripts/***','themes/***','www/***','custom_components/***','automations.yaml','configuration.yaml','ui-lovelace.yaml','secrets.yaml'} \
     --exclude="*" \
     --delete \
-    ./config/ "hassio@hassistant-hayfield.duckdns.org:/config/"; then
+    ./config/ "$user@$host:/config/"; then
     exit 1
   fi
 
