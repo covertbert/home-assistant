@@ -10,6 +10,7 @@
       to: Away
 
   action:
-    - service: climate.turn_off
+    - service: climate.set_temperature
       data:
         entity_id: climate.landing
+        temperature: 12
