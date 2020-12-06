@@ -24,7 +24,7 @@ jobs:
           args: >
             python -m homeassistant --script check_config --config ./config --info all
       - name: Notify if CI failure
-        if: ${{ failure() }}
+        if: failure()
         run: curl -X POST "${{ secrets.HA_WEBHOOK_URL }}/ci_failure"
 
   static_checks:
@@ -40,7 +40,7 @@ jobs:
       - name: Run pre-commit hooks
         uses: pre-commit/action@v2.0.0
       - name: Notify if CI failure
-        if: ${{ failure() }}
+        if: failure()
         run: curl -X POST "${{ secrets.HA_WEBHOOK_URL }}/ci_failure"
 
   deploy:
@@ -65,5 +65,5 @@ jobs:
       - name: Sync config & restart
         run: ./scripts/sync-config.sh "$SSH_USER" "$SSH_HOST" "${{ secrets.HA_WEBHOOK_URL }}/manual_restart"
       - name: Notify if CI failure
-        if: ${{ failure() }}
+        if: failure()
         run: curl -X POST "${{ secrets.HA_WEBHOOK_URL }}/ci_failure"

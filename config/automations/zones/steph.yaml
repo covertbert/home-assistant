@@ -1,0 +1,10 @@
+---
+- alias: Zone Alerts - Steph
+  trigger:
+    - platform: state
+      entity_id: person.steph
+
+  action:
+    - service: notify.bertie_iphone
+      data:
+        message: 👱🏻‍♀️ Steph's location has changed to '{{ trigger.to_state.state }}'
