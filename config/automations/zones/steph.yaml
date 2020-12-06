@@ -7,4 +7,4 @@
   action:
     - service: notify.bertie_iphone
       data:
-        message: Steph's location has changed to '{{ trigger.to_state.state }}'
+        message: Steph's location has changed to 'hi'
