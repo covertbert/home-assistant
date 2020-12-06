@@ -3,10 +3,10 @@
   trigger:
     - platform: event
       event_type: state_changed
-      event_data:
+      data:
         entity_id: person.steph
 
   action:
     - service: notify.bertie_iphone
       data:
-        message: Steph's location has changed to '{{ trigger.new_state.state }}'
+        message: Steph's location has changed to 'Hello'
