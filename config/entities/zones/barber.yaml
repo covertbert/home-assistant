@@ -1,0 +1,6 @@
+---
+- name: The Barber's
+  latitude: 53.44388400641365
+  longitude: -1.9485256043704722
+  radius: 30
+  icon: mdi:hair-dryer
