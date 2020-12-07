@@ -2,7 +2,12 @@
 - alias: Zone Alerts
   trigger:
     - platform: state
-      entity_id: person.bertie, person.steph
+      entity_id:
+        - person.bertie
+        - person.steph
+        - person.freddie
+        - person.bernie
+        - person.hugh
 
   condition:
     - condition: template
