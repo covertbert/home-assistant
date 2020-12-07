@@ -1,0 +1,6 @@
+---
+- name: Mike & Janet's
+  latitude: !secret mj_latitude
+  longitude: !secret mj_longitude
+  radius: 65
+  icon: mdi:home-account
