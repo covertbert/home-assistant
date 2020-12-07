@@ -8,8 +8,8 @@ zone_change:
     # to_state:
     #   description: The state the trigger has changed to
 
-  # variables:
-  # trigger_name: "{{ state_attr('trigger_id', 'friendly_name') }}"
+  variables:
+    trigger_name: "{{ state_attr('trigger_id', 'friendly_name') }}"
   # message_body: "{{ from_state != 'not_home' and 'left' or 'arrived at' }}"
   # notifier_id: "{{ trigger_id == 'person.steph' and 'notify.bertie_iphone' or 'notify.stoof_iphone' }}"
 
@@ -19,4 +19,4 @@ zone_change:
     - service: notify.bertie_iphone
       data:
         message: >
-          {{ trigger_id }}
+          {{ trigger_name }}
