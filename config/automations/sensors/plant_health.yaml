@@ -1,0 +1,29 @@
+---
+- alias: Plant Health
+  trigger:
+    - platform: numeric_state
+      below: 80
+      entity_id:
+        - sensor.maranta_conductivity
+    - platform: numeric_state
+      below: 25
+      entity_id:
+        - sensor.maranta_moisture
+
+  action:
+    - choose:
+        - conditions:
+            - condition: template
+              value_template: "{{ 'conductivity' in trigger.entity_id }}"
+          sequence:
+            - service: notify.bertie_iphone
+              data:
+                message: 🍔 {{ state_attr(trigger.entity_id, 'friendly_name') }} is hungry
+
+        - conditions:
+            - condition: template
+              value_template: "{{ 'moisture' in trigger.entity_id }}"
+          sequence:
+            - service: notify.bertie_iphone
+              data:
+                message: 💦 {{ state_attr(trigger.entity_id, 'friendly_name') }} is thirsty
