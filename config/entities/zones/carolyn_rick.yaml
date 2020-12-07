@@ -1,0 +1,6 @@
+---
+- name: Carolyn & Rick
+  latitude: !secret cr_latitude
+  longitude: !secret cr_longitude
+  radius: 140
+  icon: mdi:home-account
