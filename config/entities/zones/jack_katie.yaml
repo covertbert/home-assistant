@@ -1,0 +1,6 @@
+---
+- name: Jack & Katie's
+  latitude: !secret jk_latitude
+  longitude: !secret jk_longitude
+  radius: 90
+  icon: mdi:home-account
