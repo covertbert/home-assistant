@@ -16,7 +16,12 @@
         sequence:
           - service: notify.bertie_iphone
             data:
-              message: 👱🏻‍♀️ Steph left '{{ trigger.from_state.state }}'
+              message: >
+                {% if trigger.entity_id == 'person.steph' %}
+                  👱🏻‍♀️ Steph left {{ trigger.from_state.state }}
+                {% else %}
+                  🧔 Bertie left {{ trigger.from_state.state }}
+                {% endif %}
 
       default:
         - service: notify.bertie_iphone
