@@ -16,9 +16,9 @@
         sequence:
           - service: notify.bertie_iphone
             data:
-              message: 🧔 Bertie left {{ trigger.from_state.state }}
+              message: "{{ state_attr(trigger.entity_id, 'friendly_name') }} left {{ trigger.from_state.state }}"
 
       default:
         - service: notify.bertie_iphone
           data:
-            message: 🧔 Bertie arrived at {{ trigger.to_state.state }}
+            message: "{{ state_attr(trigger.entity_id, 'friendly_name') }} arrived at {{ trigger.to_state.state }}"
