@@ -13,4 +13,4 @@
   action:
     - service: notify.bertie_iphone
       data:
-        message: "{{ state_attr(trigger.entity_id, 'friendly_name') }} needs attention"
+        message: 🪴 {{ state_attr(trigger.entity_id, 'friendly_name') }} needs attention
