@@ -1,5 +1,5 @@
 ---
-- name: 👨🏽 Hugh
+- name: Hugh
   id: hugh
   device_trackers:
     - device_tracker.life360_hugh_blackman

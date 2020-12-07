@@ -1,5 +1,5 @@
 ---
-- name: 👩🏽 Bernie
+- name: Bernie
   id: bernadette
   device_trackers:
     - device_tracker.life360_detsi_blackman

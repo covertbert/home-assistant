@@ -1,5 +1,5 @@
 ---
-- name: 👱🏻‍♀️ Stoof
+- name: Stoof
   id: steph
   device_trackers:
     - device_tracker.life360_steph
