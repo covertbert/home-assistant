@@ -1,5 +1,5 @@
 ---
-- name: Mama
-  id: mama
+- name: 👩🏽 Bernie
+  id: bernadette
   device_trackers:
     - device_tracker.life360_detsi_blackman

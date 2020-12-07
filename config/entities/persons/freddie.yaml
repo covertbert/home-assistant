@@ -1,5 +1,5 @@
 ---
-- name: Freddie
+- name: 🧔🏽 Freddie
   id: freddie
   device_trackers:
     - device_tracker.life360_freddie
