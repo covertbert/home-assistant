@@ -18,4 +18,4 @@
   action:
     - service: notify.bertie_iphone
       data:
-        message: 🔋 The {{ state_attr(trigger.entity_id, 'friendly_name') }} level is at {{ trigger.to_state.state }}
+        message: 🔋 The {{ state_attr(trigger.entity_id, 'friendly_name') }} level is {{ trigger.to_state.state }}
