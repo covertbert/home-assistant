@@ -3,20 +3,20 @@ zone_change:
   fields:
     trigger_id:
       description: The entity_id of the person who triggered the script
-    from_state:
-      description: The state the trigger has changed from
-    to_state:
-      description: The state the trigger has changed to
+    # from_state:
+    #   description: The state the trigger has changed from
+    # to_state:
+    #   description: The state the trigger has changed to
 
-  variables:
-    trigger_name: "{{ state_attr('trigger_id', 'friendly_name') }}"
-    # message_body: "{{ from_state != 'not_home' and 'left' or 'arrived at' }}"
-    # notifier_id: "{{ trigger_id == 'person.steph' and 'notify.bertie_iphone' or 'notify.stoof_iphone' }}"
+  # variables:
+  # trigger_name: "{{ state_attr('trigger_id', 'friendly_name') }}"
+  # message_body: "{{ from_state != 'not_home' and 'left' or 'arrived at' }}"
+  # notifier_id: "{{ trigger_id == 'person.steph' and 'notify.bertie_iphone' or 'notify.stoof_iphone' }}"
 
   sequence:
-    - condition: template
-      value_template: '{{ from_state != to_state }}'
+    # - condition: template
+    #   value_template: '{{ from_state != to_state }}'
     - service: notify.bertie_iphone
       data:
         message: >
-          {{ trigger_name }}
+          {{ trigger_id }}
