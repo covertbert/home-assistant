@@ -4,7 +4,21 @@
     - platform: state
       entity_id: person.steph
 
+  condition:
+    - condition: template
+      value_template: '{{ trigger.from_state.state != trigger.to_state.state }}'
+
   action:
-    - service: notify.bertie_iphone
-      data:
-        message: 👱🏻‍♀️ Steph's location has changed to '{{ trigger.to_state.state }}'
+    - choose:
+        conditions:
+          - condition: template
+            value_template: "{{ trigger.from_state.state != 'not_home' }}"
+        sequence:
+          - service: notify.bertie_iphone
+            data:
+              message: 👱🏻‍♀️ Steph left '{{ trigger.to_state.state }}'
+
+      default:
+        - service: notify.bertie_iphone
+          data:
+            message: 👱🏻‍♀️ Steph arrived at '{{ trigger.to_state.state }}'
