@@ -1,0 +1,12 @@
+---
+- alias: Zone Alerts - Generic
+  trigger:
+    - platform: state
+      entity_id: person.steph, person.bertie
+
+  action:
+    service: script.zone_change
+    data:
+      trigger_id: '{{ trigger.entity_id }}'
+      from_state: '{{ trigger.from_state.state }}'
+      to_state: '{{ trigger.to_state.state }}'
