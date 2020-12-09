@@ -20,27 +20,21 @@ cards:
       - entity: light.fairy
     show_header_toggle: false
 
-  - title: Prayer Plant
-    type: glance
+  - type: entities
     entities:
       - entity: sensor.maranta_battery
       - entity: sensor.maranta_temperature
       - entity: sensor.maranta_light_intensity
       - entity: sensor.maranta_moisture
       - entity: sensor.maranta_conductivity
-    show_name: false
 
-  - title: Cupboard
-    type: glance
+  - type: entities
     entities:
       - entity: sensor.living_room_cupboard_battery
       - entity: sensor.living_room_cupboard_temperature
       - entity: sensor.living_room_cupboard_humidity
-    show_name: false
 
-  - title: Light Sensor
-    type: glance
+  - type: entities
     entities:
       - entity: sensor.living_room_light_sensor_battery
       - entity: sensor.living_room_light_sensor_light
-    show_name: false
