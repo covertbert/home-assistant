@@ -1,0 +1,6 @@
+---
+- name: Boots Opticians
+  latitude: 53.443215034554306
+  longitude: -1.950442929079736
+  radius: 30
+  icon: mdi:glasses

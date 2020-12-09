@@ -1,0 +1,6 @@
+---
+- name: Specsavers
+  latitude: 53.44342604289046
+  longitude: -1.9514246785835923
+  radius: 30
+  icon: mdi:glasses

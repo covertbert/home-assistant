@@ -21,7 +21,7 @@
         sequence:
           - service_template: >
               {% if trigger.entity_id == 'person.bertie' %}
-                notify.bertie_iphone
+                notify.stoof_iphone
               {% elif trigger.entity_id == 'person.steph' %}
                 notify.bertie_iphone
               {% else %}
