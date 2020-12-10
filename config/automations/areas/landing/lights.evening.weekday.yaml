@@ -1,5 +1,5 @@
 ---
-- alias: Lights On - Landing - Weekday
+- alias: Lights - Landing - Weekday - On
 
   trigger:
     - platform: state

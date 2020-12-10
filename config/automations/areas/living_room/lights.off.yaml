@@ -1,5 +1,5 @@
 ---
-- alias: Lights Off - Living Room
+- alias: Lights - Living Room - Off
 
   trigger:
     - platform: state

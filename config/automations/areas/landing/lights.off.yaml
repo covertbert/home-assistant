@@ -1,5 +1,5 @@
 ---
-- alias: Lights Off - Landing
+- alias: Lights - Landing - Off
 
   trigger:
     - platform: state

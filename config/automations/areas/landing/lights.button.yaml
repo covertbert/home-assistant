@@ -1,5 +1,5 @@
 ---
-- alias: Landing - Lights - Button
+- alias: Lights - Landing - Button
 
   trigger:
     - platform: event
