@@ -1,0 +1,15 @@
+---
+- alias: Lights - Living Room - Manual Override
+
+  trigger:
+    - platform: state
+      entity_id: light.living_room
+
+  condition:
+    - condition: template
+      value_template: "{{ 'person.' in trigger.entity_id }}"
+
+  action:
+    - service: notify.bertie_iphone
+      data:
+        message: Hi
