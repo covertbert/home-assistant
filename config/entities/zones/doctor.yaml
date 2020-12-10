@@ -1,0 +1,6 @@
+---
+- name: The Doctor's
+  latitude: 53.36726327309063
+  longitude: -2.0027731846566925
+  radius: 30
+  icon: mdi:medical-bag
