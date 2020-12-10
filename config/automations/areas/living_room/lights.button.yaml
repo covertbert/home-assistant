@@ -1,0 +1,14 @@
+---
+- alias: Living Room - Lights - Button
+
+  trigger:
+    - platform: event
+      event_type: zha_event
+      event_data:
+        device_id: e415bcdfc21571b4ded37e3199d199f0
+        args:
+          value: true
+
+  action:
+    - service: light.toggle
+      entity_id: light.living_room
