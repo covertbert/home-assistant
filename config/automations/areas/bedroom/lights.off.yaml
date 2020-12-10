@@ -31,3 +31,6 @@
       default:
         - service: light.turn_off
           entity_id: light.bedroom
+        - service: notify.bertie_iphone
+          data:
+            message: 🔥 {{ trigger.entity_id }}
