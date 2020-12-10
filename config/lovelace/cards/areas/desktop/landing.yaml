@@ -15,3 +15,8 @@ cards:
     entities:
       - entity: light.landing
     show_header_toggle: false
+
+  - type: entities
+    entities:
+      - entity: sensor.landing_button_power
+        name: Button Battery
