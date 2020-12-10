@@ -10,6 +10,5 @@
           value: true
 
   action:
-    - service: notify.bertie_iphone
-      data:
-        message: Hello
+    - service: light.toggle
+      entity_id: light.living_room
