@@ -1,5 +1,5 @@
 ---
-- alias: Lights On - Bedroom
+- alias: Lights - Bedroom - On
 
   trigger:
     - platform: state
