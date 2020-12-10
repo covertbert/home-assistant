@@ -6,8 +6,8 @@
       event_type: zha_event
       event_data:
         device_id: 7e9c40fded1a2a84ca0cb6888ab2bd91
-        # args:
-        #   value: true
+        args:
+          value: true
 
   action:
     - service: notify.bertie_iphone
