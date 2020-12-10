@@ -25,16 +25,22 @@ cards:
       - entity: sensor.maranta_battery
       - entity: sensor.maranta_temperature
       - entity: sensor.maranta_light_intensity
+        name: Maranta Lux
       - entity: sensor.maranta_moisture
       - entity: sensor.maranta_conductivity
 
   - type: entities
     entities:
       - entity: sensor.living_room_cupboard_battery
+        name: Cupboard Battery
       - entity: sensor.living_room_cupboard_temperature
+        name: Cupboard Temperature
       - entity: sensor.living_room_cupboard_humidity
+        name: Cupboard Humidity
 
   - type: entities
     entities:
       - entity: sensor.living_room_light_sensor_battery
+        name: Light Sensor Battery
       - entity: sensor.living_room_light_sensor_light
+        name: Light Sensor Lux
