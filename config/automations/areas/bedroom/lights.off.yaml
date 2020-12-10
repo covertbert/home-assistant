@@ -1,5 +1,6 @@
 ---
 - alias: Lights - Bedroom
+  mode: restart
 
   trigger:
     - platform: state
