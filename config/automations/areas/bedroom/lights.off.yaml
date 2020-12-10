@@ -5,6 +5,9 @@
     - platform: state
       entity_id: input_select.home_state
       to: Away
+    - platform: state
+      entity_id: light.bedroom
+      to: 'on'
 
   condition:
     - condition: state
@@ -12,5 +15,20 @@
       state: 'on'
 
   action:
-    - service: light.turn_off
-      entity_id: light.bedroom
+    - choose:
+        - conditions:
+            - condition: template
+              value_template: '{{ trigger.entity_id == light.bedroom }}'
+            - condition: template
+              value_template: "{{ not is_state('input_select.day_state', 'Night') }}"
+            - condition: template
+              value_template: "{{ not is_state('input_select.day_state', 'Evening') }}"
+          sequence:
+            - delay:
+                minutes: 1
+            - service: light.turn_off
+              entity_id: light.bedroom
+
+      default:
+        - service: light.turn_off
+          entity_id: light.bedroom

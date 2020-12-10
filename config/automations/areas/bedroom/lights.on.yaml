@@ -12,14 +12,14 @@
       state: Home
     - condition: numeric_state
       entity_id: sensor.bedroom_hue_light_level
-      below: 50
+      below: 10
     - condition: state
       entity_id: light.bedroom
       state: 'off'
-    - condition: time
-      after: '12:00:00'
-    - condition: time
-      before: '21:00:00'
+    - condition: template
+      value_template: "{{ not is_state('input_select.day_state', 'Night') }}"
+    # - condition: template
+    #   value_template: "{{ not is_state('input_select.day_state', 'Morning') }}"
 
   action:
     - service: light.turn_on
