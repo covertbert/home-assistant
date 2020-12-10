@@ -12,7 +12,7 @@
       state: Home
     - condition: numeric_state
       entity_id: sensor.bedroom_hue_light_level
-      below: 4
+      below: 3
     - condition: state
       entity_id: light.bedroom
       state: 'off'
