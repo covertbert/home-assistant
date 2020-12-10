@@ -1,0 +1,18 @@
+---
+- alias: Lights - Landing - Home
+
+  trigger:
+    - platform: state
+      entity_id: input_select.home_state
+      to: Home
+
+  condition:
+    - condition: state
+      entity_id: light.landing
+      state: 'off'
+    - condition: template
+      value_template: "{{ state_attr('sun.sun','elevation') | int < 5 }}"
+
+  action:
+    - service: light.turn_on
+      entity_id: light.landing
