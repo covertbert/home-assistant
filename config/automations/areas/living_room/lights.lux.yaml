@@ -4,7 +4,7 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.living_room_light_sensor_light
-      below: 5
+      below: 4
       for: '00:05:00'
 
   condition:
@@ -14,11 +14,12 @@
     - condition: state
       entity_id: input_boolean.cinema_state
       state: 'off'
-    - condition: template
-      value_template: "{{ not is_state('input_select.day_state', 'Night') }}"
     - condition: state
       entity_id: light.living_room
       state: 'off'
+    - condition: time
+      after: '05:00:00'
+      before: '20:00:00'
 
   action:
     - service: light.turn_on
