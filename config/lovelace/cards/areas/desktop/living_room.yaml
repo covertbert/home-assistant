@@ -44,3 +44,8 @@ cards:
         name: Light Sensor Battery
       - entity: sensor.living_room_light_sensor_light
         name: Light Sensor Lux
+
+  - type: entities
+    entities:
+      - entity: sensor.living_room_button_power
+        name: Button Battery

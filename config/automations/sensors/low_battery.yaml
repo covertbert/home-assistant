@@ -7,6 +7,8 @@
         - sensor.maranta_battery
         - sensor.living_room_cupboard_battery
         - sensor.living_room_light_sensor_battery
+        - sensor.living_room_button_power
+        - sensor.landing_button_power
     - platform: state
       to: unavailable
       for: 06:00:00
@@ -14,6 +16,8 @@
         - sensor.maranta_battery
         - sensor.living_room_cupboard_battery
         - sensor.living_room_light_sensor_battery
+        - sensor.living_room_button_power
+        - sensor.landing_button_power
 
   action:
     - service: notify.bertie_iphone
