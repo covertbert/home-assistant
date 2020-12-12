@@ -15,7 +15,5 @@ cards:
   - type: weather-forecast
     entity: weather.dark_sky
 
-  - type: calendar
-    entities:
-      - calendar.blackmanrgh_gmail_com
-    initial_view: dayGridMonth
+  - !include ../areas/desktop/spare_room.yaml
+  - !include ../areas/desktop/bathroom.yaml

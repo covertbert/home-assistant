@@ -12,5 +12,3 @@ cards:
     cards:
       - !include ../cards/areas/desktop/landing.yaml
       - !include ../cards/areas/desktop/bedroom.yaml
-      - !include ../cards/areas/desktop/spare_room.yaml
-      - !include ../cards/areas/desktop/bathroom.yaml
