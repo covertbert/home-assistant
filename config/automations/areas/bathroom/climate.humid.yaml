@@ -1,0 +1,18 @@
+---
+- alias: Climate - Bathroom - High Humidity
+
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.bathroom_humidity
+      above: 75
+
+  condition:
+    - condition: template
+      value_template: "{{ not is_state('input_select.day_state', 'Night') }}"
+
+  action:
+    - service: tado.set_climate_timer
+      data:
+        entity_id: climate.bathroom
+        time_period: 01:00:00
+        temperature: 23

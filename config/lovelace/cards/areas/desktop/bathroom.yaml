@@ -1,0 +1,9 @@
+---
+type: vertical-stack
+cards:
+  - title: Bathroom
+    type: glance
+    entities:
+      - entity: climate.bathroom
+    show_icon: true
+    show_name: false

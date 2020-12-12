@@ -1,0 +1,16 @@
+---
+- alias: Climate - Bathroom - Off
+
+  trigger:
+    - platform: state
+      entity_id: input_select.day_state
+      to: Night
+    - platform: state
+      entity_id: input_select.home_state
+      to: Away
+
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.bathroom
+        temperature: 12

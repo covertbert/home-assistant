@@ -1,0 +1,19 @@
+---
+- alias: Climate - Bathroom - Morning
+
+  trigger:
+    - platform: state
+      entity_id: input_select.day_state
+      to: Morning
+
+  condition:
+    - condition: state
+      entity_id: input_select.home_state
+      state: Home
+
+  action:
+    - service: tado.set_climate_timer
+      data:
+        entity_id: climate.bathroom
+        time_period: 01:00:00
+        temperature: 23
