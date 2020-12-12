@@ -7,8 +7,8 @@
       to: Away
     - platform: numeric_state
       entity_id: sensor.living_room_light_sensor_light
-      above: 8
-      for: '00:05:00'
+      above: 10
+      for: '00:10:00'
     - platform: time
       at: 00:00:00
 
