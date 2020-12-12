@@ -14,4 +14,5 @@ homekit:
       - climate.bedroom
       - climate.landing
       - climate.spare_room
+      - climate.bathroom
       - input_boolean.cinema_state
