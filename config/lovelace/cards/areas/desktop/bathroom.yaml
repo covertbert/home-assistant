@@ -5,5 +5,7 @@ cards:
     type: glance
     entities:
       - entity: climate.bathroom
+      - entity: sensor.bathroom_temperature
+      - entity: sensor.bathroom_humidity
     show_icon: true
     show_name: false
