@@ -9,7 +9,7 @@
         - person.bernie
         - person.hugh
       for:
-        seconds: 60
+        seconds: 45
 
   condition:
     - condition: template
