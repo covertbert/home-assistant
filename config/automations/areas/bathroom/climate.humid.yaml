@@ -4,7 +4,7 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.bathroom_humidity
-      above: 75
+      above: 55
 
   condition:
     - condition: template
@@ -15,4 +15,4 @@
       data:
         entity_id: climate.bathroom
         time_period: 01:00:00
-        temperature: 23
+        temperature: 24
