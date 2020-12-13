@@ -1,13 +1,16 @@
 ---
-- alias: Lights - Living Room - Lux
+- alias: Lights - Living Room - Lux - Weekday
 
   trigger:
     - platform: numeric_state
       entity_id: sensor.living_room_light_sensor_light
-      below: 4
+      below: 3
       for: '00:05:00'
 
   condition:
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: 'on'
     - condition: state
       entity_id: input_select.home_state
       state: Home
