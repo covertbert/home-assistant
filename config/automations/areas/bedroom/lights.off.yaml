@@ -10,11 +10,6 @@
       entity_id: light.bedroom
       to: 'on'
 
-  condition:
-    - condition: state
-      entity_id: light.bedroom
-      state: 'on'
-
   action:
     - choose:
         - conditions:
