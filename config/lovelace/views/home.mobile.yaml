@@ -9,3 +9,4 @@ cards:
   - !include ../cards/areas/mobile/landing.yaml
   - !include ../cards/areas/mobile/bedroom.yaml
   - !include ../cards/areas/mobile/spare_room.yaml
+  - !include ../cards/areas/mobile/bathroom.yaml
