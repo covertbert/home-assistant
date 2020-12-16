@@ -1,0 +1,4 @@
+---
+- name: Christmas Tree
+  platform: miflora
+  mac: !secret miflora_living_room_christmas
