@@ -5,10 +5,12 @@
       below: 80
       entity_id:
         - sensor.maranta_conductivity
+        - sensor.christmas_tree_conductivity
     - platform: numeric_state
       below: 25
       entity_id:
         - sensor.maranta_moisture
+        - sensor.christmas_tree_moisture
 
   action:
     - service: notify.bertie_iphone

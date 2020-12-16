@@ -5,6 +5,7 @@
       below: 10
       entity_id:
         - sensor.maranta_battery
+        - sensor.christmas_tree_battery
         - sensor.living_room_cupboard_battery
         - sensor.living_room_light_sensor_battery
         - sensor.living_room_button_power
@@ -14,6 +15,7 @@
       for: 06:00:00
       entity_id:
         - sensor.maranta_battery
+        - sensor.christmas_tree_battery
         - sensor.living_room_cupboard_battery
         - sensor.living_room_light_sensor_battery
         - sensor.living_room_button_power
