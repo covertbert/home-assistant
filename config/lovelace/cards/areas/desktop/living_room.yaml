@@ -20,27 +20,6 @@ cards:
       - entity: light.fairy
     show_header_toggle: false
 
-  - type: vertical-stack
-    cards:
-      - title: Christmas Tree
-        type: glance
-        entities:
-          - entity: sensor.christmas_tree_battery
-          - entity: sensor.christmas_tree_temperature
-          - entity: sensor.christmas_tree_light_intensity
-          - entity: sensor.christmas_tree_moisture
-          - entity: sensor.christmas_tree_conductivity
-        show_name: false
-      - title: Maranta
-        type: glance
-        entities:
-          - entity: sensor.maranta_battery
-          - entity: sensor.maranta_temperature
-          - entity: sensor.maranta_light_intensity
-          - entity: sensor.maranta_moisture
-          - entity: sensor.maranta_conductivity
-        show_name: false
-
   - type: entities
     entities:
       - entity: sensor.living_room_cupboard_battery

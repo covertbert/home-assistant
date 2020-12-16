@@ -1,0 +1,10 @@
+---
+title: Living Room - Christmas Tree
+type: glance
+entities:
+  - entity: sensor.christmas_tree_battery
+  - entity: sensor.christmas_tree_temperature
+  - entity: sensor.christmas_tree_light_intensity
+  - entity: sensor.christmas_tree_moisture
+  - entity: sensor.christmas_tree_conductivity
+show_name: false
