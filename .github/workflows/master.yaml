@@ -17,7 +17,6 @@ jobs:
         run: |
           mv .stubs/mock_secrets.yaml secrets.yaml
           mv .stubs/ssl/ ssl/
-          mv .stubs/SERVICE_ACCOUNT.json config/SERVICE_ACCOUNT.json
       - name: Check HA config
         uses: docker://homeassistant/home-assistant:stable
         with:
