@@ -1,6 +1,6 @@
 ---
-- name: Gas Consumption
+- name: gas_consumption
   platform: command_line
   command: !secret octopus_gas_command
   unit_of_measurement: kW
-  json_attributes: count
+  value_template: '{{ value_json.count }}'
