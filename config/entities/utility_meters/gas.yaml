@@ -1,0 +1,4 @@
+---
+gas:
+  source: sensor.gas_consumption_kwh
+  cycle: monthly
