@@ -1,6 +1,6 @@
 ---
-- name: gas_consumption_kwh
+- name: electricity_consumption_kwh
   platform: command_line
-  command: !secret octopus_gas_command
+  command: !secret octopus_electricity_command
   unit_of_measurement: kW
   value_template: '{{ value_json.count }}'
