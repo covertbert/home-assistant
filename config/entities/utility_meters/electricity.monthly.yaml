@@ -1,0 +1,4 @@
+---
+electricity_monthly:
+  source: sensor.electricity_consumption_kwh
+  cycle: monthly

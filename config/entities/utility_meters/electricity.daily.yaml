@@ -1,4 +1,4 @@
 ---
-electricity:
+electricity_daily:
   source: sensor.electricity_consumption_kwh
-  cycle: monthly
+  cycle: daily
