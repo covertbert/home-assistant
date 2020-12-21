@@ -1,0 +1,13 @@
+---
+- alias: In Bed Notify
+
+  trigger:
+    - platform: event
+      event_type: state_changed
+      event_data:
+        entity_id: binary_sensor.in_bed_sensor
+
+  action:
+    - service: notify.bertie_iphone
+      data:
+        message: In bed sensor state changed
