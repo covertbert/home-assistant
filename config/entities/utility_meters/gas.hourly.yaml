@@ -1,0 +1,4 @@
+---
+gas_hourly:
+  source: sensor.gas_consumption_kwh
+  cycle: hourly

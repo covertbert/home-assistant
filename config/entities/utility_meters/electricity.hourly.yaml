@@ -1,0 +1,4 @@
+---
+electricity_hourly:
+  source: sensor.electricity_consumption_kwh
+  cycle: hourly
