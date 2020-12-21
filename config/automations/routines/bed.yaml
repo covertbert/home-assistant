@@ -10,4 +10,4 @@
   action:
     - service: notify.bertie_iphone
       data:
-        message: In bed sensor state changed
+        message: '{{ trigger.event.data.new_state.state }}'
