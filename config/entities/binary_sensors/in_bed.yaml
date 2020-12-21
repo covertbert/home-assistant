@@ -1,22 +1,22 @@
 ---
 - name: In Bed Sensor
   platform: bayesian
-  prior: 0.25
-  probability_threshold: 0.5
+  prior: 0.4
+  probability_threshold: 0.8
   observations:
     - platform: template
       value_template: >
         {{ state_attr('device_tracker.life360_bertie_blackman', 'battery_charging') == true }}
-      prob_given_true: 0.9
+      prob_given_true: 0.8
     - platform: template
       value_template: >
         {{ state_attr('device_tracker.life360_steph', 'battery_charging') == true }}
-      prob_given_true: 0.9
+      prob_given_true: 0.8
     - platform: state
       entity_id: input_select.day_state
       prob_given_true: 0.9
       to_state: 'Night'
     - platform: state
       entity_id: input_select.day_state
-      prob_given_true: 0.5
+      prob_given_true: 0.2
       to_state: 'Evening'
