@@ -2,8 +2,3 @@
 lovelace:
   mode: storage
   dashboards: !include ../lovelace/dashboards.yaml
-  resources:
-    - url: /local/card-mod.js
-      type: module
-    - url: /local/button-card.js
-      type: module
