@@ -16,6 +16,7 @@ cards:
           - entity: input_select.home_state
           - entity: input_select.day_state
           - entity: input_select.guests_state
+          - entity: binary_sensor.in_bed_sensor
         show_state: true
         show_icon: true
         show_name: false
