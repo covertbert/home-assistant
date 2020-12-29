@@ -18,5 +18,5 @@
       to_state: 'Night'
     - platform: state
       entity_id: input_select.day_state
-      prob_given_true: 0.27
+      prob_given_true: 0.3
       to_state: 'Evening'
