@@ -7,11 +7,11 @@
     - platform: template
       value_template: >
         {{ state_attr('device_tracker.life360_bertie_blackman', 'battery_charging') == true }}
-      prob_given_true: 0.7
+      prob_given_true: 0.75
     - platform: template
       value_template: >
         {{ state_attr('device_tracker.life360_steph', 'battery_charging') == true }}
-      prob_given_true: 0.7
+      prob_given_true: 0.75
     - platform: state
       entity_id: input_select.day_state
       prob_given_true: 0.8
