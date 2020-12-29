@@ -12,8 +12,8 @@
       entity_id: binary_sensor.workday_sensor
       state: 'on'
     - condition: state
-      entity_id: input_select.home_state
-      state: Home
+      entity_id: input_boolean.home_state
+      state: 'on'
     - condition: state
       entity_id: input_boolean.cinema_state
       state: 'off'

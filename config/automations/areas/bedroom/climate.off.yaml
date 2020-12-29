@@ -6,8 +6,8 @@
       entity_id: input_select.day_state
       to: Evening
     - platform: state
-      entity_id: input_select.home_state
-      to: Away
+      entity_id: input_boolean.home_state
+      to: 'off'
 
   action:
     - service: climate.set_temperature

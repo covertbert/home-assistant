@@ -10,5 +10,5 @@
         message: 🚗💨 Home state set to 'Away'
     - service: input_select.select_option
       data:
-        entity_id: input_select.home_state
+        entity_id: input_boolean.home_state
         option: Away

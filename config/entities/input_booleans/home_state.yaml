@@ -1,7 +1,4 @@
 ---
 home_state:
   name: Home/Away
-  options:
-    - Home
-    - Away
   icon: mdi:home-account

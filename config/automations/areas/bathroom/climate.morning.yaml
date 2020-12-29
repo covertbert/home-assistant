@@ -8,8 +8,8 @@
 
   condition:
     - condition: state
-      entity_id: input_select.home_state
-      state: Home
+      entity_id: input_boolean.home_state
+      state: 'on'
 
   action:
     - service: tado.set_climate_timer

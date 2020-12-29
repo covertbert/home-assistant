@@ -12,7 +12,7 @@ cards:
       - type: glance
         entities:
           - entity: person.bertie
-          - entity: input_select.home_state
+          - entity: input_boolean.home_state
           - entity: person.steph
           - entity: input_select.day_state
           - entity: input_select.guests_state

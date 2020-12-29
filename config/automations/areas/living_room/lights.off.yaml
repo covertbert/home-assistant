@@ -3,8 +3,8 @@
 
   trigger:
     - platform: state
-      entity_id: input_select.home_state
-      to: Away
+      entity_id: input_boolean.home_state
+      to: 'off'
     - platform: numeric_state
       entity_id: sensor.living_room_light_sensor_light
       above: 10

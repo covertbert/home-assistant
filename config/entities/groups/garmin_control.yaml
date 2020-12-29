@@ -2,7 +2,7 @@
 garmin_control:
   name: Garmin Control
   entities:
-    - input_select.home_state
+    - input_boolean.home_state
     - light.all_lights
     - light.bedroom
     - light.landing

@@ -3,8 +3,8 @@
 
   trigger:
     - platform: state
-      entity_id: input_select.home_state
-      to: Away
+      entity_id: input_boolean.home_state
+      to: 'off'
 
   action:
     - service: light.turn_off
