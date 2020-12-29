@@ -9,8 +9,9 @@
       entity_id: sensor.living_room_light_sensor_light
       above: 10
       for: '00:10:00'
-    - platform: time
-      at: 00:00:00
+    - platform: state
+      entity_id: binary_sensor.in_bed_sensor
+      to: 'on'
 
   condition:
     - condition: state
