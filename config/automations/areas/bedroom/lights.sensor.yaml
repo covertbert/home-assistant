@@ -14,9 +14,9 @@
     - condition: numeric_state
       entity_id: sensor.bedroom_hue_light_level
       below: 5
-    - condition: time
-      after: '11:00:00'
-      before: '21:30:00'
+    - condition: state
+      entity_id: binary_sensor.in_bed_sensor
+      state: 'off'
 
   action:
     - service: light.turn_on
