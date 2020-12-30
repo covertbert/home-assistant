@@ -19,9 +19,19 @@
       state: 'off'
 
   action:
-    - service: light.turn_on
-      entity_id: light.bedroom
-    - delay:
-        minutes: 15
-    - service: light.turn_off
-      entity_id: light.bedroom
+    - choose:
+        conditions:
+          - condition: state
+            entity_id: input_select.day_state
+            state: Night
+        sequence:
+          - service: light.turn_on
+            entity_id: light.bedroom
+
+      default:
+        - service: light.turn_on
+          entity_id: light.bedroom
+        - delay:
+            minutes: 15
+        - service: light.turn_off
+          entity_id: light.bedroom
