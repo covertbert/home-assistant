@@ -22,9 +22,9 @@
       to_state: 'Evening'
     - platform: state
       entity_id: input_select.day_state
-      prob_given_true: 0.42
+      prob_given_true: 0.45
       to_state: 'Morning'
     - platform: state
       entity_id: input_select.day_state
       prob_given_true: 0.1
-      to_state: 'Afternoob'
+      to_state: 'Afternoon'
