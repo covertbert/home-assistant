@@ -7,14 +7,14 @@
     - platform: template
       value_template: >
         {{ state_attr('device_tracker.life360_bertie_blackman', 'battery_charging') == true }}
-      prob_given_true: 0.79
+      prob_given_true: 0.8
     - platform: template
       value_template: >
         {{ state_attr('device_tracker.life360_steph', 'battery_charging') == true }}
-      prob_given_true: 0.79
+      prob_given_true: 0.8
     - platform: state
       entity_id: input_select.day_state
-      prob_given_true: 0.79
+      prob_given_true: 0.75
       to_state: 'Night'
     - platform: state
       entity_id: input_select.day_state
@@ -22,7 +22,7 @@
       to_state: 'Evening'
     - platform: state
       entity_id: input_select.day_state
-      prob_given_true: 0.5
+      prob_given_true: 0.75
       to_state: 'Morning'
     - platform: state
       entity_id: input_select.day_state
