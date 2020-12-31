@@ -71,6 +71,8 @@ jobs:
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
       - name: Sync config & restart
         run: ./scripts/sync-config.sh "$SSH_USER" "$SSH_HOST" "${{ secrets.HA_WEBHOOK_URL }}/manual_restart"
+      - name: Wait for HA
+        run: sleep 30
       - name: Notify if CI failure
         if: failure()
         run: curl -X POST "${{ secrets.HA_WEBHOOK_URL }}/ci_failure"
