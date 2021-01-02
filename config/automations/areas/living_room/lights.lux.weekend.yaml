@@ -4,7 +4,7 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.living_room_light_sensor_light
-      below: 10
+      below: 8
       for: '00:05:00'
 
   condition:
