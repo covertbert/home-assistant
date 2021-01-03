@@ -10,5 +10,15 @@
           value: true
 
   action:
-    - service: light.toggle
-      entity_id: light.living_room
+    - choose:
+        conditions:
+          - condition: state
+            entity_id: input_boolean.cinema_state
+            state: 'on'
+        sequence:
+          - service: input_boolean.turn_off
+            entity_id: input_boolean.cinema_state
+
+      default:
+        - service: light.toggle
+          entity_id: light.living_room
