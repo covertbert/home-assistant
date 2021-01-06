@@ -1,5 +1,5 @@
 ---
 platform: traccar
-host: 95.217.199.208
+host: !secret traccar_host
 username: !secret traccar_user
 password: !secret traccar_password
