@@ -3,3 +3,4 @@ config/ssl
 config/secrets.yaml
 __pycache__
 .idea
+config/SERVICE_ACCOUNT.json
