@@ -11,4 +11,4 @@
     - service: input_select.select_option
       data:
         entity_id: input_boolean.home_state
-        option: Home
+        to: 'on'
