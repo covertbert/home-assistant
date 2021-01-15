@@ -1,0 +1,5 @@
+- platform: template
+  sensors:
+    washing_machine_state:
+      value_template: "{{ 'on' if states('sensor.washing_machine_energy_apparentpower') | float > 0 else 'off' }}"
+      icon_template: "{{ 'mdi:washing-machine' if states('sensor.washing_machine_energy_apparentpower') | float > 0 else 'mdi:washing-machine-off' }}"
