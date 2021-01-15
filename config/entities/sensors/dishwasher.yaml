@@ -1,0 +1,6 @@
+- platform: template
+  sensors:
+    dishwasher_state:
+      friendly_name: Dishwasher
+      value_template: "{{ 'on' if states('sensor.dishwasher_energy_apparentpower') | float > 0 else 'off' }}"
+      icon_template: "{{ 'mdi:dishwasher' if states('sensor.dishwasher_energy_apparentpower') | float > 0 else 'mdi:dishwasher-off' }}"
