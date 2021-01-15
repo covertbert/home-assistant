@@ -2,5 +2,7 @@
   sensors:
     dishwasher_state:
       friendly_name: Dishwasher
-      value_template: "{{ 'on' if states('sensor.dishwasher_energy_apparentpower') | float > 0 else 'off' }}"
+      value_template: "{{ states('sensor.dishwasher_energy_apparentpower') | float > 0 }}"
       icon_template: "{{ 'mdi:dishwasher' if states('sensor.dishwasher_energy_apparentpower') | float > 0 else 'mdi:dishwasher-off' }}"
+      delay_off:
+        minutes: 3

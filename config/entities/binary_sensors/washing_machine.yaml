@@ -2,5 +2,7 @@
   sensors:
     washing_machine_state:
       friendly_name: Washing machine
-      value_template: "{{ 'on' if states('sensor.washing_machine_energy_apparentpower') | float > 0 else 'off' }}"
+      value_template: "{{ states('sensor.washing_machine_energy_apparentpower') | float > 0 }}"
       icon_template: "{{ 'mdi:washing-machine' if states('sensor.washing_machine_energy_apparentpower') | float > 0 else 'mdi:washing-machine-off' }}"
+      delay_off:
+        minutes: 3
