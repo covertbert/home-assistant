@@ -4,6 +4,8 @@ cards:
   - title: Kitchen
     type: glance
     entities:
+      - entity: sensor.dishwasher_state
+      - entity: sensor.washing_machine_state
       - entity: media_player.kitchen_speaker
     show_icon: true
     show_name: false
