@@ -1,5 +1,5 @@
 ---
-- alias: Lights - Bedroom - Motion
+- alias: Lights - Bedroom - Sensor
   mode: restart
 
   trigger:

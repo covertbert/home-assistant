@@ -24,6 +24,6 @@ cards:
   - type: entities
     entities:
       - entity: binary_sensor.bedroom_hue_motion
-        name: Motion Sensor Motion
+        name: Bedroom Motion
       - entity: sensor.bedroom_hue_light_level
-        name: Motion Sensor Light Level
+        name: Bedroom Light Level
