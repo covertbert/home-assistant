@@ -11,9 +11,6 @@
     - condition: state
       entity_id: input_boolean.home_state
       state: 'on'
-    - condition: state
-      entity_id: light.landing
-      state: 'off'
     - condition: time
       after: '17:30:00'
       before: '08:00:00'
@@ -22,6 +19,6 @@
     - service: light.turn_on
       entity_id: light.landing
     - delay:
-        minutes: 5
+        minutes: 3
     - service: light.turn_off
       entity_id: light.landing
