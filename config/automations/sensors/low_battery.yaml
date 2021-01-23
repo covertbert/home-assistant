@@ -10,6 +10,7 @@
         - sensor.living_room_light_sensor_battery
         - sensor.living_room_button_power
         - sensor.landing_button_power
+        - sensor.living_room_motion_sensor_power
     - platform: state
       to: unavailable
       for: 06:00:00
@@ -20,6 +21,7 @@
         - sensor.living_room_light_sensor_battery
         - sensor.living_room_button_power
         - sensor.landing_button_power
+        - sensor.living_room_motion_sensor_power
 
   action:
     - service: notify.bertie_iphone

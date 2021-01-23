@@ -38,5 +38,12 @@ cards:
 
   - type: entities
     entities:
+      - entity: sensor.living_room_motion_sensor_power
+        name: Motion Sensor Battery
+      - entity: binary_sensor.living_room_motion_sensor
+        name: Motion Sensor Motion
+
+  - type: entities
+    entities:
       - entity: sensor.living_room_button_power
         name: Button Battery
