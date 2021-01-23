@@ -20,3 +20,10 @@ cards:
     entities:
       - entity: sensor.landing_button_power
         name: Button Battery
+
+  - type: entities
+    entities:
+      - entity: sensor.landing_motion_sensor_power
+        name: Motion Sensor Battery
+      - entity: binary_sensor.landing_motion_sensor
+        name: Motion Sensor Motion
