@@ -19,10 +19,6 @@ jobs:
           mv .stubs/mock_secrets.yaml secrets.yaml
           mv .stubs/ssl/ ssl/
           mv .stubs/SERVICE_ACCOUNT.json config/SERVICE_ACCOUNT.json
-      - name: Turnstyle
-        uses: softprops/turnstyle@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Check HA config
         uses: docker://homeassistant/home-assistant:stable
         with:
