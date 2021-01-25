@@ -4,16 +4,16 @@
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.living_room_motion_sensor
+      entity_id: binary_sensor.bedroom_hue_motion
       to: 'on'
 
   condition:
     - condition: state
       entity_id: input_boolean.home_state
       state: 'on'
-    # - condition: numeric_state
-    #   entity_id: sensor.bedroom_hue_light_level
-    #   below: 5
+    - condition: numeric_state
+      entity_id: sensor.bedroom_hue_light_level
+      below: 5
     - condition: state
       entity_id: binary_sensor.in_bed_sensor
       state: 'off'
