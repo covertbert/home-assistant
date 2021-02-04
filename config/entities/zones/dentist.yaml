@@ -1,6 +1,6 @@
 ---
 - name: Dentist
-  latitude: 53.3333585
-  longitude: -2.2278850
-  radius: 100
+  latitude: 53.332936555042565
+  longitude: -2.2273238022899022
+  radius: 135
   icon: mdi:tools
