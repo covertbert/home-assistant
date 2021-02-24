@@ -7,7 +7,7 @@
       to: 'off'
     - platform: numeric_state
       entity_id: sensor.living_room_light_sensor_light
-      above: 15
+      above: 25
       for: '00:10:00'
     - platform: time
       at: 00:00:00
