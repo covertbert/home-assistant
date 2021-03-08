@@ -17,6 +17,8 @@
     - condition: state
       entity_id: binary_sensor.in_bed_sensor
       state: 'off'
+    - condition: time
+      before: '21:30:00'
 
   action:
     - choose:
