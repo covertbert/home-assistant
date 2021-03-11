@@ -4,15 +4,16 @@
 
   trigger:
     - platform: state
-      entity_id: binary_sensor.landing_motion_sensor
+      entity_id: binary_sensor.landing_hue_motion
       to: 'on'
 
   condition:
     - condition: state
       entity_id: input_boolean.home_state
       state: 'on'
-    - condition: template
-      value_template: "{{ state_attr('sun.sun','elevation') | int < 5 }}"
+    - condition: numeric_state
+      entity_id: sensor.landing_hue_light_level
+      below: 5
     - condition: time
       after: '17:30:00'
       before: '08:00:00'
