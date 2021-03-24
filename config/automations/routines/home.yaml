@@ -5,9 +5,6 @@
     entity_id: group.family
     to: home
   action:
-    - service: notify.bertie_iphone
-      data:
-        message: 🏡 Home state set to 'Home'
     - service: input_boolean.turn_on
       data:
         entity_id: input_boolean.home_state

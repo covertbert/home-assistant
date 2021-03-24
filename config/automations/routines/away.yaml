@@ -5,9 +5,6 @@
     entity_id: group.family
     to: not_home
   action:
-    - service: notify.bertie_iphone
-      data:
-        message: 🚗💨 Home state set to 'Away'
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.home_state
