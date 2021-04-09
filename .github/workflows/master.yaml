@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v1
       - name: Copy stubbed data
         run: |
-          mv .stubs/mock_secrets.yaml secrets.yaml
+          mv .stubs/mock_secrets.yaml ./config/secrets.yaml
           mv .stubs/ssl/ ssl/
           mv .stubs/SERVICE_ACCOUNT.json config/SERVICE_ACCOUNT.json
       - name: Check HA config
