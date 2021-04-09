@@ -1,5 +1,0 @@
----
-platform: traccar
-host: !secret traccar_host
-username: !secret traccar_user
-password: !secret traccar_password
