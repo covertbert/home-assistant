@@ -1,2 +1,3 @@
+---
 datadog:
   host: !secret datadog_host
