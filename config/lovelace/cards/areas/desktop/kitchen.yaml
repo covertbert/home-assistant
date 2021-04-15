@@ -6,6 +6,6 @@ cards:
     entities:
       - entity: binary_sensor.dishwasher_state
       - entity: binary_sensor.washing_machine_state
-      - entity: media_player.kitchen_speaker
+      - entity: media_player.kitchen
     show_icon: true
     show_name: false
