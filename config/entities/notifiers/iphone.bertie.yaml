@@ -2,4 +2,4 @@
 - name: bertie_iphone
   platform: group
   services:
-    - service: mobile_app_robert_g_hs_iphone
+    - service: mobile_app_berties_iphone
