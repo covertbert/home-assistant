@@ -10,5 +10,17 @@
           value: true
 
   action:
-    - service: light.toggle
-      entity_id: light.landing
+    - choose:
+        conditions:
+          - condition: state
+            entity_id: light.landing
+            state: 'off'
+        sequence:
+          - service: light.turn_on
+            data:
+              entity_id: light.landing
+              brightness: 255
+
+      default:
+        - service: light.turn_off
+          entity_id: light.landing
