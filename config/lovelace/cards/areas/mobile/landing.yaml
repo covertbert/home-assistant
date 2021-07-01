@@ -15,4 +15,5 @@ cards:
     entities:
       - entity: light.landing
       - entity: switch.workstation_plug_2
+      - entity: media_player.landing_wifi
     show_header_toggle: false
