@@ -15,11 +15,8 @@
       entity_id: sensor.landing_hue_light_level
       below: 5
     - condition: state
-      entity_id: binary_sensor.berties_macbook_pro_active
+      entity_id: switch.workstation_plug_2
       state: 'off'
-    - condition: time
-      after: '17:30:00'
-      before: '09:00:00'
 
   action:
     - service: light.turn_on
