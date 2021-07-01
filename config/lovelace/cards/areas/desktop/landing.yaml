@@ -14,6 +14,7 @@ cards:
   - type: entities
     entities:
       - entity: light.landing
+      - entity: switch.workstation_plug_2
     show_header_toggle: false
 
   - type: entities
