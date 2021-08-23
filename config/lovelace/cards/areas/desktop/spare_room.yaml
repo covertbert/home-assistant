@@ -7,6 +7,5 @@ cards:
       - entity: climate.spare_room
       - entity: sensor.spare_room_temperature
       - entity: sensor.spare_room_humidity
-      - entity: media_player.spare_room
     show_icon: true
     show_name: false

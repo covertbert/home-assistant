@@ -14,5 +14,4 @@ cards:
   - type: entities
     entities:
       - entity: light.landing
-      - entity: media_player.landing_wifi
     show_header_toggle: false
