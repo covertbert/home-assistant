@@ -1,0 +1,6 @@
+---
+- name: McCann Manchester
+  latitude: 53.306729139
+  longitude: -2.14665803
+  radius: 350
+  icon: mdi:domain
