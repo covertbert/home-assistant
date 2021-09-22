@@ -1,0 +1,6 @@
+---
+- name: Manchester
+  latitude: 53.4784986525843
+  longitude: -2.241817116737366
+  radius: 2585
+  icon: mdi:city
