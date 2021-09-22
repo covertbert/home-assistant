@@ -1,0 +1,9 @@
+---
+type: vertical-stack
+cards:
+  - title: Kitchen
+    type: glance
+    entities:
+      - entity: media_player.kitchen
+    show_icon: true
+    show_name: false

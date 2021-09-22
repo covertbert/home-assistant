@@ -4,6 +4,7 @@ cards:
   - title: Landing
     type: glance
     entities:
+      - entity: media_player.landing
       - entity: climate.landing
       - entity: sensor.landing_temperature
       - entity: sensor.landing_humidity
