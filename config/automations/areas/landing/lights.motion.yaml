@@ -14,6 +14,9 @@
     - condition: numeric_state
       entity_id: sensor.landing_hue_light_level
       below: 5
+    - condition: time
+      before: '09:30:00'
+      after: '18:00:00'
     - condition: state
       entity_id: binary_sensor.roberts_macbook_pro_active
       state: 'off'
