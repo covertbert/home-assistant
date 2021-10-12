@@ -1,5 +1,5 @@
 ---
-- alias: Climate - Living Room - Evening
+- alias: Climate - Bedroom - Evening
 
   trigger:
     - platform: state
@@ -20,5 +20,5 @@
   action:
     - service: climate.set_temperature
       data:
-        entity_id: climate.living_room
-        temperature: 21
+        entity_id: climate.bedroom
+        temperature: 17
