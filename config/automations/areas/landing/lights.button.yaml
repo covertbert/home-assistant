@@ -14,8 +14,8 @@
         conditions:
           - condition: state
             entity_id: light.landing
-            state: 'on'
+            state: 'off'
         sequence:
-          - service: light.turn_off
+          - service: light.turn_on
             data:
               entity_id: light.landing
