@@ -7,7 +7,7 @@
       event_data:
         device_id: e415bcdfc21571b4ded37e3199d199f0
         args:
-          value: true
+          value: 'true'
 
   action:
     - choose:
