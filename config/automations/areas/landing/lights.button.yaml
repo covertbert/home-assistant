@@ -10,21 +10,6 @@
           value: true
 
   action:
-    - choose:
-        conditions:
-          - condition: state
-            entity_id: light.landing
-            state: 'off'
-        sequence:
-          - service: light.turn_on
-            data:
-              entity_id: light.landing
-    - choose:
-        conditions:
-          - condition: state
-            entity_id: light.landing
-            state: 'on'
-        sequence:
-          - service: light.turn_off
-            data:
-              entity_id: light.landing
+    - service: notify.bertie_iphone
+      data:
+        message: WOOOOWW
