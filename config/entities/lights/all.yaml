@@ -2,6 +2,6 @@
 - platform: group
   name: All Lights
   entities:
-    - light.landing_lamp
+    - light.landing_light
     - light.bedroom
     - light.living_room

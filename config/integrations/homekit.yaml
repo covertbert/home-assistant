@@ -6,7 +6,7 @@ homekit:
       - light.gerald
       - light.stoof
       - light.bertie
-      - light.landing_lamp
+      - light.landing_light
       - light.front
       - light.back
       - light.fairy

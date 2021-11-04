@@ -5,5 +5,5 @@ garmin_control:
     - input_boolean.home_state
     - light.all_lights
     - light.bedroom
-    - light.landing_lamp
+    - light.landing_light
     - light.living_room
