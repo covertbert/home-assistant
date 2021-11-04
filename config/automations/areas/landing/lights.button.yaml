@@ -13,14 +13,14 @@
     - choose:
         conditions:
           - condition: state
-            entity_id: light.landing
+            entity_id: light.landing_lamp
             state: 'off'
         sequence:
           - service: light.turn_on
             data:
-              entity_id: light.landing
+              entity_id: light.landing_lamp
               brightness: 255
 
       default:
         - service: light.turn_off
-          entity_id: light.landing
+          entity_id: light.landing_lamp

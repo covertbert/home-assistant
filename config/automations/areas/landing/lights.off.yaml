@@ -10,9 +10,9 @@
 
   condition:
     - condition: state
-      entity_id: light.landing
+      entity_id: light.landing_lamp
       state: 'on'
 
   action:
     - service: light.turn_off
-      entity_id: light.landing
+      entity_id: light.landing_lamp

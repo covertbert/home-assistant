@@ -14,5 +14,5 @@ cards:
 
   - type: entities
     entities:
-      - entity: light.landing
+      - entity: light.landing_lamp
     show_header_toggle: false
