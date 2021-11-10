@@ -15,4 +15,5 @@ cards:
   - type: entities
     entities:
       - entity: light.landing_light
+      - entity: light.landing_corner
     show_header_toggle: false
