@@ -13,4 +13,4 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.bathroom
-        temperature: 12
+        temperature: 15

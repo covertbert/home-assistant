@@ -13,4 +13,4 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.landing
-        temperature: 12
+        temperature: 15
