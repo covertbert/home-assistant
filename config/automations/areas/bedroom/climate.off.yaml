@@ -13,4 +13,4 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.bedroom
-        temperature: 15
+        temperature: 16
