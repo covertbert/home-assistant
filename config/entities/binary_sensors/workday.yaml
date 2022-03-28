@@ -1,4 +1,3 @@
 ---
 - platform: workday
-  country: UK
-  province: England
+  country: GB
