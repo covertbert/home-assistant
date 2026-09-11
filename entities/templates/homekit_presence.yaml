@@ -1,0 +1,19 @@
+---
+- device_tracker:
+    - name: HomeKit Bertie
+      unique_id: homekit_bertie
+      default_entity_id: device_tracker.homekit_bertie
+      in_zones: >
+        {{ ['zone.home'] if is_state('input_boolean.bertie_present', 'on') else [] }}
+
+    - name: HomeKit Stoof
+      unique_id: homekit_stoof
+      default_entity_id: device_tracker.homekit_stoof
+      in_zones: >
+        {{ ['zone.home'] if is_state('input_boolean.stoof_present', 'on') else [] }}
+
+    - name: HomeKit Housesitter
+      unique_id: homekit_housesitter
+      default_entity_id: device_tracker.homekit_housesitter
+      in_zones: >
+        {{ ['zone.home'] if is_state('input_boolean.housesitter_present', 'on') else [] }}
