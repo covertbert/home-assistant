@@ -1,0 +1,23 @@
+---
+# One phone alert for anything that needs attention (see
+# entities/templates/system_health.yaml for what counts).
+# Notifies immediately on the first problem, repeats at most every 24h while
+# problems remain, and clears the notification (no recovery ping) when clear.
+alert:
+  system_health:
+    name: "Home Assistant needs attention"
+    entity_id: binary_sensor.system_health
+    state: "on"
+    repeat:
+      - 1440
+    skip_first: false
+    can_acknowledge: true
+    title: "Home Assistant needs attention"
+    message: >-
+      {{ state_attr('binary_sensor.system_health', 'summary') }}
+    done_message: clear_notification
+    notifiers:
+      - mobile_app_berties_iphone
+    data:
+      tag: "system-health"
+      url: "/config/dashboard"

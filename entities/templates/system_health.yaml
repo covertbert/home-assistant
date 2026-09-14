@@ -1,0 +1,121 @@
+---
+# Aggregates everything that needs human attention:
+#   - open Repairs (Settings > System > Repairs), incl. re-auth requests
+#   - pending updates
+#   - low batteries (numeric < threshold, binary low)
+#   - entities unavailable longer than the grace period
+# Edit the tunables below; the alert in integrations/alert.yaml watches the entity.
+# ponytail: issues() dicts drop fields for non-persistent issues and older cores
+# don't filter stale entries - templates read defensively, stale entries self-clean
+# when the owning integration recreates/deletes them.
+- unique_id: system_health
+  triggers:
+    - trigger: time_pattern
+      minutes: "/5"
+    - trigger: event
+      event_type: repairs_issue_registry_updated
+  variables:
+    # Entities allowed to be unavailable without triggering the offline check
+    ignored_unavailable: []
+    low_battery_percent: 10
+    offline_grace_hours: 6
+    # Max items listed per category in the notification (rest shown as +N more)
+    max_shown: 5
+    # Virtual/config domains where "unavailable" is not an actionable signal
+    virtual_domains:
+      - group
+      - scene
+      - script
+      - automation
+      - template
+      - counter
+      - number
+      - select
+      - button
+      - event
+      - calendar
+      - todo
+      - conversation
+      - llm
+      - wake_word
+      - intent
+      - assist_satellite
+      - schedule
+      - zone
+      - update
+    health: >-
+      {%- set ns = namespace(repairs=[], updates=[], batteries=[], offline=[]) -%}
+      {%- for issue in issues().values() | selectattr("dismissed_version", "none") -%}
+        {%- if issue.issue_id is match("config_entry_reauth_.*") -%}
+          {%- set label = issue.issue_domain if issue.issue_domain is defined and issue.issue_domain else issue.issue_id.split("_")[3] -%}
+          {%- set ns.repairs = ns.repairs + ["Re-auth: " ~ label] -%}
+        {%- else -%}
+          {%- set label = issue.issue_domain if issue.issue_domain is defined and issue.issue_domain else issue.domain -%}
+          {%- if issue.translation_key is defined -%}
+            {%- set ns.repairs = ns.repairs + [label ~ " " ~ issue.translation_key] -%}
+          {%- else -%}
+            {%- set ns.repairs = ns.repairs + [label ~ " " ~ issue.issue_id] -%}
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- for e in states.update | selectattr("state", "eq", "on") -%}
+        {%- set ns.updates = ns.updates + [e.attributes.friendly_name] -%}
+      {%- endfor -%}
+      {%- for e in states.sensor
+           | selectattr("attributes.device_class", "defined")
+           | selectattr("attributes.device_class", "eq", "battery")
+           | rejectattr("state", "in", ["unknown", "unavailable"]) -%}
+        {%- if (e.state | float(100)) < low_battery_percent -%}
+          {%- set ns.batteries = ns.batteries + [e.attributes.friendly_name ~ " " ~ e.state ~ "%"] -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- for e in states.binary_sensor
+           | selectattr("attributes.device_class", "defined")
+           | selectattr("attributes.device_class", "eq", "battery")
+           | selectattr("state", "eq", "on") -%}
+        {%- set ns.batteries = ns.batteries + [e.attributes.friendly_name ~ " low"] -%}
+      {%- endfor -%}
+      {%- for e in states
+           | selectattr("state", "eq", "unavailable")
+           | rejectattr("entity_id", "in", ignored_unavailable) -%}
+        {%- if not e.domain in virtual_domains
+              and not e.domain is match("input_.*")
+              and not is_hidden_entity(e.entity_id)
+              and (now() - e.last_changed) > timedelta(hours=offline_grace_hours) -%}
+          {%- set ns.offline = ns.offline + [e.attributes.friendly_name] -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {{ {"repairs": ns.repairs, "updates": ns.updates, "batteries": ns.batteries, "offline": ns.offline} }}
+  binary_sensor:
+    - name: "System Health"
+      default_entity_id: binary_sensor.system_health
+      unique_id: system_health
+      device_class: problem
+      state: >-
+        {{ (health.repairs | count + health.updates | count + health.batteries | count + health.offline | count) > 0 }}
+      attributes:
+        problems: >-
+          {{ health.repairs | count + health.updates | count + health.batteries | count + health.offline | count }}
+        summary: >-
+          {%- set total = health.repairs | count + health.updates | count + health.batteries | count + health.offline | count -%}
+          {%- set ns = namespace(text="") -%}
+          {%- if total > 0 -%}
+            {%- set ns.text = ns.text ~ total ~ " thing" ~ ("s" if total != 1 else "") ~ " need" ~ ("s" if total != 1 else "") ~ " attention\n" -%}
+            {%- if health.repairs -%}
+              {%- set ns.text = ns.text ~ "🔧 Repairs: " ~ (health.repairs[:max_shown] | join("; ")) ~ ("" if health.repairs | count <= max_shown else " +" ~ (health.repairs | count - max_shown) ~ " more") ~ "\n" -%}
+            {%- endif -%}
+            {%- if health.updates -%}
+              {%- set ns.text = ns.text ~ "🛵 Updates: " ~ (health.updates[:max_shown] | join("; ")) ~ ("" if health.updates | count <= max_shown else " +" ~ (health.updates | count - max_shown) ~ " more") ~ "\n" -%}
+            {%- endif -%}
+            {%- if health.batteries -%}
+              {%- set ns.text = ns.text ~ "🔋 Batteries: " ~ (health.batteries[:max_shown] | join("; ")) ~ ("" if health.batteries | count <= max_shown else " +" ~ (health.batteries | count - max_shown) ~ " more") ~ "\n" -%}
+            {%- endif -%}
+            {%- if health.offline -%}
+              {%- set ns.text = ns.text ~ "📡 Offline: " ~ (health.offline[:max_shown] | join("; ")) ~ ("" if health.offline | count <= max_shown else " +" ~ (health.offline | count - max_shown) ~ " more") ~ "\n" -%}
+            {%- endif -%}
+          {%- endif -%}
+          {{- ns.text | trim -}}
+        # Changes on every recompute: re-arms the alert after an HA restart
+        # (the frozen alert integration only reacts to state-change events).
+        last_checked: >-
+          {{ now().strftime("%H:%M") }}
