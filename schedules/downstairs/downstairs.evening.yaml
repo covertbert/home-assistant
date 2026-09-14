@@ -4,21 +4,35 @@ downstairs_evening:
   monday:
     - from: "17:00:00"
       to: "20:30:00"
+      data:
+        temperature: 20
   tuesday:
     - from: "17:00:00"
       to: "20:30:00"
+      data:
+        temperature: 20
   wednesday:
     - from: "17:00:00"
       to: "20:30:00"
+      data:
+        temperature: 20
   thursday:
     - from: "17:00:00"
       to: "20:30:00"
+      data:
+        temperature: 20
   friday:
     - from: "17:00:00"
       to: "20:30:00"
+      data:
+        temperature: 20
   saturday:
     - from: "17:00:00"
       to: "20:30:00"
+      data:
+        temperature: 20
   sunday:
     - from: "17:00:00"
       to: "20:30:00"
+      data:
+        temperature: 20

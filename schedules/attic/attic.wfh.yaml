@@ -4,9 +4,15 @@ attic_wfh:
   wednesday:
     - from: "08:00:00"
       to: "21:00:00"
+      data:
+        temperature: 21
   thursday:
     - from: "08:00:00"
       to: "21:00:00"
+      data:
+        temperature: 21
   friday:
     - from: "08:00:00"
       to: "21:00:00"
+      data:
+        temperature: 21

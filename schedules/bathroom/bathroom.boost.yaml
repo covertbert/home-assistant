@@ -4,27 +4,47 @@ bathroom_boost:
   monday:
     - from: "05:55:00"
       to: "06:25:00"
+      data:
+        temperature: 25
   tuesday:
     - from: "05:55:00"
       to: "06:25:00"
+      data:
+        temperature: 25
   wednesday:
     - from: "05:55:00"
       to: "06:10:00"
+      data:
+        temperature: 25
     - from: "18:00:00"
       to: "18:30:00"
+      data:
+        temperature: 25
   thursday:
     - from: "07:15:00"
       to: "07:45:00"
+      data:
+        temperature: 25
     - from: "18:00:00"
       to: "18:30:00"
+      data:
+        temperature: 25
   friday:
     - from: "07:15:00"
       to: "07:45:00"
+      data:
+        temperature: 25
     - from: "18:00:00"
       to: "18:30:00"
+      data:
+        temperature: 25
   saturday:
     - from: "18:00:00"
       to: "18:30:00"
+      data:
+        temperature: 25
   sunday:
     - from: "18:00:00"
       to: "18:30:00"
+      data:
+        temperature: 25

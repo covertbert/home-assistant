@@ -1,15 +1,12 @@
 - alias: Heating - Bedroom - Window
   mode: single
 
-  # Window state changes
   triggers:
     - trigger: state
-      entity_id:
-        - binary_sensor.upstairs_windows
+      entity_id: binary_sensor.upstairs_windows
 
   action:
     - choose:
-        # Window is opened
         - conditions:
             - condition: state
               entity_id: binary_sensor.upstairs_windows
@@ -18,40 +15,18 @@
             - action: climate.turn_off
               target:
                 entity_id: climate.bedroom
-
-        # Window is closed
         - conditions:
             - condition: state
               entity_id: binary_sensor.upstairs_windows
               state: "off"
+            - condition: template
+              value_template: "{{ states('sensor.heating_bedroom_automatic_target') | float(none) is not none }}"
           sequence:
-            - choose:
-                # Bedroom daytime schedule active
-                - conditions:
-                    - condition: state
-                      entity_id: schedule.bedroom_daytime
-                      state: "on"
-                  sequence:
-                    - action: climate.turn_on
-                      target:
-                        entity_id: climate.bedroom
-                    - action: climate.set_temperature
-                      data:
-                        temperature: 19
-                      target:
-                        entity_id: climate.bedroom
-
-                # Bedroom daytime schedule not active
-                - conditions:
-                    - condition: state
-                      entity_id: schedule.bedroom_daytime
-                      state: "off"
-                  sequence:
-                    - action: climate.turn_on
-                      target:
-                        entity_id: climate.bedroom
-                    - action: climate.set_temperature
-                      data:
-                        temperature: 18.5
-                      target:
-                        entity_id: climate.bedroom
+            - action: climate.turn_on
+              target:
+                entity_id: climate.bedroom
+            - action: climate.set_temperature
+              target:
+                entity_id: climate.bedroom
+              data:
+                temperature: "{{ states('sensor.heating_bedroom_automatic_target') | float }}"

@@ -1,0 +1,139 @@
+---
+- sensor:
+    - name: "Heating Attic Automatic Target"
+      unique_id: heating_attic_automatic_target
+      device_class: temperature
+      unit_of_measurement: "°C"
+      availability: >
+        {% if is_state('schedule.attic_wfh', 'on') %}
+          {% if is_state('input_boolean.home_state', 'on') %}
+            {{ state_attr('schedule.attic_wfh', 'temperature') | float(none) is not none }}
+          {% else %}
+            {{ states('input_number.heating_away') | float(none) is not none }}
+          {% endif %}
+        {% else %}
+          {{ states('input_number.heating_attic_default') | float(none) is not none }}
+        {% endif %}
+      state: >
+        {% if is_state('schedule.attic_wfh', 'on') %}
+          {% if is_state('input_boolean.home_state', 'on') %}
+            {{ state_attr('schedule.attic_wfh', 'temperature') | float(none) }}
+          {% else %}
+            {{ states('input_number.heating_away') | float(none) }}
+          {% endif %}
+        {% else %}
+          {{ states('input_number.heating_attic_default') | float(none) }}
+        {% endif %}
+
+    - name: "Heating Basement Automatic Target"
+      unique_id: heating_basement_automatic_target
+      device_class: temperature
+      unit_of_measurement: "°C"
+      availability: >
+        {% if states('sensor.basement_humidity') | float(0) > 70 and is_state('switch.dehumidifier_basement_switch', 'on') %}
+          {{ states('input_number.heating_basement_high_humidity') | float(none) is not none }}
+        {% else %}
+          {{ states('input_number.heating_basement_default') | float(none) is not none }}
+        {% endif %}
+      state: >
+        {% if states('sensor.basement_humidity') | float(0) > 70 and is_state('switch.dehumidifier_basement_switch', 'on') %}
+          {{ states('input_number.heating_basement_high_humidity') | float(none) }}
+        {% else %}
+          {{ states('input_number.heating_basement_default') | float(none) }}
+        {% endif %}
+
+    - name: "Heating Bathroom Automatic Target"
+      unique_id: heating_bathroom_automatic_target
+      device_class: temperature
+      unit_of_measurement: "°C"
+      availability: >
+        {% if is_state('schedule.bathroom_boost', 'on') %}
+          {% if is_state('input_boolean.home_state', 'on') %}
+            {{ state_attr('schedule.bathroom_boost', 'temperature') | float(none) is not none }}
+          {% else %}
+            {{ states('input_number.heating_bathroom_boost_away') | float(none) is not none }}
+          {% endif %}
+        {% else %}
+          {{ states('input_number.heating_bathroom_default') | float(none) is not none }}
+        {% endif %}
+      state: >
+        {% if is_state('schedule.bathroom_boost', 'on') %}
+          {% if is_state('input_boolean.home_state', 'on') %}
+            {{ state_attr('schedule.bathroom_boost', 'temperature') | float(none) }}
+          {% else %}
+            {{ states('input_number.heating_bathroom_boost_away') | float(none) }}
+          {% endif %}
+        {% else %}
+          {{ states('input_number.heating_bathroom_default') | float(none) }}
+        {% endif %}
+
+    - name: "Heating Bedroom Automatic Target"
+      unique_id: heating_bedroom_automatic_target
+      device_class: temperature
+      unit_of_measurement: "°C"
+      availability: >
+        {% if is_state('schedule.bedroom_daytime', 'on') %}
+          {% if is_state('input_boolean.home_state', 'on') %}
+            {{ state_attr('schedule.bedroom_daytime', 'temperature') | float(none) is not none }}
+          {% else %}
+            {{ states('input_number.heating_away') | float(none) is not none }}
+          {% endif %}
+        {% else %}
+          {{ states('input_number.heating_bedroom_default') | float(none) is not none }}
+        {% endif %}
+      state: >
+        {% if is_state('schedule.bedroom_daytime', 'on') %}
+          {% if is_state('input_boolean.home_state', 'on') %}
+            {{ state_attr('schedule.bedroom_daytime', 'temperature') | float(none) }}
+          {% else %}
+            {{ states('input_number.heating_away') | float(none) }}
+          {% endif %}
+        {% else %}
+          {{ states('input_number.heating_bedroom_default') | float(none) }}
+        {% endif %}
+
+    - name: "Heating Downstairs Automatic Target"
+      unique_id: heating_downstairs_automatic_target
+      device_class: temperature
+      unit_of_measurement: "°C"
+      availability: >
+        {% if is_state('input_boolean.home_state', 'off') %}
+          {{ states('input_number.heating_away') | float(none) is not none }}
+        {% elif is_state('schedule.downstairs_evening', 'on') %}
+          {{ state_attr('schedule.downstairs_evening', 'temperature') | float(none) is not none }}
+        {% elif is_state('schedule.downstairs_daytime', 'on') %}
+          {{ state_attr('schedule.downstairs_daytime', 'temperature') | float(none) is not none }}
+        {% else %}
+          {{ states('input_number.heating_downstairs_default') | float(none) is not none }}
+        {% endif %}
+      state: >
+        {% if is_state('input_boolean.home_state', 'off') %}
+          {{ states('input_number.heating_away') | float(none) }}
+        {% elif is_state('schedule.downstairs_evening', 'on') %}
+          {{ state_attr('schedule.downstairs_evening', 'temperature') | float(none) }}
+        {% elif is_state('schedule.downstairs_daytime', 'on') %}
+          {{ state_attr('schedule.downstairs_daytime', 'temperature') | float(none) }}
+        {% else %}
+          {{ states('input_number.heating_downstairs_default') | float(none) }}
+        {% endif %}
+
+    - name: "Heating Nursery Automatic Target"
+      unique_id: heating_nursery_automatic_target
+      device_class: temperature
+      unit_of_measurement: "°C"
+      availability: >
+        {% if is_state('input_boolean.home_state', 'off') %}
+          {{ states('input_number.heating_away') | float(none) is not none }}
+        {% elif is_state('schedule.nursery_daytime', 'on') %}
+          {{ state_attr('schedule.nursery_daytime', 'temperature') | float(none) is not none }}
+        {% else %}
+          {{ states('input_number.heating_nursery_default') | float(none) is not none }}
+        {% endif %}
+      state: >
+        {% if is_state('input_boolean.home_state', 'off') %}
+          {{ states('input_number.heating_away') | float(none) }}
+        {% elif is_state('schedule.nursery_daytime', 'on') %}
+          {{ state_attr('schedule.nursery_daytime', 'temperature') | float(none) }}
+        {% else %}
+          {{ states('input_number.heating_nursery_default') | float(none) }}
+        {% endif %}

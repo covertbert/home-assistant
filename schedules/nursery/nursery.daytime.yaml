@@ -4,21 +4,35 @@ nursery_daytime:
   monday:
     - from: "07:30:00"
       to: "18:30:00"
+      data:
+        temperature: 19
   tuesday:
     - from: "07:30:00"
       to: "18:30:00"
+      data:
+        temperature: 19
   wednesday:
     - from: "07:30:00"
       to: "18:30:00"
+      data:
+        temperature: 19
   thursday:
     - from: "07:30:00"
       to: "18:30:00"
+      data:
+        temperature: 19
   friday:
     - from: "07:30:00"
       to: "18:30:00"
+      data:
+        temperature: 19
   saturday:
     - from: "07:30:00"
       to: "18:30:00"
+      data:
+        temperature: 19
   sunday:
     - from: "07:30:00"
       to: "18:30:00"
+      data:
+        temperature: 19

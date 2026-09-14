@@ -2,38 +2,22 @@
   mode: single
 
   triggers:
-    # Has 15 minutes elapsed?
+    - trigger: state
+      entity_id: sensor.heating_basement_automatic_target
+    - trigger: homeassistant
+      event: start
     - trigger: time_pattern
       minutes: /15
 
+  condition:
+    - condition: template
+      value_template: "{{ states('sensor.heating_basement_automatic_target') | float(none) is not none }}"
   action:
-    - choose:
-        # Basement humidity is higher than 70% and dehumidifier is on
-        - conditions:
-            - condition: numeric_state
-              entity_id: sensor.basement_humidity
-              above: 70
-            - condition: state
-              entity_id: switch.dehumidifier_basement_switch
-              state: "on"
-
-          sequence:
-            - action: climate.turn_on
-              target:
-                entity_id: climate.basement
-            - action: climate.set_temperature
-              data:
-                temperature: 20
-              target:
-                entity_id: climate.basement
-
-      # Above conditions not met so default to 18 degrees
-      default:
-        - action: climate.turn_on
-          target:
-            entity_id: climate.basement
-        - action: climate.set_temperature
-          data:
-            temperature: 18
-          target:
-            entity_id: climate.basement
+    - action: climate.turn_on
+      target:
+        entity_id: climate.basement
+    - action: climate.set_temperature
+      target:
+        entity_id: climate.basement
+      data:
+        temperature: "{{ states('sensor.heating_basement_automatic_target') | float }}"
