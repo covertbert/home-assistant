@@ -99,8 +99,6 @@
       availability: >
         {% if is_state('input_boolean.home_state', 'off') %}
           {{ states('input_number.heating_away') | float(none) is not none }}
-        {% elif is_state('schedule.downstairs_evening', 'on') %}
-          {{ state_attr('schedule.downstairs_evening', 'temperature') | float(none) is not none }}
         {% elif is_state('schedule.downstairs_daytime', 'on') %}
           {{ state_attr('schedule.downstairs_daytime', 'temperature') | float(none) is not none }}
         {% else %}
@@ -109,8 +107,6 @@
       state: >
         {% if is_state('input_boolean.home_state', 'off') %}
           {{ states('input_number.heating_away') | float(none) }}
-        {% elif is_state('schedule.downstairs_evening', 'on') %}
-          {{ state_attr('schedule.downstairs_evening', 'temperature') | float(none) }}
         {% elif is_state('schedule.downstairs_daytime', 'on') %}
           {{ state_attr('schedule.downstairs_daytime', 'temperature') | float(none) }}
         {% else %}
