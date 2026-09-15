@@ -59,12 +59,6 @@ const ROOM_MAP = [
     schedules: ["bedroom_daytime"],
     gate: "binary_sensor.upstairs_windows",
     gateLabel: "Upstairs windows",
-    accessory: {
-      entity: "switch.dehumidifier_bedroom_switch",
-      label: "Dehumidifier",
-      note: "Automatic: programme, window and electricity rules may change this.",
-    },
-    accessorySchedule: "bedroom_dehumidifier",
   },
   {
     id: "downstairs",
@@ -555,9 +549,8 @@ if (typeof window === "undefined") {
       const schedule = editor.draft,
         day = editor.selectedDay,
         blocks = schedule[day] || [],
-        room = ROOM_MAP.find((item) => item.id === editor.roomId),
-        heating = editor.scheduleId !== "bedroom_dehumidifier";
-      dialog.innerHTML = `<form method="dialog" class="editor"><header><div><p class="eyebrow">${esc(room?.label || "Room")} PROGRAMME</p><h2>${esc(schedule.name)}</h2></div><button value="cancel" aria-label="Close editor">×</button></header><div class="editor-body"><nav class="week" aria-label="Days of week">${DAYS.map((item, index) => `<button type="button" data-editor="day" data-day="${item}" class="${day === item ? "selected" : ""}"><b>${DAY_LABELS[index]}</b>${this.miniRail(schedule[item] || [])}</button>`).join("")}</nav><section class="day-editor"><div class="day-title"><h3>${DAY_LABELS[DAYS.indexOf(day)]}</h3><button type="button" data-editor="copy">Copy day</button></div><div class="rows">${blocks.map((block, index) => this.blockRow(block, index, heating)).join("") || "<p class='empty'>Default all day. Add a period to schedule a change.</p>"}</div><button type="button" class="add" data-editor="add">+ Add period</button>${editor.error ? `<p class="form-error" role="alert">${esc(editor.error)}</p>` : ""}</section></div><footer><span aria-live="polite">${editor.dirty ? "Unsaved changes" : ""}</span><button value="cancel">Cancel</button><button type="button" data-editor="save" class="save" ${editor.dirty ? "" : "disabled"}>Save</button></footer></form>`;
+        room = ROOM_MAP.find((item) => item.id === editor.roomId);
+      dialog.innerHTML = `<form method="dialog" class="editor"><header><div><p class="eyebrow">${esc(room?.label || "Room")} PROGRAMME</p><h2>${esc(schedule.name)}</h2></div><button value="cancel" aria-label="Close editor">×</button></header><div class="editor-body"><nav class="week" aria-label="Days of week">${DAYS.map((item, index) => `<button type="button" data-editor="day" data-day="${item}" class="${day === item ? "selected" : ""}"><b>${DAY_LABELS[index]}</b>${this.miniRail(schedule[item] || [])}</button>`).join("")}</nav><section class="day-editor"><div class="day-title"><h3>${DAY_LABELS[DAYS.indexOf(day)]}</h3><button type="button" data-editor="copy">Copy day</button></div><div class="rows">${blocks.map((block, index) => this.blockRow(block, index)).join("") || "<p class='empty'>Default all day. Add a period to schedule a change.</p>"}</div><button type="button" class="add" data-editor="add">+ Add period</button>${editor.error ? `<p class="form-error" role="alert">${esc(editor.error)}</p>` : ""}</section></div><footer><span aria-live="polite">${editor.dirty ? "Unsaved changes" : ""}</span><button value="cancel">Cancel</button><button type="button" data-editor="save" class="save" ${editor.dirty ? "" : "disabled"}>Save</button></footer></form>`;
       dialog.oncancel = (event) => {
         if (editor.dirty && !confirm("Discard unsaved programme changes?"))
           event.preventDefault();
@@ -585,8 +578,8 @@ if (typeof window === "undefined") {
         )
         .join("")}</i>`;
     }
-    blockRow(block, index, heating) {
-      return `<div class="block-row" data-index="${index}"><label>Start<input type="time" data-field="from" value="${inputTime(block.from)}"></label><label>End<input type="time" data-field="to" value="${inputTime(block.to)}"></label>${heating ? `<label>Target<input type="number" data-field="temperature" min="5" max="25" step="0.5" value="${esc(block.data?.temperature ?? "")}"><span>°C</span></label>` : ""}<button type="button" data-editor="delete" data-index="${index}" aria-label="Delete period">Delete</button></div>`;
+    blockRow(block, index) {
+      return `<div class="block-row" data-index="${index}"><label>Start<input type="time" data-field="from" value="${inputTime(block.from)}"></label><label>End<input type="time" data-field="to" value="${inputTime(block.to)}"></label><label>Target<input type="number" data-field="temperature" min="5" max="25" step="0.5" value="${esc(block.data?.temperature ?? "")}"><span>°C</span></label><button type="button" data-editor="delete" data-index="${index}" aria-label="Delete period">Delete</button></div>`;
     }
     editorClick(event) {
       const control = event.target.closest("[data-editor]");
@@ -607,19 +600,14 @@ if (typeof window === "undefined") {
             last && minute(last.to) < 1380
               ? time(minute(last.to) + 60)
               : "09:00:00",
-          ...(this.editor.scheduleId === "bedroom_dehumidifier"
-            ? {}
-            : {
-                data: {
-                  temperature:
-                    Number(
-                      this.state(
-                        ROOM_MAP.find((r) => r.id === this.editor.roomId)
-                          ?.fallback,
-                      )?.state,
-                    ) || 18,
-                },
-              }),
+          data: {
+            temperature:
+              Number(
+                this.state(
+                  ROOM_MAP.find((r) => r.id === this.editor.roomId)?.fallback,
+                )?.state,
+              ) || 18,
+          },
         });
         this.editor.dirty = true;
         return this.openEditorDialog();
@@ -683,13 +671,12 @@ if (typeof window === "undefined") {
           return this.openEditorDialog();
         }
       }
-      if (editor.scheduleId !== "bedroom_dehumidifier")
-        for (const day of DAYS)
-          for (const block of schedule[day])
-            if (!Number.isFinite(Number(block.data?.temperature))) {
-              editor.error = "Each heating period needs a target temperature.";
-              return this.openEditorDialog();
-            }
+      for (const day of DAYS)
+        for (const block of schedule[day])
+          if (!Number.isFinite(Number(block.data?.temperature))) {
+            editor.error = "Each heating period needs a target temperature.";
+            return this.openEditorDialog();
+          }
       try {
         editor.error = "Saving…";
         this.openEditorDialog();
