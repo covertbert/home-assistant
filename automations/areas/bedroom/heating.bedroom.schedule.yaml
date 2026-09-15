@@ -6,13 +6,23 @@
       entity_id: sensor.heating_bedroom_automatic_target
     - trigger: homeassistant
       event: start
-    - trigger: time_pattern
-      minutes: /15
+    - trigger: state
+      entity_id: climate.bedroom
+      from:
+        - unavailable
+        - unknown
+    - trigger: state
+      entity_id: timer.heating_bedroom_boost
+      from: active
+      to: idle
 
   condition:
     - condition: state
       entity_id: binary_sensor.upstairs_windows
       state: "off"
+    - condition: state
+      entity_id: timer.heating_bedroom_boost
+      state: idle
     - condition: template
       value_template: "{{ states('sensor.heating_bedroom_automatic_target') | float(none) is not none }}"
   action:

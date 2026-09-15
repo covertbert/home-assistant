@@ -51,7 +51,7 @@
           {% if is_state('input_boolean.home_state', 'on') %}
             {{ state_attr('schedule.bathroom_boost', 'temperature') | float(none) is not none }}
           {% else %}
-            {{ states('input_number.heating_bathroom_boost_away') | float(none) is not none }}
+            {{ states('input_number.heating_away') | float(none) is not none }}
           {% endif %}
         {% else %}
           {{ states('input_number.heating_bathroom_default') | float(none) is not none }}
@@ -61,7 +61,7 @@
           {% if is_state('input_boolean.home_state', 'on') %}
             {{ state_attr('schedule.bathroom_boost', 'temperature') | float(none) }}
           {% else %}
-            {{ states('input_number.heating_bathroom_boost_away') | float(none) }}
+            {{ states('input_number.heating_away') | float(none) }}
           {% endif %}
         {% else %}
           {{ states('input_number.heating_bathroom_default') | float(none) }}

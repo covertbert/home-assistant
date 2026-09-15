@@ -6,10 +6,20 @@
       entity_id: sensor.heating_bathroom_automatic_target
     - trigger: homeassistant
       event: start
-    - trigger: time_pattern
-      minutes: /15
+    - trigger: state
+      entity_id: climate.bathroom
+      from:
+        - unavailable
+        - unknown
+    - trigger: state
+      entity_id: timer.heating_bathroom_boost
+      from: active
+      to: idle
 
   condition:
+    - condition: state
+      entity_id: timer.heating_bathroom_boost
+      state: idle
     - condition: template
       value_template: "{{ states('sensor.heating_bathroom_automatic_target') | float(none) is not none }}"
   action:

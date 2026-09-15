@@ -12,6 +12,9 @@
               entity_id: binary_sensor.living_room_window_opening
               state: "on"
           sequence:
+            - action: timer.cancel
+              target:
+                entity_id: timer.heating_downstairs_boost
             - action: climate.turn_off
               target:
                 entity_id: climate.downstairs

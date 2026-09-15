@@ -1,0 +1,64 @@
+---
+- alias: Heating - Boost - Detect Manual Target
+  mode: parallel
+  max: 6
+  max_exceeded: silent
+
+  triggers:
+    - trigger: state
+      entity_id:
+        - climate.attic
+        - climate.basement
+        - climate.bathroom
+        - climate.bedroom
+        - climate.downstairs
+        - climate.nursery
+      attribute: temperature
+
+  variables:
+    room: "{{ trigger.entity_id.split('.')[1] }}"
+    timer_entity: "{{ 'timer.heating_' ~ room ~ '_boost' }}"
+    automatic_target: "{{ states('sensor.heating_' ~ room ~ '_automatic_target') | float(none) }}"
+    new_temperature: "{{ trigger.to_state.attributes.temperature | float(none) }}"
+    window_gate: >
+      {{ {
+        'bedroom': 'binary_sensor.upstairs_windows',
+        'downstairs': 'binary_sensor.living_room_window_opening'
+      }.get(room, '') }}
+
+  conditions:
+    - condition: template
+      value_template: >
+        {{ trigger.from_state is not none
+           and trigger.from_state.state not in ['unknown', 'unavailable']
+           and trigger.to_state.state not in ['unknown', 'unavailable']
+           and new_temperature is not none
+           and automatic_target is not none }}
+
+  actions:
+    - choose:
+        - conditions:
+            - condition: template
+              value_template: "{{ window_gate and is_state(window_gate, 'on') }}"
+          sequence:
+            - action: timer.cancel
+              target:
+                entity_id: "{{ timer_entity }}"
+            - action: climate.turn_off
+              target:
+                entity_id: "{{ trigger.entity_id }}"
+        - conditions:
+            - condition: template
+              value_template: "{{ (new_temperature - automatic_target) | abs < 0.25 }}"
+          sequence:
+            - action: timer.cancel
+              target:
+                entity_id: "{{ timer_entity }}"
+      default:
+        - action: timer.start
+          target:
+            entity_id: "{{ timer_entity }}"
+          data:
+            duration: >
+              {% set minutes = states('input_number.heating_boost_duration') | int(60) %}
+              {{ '%02d:%02d:00' | format(minutes // 60, minutes % 60) }}

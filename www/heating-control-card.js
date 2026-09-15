@@ -16,6 +16,7 @@ const ROOM_MAP = [
     icon: "mdi:home-roof",
     climate: "climate.attic",
     target: "sensor.heating_attic_automatic_target",
+    timer: "timer.heating_attic_boost",
     fallback: "input_number.heating_attic_default",
     schedules: ["attic_wfh"],
     accessory: {
@@ -30,9 +31,10 @@ const ROOM_MAP = [
     icon: "mdi:washing-machine",
     climate: "climate.basement",
     target: "sensor.heating_basement_automatic_target",
+    timer: "timer.heating_basement_boost",
     fallback: "input_number.heating_basement_default",
     humidity: "sensor.basement_humidity",
-    boost: "input_number.heating_basement_high_humidity",
+    humidityTarget: "input_number.heating_basement_high_humidity",
     accessory: {
       entity: "switch.dehumidifier_basement_switch",
       label: "Dehumidifier",
@@ -45,9 +47,9 @@ const ROOM_MAP = [
     icon: "mdi:shower",
     climate: "climate.bathroom",
     target: "sensor.heating_bathroom_automatic_target",
+    timer: "timer.heating_bathroom_boost",
     fallback: "input_number.heating_bathroom_default",
     schedules: ["bathroom_boost"],
-    awayBoost: "input_number.heating_bathroom_boost_away",
   },
   {
     id: "bedroom",
@@ -55,6 +57,7 @@ const ROOM_MAP = [
     icon: "mdi:bed-king",
     climate: "climate.bedroom",
     target: "sensor.heating_bedroom_automatic_target",
+    timer: "timer.heating_bedroom_boost",
     fallback: "input_number.heating_bedroom_default",
     schedules: ["bedroom_daytime"],
     gate: "binary_sensor.upstairs_windows",
@@ -66,6 +69,7 @@ const ROOM_MAP = [
     icon: "mdi:sofa",
     climate: "climate.downstairs",
     target: "sensor.heating_downstairs_automatic_target",
+    timer: "timer.heating_downstairs_boost",
     fallback: "input_number.heating_downstairs_default",
     schedules: ["downstairs_daytime"],
     gate: "binary_sensor.living_room_window_opening",
@@ -83,6 +87,7 @@ const ROOM_MAP = [
     icon: "mdi:cradle",
     climate: "climate.nursery",
     target: "sensor.heating_nursery_automatic_target",
+    timer: "timer.heating_nursery_boost",
     fallback: "input_number.heating_nursery_default",
     schedules: ["nursery_daytime"],
   },
@@ -216,6 +221,19 @@ function temp(value) {
   const n = Number(value);
   return Number.isFinite(n) ? `${n % 1 ? n.toFixed(1) : n}°` : "—";
 }
+function countdown(value, now = Date.now()) {
+  const seconds = Math.max(
+    0,
+    Math.ceil((Date.parse(value || "") - now) / 1000),
+  );
+  if (!Number.isFinite(seconds)) return "—";
+  const hours = Math.floor(seconds / 3600),
+    minutes = Math.floor((seconds % 3600) / 60),
+    remainingSeconds = seconds % 60;
+  return hours
+    ? `${hours}:${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`
+    : `${minutes}:${String(remainingSeconds).padStart(2, "0")}`;
+}
 function isUnavailable(state) {
   return !state || ["unavailable", "unknown"].includes(state.state);
 }
@@ -247,6 +265,12 @@ function selfTest() {
       nextTransition({ monday: source.monday }, new Date("2026-09-14T07:00:00"))
         .at === "08:00",
   );
+  const now = Date.parse("2026-09-15T12:00:00Z");
+  console.assert(
+    countdown("2026-09-15T13:02:03Z", now) === "1:02:03" &&
+      countdown("2026-09-15T12:00:01Z", now) === "0:01" &&
+      countdown("2026-09-15T11:59:59Z", now) === "0:00",
+  );
   console.log("heating-control-card self-test passed");
 }
 if (typeof window === "undefined") {
@@ -263,6 +287,7 @@ if (typeof window === "undefined") {
       this.unsubscribe = null;
       this.lastFocus = null;
       this._renderQueued = false;
+      this.boostInterval = null;
     }
     setConfig(config) {
       this.config = config || {};
@@ -321,6 +346,8 @@ if (typeof window === "undefined") {
     disconnectedCallback() {
       this.unsubscribe?.();
       this.unsubscribe = null;
+      if (this.boostInterval) clearInterval(this.boostInterval);
+      this.boostInterval = null;
     }
     queueRender() {
       if (this._renderQueued) return;
@@ -339,16 +366,20 @@ if (typeof window === "undefined") {
     schedule(id) {
       return this.schedules.get(id);
     }
+    boostActive(room) {
+      return this.state(room.timer)?.state === "active";
+    }
     roomSource(room) {
       const s = this.state,
         home = s("input_boolean.home_state")?.state === "on";
       if (room.gate && s(room.gate)?.state === "on") return "Window paused";
+      if (this.boostActive(room)) return "Boost";
       if (
         room.id === "basement" &&
         Number(s(room.humidity)?.state) > 70 &&
         s("switch.dehumidifier_basement_switch")?.state === "on"
       )
-        return "Humidity boost";
+        return "High humidity";
       if (
         ["attic", "bathroom", "bedroom"].includes(room.id) &&
         room.schedules?.some((id) => s(`schedule.${id}`)?.state === "on") &&
@@ -369,6 +400,8 @@ if (typeof window === "undefined") {
           result.push(`${room.label}: climate unavailable`);
         if (isUnavailable(this.state(room.target)))
           result.push(`${room.label}: automatic target unavailable`);
+        if (isUnavailable(this.state(room.timer)))
+          result.push(`${room.label}: boost timer unavailable`);
         if (room.accessory && isUnavailable(this.state(room.accessory.entity)))
           result.push(
             `${room.label}: ${room.accessory.label.toLowerCase()} unavailable`,
@@ -384,6 +417,8 @@ if (typeof window === "undefined") {
         : "";
       this.shadowRoot.innerHTML = `<style>${this.styles()}</style><ha-card><main><header class="general">${this.generalHtml()}</header>${errors}<section class="rooms" aria-label="Heating zones">${this.loading ? "<div class='notice'>Loading programmes…</div>" : rooms}</section></main><dialog id="editor"></dialog></ha-card>`;
       this.bind();
+      this.syncBoostInterval();
+      this.updateBoostCountdowns();
       if (this.editor) this.openEditorDialog();
     }
     generalHtml() {
@@ -397,23 +432,29 @@ if (typeof window === "undefined") {
         else counts.idle++;
       }
       const exceptions = this.exceptions();
-      return `<div class="general-title"><div><p class="eyebrow">HOME HEATING</p><h1>General</h1><p class="presence"><ha-icon icon="${home?.state === "on" ? "mdi:home-account" : "mdi:home-export-outline"}"></ha-icon>${home?.state === "on" ? "Home" : "Away"}<span>status only</span></p></div><div class="summary"><b>${counts.heating}</b> heating <b>${counts.idle}</b> idle${counts.off ? ` <b>${counts.off}</b> off` : ""}${counts.unavailable ? ` <b>${counts.unavailable}</b> unavailable` : ""}</div></div><div class="general-controls">${this.numberControl("input_number.heating_away", "Away target", "Attic · Bedroom · Downstairs · Nursery")}${exceptions.length ? `<aside class="exceptions"><b>Needs attention</b>${exceptions.map((item) => `<span>${esc(item)}</span>`).join("")}</aside>` : "<aside class='exceptions ok'><ha-icon icon='mdi:check-circle-outline'></ha-icon> All automatic targets available</aside>"}</div>`;
+      return `<div class="general-title"><div><p class="eyebrow">HOME HEATING</p><h1>General</h1><p class="presence"><ha-icon icon="${home?.state === "on" ? "mdi:home-account" : "mdi:home-export-outline"}"></ha-icon>${home?.state === "on" ? "Home" : "Away"}<span>status only</span></p></div><div class="summary"><b>${counts.heating}</b> heating <b>${counts.idle}</b> idle${counts.off ? ` <b>${counts.off}</b> off` : ""}${counts.unavailable ? ` <b>${counts.unavailable}</b> unavailable` : ""}</div></div><div class="general-controls">${this.numberControl("input_number.heating_away", "Away target", "Attic · Bathroom · Bedroom · Downstairs · Nursery")}${this.numberControl("input_number.heating_boost_duration", "Boost duration", "All rooms", (value) => `${value} min`)}${exceptions.length ? `<aside class="exceptions"><b>Needs attention</b>${exceptions.map((item) => `<span>${esc(item)}</span>`).join("")}</aside>` : "<aside class='exceptions ok'><ha-icon icon='mdi:check-circle-outline'></ha-icon> All automatic targets available</aside>"}</div>`;
     }
     roomHtml(room) {
       const climate = this.state(room.climate),
         target = this.state(room.target),
-        schedule = room.schedules?.map((id) => this.schedule(id)).find(Boolean);
+        timer = this.state(room.timer),
+        schedule = room.schedules?.map((id) => this.schedule(id)).find(Boolean),
+        boosting = this.boostActive(room);
       const today = DAYS[(new Date().getDay() + 6) % 7],
         blocks = schedule?.[today] || [],
         transition = schedule && nextTransition(schedule),
-        source = this.roomSource(room);
-      return `<article class="room ${isUnavailable(climate) ? "unavailable" : ""}" data-room="${room.id}"><div class="room-head"><div class="room-name"><ha-icon icon="${room.icon}"></ha-icon><h2>${room.label}</h2><span class="badge ${source.toLowerCase().replace(/ /g, "-")}">${source}</span></div><button class="temperature" data-action="more-info" data-entity="${room.climate}" aria-label="Open ${room.label} climate details"><strong>${temp(climate?.attributes?.current_temperature)}</strong><span>now · target ${temp(target?.state)}</span><small>${esc(climate?.attributes?.hvac_action || stateText(climate))}</small></button></div>${schedule ? this.timelineHtml(room, schedule, blocks, transition) : "<div class='no-programme'>Rule-driven target · no heating programme</div>"}<div class="room-settings">${this.numberControl(room.fallback, "Default target")}${room.awayBoost ? this.numberControl(room.awayBoost, "Boost while away") : ""}${room.boost ? this.numberControl(room.boost, "High humidity target") : ""}</div>${this.contextHtml(room)}</article>`;
+        source = this.roomSource(room),
+        boostStatus = boosting
+          ? `<div class="boost-status"><span>Boost ends in <b data-boost-end="${esc(timer?.attributes?.finishes_at || "")}">${countdown(timer?.attributes?.finishes_at)}</b></span><button data-action="cancel-boost" data-timer="${room.timer}" ${!this.admin ? "disabled" : ""}>Cancel</button></div>`
+          : "";
+      return `<article class="room ${isUnavailable(climate) ? "unavailable" : ""}" data-room="${room.id}"><div class="room-head"><div class="room-name"><ha-icon icon="${room.icon}"></ha-icon><h2>${room.label}</h2><span class="badge ${source.toLowerCase().replace(/ /g, "-")}">${source}</span></div><div class="room-reading"><button class="temperature" data-action="more-info" data-entity="${room.climate}" aria-label="Open ${room.label} climate details"><strong>${temp(climate?.attributes?.current_temperature)}</strong><span>${boosting ? `boost ${temp(climate?.attributes?.temperature)} · automatic ${temp(target?.state)}` : `now · target ${temp(target?.state)}`}</span><small>${esc(climate?.attributes?.hvac_action || stateText(climate))}</small></button>${boostStatus}</div></div>${schedule ? this.timelineHtml(room, schedule, blocks, transition) : "<div class='no-programme'>Rule-driven target · no heating programme</div>"}<div class="room-settings">${this.numberControl(room.fallback, "Default target")}${room.humidityTarget ? this.numberControl(room.humidityTarget, "High humidity target") : ""}</div>${this.contextHtml(room)}</article>`;
     }
     timelineHtml(room, schedule, blocks, transition) {
       const fallback = this.state(room.fallback)?.state;
       const marker =
         ((new Date().getHours() * 60 + new Date().getMinutes()) / 1440) * 100;
-      return `<section class="programme"><div class="programme-label"><span>Today · ${esc(schedule.name)}</span>${this.admin ? `<button data-action="edit" data-room="${room.id}" data-schedule="${schedule.id}">Edit week</button>` : "<span class='readonly'>Read-only</span>"}</div><div class="rail" aria-label="Today's programme"><div class="baseline">${temp(fallback)}</div>${blocks
+      const paused = this.boostActive(room);
+      return `<section class="programme ${paused ? "paused" : ""}"><div class="programme-label"><span>Today · ${esc(schedule.name)}</span>${this.admin ? `<button data-action="edit" data-room="${room.id}" data-schedule="${schedule.id}">Edit week</button>` : "<span class='readonly'>Read-only</span>"}</div><div class="rail" aria-label="Today's programme"><div class="baseline">${temp(fallback)}</div>${blocks
         .map((block) => {
           const left = minute(block.from) / 14.4,
             width = (minute(block.to) - minute(block.from)) / 14.4;
@@ -421,9 +462,9 @@ if (typeof window === "undefined") {
         })
         .join(
           "",
-        )}<i style="left:${marker}%" aria-label="Current time"></i></div><div class="period-chips">${blocks.length ? blocks.map((block) => `<button data-action="edit-block" data-room="${room.id}" data-schedule="${schedule.id}" data-day="${DAYS[(new Date().getDay() + 6) % 7]}" data-index="${blocks.indexOf(block)}">${labelTime(block.from)}–${labelTime(block.to)} · ${temp(block.data?.temperature)}</button>`).join("") : `<span>Default all day · ${temp(fallback)}</span>`}</div><p class="next">${transition ? `Next programme transition ${esc(transition.day)} at ${transition.at}` : "No upcoming programme transition"}</p></section>`;
+        )}<i style="left:${marker}%" aria-label="Current time"></i></div><div class="period-chips">${blocks.length ? blocks.map((block) => `<button data-action="edit-block" data-room="${room.id}" data-schedule="${schedule.id}" data-day="${DAYS[(new Date().getDay() + 6) % 7]}" data-index="${blocks.indexOf(block)}">${labelTime(block.from)}–${labelTime(block.to)} · ${temp(block.data?.temperature)}</button>`).join("") : `<span>Default all day · ${temp(fallback)}</span>`}</div><p class="next">${paused ? "Programme paused by boost" : transition ? `Next programme transition ${esc(transition.day)} at ${transition.at}` : "No upcoming programme transition"}</p></section>`;
     }
-    numberControl(entity, label, detail = "") {
+    numberControl(entity, label, detail = "", format = temp) {
       const item = this.state(entity),
         unavailable = isUnavailable(item),
         attrs = item?.attributes || {},
@@ -431,7 +472,7 @@ if (typeof window === "undefined") {
         min = attrs.min ?? 5,
         max = attrs.max ?? 25,
         step = attrs.step ?? 0.5;
-      return `<label class="number ${unavailable ? "disabled" : ""}"><span>${esc(label)}${detail ? `<small>${esc(detail)}</small>` : ""}</span><div><button data-action="number" data-entity="${entity}" data-delta="-${step}" ${!this.admin || unavailable ? "disabled" : ""} aria-label="Lower ${esc(label)}">−</button><output>${unavailable ? "—" : temp(value)}</output><button data-action="number" data-entity="${entity}" data-delta="${step}" data-min="${min}" data-max="${max}" ${!this.admin || unavailable ? "disabled" : ""} aria-label="Raise ${esc(label)}">+</button></div></label>`;
+      return `<label class="number ${unavailable ? "disabled" : ""}"><span>${esc(label)}${detail ? `<small>${esc(detail)}</small>` : ""}</span><div><button data-action="number" data-entity="${entity}" data-delta="-${step}" ${!this.admin || unavailable ? "disabled" : ""} aria-label="Lower ${esc(label)}">−</button><output>${unavailable ? "—" : format(value)}</output><button data-action="number" data-entity="${entity}" data-delta="${step}" data-min="${min}" data-max="${max}" ${!this.admin || unavailable ? "disabled" : ""} aria-label="Raise ${esc(label)}">+</button></div></label>`;
     }
     contextHtml(room) {
       const s = this.state;
@@ -470,6 +511,22 @@ if (typeof window === "undefined") {
         ? `<footer class="context">${parts.join("")}</footer>`
         : "";
     }
+    syncBoostInterval() {
+      const active = ROOM_MAP.some((room) => this.boostActive(room));
+      if (active && !this.boostInterval)
+        this.boostInterval = setInterval(
+          () => this.updateBoostCountdowns(),
+          1000,
+        );
+      if (!active && this.boostInterval) {
+        clearInterval(this.boostInterval);
+        this.boostInterval = null;
+      }
+    }
+    updateBoostCountdowns() {
+      for (const item of this.shadowRoot.querySelectorAll("[data-boost-end]"))
+        item.textContent = countdown(item.dataset.boostEnd);
+    }
     bind() {
       this.shadowRoot.addEventListener("click", (event) => this.click(event));
     }
@@ -488,6 +545,7 @@ if (typeof window === "undefined") {
         );
       if (action === "number") return this.changeNumber(control);
       if (action === "toggle") return this.toggle(control);
+      if (action === "cancel-boost") return this.cancelBoost(control);
       if (action === "edit" || action === "edit-block") {
         if (!this.admin) return;
         this.lastFocus = control;
@@ -524,6 +582,17 @@ if (typeof window === "undefined") {
         });
       } catch (error) {
         this.error = `Could not update ${entity}: ${error.message || error}`;
+        this.queueRender();
+      }
+    }
+    async cancelBoost(control) {
+      try {
+        control.disabled = true;
+        await this._hass.callService("timer", "cancel", {
+          entity_id: control.dataset.timer,
+        });
+      } catch (error) {
+        this.error = `Could not cancel boost: ${error.message || error}`;
         this.queueRender();
       }
     }
@@ -698,7 +767,7 @@ if (typeof window === "undefined") {
       }
     }
     styles() {
-      return `:host{display:block;color:var(--primary-text-color)}ha-card{background:var(--card-background-color);box-shadow:none}main{padding:clamp(12px,2vw,28px);max-width:1600px;margin:auto}.general{border:1px solid var(--divider-color);border-radius:var(--ha-card-border-radius,16px);padding:clamp(18px,3vw,30px);background:linear-gradient(135deg,var(--primary-background-color),var(--card-background-color));margin-bottom:20px}.general-title,.general-controls,.room-head,.programme-label,.day-title,.editor header,.editor footer{display:flex;justify-content:space-between;gap:16px;align-items:center}.eyebrow{margin:0;color:var(--secondary-text-color);font-size:.72rem;font-weight:700;letter-spacing:.08em}.general h1,.room h2,.editor h2,.day-title h3{margin:4px 0}.presence{display:flex;align-items:center;gap:6px;margin:8px 0 0}.presence span,.readonly{color:var(--secondary-text-color);font-size:.8rem}.summary{color:var(--secondary-text-color)}.summary b{color:var(--primary-text-color);font-size:1.2rem;margin-left:8px}.general-controls{align-items:stretch;margin-top:22px}.exceptions{flex:1;display:flex;gap:8px;flex-wrap:wrap;align-content:center;color:var(--secondary-text-color)}.exceptions b{width:100%;color:var(--primary-text-color)}.exceptions span{border-left:3px solid var(--error-color);padding-left:8px}.exceptions.ok{color:var(--success-color)}.rooms{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:16px}.room{border:1px solid var(--divider-color);border-radius:var(--ha-card-border-radius,16px);padding:18px;background:var(--card-background-color);min-width:0}.room.unavailable{opacity:.75}.room-name{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.room-name ha-icon{color:var(--primary-color)}.badge{font-size:.72rem;padding:3px 7px;border-radius:100px;background:var(--secondary-background-color);color:var(--secondary-text-color)}.badge.programme{background:color-mix(in srgb,var(--primary-color) 15%,transparent);color:var(--primary-color)}.badge.away{background:color-mix(in srgb,var(--info-color) 18%,transparent);color:var(--info-color)}.badge.window-paused{background:color-mix(in srgb,var(--error-color) 15%,transparent);color:var(--error-color)}.temperature{background:none;border:0;color:inherit;text-align:right;padding:0;cursor:pointer}.temperature strong{display:block;font-size:2rem;line-height:1}.temperature span,.temperature small{display:block;color:var(--secondary-text-color);font-size:.75rem;margin-top:4px}.programme{margin:18px 0}.programme-label{font-size:.86rem;margin-bottom:8px}.programme-label button,.period-chips button,.programme-link{border:0;background:none;color:var(--primary-color);font:inherit;cursor:pointer;padding:4px}.rail{height:40px;background:var(--secondary-background-color);border-radius:8px;position:relative;overflow:hidden}.baseline{position:absolute;left:8px;top:11px;color:var(--secondary-text-color);font-size:.75rem}.period{position:absolute;top:4px;bottom:4px;min-width:4px;border:0;border-radius:5px;background:var(--primary-color);color:var(--text-primary-color,#fff);font-weight:700;font-size:.72rem;overflow:hidden;padding:0 4px;cursor:pointer}.rail i{position:absolute;top:0;bottom:0;border-left:2px solid var(--error-color);pointer-events:none}.period-chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}.period-chips button,.period-chips span{background:var(--secondary-background-color);border-radius:5px;color:var(--primary-text-color);font-size:.75rem}.next,.no-programme{color:var(--secondary-text-color);font-size:.8rem;margin:8px 0}.room-settings{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:8px;border-top:1px solid var(--divider-color);padding-top:14px}.number{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:.8rem}.number span small{display:block;color:var(--secondary-text-color);font-size:.68rem}.number div{display:flex;align-items:center;border:1px solid var(--divider-color);border-radius:7px;overflow:hidden}.number button{border:0;background:var(--secondary-background-color);color:var(--primary-text-color);font-size:1.1rem;width:28px;height:30px;cursor:pointer}.number output{min-width:38px;text-align:center;font-weight:700}.number.disabled{opacity:.55}.context{display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-top:1px solid var(--divider-color);margin-top:14px;padding-top:12px;font-size:.78rem;color:var(--secondary-text-color)}.context>span,.accessory,.devices{display:flex;align-items:center;gap:4px}.warning{color:var(--error-color)}.accessory{border:1px solid var(--divider-color);border-radius:7px;background:var(--secondary-background-color);color:var(--primary-text-color);padding:6px 8px;cursor:pointer}.accessory:disabled{opacity:.55;cursor:not-allowed}.accessory-note{width:100%}.devices{width:100%;display:block}.devices summary{cursor:pointer;color:var(--primary-color)}.devices span{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--divider-color)}.notice{grid-column:1/-1;padding:12px;border-radius:8px;background:var(--secondary-background-color)}.notice.error,.form-error{color:var(--error-color)}dialog{border:0;padding:0;max-width:min(900px,calc(100vw - 24px));width:900px;border-radius:16px;background:var(--card-background-color);color:var(--primary-text-color);box-shadow:0 16px 50px #0008}.editor header,.editor footer{padding:18px 22px;border-bottom:1px solid var(--divider-color)}.editor footer{border-top:1px solid var(--divider-color);border-bottom:0}.editor header button,.editor footer button,.day-title button,.add{border:1px solid var(--divider-color);border-radius:7px;background:var(--secondary-background-color);color:var(--primary-text-color);padding:8px 12px;cursor:pointer}.editor .save{background:var(--primary-color);color:var(--text-primary-color,#fff);border-color:var(--primary-color)}.editor .save:disabled{opacity:.5}.editor-body{padding:18px 22px}.week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.week button{background:var(--secondary-background-color);color:var(--primary-text-color);border:1px solid transparent;border-radius:7px;padding:7px 4px;cursor:pointer}.week button.selected{border-color:var(--primary-color)}.week i{display:block;height:5px;background:var(--divider-color);position:relative;margin-top:5px;border-radius:4px;overflow:hidden}.week i b{position:absolute;top:0;bottom:0;background:var(--primary-color)}.day-editor{margin-top:20px}.block-row{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;align-items:end;margin:10px 0}.block-row label{display:grid;gap:4px;font-size:.78rem;color:var(--secondary-text-color);position:relative}.block-row input{height:36px;box-sizing:border-box;border:1px solid var(--divider-color);border-radius:6px;background:var(--card-background-color);color:var(--primary-text-color);padding:0 8px}.block-row label span{position:absolute;right:8px;bottom:10px}.block-row button{height:36px;border:0;background:none;color:var(--error-color);cursor:pointer}.empty{color:var(--secondary-text-color)}@media(max-width:640px){main{padding:10px}.general-title,.general-controls,.room-head{align-items:flex-start;flex-direction:column}.temperature{text-align:left}.week{grid-template-columns:repeat(4,1fr)}.block-row{grid-template-columns:1fr 1fr}.block-row button{grid-column:span 2;text-align:left;padding:0}.editor-body,.editor header,.editor footer{padding:14px}.editor{min-height:100dvh}.editor footer{position:sticky;bottom:0;background:var(--card-background-color)}dialog{max-width:100vw;width:100vw;min-height:100dvh;border-radius:0}.general-controls{align-items:stretch}}`;
+      return `:host{display:block;color:var(--primary-text-color)}ha-card{background:var(--card-background-color);box-shadow:none}main{padding:clamp(12px,2vw,28px);max-width:1600px;margin:auto}.general{border:1px solid var(--divider-color);border-radius:var(--ha-card-border-radius,16px);padding:clamp(18px,3vw,30px);background:linear-gradient(135deg,var(--primary-background-color),var(--card-background-color));margin-bottom:20px}.general-title,.general-controls,.room-head,.programme-label,.day-title,.editor header,.editor footer{display:flex;justify-content:space-between;gap:16px;align-items:center}.eyebrow{margin:0;color:var(--secondary-text-color);font-size:.72rem;font-weight:700;letter-spacing:.08em}.general h1,.room h2,.editor h2,.day-title h3{margin:4px 0}.presence{display:flex;align-items:center;gap:6px;margin:8px 0 0}.presence span,.readonly{color:var(--secondary-text-color);font-size:.8rem}.summary{color:var(--secondary-text-color)}.summary b{color:var(--primary-text-color);font-size:1.2rem;margin-left:8px}.general-controls{align-items:stretch;margin-top:22px}.exceptions{flex:1;display:flex;gap:8px;flex-wrap:wrap;align-content:center;color:var(--secondary-text-color)}.exceptions b{width:100%;color:var(--primary-text-color)}.exceptions span{border-left:3px solid var(--error-color);padding-left:8px}.exceptions.ok{color:var(--success-color)}.rooms{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:16px}.room{border:1px solid var(--divider-color);border-radius:var(--ha-card-border-radius,16px);padding:18px;background:var(--card-background-color);min-width:0}.room.unavailable{opacity:.75}.room-name{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.room-name ha-icon{color:var(--primary-color)}.badge{font-size:.72rem;padding:3px 7px;border-radius:100px;background:var(--secondary-background-color);color:var(--secondary-text-color)}.badge.programme{background:color-mix(in srgb,var(--primary-color) 15%,transparent);color:var(--primary-color)}.badge.boost{background:color-mix(in srgb,var(--warning-color,#f5a623) 20%,transparent);color:var(--warning-color,#f5a623)}.badge.away{background:color-mix(in srgb,var(--info-color) 18%,transparent);color:var(--info-color)}.badge.window-paused{background:color-mix(in srgb,var(--error-color) 15%,transparent);color:var(--error-color)}.room-reading{display:grid;justify-items:end;gap:7px}.temperature{background:none;border:0;color:inherit;text-align:right;padding:0;cursor:pointer}.temperature strong{display:block;font-size:2rem;line-height:1}.temperature span,.temperature small{display:block;color:var(--secondary-text-color);font-size:.75rem;margin-top:4px}.boost-status{display:flex;align-items:center;gap:8px;color:var(--warning-color,#f5a623);font-size:.75rem}.boost-status button{border:1px solid currentColor;border-radius:6px;background:none;color:inherit;padding:3px 7px;cursor:pointer}.boost-status button:disabled{opacity:.55;cursor:not-allowed}.programme{margin:18px 0}.programme.paused{opacity:.7}.programme-label{font-size:.86rem;margin-bottom:8px}.programme-label button,.period-chips button,.programme-link{border:0;background:none;color:var(--primary-color);font:inherit;cursor:pointer;padding:4px}.rail{height:40px;background:var(--secondary-background-color);border-radius:8px;position:relative;overflow:hidden}.baseline{position:absolute;left:8px;top:11px;color:var(--secondary-text-color);font-size:.75rem}.period{position:absolute;top:4px;bottom:4px;min-width:4px;border:0;border-radius:5px;background:var(--primary-color);color:var(--text-primary-color,#fff);font-weight:700;font-size:.72rem;overflow:hidden;padding:0 4px;cursor:pointer}.rail i{position:absolute;top:0;bottom:0;border-left:2px solid var(--error-color);pointer-events:none}.period-chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}.period-chips button,.period-chips span{background:var(--secondary-background-color);border-radius:5px;color:var(--primary-text-color);font-size:.75rem}.next,.no-programme{color:var(--secondary-text-color);font-size:.8rem;margin:8px 0}.room-settings{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:8px;border-top:1px solid var(--divider-color);padding-top:14px}.number{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:.8rem}.number span small{display:block;color:var(--secondary-text-color);font-size:.68rem}.number div{display:flex;align-items:center;border:1px solid var(--divider-color);border-radius:7px;overflow:hidden}.number button{border:0;background:var(--secondary-background-color);color:var(--primary-text-color);font-size:1.1rem;width:28px;height:30px;cursor:pointer}.number output{min-width:38px;text-align:center;font-weight:700}.number.disabled{opacity:.55}.context{display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-top:1px solid var(--divider-color);margin-top:14px;padding-top:12px;font-size:.78rem;color:var(--secondary-text-color)}.context>span,.accessory,.devices{display:flex;align-items:center;gap:4px}.warning{color:var(--error-color)}.accessory{border:1px solid var(--divider-color);border-radius:7px;background:var(--secondary-background-color);color:var(--primary-text-color);padding:6px 8px;cursor:pointer}.accessory:disabled{opacity:.55;cursor:not-allowed}.accessory-note{width:100%}.devices{width:100%;display:block}.devices summary{cursor:pointer;color:var(--primary-color)}.devices span{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--divider-color)}.notice{grid-column:1/-1;padding:12px;border-radius:8px;background:var(--secondary-background-color)}.notice.error,.form-error{color:var(--error-color)}dialog{border:0;padding:0;max-width:min(900px,calc(100vw - 24px));width:900px;border-radius:16px;background:var(--card-background-color);color:var(--primary-text-color);box-shadow:0 16px 50px #0008}.editor header,.editor footer{padding:18px 22px;border-bottom:1px solid var(--divider-color)}.editor footer{border-top:1px solid var(--divider-color);border-bottom:0}.editor header button,.editor footer button,.day-title button,.add{border:1px solid var(--divider-color);border-radius:7px;background:var(--secondary-background-color);color:var(--primary-text-color);padding:8px 12px;cursor:pointer}.editor .save{background:var(--primary-color);color:var(--text-primary-color,#fff);border-color:var(--primary-color)}.editor .save:disabled{opacity:.5}.editor-body{padding:18px 22px}.week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.week button{background:var(--secondary-background-color);color:var(--primary-text-color);border:1px solid transparent;border-radius:7px;padding:7px 4px;cursor:pointer}.week button.selected{border-color:var(--primary-color)}.week i{display:block;height:5px;background:var(--divider-color);position:relative;margin-top:5px;border-radius:4px;overflow:hidden}.week i b{position:absolute;top:0;bottom:0;background:var(--primary-color)}.day-editor{margin-top:20px}.block-row{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;align-items:end;margin:10px 0}.block-row label{display:grid;gap:4px;font-size:.78rem;color:var(--secondary-text-color);position:relative}.block-row input{height:36px;box-sizing:border-box;border:1px solid var(--divider-color);border-radius:6px;background:var(--card-background-color);color:var(--primary-text-color);padding:0 8px}.block-row label span{position:absolute;right:8px;bottom:10px}.block-row button{height:36px;border:0;background:none;color:var(--error-color);cursor:pointer}.empty{color:var(--secondary-text-color)}@media(max-width:640px){main{padding:10px}.general-title,.general-controls,.room-head{align-items:flex-start;flex-direction:column}.room-reading{justify-items:start}.temperature{text-align:left}.week{grid-template-columns:repeat(4,1fr)}.block-row{grid-template-columns:1fr 1fr}.block-row button{grid-column:span 2;text-align:left;padding:0}.editor-body,.editor header,.editor footer{padding:14px}.editor{min-height:100dvh}.editor footer{position:sticky;bottom:0;background:var(--card-background-color)}dialog{max-width:100vw;width:100vw;min-height:100dvh;border-radius:0}.general-controls{align-items:stretch}}`;
     }
   }
   customElements.define("heating-control-card", HeatingControlCard);

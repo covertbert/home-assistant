@@ -12,6 +12,9 @@
               entity_id: binary_sensor.upstairs_windows
               state: "on"
           sequence:
+            - action: timer.cancel
+              target:
+                entity_id: timer.heating_bedroom_boost
             - action: climate.turn_off
               target:
                 entity_id: climate.bedroom

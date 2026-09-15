@@ -24,6 +24,7 @@
 !entities/groups
 !entities/device_trackers
 !entities/templates
+!entities/timers
 !integrations
 !recorder
 !schedules

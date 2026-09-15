@@ -1,0 +1,36 @@
+---
+heating_attic_boost:
+  name: Heating Attic Boost
+  duration: "01:00:00"
+  restore: true
+  icon: mdi:radiator
+
+heating_basement_boost:
+  name: Heating Basement Boost
+  duration: "01:00:00"
+  restore: true
+  icon: mdi:radiator
+
+heating_bathroom_boost:
+  name: Heating Bathroom Boost
+  duration: "01:00:00"
+  restore: true
+  icon: mdi:radiator
+
+heating_bedroom_boost:
+  name: Heating Bedroom Boost
+  duration: "01:00:00"
+  restore: true
+  icon: mdi:radiator
+
+heating_downstairs_boost:
+  name: Heating Downstairs Boost
+  duration: "01:00:00"
+  restore: true
+  icon: mdi:radiator
+
+heating_nursery_boost:
+  name: Heating Nursery Boost
+  duration: "01:00:00"
+  restore: true
+  icon: mdi:radiator
