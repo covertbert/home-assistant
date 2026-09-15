@@ -363,22 +363,12 @@ if (typeof window === "undefined") {
       this.bind();
     }
     generalHtml() {
-      const home = this.state("input_boolean.home_state"),
-        climates = ROOM_MAP.map((room) => this.state(room.climate)).filter(
-          Boolean,
-        );
-      const counts = { heating: 0, idle: 0, off: 0, unavailable: 0 };
-      for (const item of climates) {
-        if (isUnavailable(item)) counts.unavailable++;
-        else if (item.state === "off") counts.off++;
-        else if (item.attributes?.hvac_action === "heating") counts.heating++;
-        else counts.idle++;
-      }
+      const home = this.state("input_boolean.home_state");
       const chips = CHIPS.filter((chip) => this.visible(chip))
         .map((chip) => this.chipHtml(chip))
         .join("");
       const alerts = ALERTS.filter((alert) => this.visible(alert));
-      return `<div class="general-title"><div><p class="eyebrow">HOME</p><h1>Overview</h1><p class="presence"><ha-icon icon="${home?.state === "on" ? "mdi:home-account" : "mdi:home-export-outline"}"></ha-icon>${home?.state === "on" ? "Home" : "Away"}</p></div><div class="summary"><b>${counts.heating}</b> heating <b>${counts.idle}</b> idle${counts.off ? ` <b>${counts.off}</b> off` : ""}${counts.unavailable ? ` <b>${counts.unavailable}</b> unavailable` : ""}</div></div><div class="chips">${chips}</div>${alerts.length ? `<aside class="exceptions"><b>Needs attention</b>${alerts.map((alert) => `<button data-action="more-info" data-entity="${alert.entity}"><ha-icon icon="mdi:alert-circle-outline"></ha-icon>${esc(friendly(this.state(alert.entity), alert.entity, alert.name))}</button>`).join("")}</aside>` : ""}`;
+      return `<div class="general-title"><div><p class="eyebrow">HOME</p><h1>Overview</h1><p class="presence"><ha-icon icon="${home?.state === "on" ? "mdi:home-account" : "mdi:home-export-outline"}"></ha-icon>${home?.state === "on" ? "Home" : "Away"}</p></div></div><div class="chips">${chips}</div>${alerts.length ? `<aside class="exceptions"><b>Needs attention</b>${alerts.map((alert) => `<button data-action="more-info" data-entity="${alert.entity}"><ha-icon icon="mdi:alert-circle-outline"></ha-icon>${esc(friendly(this.state(alert.entity), alert.entity, alert.name))}</button>`).join("")}</aside>` : ""}`;
     }
     chipHtml(chip) {
       const item = this.state(chip.entity),
