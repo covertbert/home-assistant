@@ -11,21 +11,30 @@ const CHIPS = [
     show_if: { entity: "person.housesitter", state: "home" },
   },
   {
+    entity: "input_boolean.housesitter_present",
+    name: "Sitter Toggle",
+    icon: "mdi:toggle-switch-outline",
+    type: "toggle",
+  },
+  {
     entity:
       "sensor.octopus_energy_electricity_22l3444132_1610012177566_current_rate",
+    name: "Electricity rate",
     type: "more-info",
   },
   {
     entity:
       "sensor.octopus_energy_electricity_22l3444132_1610012177566_current_accumulative_consumption",
+    name: "Electricity use",
     type: "more-info",
   },
   {
     entity:
       "sensor.octopus_energy_gas_e6s16281722261_1603596609_current_accumulative_consumption_kwh",
+    name: "Gas use",
     type: "more-info",
   },
-  { entity: "sensor.speedtest_download", type: "more-info" },
+  { entity: "sensor.speedtest_download", name: "Download", type: "more-info" },
   {
     entity: "input_boolean.cheap_electricity",
     name: "Cheap electricity",
@@ -81,11 +90,12 @@ const ROOM_MAP = [
     id: "attic",
     label: "Attic",
     icon: "mdi:home-roof",
+    path: "/dashboard-sandbox/0",
     climate: "climate.attic",
     entities: [
       {
         entity: "switch.attic_workstation_switch",
-        type: "switch",
+        type: "more-info",
         name: "Workstation",
       },
     ],
@@ -94,6 +104,7 @@ const ROOM_MAP = [
     id: "basement",
     label: "Basement",
     icon: "mdi:washing-machine",
+    path: "/dashboard-sandbox/2",
     climate: "climate.basement",
     entities: [
       {
@@ -108,6 +119,7 @@ const ROOM_MAP = [
     id: "bathroom",
     label: "Bathroom",
     icon: "mdi:shower",
+    path: "/dashboard-sandbox/1",
     climate: "climate.bathroom",
     entities: [],
   },
@@ -115,6 +127,7 @@ const ROOM_MAP = [
     id: "bedroom",
     label: "Bedroom",
     icon: "mdi:bed-king",
+    path: "/dashboard-sandbox/3",
     climate: "climate.bedroom",
     entities: [
       { entity: "light.bedroom", type: "light", icon: "mdi:lamps" },
@@ -134,6 +147,7 @@ const ROOM_MAP = [
     id: "hallway",
     label: "Hallway",
     icon: "mdi:coat-rack",
+    path: "/dashboard-sandbox/4",
     climate: "climate.downstairs",
     entities: [],
   },
@@ -141,9 +155,14 @@ const ROOM_MAP = [
     id: "kitchen",
     label: "Kitchen",
     icon: "mdi:countertop",
+    path: "/dashboard-sandbox/5",
     climate: "climate.kitchen",
     entities: [
-      { entity: "switch.dishwasher_power", type: "switch", name: "Dishwasher" },
+      {
+        entity: "switch.dishwasher_power",
+        type: "more-info",
+        name: "Dishwasher",
+      },
       {
         entity: "sensor.dishwasher_operation_state",
         type: "more-info",
@@ -182,6 +201,7 @@ const ROOM_MAP = [
     id: "landing",
     label: "Landing",
     icon: "mdi:stairs",
+    path: "/dashboard-sandbox/6",
     entities: [
       {
         entity: "light.hare",
@@ -196,6 +216,7 @@ const ROOM_MAP = [
     id: "living_room",
     label: "Living Room",
     icon: "mdi:sofa",
+    path: "/dashboard-sandbox/6",
     climate: "climate.living_room",
     entities: [
       { entity: "light.living_room", type: "light", icon: "mdi:lamps" },
@@ -207,6 +228,7 @@ const ROOM_MAP = [
     id: "nursery",
     label: "Nursery",
     icon: "mdi:cradle",
+    path: "/dashboard-sandbox/7",
     climate: "climate.nursery",
     entities: [],
   },
@@ -335,9 +357,9 @@ if (typeof window === "undefined") {
         value = isUnavailable(item)
           ? "—"
           : item.attributes?.unit_of_measurement
-            ? `${item.state}${item.attributes.unit_of_measurement}`
+            ? `${item.state} ${item.attributes.unit_of_measurement}`
             : item.state;
-      return `<button class="chip" data-action="${chip.type}" data-entity="${chip.entity}" title="${esc(name)}"><ha-icon icon="${esc(item?.attributes?.icon || "mdi:information-outline")}"></ha-icon><span>${esc(name)}</span><b>${esc(value)}</b></button>`;
+      return `<button class="chip" data-action="${chip.type}" data-entity="${chip.entity}" title="${esc(name)}"><ha-icon icon="${esc(chip.icon || item?.attributes?.icon || "mdi:information-outline")}"></ha-icon><span>${esc(name)}</span><b>${esc(value)}</b></button>`;
     }
     roomHtml(room) {
       const climate = room.climate ? this.state(room.climate) : null;
@@ -349,7 +371,10 @@ if (typeof window === "undefined") {
         ? `<button class="temperature" data-action="more-info" data-entity="${room.climate}" aria-label="Open ${room.label} climate details"><strong>${temp(climate?.attributes?.current_temperature)}</strong><span>now · target ${temp(climate?.attributes?.temperature)}</span><small>${esc(climate?.attributes?.hvac_action || stateText(climate))}</small></button>`
         : "";
       const control = climate ? this.climateControl(room.climate, climate) : "";
-      return `<article class="room ${isUnavailable(climate) && climate ? "unavailable" : ""}" data-room="${room.id}"><div class="room-head"><div class="room-name"><ha-icon icon="${room.icon}"></ha-icon><h2>${room.label}</h2></div>${head}</div>${control}${rows ? `<footer class="context">${rows}</footer>` : ""}</article>`;
+      const title = room.path
+        ? `<button class="room-link" data-action="navigate" data-path="${esc(room.path)}"><h2>${esc(room.label)}</h2></button>`
+        : `<h2>${esc(room.label)}</h2>`;
+      return `<article class="room ${isUnavailable(climate) && climate ? "unavailable" : ""}" data-room="${room.id}"><div class="room-head"><div class="room-name"><ha-icon icon="${room.icon}"></ha-icon>${title}</div>${head}</div>${control}${rows ? `<footer class="context">${rows}</footer>` : ""}</article>`;
     }
     climateControl(entity, state) {
       const attrs = state?.attributes || {},
@@ -365,19 +390,29 @@ if (typeof window === "undefined") {
         icon = entity.icon || item?.attributes?.icon,
         on = item?.state === "on",
         unavailable = isUnavailable(item);
-      if (entity.type === "switch" || entity.type === "light") {
-        return `<button class="accessory ${on ? "on" : ""}" data-action="entity-toggle" data-entity="${entity.entity}" ${entity.brightness ? `data-brightness="${entity.brightness}"` : ""} ${unavailable ? "disabled" : ""}>${icon ? `<ha-icon icon="${esc(icon)}"></ha-icon>` : ""}${esc(name)} <b>${esc(stateText(item))}</b></button>`;
+      if (entity.type === "light") {
+        const brightness = Number(item?.attributes?.brightness);
+        return `<div class="entity-row"><button class="accessory ${on ? "on" : ""}" data-action="entity-toggle" data-entity="${entity.entity}" ${entity.brightness ? `data-brightness="${entity.brightness}"` : ""} ${unavailable ? "disabled" : ""}>${icon ? `<ha-icon icon="${esc(icon)}"></ha-icon>` : ""}${esc(name)} <b>${esc(stateText(item))}</b></button><button class="entity-info" data-action="more-info" data-entity="${entity.entity}" aria-label="Open ${esc(name)} details">ⓘ</button>${Number.isFinite(brightness) ? `<input class="brightness" data-action="brightness" data-entity="${entity.entity}" type="range" min="1" max="255" value="${brightness}" ${unavailable ? "disabled" : ""} aria-label="${esc(name)} brightness">` : ""}</div>`;
+      }
+      if (entity.type === "switch") {
+        return `<button class="accessory ${on ? "on" : ""}" data-action="entity-toggle" data-entity="${entity.entity}" ${unavailable ? "disabled" : ""}>${icon ? `<ha-icon icon="${esc(icon)}"></ha-icon>` : ""}${esc(name)} <b>${esc(stateText(item))}</b></button>`;
       }
       return `<button class="accessory" data-action="more-info" data-entity="${entity.entity}">${icon ? `<ha-icon icon="${esc(icon)}"></ha-icon>` : ""}${esc(name)} <b>${esc(stateText(item))}</b></button>`;
     }
     bind() {
       this.shadowRoot.addEventListener("click", (event) => this.click(event));
+      this.shadowRoot.addEventListener("change", (event) => {
+        const control = event.target.closest('[data-action="brightness"]');
+        if (control) this.changeBrightness(control);
+      });
     }
     async click(event) {
       const control = event.target.closest("[data-action]");
       if (!control) return;
       const action = control.dataset.action,
         entity = control.dataset.entity;
+      if (action === "navigate")
+        return window.location.assign(control.dataset.path);
       if (action === "more-info")
         return this.dispatchEvent(
           new CustomEvent("hass-more-info", {
@@ -426,8 +461,19 @@ if (typeof window === "undefined") {
         this.queueRender();
       }
     }
+    async changeBrightness(control) {
+      try {
+        await this._hass.callService("light", "turn_on", {
+          entity_id: control.dataset.entity,
+          brightness: Number(control.value),
+        });
+      } catch (error) {
+        this.error = `Could not update ${control.dataset.entity}: ${error.message || error}`;
+        this.queueRender();
+      }
+    }
     styles() {
-      return `:host{display:block;color:var(--primary-text-color)}ha-card{background:var(--card-background-color);box-shadow:none}main{padding:clamp(12px,2vw,28px);max-width:1600px;margin:auto}.general{border:1px solid var(--divider-color);border-radius:var(--ha-card-border-radius,16px);padding:clamp(18px,3vw,30px);background:linear-gradient(135deg,var(--primary-background-color),var(--card-background-color));margin-bottom:20px}.general-title,.room-head{display:flex;justify-content:space-between;gap:16px;align-items:center}.eyebrow{margin:0;color:var(--secondary-text-color);font-size:.72rem;font-weight:700;letter-spacing:.08em}.general h1,.room h2{margin:4px 0}.presence{display:flex;align-items:center;gap:6px;margin:8px 0 0}.summary{color:var(--secondary-text-color)}.summary b{color:var(--primary-text-color);font-size:1.2rem;margin-left:8px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.chip{display:flex;align-items:center;gap:6px;border:1px solid var(--divider-color);border-radius:100px;background:var(--card-background-color);color:var(--primary-text-color);padding:6px 12px;cursor:pointer;font:inherit;font-size:.8rem}.chip ha-icon{--mdc-icon-size:18px;color:var(--primary-color)}.chip b{color:var(--secondary-text-color);font-weight:700}.exceptions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:18px;color:var(--secondary-text-color)}.exceptions b{width:100%;color:var(--primary-text-color)}.exceptions button{display:flex;align-items:center;gap:5px;border:0;border-left:3px solid var(--error-color);border-radius:0;background:none;color:var(--primary-text-color);padding:2px 8px;cursor:pointer;font:inherit;font-size:.8rem}.exceptions ha-icon{--mdc-icon-size:18px;color:var(--error-color)}.rooms{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:16px}.room{border:1px solid var(--divider-color);border-radius:var(--ha-card-border-radius,16px);padding:18px;background:var(--card-background-color);min-width:0}.room.unavailable{opacity:.75}.room-name{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.room-name ha-icon{color:var(--primary-color)}.temperature{background:none;border:0;color:inherit;text-align:right;padding:0;cursor:pointer}.temperature strong{display:block;font-size:2rem;line-height:1}.temperature span,.temperature small{display:block;color:var(--secondary-text-color);font-size:.75rem;margin-top:4px}.number{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:.8rem;margin-top:14px}.number div{display:flex;align-items:center;border:1px solid var(--divider-color);border-radius:7px;overflow:hidden}.number button{border:0;background:var(--secondary-background-color);color:var(--primary-text-color);font-size:1.1rem;width:28px;height:30px;cursor:pointer}.number output{min-width:38px;text-align:center;font-weight:700}.number.disabled{opacity:.55}.number.pending{opacity:.6}.context{display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-top:1px solid var(--divider-color);margin-top:14px;padding-top:12px;font-size:.78rem;color:var(--secondary-text-color)}.accessory{display:flex;align-items:center;gap:5px;border:1px solid var(--divider-color);border-radius:7px;background:var(--secondary-background-color);color:var(--primary-text-color);padding:6px 8px;cursor:pointer;font:inherit;font-size:.78rem}.accessory ha-icon{--mdc-icon-size:18px}.accessory.on{border-color:var(--primary-color);color:var(--primary-color)}.accessory.on ha-icon{color:var(--primary-color)}.accessory:disabled{opacity:.55;cursor:not-allowed}.accessory b{color:var(--secondary-text-color)}.accessory.on b{color:var(--primary-color)}.notice{grid-column:1/-1;padding:12px;border-radius:8px;background:var(--secondary-background-color)}.notice.error{color:var(--error-color)}@media(max-width:640px){main{padding:10px}.general-title,.room-head{align-items:flex-start;flex-direction:column}.temperature{text-align:left}}`;
+      return `:host{display:block;color:var(--primary-text-color)}ha-card{background:var(--card-background-color);box-shadow:none}main{padding:clamp(12px,2vw,28px);max-width:1600px;margin:auto}.general{border:1px solid var(--divider-color);border-radius:var(--ha-card-border-radius,16px);padding:clamp(18px,3vw,30px);background:linear-gradient(135deg,var(--primary-background-color),var(--card-background-color));margin-bottom:20px}.general-title,.room-head{display:flex;justify-content:space-between;gap:16px;align-items:center}.eyebrow{margin:0;color:var(--secondary-text-color);font-size:.72rem;font-weight:700;letter-spacing:.08em}.general h1,.room h2{margin:4px 0}.presence{display:flex;align-items:center;gap:6px;margin:8px 0 0}.summary{color:var(--secondary-text-color)}.summary b{color:var(--primary-text-color);font-size:1.2rem;margin-left:8px}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.chip{display:flex;align-items:center;gap:6px;border:1px solid var(--divider-color);border-radius:100px;background:var(--card-background-color);color:var(--primary-text-color);padding:6px 12px;cursor:pointer;font:inherit;font-size:.8rem}.chip ha-icon{--mdc-icon-size:18px;color:var(--primary-color)}.chip b{color:var(--secondary-text-color);font-weight:700}.exceptions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:18px;color:var(--secondary-text-color)}.exceptions b{width:100%;color:var(--primary-text-color)}.exceptions button{display:flex;align-items:center;gap:5px;border:0;border-left:3px solid var(--error-color);border-radius:0;background:none;color:var(--primary-text-color);padding:2px 8px;cursor:pointer;font:inherit;font-size:.8rem}.exceptions ha-icon{--mdc-icon-size:18px;color:var(--error-color)}.rooms{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:16px}.room{border:1px solid var(--divider-color);border-radius:var(--ha-card-border-radius,16px);padding:18px;background:var(--card-background-color);min-width:0}.room.unavailable{opacity:.75}.room-name{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.room-name ha-icon{color:var(--primary-color)}.room-link{border:0;background:none;color:inherit;padding:0;cursor:pointer;font:inherit;text-align:left}.room-link h2{margin:4px 0}.temperature{background:none;border:0;color:inherit;text-align:right;padding:0;cursor:pointer}.temperature strong{display:block;font-size:2rem;line-height:1}.temperature span,.temperature small{display:block;color:var(--secondary-text-color);font-size:.75rem;margin-top:4px}.number{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:.8rem;margin-top:14px}.number div{display:flex;align-items:center;border:1px solid var(--divider-color);border-radius:7px;overflow:hidden}.number button{border:0;background:var(--secondary-background-color);color:var(--primary-text-color);font-size:1.1rem;width:28px;height:30px;cursor:pointer}.number output{min-width:38px;text-align:center;font-weight:700}.number.disabled{opacity:.55}.number.pending{opacity:.6}.context{display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-top:1px solid var(--divider-color);margin-top:14px;padding-top:12px;font-size:.78rem;color:var(--secondary-text-color)}.entity-row{display:flex;align-items:center;gap:5px;flex-wrap:wrap}.accessory{display:flex;align-items:center;gap:5px;border:1px solid var(--divider-color);border-radius:7px;background:var(--secondary-background-color);color:var(--primary-text-color);padding:6px 8px;cursor:pointer;font:inherit;font-size:.78rem}.entity-info{border:0;background:none;color:var(--secondary-text-color);padding:5px;cursor:pointer;font-size:1rem}.brightness{width:100%;accent-color:var(--primary-color);cursor:pointer}.accessory ha-icon{--mdc-icon-size:18px}.accessory.on{border-color:var(--primary-color);color:var(--primary-color)}.accessory.on ha-icon{color:var(--primary-color)}.accessory:disabled{opacity:.55;cursor:not-allowed}.accessory b{color:var(--secondary-text-color)}.accessory.on b{color:var(--primary-color)}.notice{grid-column:1/-1;padding:12px;border-radius:8px;background:var(--secondary-background-color)}.notice.error{color:var(--error-color)}@media(max-width:640px){main{padding:10px}.general-title,.room-head{align-items:flex-start;flex-direction:column}.temperature{text-align:left}}`;
     }
   }
   customElements.define("home-overview-card", HomeOverviewCard);
