@@ -1,17 +1,46 @@
-name: Main
+name: main
 
 on:
+  pull_request:
   push:
     branches:
       - main
 
 jobs:
-  full_deploy:
-    name: Full Deploy
+  validate:
+    name: Validate Config
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+
+      - name: ShellCheck
+        run: shellcheck shell/*.sh
+
+      - name: YAMLLint
+        run: pipx run yamllint .
+
+      - name: Prettier
+        run: npx -y prettier@3.8.3 --check .
+
+      - name: JS syntax
+        run: |
+          for f in www/*.js; do
+            cp "$f" /tmp/ha-js-check.mjs
+            node --check /tmp/ha-js-check.mjs || { echo "JS parse failed: $f"; exit 1; }
+          done
+
+      - name: HA config check
+        run: ./shell/config_check.sh
+
+  full_deploy:
+    name: Full Deploy
+    needs: validate
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Tailscale
         uses: tailscale/github-action@v3
         with:
@@ -21,4 +50,4 @@ jobs:
       - name: Trigger Full Deploy
         shell: bash
         run: |
-          curl -X POST "https://homeassistant.mole-anaconda.ts.net/api/webhook/${{ secrets.HA_WEBHOOK_ID}}"
+          curl -X POST "https://homeassistant.mole-anaconda.ts.net/api/webhook/${{ secrets.HA_WEBHOOK_ID }}"

@@ -1,0 +1,9 @@
+extends: default
+rules:
+  # HA jinja template lines can't be wrapped without changing rendered output.
+  line-length:
+    max: 250
+  # Most HA yaml in this repo omits the document start marker.
+  document-start: disable
+  # `on`/`off` are legitimate HA state values.
+  truthy: disable
