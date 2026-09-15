@@ -51,21 +51,6 @@ const CHIPS = [
 
 const ALERTS = [
   {
-    entity: "switch.dehumidifier_bedroom_switch",
-    name: "Bedroom dehumidifier",
-    show_if: { entity: "switch.dehumidifier_bedroom_switch", state: "on" },
-  },
-  {
-    entity: "switch.dehumidifier_basement_switch",
-    name: "Basement dehumidifier",
-    show_if: { entity: "switch.dehumidifier_basement_switch", state: "on" },
-  },
-  {
-    entity: "binary_sensor.study_window_opening",
-    name: "Study window open",
-    show_if: { entity: "binary_sensor.nursery_window_opening", state: "on" },
-  },
-  {
     entity: "binary_sensor.landing_window_opening",
     name: "Landing window open",
     show_if: { entity: "binary_sensor.landing_window_opening", state: "on" },
