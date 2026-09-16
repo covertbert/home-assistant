@@ -40,12 +40,12 @@
           value_template: "{{ trigger.id == 'startup' }}"
       then:
         # wait for ZHA to report the switch, then only act when it is off
-        - wait_for_triggers:
+        - wait_for_trigger:
             - trigger: state
               entity_id: switch.tado_bridge_switch
               to:
-                - on
-                - off
+                - "on"
+                - "off"
           timeout:
             minutes: 5
           continue_on_timeout: true
@@ -107,7 +107,7 @@
         - condition: template
           value_template: "{{ states('sensor.tado_unavailable_climates') | int(0) > 0 }}"
         # give a fresh outage its 15 minute grace before cycling again
-        - wait_for_triggers:
+        - wait_for_trigger:
             - trigger: state
               entity_id: sensor.tado_unavailable_climates
               to: "0"
