@@ -91,6 +91,7 @@ const ROOM_MAP = [
     timer: "timer.heating_nursery_boost",
     fallback: "input_number.heating_nursery_default",
     schedules: ["nursery_daytime"],
+    devices: ["climate.nursery", "climate.nursery2"],
   },
 ];
 
@@ -513,7 +514,7 @@ if (typeof window === "undefined") {
       }
       if (room.devices)
         parts.push(
-          `<details class="devices"><summary>4-device zone health</summary>${room.devices
+          `<details class="devices"><summary>${room.devices.length}-device zone health</summary>${room.devices
             .map((entity) => {
               const item = s(entity);
               return `<span>${esc(item?.attributes?.friendly_name?.replace("Tado ", "") || entity)} <b>${isUnavailable(item) ? "Unavailable" : `${temp(item.attributes?.current_temperature)} · ${esc(item.attributes?.hvac_action || item.state)}`}</b></span>`;
