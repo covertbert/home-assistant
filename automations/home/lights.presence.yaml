@@ -7,6 +7,8 @@
     - trigger: state
       entity_id:
         - input_boolean.home_state
+    - trigger: homeassistant
+      event: start
 
   action:
     - choose:

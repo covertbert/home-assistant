@@ -6,6 +6,8 @@
     - trigger: state
       entity_id:
         - group.family
+    - trigger: homeassistant
+      event: start
 
   action:
     - choose:

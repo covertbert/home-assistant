@@ -11,6 +11,8 @@
     # Bertie arrives home
     - trigger: state
       entity_id: person.bertie
+    - trigger: homeassistant
+      event: start
 
   # Bertie is home
   condition:

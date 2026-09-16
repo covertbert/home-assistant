@@ -5,6 +5,8 @@
   triggers:
     - trigger: state
       entity_id: binary_sensor.living_room_window_opening
+    - trigger: homeassistant
+      event: start
 
   action:
     - choose:
