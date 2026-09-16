@@ -36,6 +36,9 @@ fi
 CHANGED_FILES=()
 if [[ -n "$BASE_REVISION" ]] && git cat-file -e "$BASE_REVISION^{commit}" 2>/dev/null; then
   mapfile -t CHANGED_FILES < <(git diff --name-only "$BASE_REVISION" "$GITHUB_SHA")
+elif [[ -z "$REMOTE_REVISION" ]]; then
+  # First migration must classify full payload, not only current commit.
+  mapfile -t CHANGED_FILES < <(git ls-files)
 else
   mapfile -t CHANGED_FILES < <(git diff-tree --root --no-commit-id --name-only -r "$GITHUB_SHA")
 fi
@@ -59,6 +62,7 @@ fi
 
 RESTART=0
 VERSION_RESOURCES=0
+[[ "${GITHUB_EVENT_NAME:-}" == workflow_dispatch ]] && VERSION_RESOURCES=1
 declare -a RELOADS=()
 declare -A SEEN_RELOADS=()
 add_reload() {
