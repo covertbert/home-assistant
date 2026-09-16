@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   validate:
@@ -13,6 +14,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
 
       - name: ShellCheck
         run: shellcheck shell/*.sh
@@ -25,7 +33,7 @@ jobs:
 
       - name: JS syntax
         run: |
-          for f in www/*.js; do
+          for f in www/*.js shell/*.mjs; do
             cp "$f" /tmp/ha-js-check.mjs
             node --check /tmp/ha-js-check.mjs || { echo "JS parse failed: $f"; exit 1; }
           done
@@ -33,21 +41,95 @@ jobs:
       - name: HA config check
         run: ./shell/config_check.sh
 
-  full_deploy:
-    name: Full Deploy
+      - name: Deployment syntax check
+        run: bash -n shell/deploy.sh
+
+  changes:
+    name: Find deployable changes
     needs: validate
-    if: github.ref == 'refs/heads/main'
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
+    outputs:
+      deploy: ${{ steps.detect.outputs.deploy }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: detect
+        shell: bash
+        env:
+          EVENT_BEFORE: ${{ github.event.before }}
+          GITHUB_SHA: ${{ github.sha }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          if [[ "$EVENT_NAME" == workflow_dispatch ]]; then
+            echo 'deploy=true' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          base="$EVENT_BEFORE"
+          [[ "$base" =~ ^0+$ ]] && base=""
+          if [[ -n "$base" ]]; then
+            files=$(git diff --name-only "$base" "$GITHUB_SHA")
+          else
+            files=$(git diff-tree --root --no-commit-id --name-only -r "$GITHUB_SHA")
+          fi
+          deploy=false
+          while IFS= read -r file; do
+            case "$file" in
+              configuration.yaml|automations.yaml|automations/*|entities/*|integrations/*|scenes/*|scripts/*|themes/*|www/*.js|shell/git_pull.sh)
+                deploy=true
+                break
+                ;;
+            esac
+          done <<< "$files"
+          echo "deploy=$deploy" >> "$GITHUB_OUTPUT"
+
+  deploy:
+    name: Deploy Home Assistant
+    needs: [validate, changes]
+    if: needs.changes.outputs.deploy == 'true'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: home-assistant-deploy
+      cancel-in-progress: false
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
       - name: Tailscale
-        uses: tailscale/github-action@v3
+        uses: tailscale/github-action@v4.1.3
         with:
           oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tags: tag:ci
-      - name: Trigger Full Deploy
+          ping: homeassistant.mole-anaconda.ts.net
+
+      - name: Configure SSH
         shell: bash
+        env:
+          HA_SSH_PRIVATE_KEY: ${{ secrets.HA_SSH_PRIVATE_KEY }}
         run: |
-          curl -X POST "https://homeassistant.mole-anaconda.ts.net/api/webhook/${{ secrets.HA_WEBHOOK_ID }}"
+          key="$RUNNER_TEMP/ha-deploy-key"
+          known_hosts="$RUNNER_TEMP/ha-known-hosts"
+          umask 077
+          printf '%s\n' "$HA_SSH_PRIVATE_KEY" > "$key"
+          printf '%s\n' 'homeassistant.mole-anaconda.ts.net ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINm+cDcN1sr2knGAqBykNmz2Rii+If2QAsXiw7WFkgVb' > "$known_hosts"
+          echo "HA_SSH_KEY_FILE=$key" >> "$GITHUB_ENV"
+          echo "HA_KNOWN_HOSTS_FILE=$known_hosts" >> "$GITHUB_ENV"
+
+      - name: Deploy changed runtime files
+        shell: bash
+        env:
+          HA_TOKEN: ${{ secrets.HA_TOKEN }}
+          HA_HOST: homeassistant.mole-anaconda.ts.net
+          HA_URL: https://homeassistant.mole-anaconda.ts.net
+          GITHUB_EVENT_BEFORE: ${{ github.event.before }}
+        run: ./shell/deploy.sh

@@ -11,6 +11,8 @@ pre-commit:
       run: 'for f in www/*.js; do cp "$f" /tmp/lh-js-check.mjs && node --check /tmp/lh-js-check.mjs || { echo "JS parse failed: $f"; exit 1; }; done'
     shellcheck:
       run: shellcheck shell/*.sh
+    deploy:
+      run: bash -n shell/deploy.sh && node --check shell/version_lovelace_resources.mjs
 
 pre-push:
   commands:

@@ -52,6 +52,8 @@ secrets.yaml
 # And except JS files in www
 !www
 !www/*.js
+!shell/*.mjs
+!.nvmrc
 
 # And except other miscellaneous files
 !.gitignore

@@ -11,7 +11,7 @@ Version-controlled Home Assistant config for the whole house. Every light, radia
 | `automations/`       | All automations, split by area and concern                                                               |
 | `entities/`          | Helpers: template sensors, input booleans, groups                                                        |
 | `www/`               | Custom Lovelace cards — vanilla JS, zero build step 🪄                                                   |
-| `shell/`             | `git_pull.sh` for HA and `config_check.sh` for validation                                                |
+| `shell/`             | CI validation and direct deployment scripts                                                              |
 | `.stubs/`            | Mock secrets so config checks run without the real ones 🔐                                               |
 
 ## ⚡ What it does
@@ -23,7 +23,7 @@ Version-controlled Home Assistant config for the whole house. Every light, radia
 - ⚡ **Octopus Agile** — current and upcoming rate card, an average-rate template, and a cheap-energy flag that flips on when a rate undercuts the average 📉
 - 🎡 **Wheel of Fortune** — persistent notification when Octopus WOF spins land, so they never go unclaimed
 - 🩺 **System health** — one aggregate sensor watches repairs, low batteries, stuck-unavailable entities and pending updates, then pushes native alerts to the phone (repeat daily until fixed, clears on recovery)
-- 🛌 **Startup / shutdown** — house-level routines for boot and power-down, plus auto-restart on config updates
+- 🛌 **Startup / shutdown** — house-level routines for boot and power-down
 - 📶 **Zigbee (ZHA)** — sensors and switches on the mesh
 - 🍎 **HomeKit** — the house in Apple Home, too
 
@@ -37,7 +37,7 @@ Hand-rolled Lovelace cards in `www/` — plain JS, no dependencies, no build ste
 
 ### UI preview
 
-Use direct SSH upload for fast visual iteration. Local repository stays source of truth. HA `/config/www` is preview target only.
+Use direct SSH upload for fast visual iteration. Local repository stays source of truth. HA `/config/www` is preview target only. HACS-owned `www/community/` remains untouched by GitHub deployment.
 
 ```sh
 node --check www/heating-control-card.js
@@ -46,17 +46,22 @@ scp www/heating-control-card.js homeassistant:/config/www/heating-control-card.j
 
 Open browser DevTools, enable **Disable cache**, then reload dashboard. Review before another change. Do not commit or push a preview upload directly.
 
-Before final local commit and push, restore previewed files on HA and require clean worktree:
+Before final local commit and push, restore previewed files on HA from your local checkout:
 
 ```sh
-ssh homeassistant '
-  cd /config &&
-  git restore --source=HEAD --staged --worktree -- www/heating-control-card.js &&
-  test -z "$(git status --porcelain)"
-'
+scp www/heating-control-card.js homeassistant:/config/www/heating-control-card.js
 ```
 
-GitHub Actions triggers deployment after push. Clean HA worktree lets deployment webhook pull final commit. Deploy appends current Git commit as `?v=` to every `/local/` card resource, so production browsers load changed cards without a hard refresh.
+GitHub Actions validates every push, joins Tailscale, and streams tracked runtime files over SSH. HA `/config` is no longer a Git repository. Git-owned config roots are replaced wholesale, so stale server edits disappear; `secrets.yaml`, HA storage/data, HACS `custom_components/`, and `www/community/` stay untouched.
+
+Deployment applies least disruption:
+
+- custom-card JS: copy + update Lovelace `/local/` resource URLs with current commit query; no reload/restart
+- reloadable YAML: targeted Home Assistant reload service; no restart
+- structural/unsupported YAML: one restart
+- docs/tooling-only changes: no deployment
+
+Changed Lovelace cards become visible on ordinary dashboard refresh. HACS manages third-party integrations such as Octopus Energy separately.
 
 ## 🤖 Automations
 
@@ -72,10 +77,11 @@ Naming follows `<domain>.<room-or-scope>.<what>.yaml`, e.g. `heating.bedroom.win
 
 ## 🛠️ Tooling & checks
 
-- 🔒 **Lefthook** — pre-commit: Prettier, yamllint, JS syntax, ShellCheck. Pre-push: full HA config check
-- ☁️ **GitHub Actions** — the same validation on every push and PR
+- 🔒 **Lefthook** — pre-commit: Prettier, yamllint, JS syntax, ShellCheck, deploy-script syntax. Pre-push: full HA config check
+- ☁️ **GitHub Actions** — validation on every push and PR; direct Tailscale/SSH deploy on `main` runtime changes
 - 🧪 **`shell/config_check.sh`** — spins up a real Home Assistant container (default `stable`, pin with `HA_VERSION=x.y`) and runs `check_config` against the repo, using the stubbed secrets
 - 📝 **`automations.yaml`** — keeps the automation list in sync
+- 🔐 Deployment secrets: `HA_SSH_PRIVATE_KEY` and `HA_TOKEN`; transport is tailnet-only via ephemeral `tag:ci` runner
 
 ## 📏 Conventions
 
