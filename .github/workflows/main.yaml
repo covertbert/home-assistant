@@ -69,7 +69,7 @@ jobs:
           fi
           base="$EVENT_BEFORE"
           [[ "$base" =~ ^0+$ ]] && base=""
-          if [[ -n "$base" ]]; then
+          if [[ -n "$base" ]] && git cat-file -e "$base^{commit}" 2>/dev/null; then
             files=$(git diff --name-only "$base" "$GITHUB_SHA")
           else
             files=$(git diff-tree --root --no-commit-id --name-only -r "$GITHUB_SHA")
