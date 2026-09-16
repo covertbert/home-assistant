@@ -155,18 +155,21 @@ move_to_backup() {
   mv "$stage/$path" "$root/$path"
 }
 
-for path in "${managed_files[@]}" "${managed_dirs[@]}"; do move_to_backup "$path"; done
-rm -f "$payload"
-
 restore() {
+  trap - ERR
   for path in "${managed_files[@]}" "${managed_dirs[@]}"; do
     rm -rf "$root/$path"
     if [ -e "$backup/$path" ] || [ -L "$backup/$path" ]; then
       mv "$backup/$path" "$root/$path"
     fi
   done
-  rm -rf "$stage" "$backup"
+  rm -rf "$stage" "$backup" "$payload"
 }
+
+# Any promotion error restores old managed files before returning failure.
+trap restore ERR
+for path in "${managed_files[@]}" "${managed_dirs[@]}"; do move_to_backup "$path"; done
+rm -f "$payload"
 
 # Caller applies reload/restart after this check. Invalid candidate never becomes live.
 if ! ha core check >/tmp/ha-deploy-check.log 2>&1; then
