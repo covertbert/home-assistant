@@ -56,7 +56,7 @@ ssh homeassistant '
 '
 ```
 
-GitHub Actions triggers deployment after push. Clean HA worktree lets deployment webhook pull final commit. Custom-card resource URLs remain unversioned, for example `/local/heating-control-card.js`.
+GitHub Actions triggers deployment after push. Clean HA worktree lets deployment webhook pull final commit. Deploy appends current Git commit as `?v=` to every `/local/` card resource, so production browsers load changed cards without a hard refresh.
 
 ## 🤖 Automations
 

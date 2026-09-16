@@ -10,4 +10,4 @@ For changes to `www/*.js`:
 6. Stop if output contains untracked or unexpected paths. Restore only previewed files with `git restore --source=HEAD --staged --worktree -- <file>`.
 7. Confirm `git status --porcelain` is empty, then commit and push local repo. GitHub Actions deploy webhook can then pull cleanly.
 
-Custom-card resource URLs stay unversioned, for example `/local/heating-control-card.js`.
+Deploy script appends current Git commit as `?v=` to every `/local/` resource URL, so production browsers fetch changed custom cards.
