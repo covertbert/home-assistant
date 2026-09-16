@@ -232,10 +232,11 @@ else
       break
     fi
   done
-  if [[ "$APPLY_OK" -eq 1 && "$VERSION_RESOURCES" -eq 1 ]]; then
-    if ! HA_TOKEN="$HA_TOKEN" HA_URL="$HA_URL" HA_VERSION="$SHORT_SHA" node shell/version_lovelace_resources.mjs; then
-      APPLY_OK=0
-    fi
+fi
+
+if [[ "$APPLY_OK" -eq 1 && "$VERSION_RESOURCES" -eq 1 ]]; then
+  if ! HA_TOKEN="$HA_TOKEN" HA_URL="$HA_URL" HA_VERSION="$SHORT_SHA" node shell/version_lovelace_resources.mjs; then
+    APPLY_OK=0
   fi
 fi
 
