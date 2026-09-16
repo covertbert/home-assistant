@@ -21,11 +21,13 @@
 !scripts
 !entities
 !entities/input_booleans
+!entities/input_numbers
 !entities/groups
 !entities/device_trackers
 !entities/templates
 !entities/timers
 !integrations
+!dashboards
 !recorder
 !schedules
 !schedules/attic

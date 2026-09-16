@@ -1,0 +1,6 @@
+---
+views:
+  - title: Overview
+    type: panel
+    cards:
+      - type: custom:home-overview-card

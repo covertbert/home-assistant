@@ -1,3 +1,18 @@
 ---
 homeassistant:
   packages: !include_dir_named integrations
+
+lovelace:
+  dashboards:
+    dashboard-mobile:
+      mode: yaml
+      filename: dashboards/overview.yaml
+      title: Overview
+      icon: mdi:view-quilt
+      show_in_sidebar: true
+    heating-dashboard:
+      mode: yaml
+      filename: dashboards/heating.yaml
+      title: Heating
+      icon: mdi:radiator
+      show_in_sidebar: true

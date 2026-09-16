@@ -20,7 +20,7 @@ ssh_ha() {
 
 is_runtime_path() {
   case "$1" in
-    configuration.yaml|automations.yaml|automations/*|entities/*|integrations/*|scenes/*|scripts/*|themes/*|www/*.js|shell/git_pull.sh)
+    configuration.yaml|automations.yaml|automations/*|dashboards/*|entities/*|integrations/*|scenes/*|scripts/*|themes/*|www/*.js|shell/git_pull.sh)
       return 0 ;;
     *) return 1 ;;
   esac
@@ -122,7 +122,7 @@ trap cleanup EXIT
 # Copy tracked runtime files only. Ignored local files never enter deployment archive.
 while IFS= read -r -d '' file; do
   case "$file" in
-    configuration.yaml|automations.yaml|automations/*|entities/*|integrations/*|scenes/*|scripts/*|themes/*|www/*.js)
+    configuration.yaml|automations.yaml|automations/*|dashboards/*|entities/*|integrations/*|scenes/*|scripts/*|themes/*|www/*.js)
       mkdir -p "$PAYLOAD_DIR/$(dirname "$file")"
       cp -p "$file" "$PAYLOAD_DIR/$file" ;;
   esac
@@ -145,7 +145,7 @@ state=/config/.ha-deploy
 stage="$state/stage-$sha"
 backup="$state/backup-$sha"
 payload="$state/payload-$sha.tgz"
-managed_dirs=(automations entities integrations scenes scripts themes www)
+managed_dirs=(automations dashboards entities integrations scenes scripts themes www)
 managed_files=(configuration.yaml automations.yaml)
 
 rm -rf "$stage" "$backup"
@@ -199,7 +199,7 @@ root=/config
 state=/config/.ha-deploy
 stage="$state/stage-$sha"
 backup="$state/backup-$sha"
-managed_dirs=(automations entities integrations scenes scripts themes www)
+managed_dirs=(automations dashboards entities integrations scenes scripts themes www)
 managed_files=(configuration.yaml automations.yaml)
 for path in "${managed_files[@]}" "${managed_dirs[@]}"; do
   rm -rf "$root/$path"

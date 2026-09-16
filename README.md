@@ -9,7 +9,8 @@ Version-controlled Home Assistant config for the whole house. Every light, radia
 | `configuration.yaml` | Entry point — pulls in every package under `integrations/`                                               |
 | `integrations/`      | One file per integration: scripts, templates, scenes, alerts, ZHA 📶, HomeKit 🍎, shell commands, groups |
 | `automations/`       | All automations, split by area and concern                                                               |
-| `entities/`          | Helpers: template sensors, input booleans, groups                                                        |
+| `dashboards/`        | YAML dashboard shells that mount repo-owned custom cards                                                 |
+| `entities/`          | Helpers: template sensors, input booleans, numbers, groups                                               |
 | `www/`               | Custom Lovelace cards — vanilla JS, zero build step 🪄                                                   |
 | `shell/`             | CI validation and direct deployment scripts                                                              |
 | `.stubs/`            | Mock secrets so config checks run without the real ones 🔐                                               |

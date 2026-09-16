@@ -1,0 +1,72 @@
+---
+heating_attic_default:
+  name: Heating attic Default
+  min: 5
+  max: 25
+  step: 0.5
+  unit_of_measurement: "°C"
+  mode: box
+  icon: mdi:thermometer
+heating_basement_default:
+  name: Heating basement Default
+  min: 5
+  max: 25
+  step: 0.5
+  unit_of_measurement: "°C"
+  mode: box
+  icon: mdi:thermometer
+heating_bathroom_default:
+  name: Heating bathroom Default
+  min: 5
+  max: 25
+  step: 0.5
+  unit_of_measurement: "°C"
+  mode: box
+  icon: mdi:thermometer
+heating_bedroom_default:
+  name: Heating bedroom Default
+  min: 5
+  max: 25
+  step: 0.5
+  unit_of_measurement: "°C"
+  mode: box
+  icon: mdi:thermometer
+heating_downstairs_default:
+  name: Heating downstairs Default
+  min: 5
+  max: 25
+  step: 0.5
+  unit_of_measurement: "°C"
+  mode: box
+  icon: mdi:thermometer
+heating_nursery_default:
+  name: Heating nursery Default
+  min: 5
+  max: 25
+  step: 0.5
+  unit_of_measurement: "°C"
+  mode: box
+  icon: mdi:thermometer
+heating_away:
+  name: Heating Away
+  min: 5
+  max: 25
+  step: 0.5
+  unit_of_measurement: "°C"
+  mode: box
+  icon: mdi:thermometer
+heating_basement_high_humidity:
+  name: Heating Basement High Humidity
+  min: 5
+  max: 25
+  step: 0.5
+  unit_of_measurement: "°C"
+  mode: box
+  icon: mdi:thermometer
+heating_boost_duration:
+  name: Heating boost duration
+  min: 15
+  max: 240
+  step: 15
+  mode: box
+  unit_of_measurement: min

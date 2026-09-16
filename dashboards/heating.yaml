@@ -1,0 +1,8 @@
+---
+views:
+  - title: Heating
+    path: heating
+    icon: mdi:radiator
+    type: panel
+    cards:
+      - type: custom:heating-control-card
