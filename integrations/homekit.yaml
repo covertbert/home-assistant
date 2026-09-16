@@ -5,4 +5,3 @@ homekit:
         - light.tv_strip
         - switch.attic_workstation_switch
         - switch.dehumidifier_basement_switch
-        - switch.dehumidifier_bedroom_switch

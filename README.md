@@ -19,7 +19,7 @@ Version-controlled Home Assistant config for the whole house. Every light, radia
 - 🔥 **Room-by-room heating** — schedules for attic, basement, bathroom, bedroom, downstairs and nursery, with window-open cut-offs so we never heat an empty, open room 🪟
 - 💡 **Presence-aware lights** — a single `home_state` toggle drives lighting, with per-area schedules
 - 🏃 **Housesitter mode** — flip one input boolean and the routines keep working sanely when the family's away
-- 🧺 **Dehumidifiers** — basement and bedroom, also window-aware
+- 🧺 **Dehumidifier** — basement humidity control, also window-aware
 - ⚡ **Octopus Agile** — current and upcoming rate card, an average-rate template, and a cheap-energy flag that flips on when a rate undercuts the average 📉
 - 🎡 **Wheel of Fortune** — persistent notification when Octopus WOF spins land, so they never go unclaimed
 - 🩺 **System health** — one aggregate sensor watches repairs, low batteries, stuck-unavailable entities and pending updates, then pushes native alerts to the phone (repeat daily until fixed, clears on recovery)
