@@ -1,4 +1,5 @@
 - alias: Heating - Downstairs - Window
+  id: automation_areas_downstairs_heating_downstairs_window
   mode: single
 
   triggers:

@@ -1,4 +1,5 @@
 - alias: Config - Update, Check & Restart
+  id: automation_system_config_update_restart
   mode: single
   triggers:
     - trigger: webhook

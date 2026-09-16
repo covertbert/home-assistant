@@ -1,4 +1,5 @@
 - alias: Home State - Update
+  id: automation_home_home_state
   mode: single
 
   triggers:

@@ -1,4 +1,5 @@
 - alias: Dehumidifier - Bedroom - Window
+  id: automation_areas_bedroom_dehumidifier_bedroom_window
   mode: single
 
   # Window state changes

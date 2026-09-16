@@ -1,4 +1,5 @@
 - alias: Lights - Bedroom - Schedule
+  id: automation_areas_bedroom_lights_bedroom_schedule
   mode: single
 
   triggers:

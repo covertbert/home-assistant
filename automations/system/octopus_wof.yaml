@@ -1,4 +1,5 @@
 - alias: Octopus - Wheel of Fortune spins
+  id: automation_system_octopus_wof
   mode: single
 
   triggers:

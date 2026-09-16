@@ -1,4 +1,5 @@
 - alias: Dehumidifier - Bedroom - Toggle
+  id: automation_areas_bedroom_dehumidifier_bedroom_toggle
   mode: single
 
   triggers:

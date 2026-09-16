@@ -1,4 +1,5 @@
 - alias: Lights - Landing - Schedule
+  id: automation_areas_landing_lights_landing_schedule
   mode: single
 
   triggers:

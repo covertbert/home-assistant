@@ -1,4 +1,5 @@
 - alias: Cheap Energy
+  id: automation_sensors_electricity_cheap
   description: "Determines whether to set the Cheap Electricity switch to on/off"
   mode: single
   triggers:

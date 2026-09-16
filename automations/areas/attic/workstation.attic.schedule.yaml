@@ -1,4 +1,5 @@
 - alias: Workstation - Attic - Schedule
+  id: automation_areas_attic_workstation_attic_schedule
   mode: single
 
   triggers:

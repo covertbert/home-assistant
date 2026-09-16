@@ -1,4 +1,5 @@
 - alias: Heating - Basement - Schedule
+  id: automation_areas_basement_heating_basement_schedule
   mode: single
 
   triggers:

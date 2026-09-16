@@ -1,4 +1,5 @@
 - alias: Heating - Attic - Schedule
+  id: automation_areas_attic_heating_attic_schedule
   mode: single
 
   triggers:

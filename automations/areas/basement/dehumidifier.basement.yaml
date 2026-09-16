@@ -1,4 +1,5 @@
 - alias: Dehumidifier - Basement - Toggle
+  id: automation_areas_basement_dehumidifier_basement
   mode: single
 
   triggers:

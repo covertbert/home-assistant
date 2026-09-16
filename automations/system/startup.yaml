@@ -1,5 +1,6 @@
 ---
 - alias: Hass Startup Notification
+  id: automation_system_startup
   triggers:
     - trigger: homeassistant
       event: start

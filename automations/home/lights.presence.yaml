@@ -1,4 +1,5 @@
 - alias: Lights - Home - Presence
+  id: automation_home_lights_presence
   mode: single
 
   triggers:

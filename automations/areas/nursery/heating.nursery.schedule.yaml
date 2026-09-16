@@ -1,4 +1,5 @@
 - alias: Heating - Nursery - Schedule
+  id: automation_areas_nursery_heating_nursery_schedule
   mode: single
 
   triggers:

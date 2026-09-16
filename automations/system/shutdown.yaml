@@ -1,5 +1,6 @@
 ---
 - alias: Hass Startup Notification
+  id: automation_system_shutdown
   triggers:
     - trigger: homeassistant
       event: shutdown

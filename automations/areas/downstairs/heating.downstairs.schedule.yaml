@@ -1,4 +1,5 @@
 - alias: Heating - Downstairs - Schedule
+  id: automation_areas_downstairs_heating_downstairs_schedule
   mode: single
 
   triggers:

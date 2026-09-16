@@ -1,4 +1,5 @@
 - alias: Heating - Bedroom - Window
+  id: automation_areas_bedroom_heating_bedroom_window
   mode: single
 
   triggers:

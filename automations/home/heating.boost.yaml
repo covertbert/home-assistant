@@ -1,5 +1,6 @@
 ---
 - alias: Heating - Boost - Detect Manual Target
+  id: automation_home_heating_boost
   mode: parallel
   max: 6
   max_exceeded: silent
