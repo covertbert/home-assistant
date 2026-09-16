@@ -41,13 +41,15 @@ else
 fi
 
 RUNTIME_CHANGED=0
-[[ "${GITHUB_EVENT_NAME:-}" == workflow_dispatch ]] && RUNTIME_CHANGED=1
+HAS_RUNTIME_DIFF=0
 for file in "${CHANGED_FILES[@]}"; do
   if is_runtime_path "$file"; then
     RUNTIME_CHANGED=1
+    HAS_RUNTIME_DIFF=1
     break
   fi
 done
+[[ "${GITHUB_EVENT_NAME:-}" == workflow_dispatch ]] && RUNTIME_CHANGED=1
 
 if [[ -z "$REMOTE_REVISION" && "$RUNTIME_CHANGED" -eq 0 ]]; then
   # First runtime deployment will perform migration. Docs/tooling commits wait.
@@ -90,6 +92,12 @@ for file in "${CHANGED_FILES[@]}"; do
     *) RESTART=1 ;;
   esac
 done
+
+if [[ "${GITHUB_EVENT_NAME:-}" == workflow_dispatch && -n "$REMOTE_REVISION" && "$HAS_RUNTIME_DIFF" -eq 0 ]]; then
+  # Manual dispatch reconciles in-memory YAML after out-of-band maintenance.
+  RESTART=0
+  RELOADS=(homeassistant.reload_all)
+fi
 
 if [[ "$RESTART" -eq 1 ]]; then
   RELOADS=()
