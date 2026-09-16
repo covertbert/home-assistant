@@ -60,4 +60,5 @@ secrets.yaml
 !.prettierrc
 !.vscode
 !.vscode/settings.json
+!AGENTS.md
 !README.md

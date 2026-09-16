@@ -35,6 +35,29 @@ Hand-rolled Lovelace cards in `www/` — plain JS, no dependencies, no build ste
 - 🌡️ `heating-control-card.js` — a week view of room heating schedules
 - 💷 `agile-rates-card.js` — Octopus Agile rates table
 
+### UI preview
+
+Use direct SSH upload for fast visual iteration. Local repository stays source of truth. HA `/config/www` is preview target only.
+
+```sh
+node --check www/heating-control-card.js
+scp www/heating-control-card.js homeassistant:/config/www/heating-control-card.js
+```
+
+Open browser DevTools, enable **Disable cache**, then reload dashboard. Review before another change. Do not commit or push a preview upload directly.
+
+Before final local commit and push, restore previewed files on HA and require clean worktree:
+
+```sh
+ssh homeassistant '
+  cd /config &&
+  git restore --source=HEAD --staged --worktree -- www/heating-control-card.js &&
+  test -z "$(git status --porcelain)"
+'
+```
+
+GitHub Actions triggers deployment after push. Clean HA worktree lets deployment webhook pull final commit. Custom-card resource URLs remain unversioned, for example `/local/heating-control-card.js`.
+
 ## 🤖 Automations
 
 ```
