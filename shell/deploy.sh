@@ -41,6 +41,7 @@ else
 fi
 
 RUNTIME_CHANGED=0
+[[ "${GITHUB_EVENT_NAME:-}" == workflow_dispatch ]] && RUNTIME_CHANGED=1
 for file in "${CHANGED_FILES[@]}"; do
   if is_runtime_path "$file"; then
     RUNTIME_CHANGED=1
