@@ -1,0 +1,28 @@
+---
+# Count of Tado climate devices that are currently unavailable. Names
+# live in an attribute so a bridge-wide failure cannot exceed HA's
+# 255-character sensor-state limit. Discovery uses device-registry
+# manufacturer, so renamed or newly added Tado climates are included.
+- sensor:
+    - name: "Tado Unavailable Climates"
+      unique_id: tado_unavailable_climates
+      icon: mdi:radiator-variant-off
+      state: >
+        {%- set ns = namespace(count=0) -%}
+        {%- for e in states.climate | selectattr("state", "eq", "unavailable") -%}
+          {%- set mfg = device_attr(e.entity_id, "manufacturer") -%}
+          {%- if mfg is not none and mfg | lower is search("tado") -%}
+            {%- set ns.count = ns.count + 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {{- ns.count -}}
+      attributes:
+        unavailable_names: >
+          {%- set ns = namespace(names=[]) -%}
+          {%- for e in states.climate | selectattr("state", "eq", "unavailable") -%}
+            {%- set mfg = device_attr(e.entity_id, "manufacturer") -%}
+            {%- if mfg is not none and mfg | lower is search("tado") -%}
+              {%- set ns.names = ns.names + [e.attributes.friendly_name or e.entity_id] -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {{- ns.names | join(", ") -}}

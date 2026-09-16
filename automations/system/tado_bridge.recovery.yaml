@@ -1,0 +1,139 @@
+---
+# Tado bridge dies now and then. Its power is on a zigbee switch, so
+# after 15 minutes of Tado climate unavailability we power-cycle the
+# bridge. At most one cycle per 6 hours (persistent cooldown timer),
+# and a retry only happens after the cooldown fully elapsed AND a Tado
+# climate is still down, with a further 15 minute grace wait so a fresh
+# outage is never judged before Tado has had time to reconnect.
+#
+# Tado climates are discovered by device-registry manufacturer (see
+# sensor.tado_unavailable_climates), so renames and new zones work
+# without config changes.
+#
+# On HA startup we also make sure the bridge switch is on: an HA
+# restart does not command the zigbee switch off, but a restart during
+# the 15 second off window must not leave the bridge without power.
+- alias: Tado Bridge - Automatic power cycle recovery
+  id: automation_system_tado_bridge_recovery
+  mode: single
+
+  triggers:
+    # any Tado climate has been unavailable for 15 minutes
+    - id: outage
+      trigger: template
+      value_template: "{{ states('sensor.tado_unavailable_climates') | int(0) > 0 }}"
+      for: "00:15:00"
+    # cooldown elapsed, retry allowed
+    - id: cooldown_finished
+      trigger: timer.finished
+      target:
+        entity_id: timer.tado_bridge_recovery_cooldown
+    # HA came up: the bridge must have power
+    - id: startup
+      trigger: homeassistant
+      event: start
+
+  action:
+    # --- startup safety: restore bridge power if it is off --------------
+    - if:
+        - condition: template
+          value_template: "{{ trigger.id == 'startup' }}"
+      then:
+        # wait for ZHA to report the switch, then only act when it is off
+        - wait_for_triggers:
+            - trigger: state
+              entity_id: switch.tado_bridge_switch
+              to:
+                - on
+                - off
+          timeout:
+            minutes: 5
+          continue_on_timeout: true
+        - condition: template
+          value_template: "{{ states('switch.tado_bridge_switch') == 'off' }}"
+        - action: switch.turn_on
+          target:
+            entity_id: switch.tado_bridge_switch
+
+    # --- 15 minute outage: cycle the bridge, or report the rate-limit ----
+    - if:
+        - condition: template
+          value_template: "{{ trigger.id == 'outage' }}"
+      then:
+        - if:
+            - condition: template
+              value_template: "{{ states('timer.tado_bridge_recovery_cooldown') == 'idle' }}"
+          then:
+            - action: notify.mobile_app_berties_iphone
+              data:
+                message: >
+                  🔌 Tado unavailable ({{
+                  state_attr('sensor.tado_unavailable_climates', 'unavailable_names') }}) -
+                  power-cycling the internet bridge, cooldown 6h
+            # start the cooldown before touching power: the lockout
+            # survives an interrupted cycle, and no concurrent trigger
+            # can start a second cycle
+            - action: timer.start
+              target:
+                entity_id: timer.tado_bridge_recovery_cooldown
+            # only cycle when the switch is on; if it is off we simply
+            # restore power (e.g. a manual reset is already in progress)
+            - if:
+                - condition: template
+                  value_template: "{{ states('switch.tado_bridge_switch') == 'on' }}"
+              then:
+                - action: switch.turn_off
+                  target:
+                    entity_id: switch.tado_bridge_switch
+                - delay:
+                    seconds: 15
+            - action: switch.turn_on
+              target:
+                entity_id: switch.tado_bridge_switch
+          else:
+            - action: notify.mobile_app_berties_iphone
+              data:
+                message: >
+                  🔌 Tado still unavailable ({{
+                  state_attr('sensor.tado_unavailable_climates', 'unavailable_names') }}) but
+                  bridge recovery cooldown is active; power cycle skipped
+
+    # --- cooldown elapsed: retry only if still down ----------------------
+    - if:
+        - condition: template
+          value_template: "{{ trigger.id == 'cooldown_finished' }}"
+      then:
+        # recovered since the cycle: nothing to do
+        - condition: template
+          value_template: "{{ states('sensor.tado_unavailable_climates') | int(0) > 0 }}"
+        # give a fresh outage its 15 minute grace before cycling again
+        - wait_for_triggers:
+            - trigger: state
+              entity_id: sensor.tado_unavailable_climates
+              to: "0"
+          timeout:
+            minutes: 15
+          continue_on_timeout: true
+        - condition: template
+          value_template: "{{ states('sensor.tado_unavailable_climates') | int(0) > 0 }}"
+        - action: notify.mobile_app_berties_iphone
+          data:
+            message: >
+              🔌 Tado still unavailable ({{
+              state_attr('sensor.tado_unavailable_climates', 'unavailable_names') }}) after 6h
+              cooldown - power-cycling the internet bridge again
+        - action: timer.start
+          target:
+            entity_id: timer.tado_bridge_recovery_cooldown
+        - if:
+            - condition: template
+              value_template: "{{ states('switch.tado_bridge_switch') == 'on' }}"
+          then:
+            - action: switch.turn_off
+              target:
+                entity_id: switch.tado_bridge_switch
+            - delay:
+                seconds: 15
+        - action: switch.turn_on
+          target:
+            entity_id: switch.tado_bridge_switch

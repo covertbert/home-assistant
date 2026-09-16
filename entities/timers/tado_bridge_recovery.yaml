@@ -1,0 +1,9 @@
+---
+# Lockout for the Tado bridge power-cycle automation. Active (or
+# restored after a restart) for 6 hours after each cycle, so the
+# bridge can be cycled at most once per 6 hours.
+tado_bridge_recovery_cooldown:
+  name: Tado Bridge Recovery Cooldown
+  duration: "06:00:00"
+  restore: true
+  icon: mdi:restart-alert
