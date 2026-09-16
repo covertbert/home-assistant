@@ -103,8 +103,8 @@ else
 fi
 
 PAYLOAD_DIR="$(mktemp -d)"
-PAYLOAD="$PAYLOAD_DIR/payload.tgz"
-cleanup() { rm -rf "$PAYLOAD_DIR"; }
+PAYLOAD="$(mktemp "${TMPDIR:-/tmp}/ha-payload.XXXXXX.tgz")"
+cleanup() { rm -rf "$PAYLOAD_DIR" "$PAYLOAD"; }
 trap cleanup EXIT
 
 # Copy tracked runtime files only. Ignored local files never enter deployment archive.
