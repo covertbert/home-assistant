@@ -5,3 +5,5 @@ homekit:
         - light.tv_strip
         - switch.attic_workstation_switch
         - switch.dehumidifier_basement_switch
+        - input_boolean.bertie_present
+        - input_boolean.stoof_present
