@@ -5,31 +5,44 @@
   triggers:
     - trigger: state
       entity_id:
-        - group.family
+        - binary_sensor.bertie_presence
+        - binary_sensor.stoof_presence
+        - input_boolean.housesitter_present
     - trigger: homeassistant
       event: start
 
   action:
     - choose:
-        # Family comes home or guest state is turned on
+        # Someone is explicitly home.
         - conditions:
             - condition: or
               conditions:
                 - condition: state
-                  entity_id: group.family
-                  state: home
+                  entity_id: binary_sensor.bertie_presence
+                  state: "on"
+                - condition: state
+                  entity_id: binary_sensor.stoof_presence
+                  state: "on"
+                - condition: state
+                  entity_id: input_boolean.housesitter_present
+                  state: "on"
           sequence:
             - action: input_boolean.turn_on
               target:
                 entity_id: input_boolean.home_state
 
-        # Family leaves home & there are no guests
+        # Everyone is explicitly away. Unknown/unavailable keeps restored state.
         - conditions:
             - condition: state
-              entity_id: group.family
-              state: not_home
+              entity_id: binary_sensor.bertie_presence
+              state: "off"
+            - condition: state
+              entity_id: binary_sensor.stoof_presence
+              state: "off"
+            - condition: state
+              entity_id: input_boolean.housesitter_present
+              state: "off"
           sequence:
             - action: input_boolean.turn_off
               target:
-                entity_id:
-                  - input_boolean.home_state
+                entity_id: input_boolean.home_state

@@ -1,0 +1,15 @@
+---
+- binary_sensor:
+    - name: Bertie Presence
+      unique_id: bertie_presence
+      device_class: presence
+      availability: "{{ has_value('input_boolean.bertie_present') }}"
+      state: "{{ is_state('input_boolean.bertie_present', 'on') }}"
+      delay_off: "00:10:00"
+
+    - name: Stoof Presence
+      unique_id: stoof_presence
+      device_class: presence
+      availability: "{{ has_value('input_boolean.stoof_present') }}"
+      state: "{{ is_state('input_boolean.stoof_present', 'on') }}"
+      delay_off: "00:10:00"

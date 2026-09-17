@@ -2,19 +2,21 @@
    Shares the design system of heating-control-card.js. */
 const CHIPS = [
   {
-    entity: "person.bertie",
+    entity: "binary_sensor.bertie_presence",
     name: "Bert",
     icon: "mdi:account",
     tone: "blue",
     type: "more-info",
+    presence: true,
     statusOnly: true,
   },
   {
-    entity: "person.stoof",
+    entity: "binary_sensor.stoof_presence",
     name: "Stoof",
     icon: "mdi:account",
     tone: "pink",
     type: "more-info",
+    presence: true,
     statusOnly: true,
   },
   {
@@ -22,6 +24,7 @@ const CHIPS = [
     name: "Sitter",
     icon: "mdi:toggle-switch-outline",
     type: "toggle",
+    presence: true,
     statusOnly: true,
   },
   {
@@ -277,8 +280,7 @@ function friendly(state, entity, fallback) {
 }
 function chipStatus(chip, state) {
   if (isUnavailable(state)) return "unknown";
-  if (chip.entity.startsWith("person."))
-    return state.state === "home" ? "active" : "away";
+  if (chip.presence) return state.state === "on" ? "active" : "away";
   return state.state === "on" ? "active" : "inactive";
 }
 
@@ -297,12 +299,9 @@ function selfTest() {
     chipStatus({ entity: "input_boolean.home_state" }, { state: "on" }) ===
       "active",
   );
+  console.assert(chipStatus({ presence: true }, { state: "off" }) === "away");
   console.assert(
-    chipStatus({ entity: "person.bertie" }, { state: "not_home" }) === "away",
-  );
-  console.assert(
-    chipStatus({ entity: "person.stoof" }, { state: "unavailable" }) ===
-      "unknown",
+    chipStatus({ presence: true }, { state: "unavailable" }) === "unknown",
   );
   console.log("home-overview-card self-test passed");
 }

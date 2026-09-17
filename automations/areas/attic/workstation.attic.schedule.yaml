@@ -10,15 +10,15 @@
 
     # Bertie arrives home
     - trigger: state
-      entity_id: person.bertie
+      entity_id: binary_sensor.bertie_presence
     - trigger: homeassistant
       event: start
 
   # Bertie is home
   condition:
     - condition: state
-      entity_id: person.bertie
-      state: "home"
+      entity_id: binary_sensor.bertie_presence
+      state: "on"
 
   action:
     - choose:

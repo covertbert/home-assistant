@@ -7,16 +7,19 @@
     - trigger: time
       at: "19:30:00"
 
-  # Specifically bertie or stoof are home
+  # Someone is home.
   condition:
     - condition: or
       conditions:
         - condition: state
-          entity_id: person.bertie
-          state: home
+          entity_id: binary_sensor.bertie_presence
+          state: "on"
         - condition: state
-          entity_id: person.stoof
-          state: home
+          entity_id: binary_sensor.stoof_presence
+          state: "on"
+        - condition: state
+          entity_id: input_boolean.housesitter_present
+          state: "on"
 
   # Turn on bedroom lights
   action:

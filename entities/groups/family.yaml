@@ -1,7 +1,0 @@
----
-family:
-  name: Family
-  entities:
-    - person.bertie
-    - person.stoof
-    - person.housesitter
