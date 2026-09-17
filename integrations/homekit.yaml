@@ -7,3 +7,11 @@ homekit:
         - switch.dehumidifier_basement_switch
         - input_boolean.bertie_present
         - input_boolean.stoof_present
+        - climate.attic
+        - climate.basement
+        - climate.bathroom
+        - climate.bedroom
+        - climate.nursery
+        - climate.kitchen
+        - climate.hallway
+        - climate.living_room
