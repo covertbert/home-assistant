@@ -39,9 +39,12 @@ def update_buffer(buffer, name, level, msg, count, ts):
     count:  core-reported repeats for this site this HA session
     ts:     epoch seconds of this event
 
-    An entry is replaced when it is the same error site (count keeps the max
-    seen, since core's count resets on HA restart); aged out when not re-seen
-    within MAX_AGE_HOURS. The list is capped at MAX_ENTRIES, newest first.
+    An entry is replaced when it is the same error site. Its count is the
+    number of occurrences within the window: bumped once per event (core fires
+    a separate count=1 event per repeat) but never below core's reported count
+    (core may dedup some repeats into one higher-count event). It is aged out
+    when not re-seen within MAX_AGE_HOURS. The list is capped at MAX_ENTRIES,
+    newest first.
     """
     key = _dedup_key(name, msg)
     out = []
@@ -51,7 +54,7 @@ def update_buffer(buffer, name, level, msg, count, ts):
             continue  # aged out
         if _dedup_key(e.get("name", ""), e.get("msg", "")) == key:
             e = dict(e)
-            e["count"] = max(int(e.get("count", 1)), int(count))
+            e["count"] = max(int(e.get("count", 1)) + 1, int(count))
             e["ts"] = ts
             e["level"] = level
             seen = True

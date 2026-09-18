@@ -53,6 +53,14 @@
                   service calls, restarts, power cycles or configuration
                   changes.
 
+                  Output PLAIN TEXT for a phone push notification. No markdown:
+                  no asterisks, no # headers, no bullet dashes, no backticks,
+                  no bold, no lists. Use exactly this shape, short lines, a
+                  blank line between sections, under 150 words:
+                  Finding: <what is wrong, one or two lines>
+                  Severity: <low / medium / high>
+                  Next steps: <1 to 4 short manual actions, one per line, plain numbers>
+
                   {{ state_attr('binary_sensor.system_health', 'summary') }}
 
                   {%- set err_list = state_attr('pyscript.system_errors', 'buffer') or [] -%}

@@ -6,6 +6,7 @@ by shell/test_system_errors_buf.py). This script only wires the core
 `buffer` attribute of `pyscript.system_errors`, read by
 entities/templates/system_health.yaml and automations/system/health_report.yaml.
 
+Also exposes `system_errors.clear` to reset the buffer (operator action).
 Tracebacks are never stored; messages are sanitized at the LLM boundary.
 """
 import time
@@ -38,3 +39,9 @@ def capture_system_error(level=None, name=None, message=None, timestamp=None, co
         # Never raise from the trigger. A warning won't re-trigger this handler
         # (it only fires on ERROR/CRITICAL), so no feedback loop.
         log.warning("system_errors capture failed", exc_info=True)
+
+
+@service("system_errors.clear")
+def clear_system_errors(**kwargs):
+    """Reset the 24h error buffer (operator action)."""
+    state.set(ENTITY, "0", new_attributes={"buffer": []})

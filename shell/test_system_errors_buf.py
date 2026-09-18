@@ -71,7 +71,7 @@ def main():
         [{"name": "mqtt", "level": "ERROR", "msg": "boom", "count": 5, "ts": now}],
     )
     check(
-        "keeps max count when event count is lower (restart-safe)",
+        "count accumulates across restart (bump per event, floor at core count)",
         buf.update_buffer(
             [{"name": "mqtt", "level": "ERROR", "msg": "boom", "count": 7, "ts": now - 3600}],
             "mqtt",
@@ -80,8 +80,12 @@ def main():
             2,
             now,
         )[0]["count"],
-        7,
+        8,
     )
+    acc = []
+    for i in range(5):
+        acc = buf.update_buffer(acc, "mqtt", "ERROR", "boom", 1, now + i)
+    check("5 separate count=1 events accumulate to 5", acc[0]["count"], 5)
     check(
         "distinct sites both kept",
         len(
