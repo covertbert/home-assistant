@@ -20,7 +20,7 @@
     room: "{{ trigger.entity_id.split('.')[1] }}"
     timer_entity: "{{ 'timer.heating_' ~ room ~ '_boost' }}"
     automatic_target: "{{ states('sensor.heating_' ~ room ~ '_automatic_target') | float(none) }}"
-    new_temperature: "{{ trigger.to_state.attributes.temperature | float(none) }}"
+    new_temperature: "{{ trigger.to_state.attributes.get('temperature') | float(none) }}"
     window_gate: >
       {{ {
         'bedroom': 'binary_sensor.upstairs_windows',
