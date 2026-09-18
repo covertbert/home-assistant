@@ -1,6 +1,6 @@
 - alias: Heating - Bathroom - Schedule
   id: automation_areas_bathroom_heating_bathroom_schedule
-  mode: single
+  mode: restart
 
   triggers:
     - trigger: state
