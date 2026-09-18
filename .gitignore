@@ -27,6 +27,10 @@
 !entities/templates
 !entities/timers
 !integrations
+!pyscript
+!pyscript/*.py
+!pyscript/modules
+!pyscript/modules/*.py
 !dashboards
 !recorder
 !schedules
@@ -50,6 +54,7 @@ secrets.yaml
 # Except custom shell scripts
 !shell
 !shell/*.sh
+!shell/*.py
 
 # And except JS files in www
 !www

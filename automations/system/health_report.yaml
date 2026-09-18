@@ -1,6 +1,8 @@
 ---
 # Sends one immediate AI review for new problems, then a daily reminder while
-# they remain. The model receives only the deterministic system-health summary.
+# they remain. The model receives the deterministic system-health summary plus
+# the sanitized log-error buffer (pyscript.system_errors, written by
+# pyscript/system_errors.py).
 - alias: System Health - AI review
   id: automation_system_health_review
   mode: single
@@ -44,11 +46,22 @@
                 instructions: >-
                   Review this Home Assistant health summary. Use only supplied
                   evidence. State no cause as fact unless summary supports it.
-                  Give concise findings, severity and manual next steps. Do not
-                  suggest or perform Home Assistant service calls, restarts,
-                  power cycles or configuration changes.
+                  Repeated log errors (count 5+) are the main signal; one-off
+                  errors are context, likely transient. Log messages are
+                  sanitized and truncated. Give concise findings, severity and
+                  manual next steps. Do not suggest or perform Home Assistant
+                  service calls, restarts, power cycles or configuration
+                  changes.
 
                   {{ state_attr('binary_sensor.system_health', 'summary') }}
+
+                  {%- set err_list = state_attr('pyscript.system_errors', 'buffer') or [] -%}
+                  {%- if err_list | length > 0 -%}
+                  Log error buffer, last 24h (name x repeats, last seen, message):
+                  {%- for e in err_list -%}
+                  - {{ e.name }} x{{ e.count }} [{{ e.level }}] {{ e.ts | timestamp_custom('%Y-%m-%d %H:%M') }}: {{ e.msg }}
+                  {%- endfor -%}
+                  {%- endif -%}
             - action: notify.mobile_app_berties_iphone
               data:
                 title: Home Assistant health review

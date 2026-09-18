@@ -20,7 +20,7 @@ ssh_ha() {
 
 is_runtime_path() {
   case "$1" in
-    configuration.yaml|automations.yaml|automations/*|dashboards/*|entities/*|integrations/*|scenes/*|scripts/*|themes/*|www/*.js|shell/git_pull.sh)
+    configuration.yaml|automations.yaml|automations/*|dashboards/*|entities/*|integrations/*|pyscript/*|scenes/*|scripts/*|themes/*|www/*.js|shell/git_pull.sh)
       return 0 ;;
     *) return 1 ;;
   esac
@@ -87,6 +87,7 @@ for file in "${CHANGED_FILES[@]}"; do
     integrations/scene.yaml|scenes/*) add_reload scene.reload ;;
     integrations/script.yaml|scripts/*) add_reload script.reload ;;
     integrations/shell_command.yaml) add_reload shell_command.reload ;;
+    pyscript/*) add_reload pyscript.reload ;;
     themes/*) add_reload frontend.reload_themes ;;
     integrations/*.yaml|entities/*.yaml)
       RESTART=1 ;;
@@ -122,7 +123,7 @@ trap cleanup EXIT
 # Copy tracked runtime files only. Ignored local files never enter deployment archive.
 while IFS= read -r -d '' file; do
   case "$file" in
-    configuration.yaml|automations.yaml|automations/*|dashboards/*|entities/*|integrations/*|scenes/*|scripts/*|themes/*|www/*.js)
+    configuration.yaml|automations.yaml|automations/*|dashboards/*|entities/*|integrations/*|pyscript/*|scenes/*|scripts/*|themes/*|www/*.js)
       mkdir -p "$PAYLOAD_DIR/$(dirname "$file")"
       cp -p "$file" "$PAYLOAD_DIR/$file" ;;
   esac

@@ -1,0 +1,7 @@
+---
+# Core system log. fire_event makes ERROR/CRITICAL records fire as
+# system_log_event, captured (sanitized + windowed) into the
+# pyscript.system_errors buffer by pyscript/system_errors.py.
+# Core already dedupes identical errors and counts them in the event.
+system_log:
+  fire_event: true

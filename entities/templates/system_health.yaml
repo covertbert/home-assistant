@@ -4,6 +4,7 @@
 #   - pending updates
 #   - low batteries (numeric < threshold, binary low)
 #   - entities unavailable longer than the grace period
+#   - repeated log errors (core count >= threshold within the window)
 # Edit tunables below; automations/system/health_report.yaml reviews this entity.
 # ponytail: issues() dicts drop fields for non-persistent issues and older cores
 # don't filter stale entries - templates read defensively, stale entries self-clean
@@ -19,6 +20,10 @@
     ignored_unavailable: []
     low_battery_percent: 10
     offline_grace_hours: 6
+    # Log-error threshold: core-reported repeats within error_max_age_hours
+    # that flip the sensor. Below it, errors are AI-review context only.
+    error_repeat_threshold: 5
+    error_max_age_hours: 24
     # Max items listed per category in the notification (rest shown as +N more)
     max_shown: 5
     # Virtual/config domains where "unavailable" is not an actionable signal
@@ -85,19 +90,27 @@
           {%- set ns.offline = ns.offline + [e.attributes.friendly_name] -%}
         {%- endif -%}
       {%- endfor -%}
-      {{ {"repairs": ns.repairs, "updates": ns.updates, "batteries": ns.batteries, "offline": ns.offline} }}
+      {%- set err_entries = state_attr('pyscript.system_errors', 'buffer') or [] -%}
+      {%- set ns_err = namespace(errors=[]) -%}
+      {%- for e in err_entries -%}
+        {%- if (now().timestamp() - e.ts | float(0)) < error_max_age_hours * 3600
+              and e.count | int(1) >= error_repeat_threshold -%}
+          {%- set ns_err.errors = ns_err.errors + [e.name ~ ' x' ~ (e.count | int(1)) ~ ': ' ~ e.msg] -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {{ {"repairs": ns.repairs, "updates": ns.updates, "batteries": ns.batteries, "offline": ns.offline, "errors": ns_err.errors} }}
   binary_sensor:
     - name: "System Health"
       default_entity_id: binary_sensor.system_health
       unique_id: system_health
       device_class: problem
       state: >-
-        {{ (health.repairs | count + health.updates | count + health.batteries | count + health.offline | count) > 0 }}
+        {{ (health.repairs | count + health.updates | count + health.batteries | count + health.offline | count + health.errors | count) > 0 }}
       attributes:
         problems: >-
-          {{ health.repairs | count + health.updates | count + health.batteries | count + health.offline | count }}
+          {{ health.repairs | count + health.updates | count + health.batteries | count + health.offline | count + health.errors | count }}
         summary: >-
-          {%- set total = health.repairs | count + health.updates | count + health.batteries | count + health.offline | count -%}
+          {%- set total = health.repairs | count + health.updates | count + health.batteries | count + health.offline | count + health.errors | count -%}
           {%- set ns = namespace(text="") -%}
           {%- if total > 0 -%}
             {%- set ns.text = ns.text ~ total ~ " thing" ~ ("s" if total != 1 else "") ~ " need" ~ ("s" if total != 1 else "") ~ " attention\n" -%}
@@ -112,6 +125,9 @@
             {%- endif -%}
             {%- if health.offline -%}
               {%- set ns.text = ns.text ~ "📡 Offline: " ~ (health.offline[:max_shown] | join("; ")) ~ ("" if health.offline | count <= max_shown else " +" ~ (health.offline | count - max_shown) ~ " more") ~ "\n" -%}
+            {%- endif -%}
+            {%- if health.errors -%}
+              {%- set ns.text = ns.text ~ "🪵 Errors: " ~ (health.errors[:max_shown] | join("; ")) ~ ("" if health.errors | count <= max_shown else " +" ~ (health.errors | count - max_shown) ~ " more") ~ "\n" -%}
             {%- endif -%}
           {%- endif -%}
           {{- ns.text | trim -}}

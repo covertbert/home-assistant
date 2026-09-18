@@ -11,8 +11,9 @@ Version-controlled Home Assistant config for the whole house. Every light, radia
 | `automations/`       | All automations, split by area and concern                                                               |
 | `dashboards/`        | YAML dashboard shells that mount repo-owned custom cards                                                 |
 | `entities/`          | Helpers: template sensors, input booleans, numbers, groups                                               |
+| `pyscript/`          | Python scripts — system log error buffer (sanitized, 24h window)                                         |
 | `www/`               | Custom Lovelace cards — vanilla JS, zero build step 🪄                                                   |
-| `shell/`             | CI validation and direct deployment scripts                                                              |
+| `shell/`             | CI validation, deployment scripts, and unit tests                                                        |
 | `.stubs/`            | Mock secrets so config checks run without the real ones 🔐                                               |
 
 ## ⚡ What it does
@@ -23,7 +24,7 @@ Version-controlled Home Assistant config for the whole house. Every light, radia
 - 🧺 **Dehumidifier** — basement humidity control, also window-aware
 - ⚡ **Octopus Agile** — current and upcoming rate card, an average-rate template, and a cheap-energy flag that flips on when a rate undercuts the average 📉
 - 🎡 **Wheel of Fortune** — persistent notification when Octopus WOF spins land, so they never go unclaimed
-- 🩺 **System health** — one aggregate sensor watches repairs, low batteries, stuck-unavailable entities and pending updates, then sends a read-only AI review to the phone (immediate, daily until fixed, clears on recovery)
+- 🩺 **System health** — one aggregate sensor watches repairs, low batteries, stuck-unavailable entities, pending updates and repeated log errors (sanitized, deduped by HA core, 24h window), then sends a read-only AI review to the phone (immediate, daily until fixed, clears on recovery)
 - 🛌 **Startup / shutdown** — house-level routines for boot and power-down
 - 📶 **Zigbee (ZHA)** — sensors and switches on the mesh
 - 🍎 **HomeKit** — the house in Apple Home, too
@@ -78,9 +79,10 @@ Naming follows `<domain>.<room-or-scope>.<what>.yaml`, e.g. `heating.bedroom.win
 
 ## 🛠️ Tooling & checks
 
-- 🔒 **Lefthook** — pre-commit: Prettier, yamllint, JS syntax, ShellCheck, deploy-script syntax. Pre-push: full HA config check
+- 🔒 **Lefthook** — pre-commit: Prettier, yamllint, JS syntax, ShellCheck, deploy-script syntax, Python unit tests. Pre-push: full HA config check
 - ☁️ **GitHub Actions** — validation on every push and PR; direct Tailscale/SSH deploy on `main` runtime changes
 - 🧪 **`shell/config_check.sh`** — spins up a real Home Assistant container (default `stable`, pin with `HA_VERSION=x.y`) and runs `check_config` against the repo, using the stubbed secrets
+- 🐍 **`shell/test_system_errors_buf.py`** — dependency-free unit tests for the system error buffer logic (runs in pre-commit and CI)
 - 📝 **`automations.yaml`** — keeps the automation list in sync
 - 🔐 Deployment secrets: `HA_SSH_PRIVATE_KEY` and `HA_TOKEN`; transport is tailnet-only via ephemeral `tag:ci` runner
 

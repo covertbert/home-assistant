@@ -44,6 +44,9 @@ jobs:
       - name: Deployment syntax check
         run: bash -n shell/deploy.sh
 
+      - name: Run Python unit tests
+        run: python3 shell/test_system_errors_buf.py
+
   changes:
     name: Find deployable changes
     needs: validate
@@ -77,7 +80,7 @@ jobs:
           deploy=false
           while IFS= read -r file; do
             case "$file" in
-              configuration.yaml|automations.yaml|automations/*|entities/*|integrations/*|scenes/*|scripts/*|themes/*|www/*.js|shell/git_pull.sh)
+              configuration.yaml|automations.yaml|automations/*|entities/*|integrations/*|pyscript/*|scenes/*|scripts/*|themes/*|www/*.js|shell/git_pull.sh)
                 deploy=true
                 break
                 ;;
