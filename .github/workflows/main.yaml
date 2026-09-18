@@ -80,7 +80,7 @@ jobs:
           deploy=false
           while IFS= read -r file; do
             case "$file" in
-              configuration.yaml|automations.yaml|automations/*|entities/*|integrations/*|pyscript/*|scenes/*|scripts/*|themes/*|www/*.js|shell/git_pull.sh)
+              configuration.yaml|automations.yaml|automations/*|dashboards/*|entities/*|integrations/*|pyscript/*|scenes/*|scripts/*|themes/*|www/*.js|shell/git_pull.sh)
                 deploy=true
                 break
                 ;;
