@@ -146,7 +146,7 @@ state=/config/.ha-deploy
 stage="$state/stage-$sha"
 backup="$state/backup-$sha"
 payload="$state/payload-$sha.tgz"
-managed_dirs=(automations dashboards entities integrations scenes scripts themes www)
+managed_dirs=(automations dashboards entities integrations pyscript scenes scripts themes www)
 managed_files=(configuration.yaml automations.yaml)
 
 rm -rf "$stage" "$backup"
@@ -200,7 +200,7 @@ root=/config
 state=/config/.ha-deploy
 stage="$state/stage-$sha"
 backup="$state/backup-$sha"
-managed_dirs=(automations dashboards entities integrations scenes scripts themes www)
+managed_dirs=(automations dashboards entities integrations pyscript scenes scripts themes www)
 managed_files=(configuration.yaml automations.yaml)
 for path in "${managed_files[@]}" "${managed_dirs[@]}"; do
   rm -rf "$root/$path"
