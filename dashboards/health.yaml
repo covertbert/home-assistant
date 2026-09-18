@@ -7,7 +7,7 @@ views:
   - title: Health
     path: health
     icon: mdi:heart-pulse
-    type: stack
+    type: masonry
     cards:
       - type: entities
         title: System health
