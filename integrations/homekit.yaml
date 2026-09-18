@@ -17,18 +17,26 @@ homekit:
         - climate.living_room
     entity_config:
       climate.attic:
+        name: Attic Climate
         type: thermostat
       climate.basement:
+        name: Basement Climate
         type: thermostat
       climate.bathroom:
+        name: Bathroom Climate
         type: thermostat
       climate.bedroom:
+        name: Bedroom Climate
         type: thermostat
       climate.nursery:
+        name: Nursery Climate
         type: thermostat
       climate.kitchen:
+        name: Kitchen Climate
         type: thermostat
       climate.hallway:
+        name: Hallway Climate
         type: thermostat
       climate.living_room:
+        name: Living Room Climate
         type: thermostat
