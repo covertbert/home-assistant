@@ -4,7 +4,7 @@
 #   - pending updates
 #   - low batteries (numeric < threshold, binary low)
 #   - entities unavailable longer than the grace period
-# Edit the tunables below; the alert in integrations/alert.yaml watches the entity.
+# Edit tunables below; automations/system/health_report.yaml reviews this entity.
 # ponytail: issues() dicts drop fields for non-persistent issues and older cores
 # don't filter stale entries - templates read defensively, stale entries self-clean
 # when the owning integration recreates/deletes them.

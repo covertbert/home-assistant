@@ -1,0 +1,60 @@
+---
+# Sends one immediate AI review for new problems, then a daily reminder while
+# they remain. The model receives only the deterministic system-health summary.
+- alias: System Health - AI review
+  id: automation_system_health_review
+  mode: single
+  max_exceeded: silent
+
+  triggers:
+    - id: report
+      trigger: state
+      entity_id: binary_sensor.system_health
+      to: "on"
+    - id: report
+      trigger: time
+      at: "09:00:00"
+    - id: clear
+      trigger: state
+      entity_id: binary_sensor.system_health
+      to: "off"
+
+  actions:
+    - choose:
+        - conditions:
+            - condition: trigger
+              id: clear
+          sequence:
+            - action: notify.mobile_app_berties_iphone
+              data:
+                message: clear_notification
+                data:
+                  tag: system-health
+        - conditions:
+            - condition: state
+              entity_id: binary_sensor.system_health
+              state: "on"
+          sequence:
+            - action: ai_task.generate_data
+              continue_on_error: true
+              response_variable: review
+              data:
+                entity_id: ai_task.runinfra_health_review
+                task_name: system_health_review
+                instructions: >-
+                  Review this Home Assistant health summary. Use only supplied
+                  evidence. State no cause as fact unless summary supports it.
+                  Give concise findings, severity and manual next steps. Do not
+                  suggest or perform Home Assistant service calls, restarts,
+                  power cycles or configuration changes.
+
+                  {{ state_attr('binary_sensor.system_health', 'summary') }}
+            - action: notify.mobile_app_berties_iphone
+              data:
+                title: Home Assistant health review
+                message: >-
+                  {{ review.data if review is defined and review.data is defined
+                     else state_attr('binary_sensor.system_health', 'summary') }}
+                data:
+                  tag: system-health
+                  url: /config/dashboard

@@ -23,7 +23,7 @@ Version-controlled Home Assistant config for the whole house. Every light, radia
 - 🧺 **Dehumidifier** — basement humidity control, also window-aware
 - ⚡ **Octopus Agile** — current and upcoming rate card, an average-rate template, and a cheap-energy flag that flips on when a rate undercuts the average 📉
 - 🎡 **Wheel of Fortune** — persistent notification when Octopus WOF spins land, so they never go unclaimed
-- 🩺 **System health** — one aggregate sensor watches repairs, low batteries, stuck-unavailable entities and pending updates, then pushes native alerts to the phone (repeat daily until fixed, clears on recovery)
+- 🩺 **System health** — one aggregate sensor watches repairs, low batteries, stuck-unavailable entities and pending updates, then sends a read-only AI review to the phone (immediate, daily until fixed, clears on recovery)
 - 🛌 **Startup / shutdown** — house-level routines for boot and power-down
 - 📶 **Zigbee (ZHA)** — sensors and switches on the mesh
 - 🍎 **HomeKit** — the house in Apple Home, too
