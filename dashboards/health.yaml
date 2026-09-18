@@ -1,0 +1,32 @@
+---
+# Source of truth for the system-health AI review + raw log evidence.
+# The push notification (automations/system/health_report.yaml) links here.
+# Data: pyscript.system_health attrs (review, review_ts, buffer) written by
+# pyscript/system_health.py; binary_sensor.system_health for the current state.
+views:
+  - title: Health
+    path: health
+    icon: mdi:heart-pulse
+    type: panel
+    cards:
+      - type: entities
+        title: System health
+        entities:
+          - binary_sensor.system_health
+      - type: markdown
+        content: |
+          {% if state_attr('pyscript.system_health', 'review') %}
+          {{ state_attr('pyscript.system_health', 'review') | replace('\n', '  \n') }}
+          {% if state_attr('pyscript.system_health', 'review_ts') %}
+          Reviewed {{ state_attr('pyscript.system_health', 'review_ts') | timestamp_custom('%d %b %Y %H:%M') }}
+          {% endif %}
+          {% else %}
+          No review yet.
+          {% endif %}
+          {% set buf = state_attr('pyscript.system_health', 'buffer') or [] %}
+          {% if buf %}
+          **Log errors, last 24h**
+          {% for e in buf %}
+          - {{ e.name }} — x{{ e.count }}, {{ e.ts | timestamp_custom('%d %b %H:%M') }}: {{ e.msg }}
+          {% endfor %}
+          {% endif %}

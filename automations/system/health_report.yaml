@@ -1,8 +1,10 @@
 ---
 # Sends one immediate AI review for new problems, then a daily reminder while
 # they remain. The model receives the deterministic system-health summary plus
-# the sanitized log-error buffer (pyscript.system_errors, written by
-# pyscript/system_errors.py).
+# the sanitized log-error buffer (pyscript.system_health, written by
+# pyscript/system_health.py). The review is persisted via
+# system_health.save_review for the health dashboard; the push is a one-line
+# headline linking there.
 - alias: System Health - AI review
   id: automation_system_health_review
   mode: single
@@ -53,29 +55,40 @@
                   service calls, restarts, power cycles or configuration
                   changes.
 
-                  Output PLAIN TEXT for a phone push notification. No markdown:
-                  no asterisks, no # headers, no bullet dashes, no backticks,
-                  no bold, no lists. Use exactly this shape, short lines, a
-                  blank line between sections, under 150 words:
+                  Output PLAIN TEXT. No markdown of any kind: no asterisks, no
+                  # headers, no bullet dashes, no backticks, no bold, no lists.
+                  Line 1 must be a single headline under 80 characters naming
+                  the main issue and its severity (for example: "Repeated
+                  Octopus API errors x5 - medium"). Leave line 2 blank, then
+                  the full review, short lines, a blank line between sections,
+                  under 150 words:
                   Finding: <what is wrong, one or two lines>
                   Severity: <low / medium / high>
-                  Next steps: <1 to 4 short manual actions, one per line, plain numbers>
+                  Next steps:
+                  1 <short manual action>
+                  2 <short manual action>
 
                   {{ state_attr('binary_sensor.system_health', 'summary') }}
 
-                  {%- set err_list = state_attr('pyscript.system_errors', 'buffer') or [] -%}
+                  {%- set err_list = state_attr('pyscript.system_health', 'buffer') or [] -%}
                   {%- if err_list | length > 0 -%}
                   Log error buffer, last 24h (name x repeats, last seen, message):
                   {%- for e in err_list -%}
                   - {{ e.name }} x{{ e.count }} [{{ e.level }}] {{ e.ts | timestamp_custom('%Y-%m-%d %H:%M') }}: {{ e.msg }}
                   {%- endfor -%}
                   {%- endif -%}
+            - action: system_health.save_review
+              data:
+                review: >-
+                  {{ review.data if review is defined and review.data is defined and review.data | trim
+                     else state_attr('binary_sensor.system_health', 'summary') }}
             - action: notify.mobile_app_berties_iphone
               data:
                 title: Home Assistant health review
                 message: >-
-                  {{ review.data if review is defined and review.data is defined
-                     else state_attr('binary_sensor.system_health', 'summary') }}
+                  {%- set src = (review.data if review is defined and review.data is defined and review.data | trim else '')
+                       or (state_attr('binary_sensor.system_health', 'summary') or '') -%}
+                  {{- src.strip().split('\n')[0] or 'Health issue' -}}
                 data:
                   tag: system-health
-                  url: /config/dashboard
+                  url: /dashboard/health-dashboard

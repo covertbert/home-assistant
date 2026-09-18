@@ -16,3 +16,9 @@ lovelace:
       title: Heating
       icon: mdi:radiator
       show_in_sidebar: true
+    health-dashboard:
+      mode: yaml
+      filename: dashboards/health.yaml
+      title: Health
+      icon: mdi:heart-pulse
+      show_in_sidebar: true

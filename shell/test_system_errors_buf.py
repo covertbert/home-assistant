@@ -2,7 +2,7 @@
 
 Dependency-free: run with `python3 shell/test_system_errors_buf.py`.
 Exits non-zero on any failure. Tests pyscript/modules/system_errors_buf.py
-(the pure logic only; the HA/pyscript glue in pyscript/system_errors.py is
+(the pure logic only; the HA/pyscript glue in pyscript/system_health.py is
 thin and exercised end-to-end in Home Assistant).
 """
 import sys

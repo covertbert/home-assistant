@@ -16,7 +16,7 @@
     - trigger: event
       event_type: repairs_issue_registry_updated
     - trigger: state
-      entity_id: pyscript.system_errors
+      entity_id: pyscript.system_health
   variables:
     # Entities allowed to be unavailable without triggering the offline check
     ignored_unavailable: []
@@ -92,7 +92,7 @@
           {%- set ns.offline = ns.offline + [e.attributes.friendly_name] -%}
         {%- endif -%}
       {%- endfor -%}
-      {%- set err_entries = state_attr('pyscript.system_errors', 'buffer') or [] -%}
+      {%- set err_entries = state_attr('pyscript.system_health', 'buffer') or [] -%}
       {%- set ns_err = namespace(errors=[]) -%}
       {%- for e in err_entries -%}
         {%- if (now().timestamp() - e.ts | float(0)) < error_max_age_hours * 3600
