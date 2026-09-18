@@ -15,3 +15,20 @@ homekit:
         - climate.kitchen
         - climate.hallway
         - climate.living_room
+    entity_config:
+      climate.attic:
+        type: thermostat
+      climate.basement:
+        type: thermostat
+      climate.bathroom:
+        type: thermostat
+      climate.bedroom:
+        type: thermostat
+      climate.nursery:
+        type: thermostat
+      climate.kitchen:
+        type: thermostat
+      climate.hallway:
+        type: thermostat
+      climate.living_room:
+        type: thermostat
