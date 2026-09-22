@@ -44,9 +44,6 @@ jobs:
       - name: Deployment syntax check
         run: bash -n shell/deploy.sh
 
-      - name: Run Python unit tests
-        run: python3 shell/test_system_errors_buf.py
-
   changes:
     name: Find deployable changes
     needs: validate

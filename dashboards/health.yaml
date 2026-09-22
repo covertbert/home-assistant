@@ -1,8 +1,8 @@
 ---
-# Source of truth for the system-health AI review + raw log evidence.
+# Source of truth for system-health AI review.
 # The push notification (automations/system/health_report.yaml) links here.
-# Data: pyscript.system_health attrs (review, review_ts, buffer) written by
-# pyscript/system_health.py; binary_sensor.system_health for the current state.
+# Data: pyscript.system_health attrs (review, review_ts) written by
+# pyscript/system_health.py; binary_sensor.system_health for current state.
 views:
   - title: Health
     path: health
@@ -22,11 +22,4 @@ views:
           {% endif %}
           {% else %}
           No review yet.
-          {% endif %}
-          {% set buf = state_attr('pyscript.system_health', 'buffer') or [] %}
-          {% if buf %}
-          **Log errors, last 24h**
-          {% for e in buf %}
-          - {{ e.name }} — x{{ e.count }}, {{ e.ts | timestamp_custom('%d %b %H:%M') }}: {{ e.msg }}
-          {% endfor %}
           {% endif %}
