@@ -17,8 +17,62 @@
     - trigger: state
       entity_id: pyscript.system_health
   variables:
-    # Entities allowed to be unavailable without triggering the offline check
-    ignored_unavailable: []
+    # Optional, duplicate, or unused entities allowed to be unavailable.
+    ignored_unavailable:
+      # FRITZ! tracked clients and access controls: offline when devices sleep.
+      - device_tracker.epix_3943ce871594
+      - device_tracker.hp040e3c879141
+      - device_tracker.ipad_2
+      - device_tracker.iphone_2
+      - device_tracker.living_room_2_2
+      - device_tracker.pc_192_168_178_30
+      - device_tracker.stephanies_macbook_neo
+      - switch.epix_3943ce871594_internet_access
+      - switch.hp040e3c879141_internet_access
+      - switch.ipad_2_internet_access
+      - switch.iphone_internet_access_2
+      - switch.living_room_2_internet_access_2
+      - switch.pc_192_168_178_30_internet_access
+      - switch.stephanies_macbook_neo_internet_access
+      # Dishwasher secondary controls; power and operation state stay monitored.
+      - binary_sensor.dishwasher_door
+      - sensor.dishwasher_duration
+      - sensor.dishwasher_program_progress
+      - sensor.dishwasher_remaining_program_time
+      - switch.dishwasher_program_auto2
+      - switch.dishwasher_program_eco50
+      - switch.dishwasher_program_intensiv70
+      - switch.dishwasher_program_machinecare
+      - switch.dishwasher_program_nightwash
+      - switch.dishwasher_program_prerinse
+      - switch.dishwasher_program_quick65
+      - switch.dishwasher_silence_on_demand
+      # Unused Hue motion sensor and Hue Bridge automation toggles.
+      - binary_sensor.hue_motion_sensor_1_motion
+      - sensor.hue_motion_sensor_1_battery
+      - sensor.hue_motion_sensor_1_illuminance
+      - sensor.hue_motion_sensor_1_temperature
+      - switch.hue_motion_sensor_1_light_sensor_enabled
+      - switch.hue_motion_sensor_1_motion_sensor_enabled
+      - switch.automation_coming_home
+      - switch.automation_evening_lights
+      - switch.automation_leaving_home
+      # Optional iPhone camera/kiosk state.
+      - binary_sensor.berties_iphone_camera_motion
+      - sensor.berties_iphone_camera_stream
+      - sensor.berties_iphone_kiosk_brightness
+      - sensor.berties_iphone_kiosk_volume
+      # Generated or duplicate integration entities.
+      - device_tracker.homekit_bertie_2
+      - device_tracker.homekit_housesitter_2
+      - device_tracker.homekit_stoof_2
+      - media_player.house_party
+      - binary_sensor.octopus_energy_a_e94ebeba_octoplus_saving_sessions
+      - sensor.octopus_energy_a_e94ebeba_octoplus_points
+      - sensor.octopus_energy_electricity_22l3444132_1610012177566_current_accumulative_consumption_cost
+      - sensor.octopus_energy_electricity_22l3444132_1610012177566_current_consumption_cost
+      - sensor.octopus_energy_gas_e6s16281722261_1603596609_current_consumption_cost
+      - sensor.octopus_energy_gas_e6s16281722261_1603596609_previous_accumulative_consumption_m3_cost
     low_battery_percent: 10
     offline_grace_hours: 6
     # Max items listed per category in the notification (rest shown as +N more)
