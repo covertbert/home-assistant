@@ -3,41 +3,37 @@
   mode: single
 
   triggers:
-    # Schedule state changes
-    - trigger: state
-      entity_id:
-        - schedule.attic_wfh
-
-    # Bertie arrives home
-    - trigger: state
-      entity_id: binary_sensor.bertie_presence
+    # Workstation stays powered through the day and is cut at night.
+    - trigger: time
+      at: "07:00:00"
+      id: day_start
+    - trigger: time
+      at: "20:00:00"
+      id: night_start
     - trigger: homeassistant
       event: start
-
-  # Bertie is home
-  condition:
-    - condition: state
-      entity_id: binary_sensor.bertie_presence
-      state: "on"
+      id: startup
 
   action:
     - choose:
-        # Schedule is active
+        # Between 07:00 and 20:00
         - conditions:
-            - condition: state
-              entity_id: schedule.attic_wfh
-              state: "on"
+            - condition: template
+              value_template: >-
+                {{ trigger.id == 'day_start'
+                   or (trigger.id == 'startup' and 7 <= now().hour < 20) }}
           sequence:
             - action: switch.turn_on
               target:
                 entity_id:
                   - switch.attic_workstation_switch
 
-        # Schedule is *not* active
+        # Outside 07:00-20:00
         - conditions:
-            - condition: state
-              entity_id: schedule.attic_wfh
-              state: "off"
+            - condition: template
+              value_template: >-
+                {{ trigger.id == 'night_start'
+                   or (trigger.id == 'startup' and (now().hour >= 20 or now().hour < 7)) }}
           sequence:
             - action: switch.turn_off
               target:

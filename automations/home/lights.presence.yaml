@@ -38,11 +38,6 @@
               entity_id: input_boolean.home_state
               state: "off"
           sequence:
-            # Turn off the study workstation
-            - action: switch.turn_off
-              target:
-                entity_id:
-                  - switch.attic_workstation_switch
             # Turn off all the lights
             - action: light.turn_off
               target:
